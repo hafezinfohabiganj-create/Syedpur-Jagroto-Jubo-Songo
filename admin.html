@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - সৈয়দপুর জাগ্রত যুব সংঘ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      background: #f1f5f9;
+      color: #17324d;
+    }
+
+    .header {
+      background: #0f766e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: 30px auto;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #0f766e;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      background: #0f766e;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .danger {
+      background: #dc2626;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      color: #0f766e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #panel {
+      display: none;
+    }
+
+    #message {
+      color: #0f766e;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .login-box {
+      max-width: 450px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>🔐 Admin Panel</h1>
+    <p>সৈয়দপুর জাগ্রত যুব সংঘ</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Login -->
+    <div class="card login-box" id="loginBox">
+      <h2>অ্যাডমিন লগইন</h2>
+
+      <label>পাসওয়ার্ড</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="পাসওয়ার্ড লিখুন"
+      >
+
+      <button onclick="login()">Login</button>
+
+      <p id="loginMessage"></p>
+
+      <a class="back" href="index.html">← মূল ওয়েবসাইটে ফিরে যান</a>
+    </div>
+
+
+    <!-- Admin Panel -->
+    <div id="panel">
+
+      <div class="card">
+        <h2>📊 ড্যাশবোর্ড</h2>
+        <p>স্বাগতম, অ্যাডমিন। এখান থেকে ওয়েবসাইটের তথ্য পরিচালনা করা যাবে।</p>
+      </div>
+
+      <div class="card">
+        <h2>📝 নোটিশ লিখুন</h2>
+
+        <label>নোটিশের শিরোনাম</label>
+        <input
+          type="text"
+          id="noticeTitle"
+          placeholder="নোটিশের শিরোনাম"
+        >
+
+        <label>নোটিশের বিস্তারিত</label>
+        <textarea
+          id="noticeText"
+          placeholder="নোটিশের বিস্তারিত লিখুন..."
+        ></textarea>
+
+        <button onclick="saveNotice()">নোটিশ সংরক্ষণ</button>
+
+        <p id="message"></p>
+      </div>
+
+      <div class="card">
+        <h2>⚙️ অ্যাডমিন অপশন</h2>
+
+        <button class="danger" onclick="logout()">
+          Logout
+        </button>
+
+        <br>
+
+        <a class="back" href="index.html">
+          ← মূল ওয়েবসাইটে ফিরে যান
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+    function login() {
+
+      const password =
+        document.getElementById("password").value;
+
+      /*
+        আপাতত পরীক্ষার জন্য পাসওয়ার্ড:
+        admin123
+      */
+
+      if (password === "admin123") {
+
+        document.getElementById("loginBox").style.display = "none";
+
+        document.getElementById("panel").style.display = "block";
+
+      } else {
+
+        document.getElementById("loginMessage").textContent =
+          "❌ ভুল পাসওয়ার্ড!";
+      }
+    }
+
+
+    function logout() {
+
+      document.getElementById("panel").style.display = "none";
+
+      document.getElementById("loginBox").style.display = "block";
+
+      document.getElementById("password").value = "";
+    }
+
+
+    function saveNotice() {
+
+      const title =
+        document.getElementById("noticeTitle").value;
+
+      const text =
+        document.getElementById("noticeText").value;
+
+      if (!title || !text) {
+
+        document.getElementById("message").textContent =
+          "⚠️ শিরোনাম ও বিস্তারিত লিখুন।";
+
+        return;
+      }
+
+      localStorage.setItem("noticeTitle", title);
+      localStorage.setItem("noticeText", text);
+
+      document.getElementById("message").textContent =
+        "✅ নোটিশ সংরক্ষণ হয়েছে।";
+    }
+  </script>
+
+</body>
+</html>
