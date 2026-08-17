@@ -3,260 +3,1229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>সৈয়দপুর জাগ্রত যুব সংঘ</title>
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      color: #17324d;
+      background: #ffffff;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #0f766e;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+    }
+
+    .brand h1 {
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .brand p {
+      margin: 0;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    nav a {
+      color: #17324d;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 55px 0;
+      background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ccfbf1;
+      color: #0f766e;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .hero h2 {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.15;
+      margin: 15px 0;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #475569;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 0;
+    }
+
+    .primary {
+      background: #0f766e;
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      color: #0f766e;
+      border: 1px solid #0f766e;
+    }
+
+    /* Slideshow */
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #0f766e;
+      box-shadow: 0 10px 35px #0f172a22;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      color: white;
+    }
+
+    .slide-icon {
+      font-size: 75px;
+      margin-bottom: 15px;
+    }
+
+    .slide-content h3 {
+      font-size: 28px;
+      margin: 5px 0 10px;
+    }
+
+    .slide-content p {
+      color: white;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffffcc;
+      color: #17324d;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .prev {
+      left: 15px;
+    }
+
+    .next {
+      right: 15px;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffff80;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: white;
+    }
+
+    /* Sections */
+    .section {
+      padding: 65px 0;
+    }
+
+    .muted {
+      background: #f8fafc;
+    }
+
+    .section-title span {
+      color: #0f766e;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      margin: 5px 0 15px;
+    }
+
+    .lead {
+      font-size: 18px;
+      color: #475569;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 8px 30px #0f172a0d;
+    }
+
+    .icon {
+      font-size: 36px;
+    }
+
+    .card h3 {
+      margin: 8px 0;
+    }
+
+    /* Notice */
+    .notice-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .notice {
+      background: white;
+      border-left: 5px solid #0f766e;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 5px 20px #0f172a0d;
+    }
+
+    .notice h3 {
+      margin: 0 0 5px;
+    }
+
+    /* Members */
+    .member-card {
+      text-align: center;
+    }
+
+    .member-photo {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      border-radius: 50%;
+      background: #ccfbf1;
+      display: grid;
+      place-items: center;
+      font-size: 45px;
+    }
+
+    /* Donation */
+    .donation {
+      text-align: center;
+      background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+      border-radius: 20px;
+      padding: 35px;
+    }
+
+    /* Complaint */
+    .form {
+      max-width: 700px;
+      display: grid;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .form input,
+    .form textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+
+    /* Mobile */
+    @media (max-width: 760px) {
+
+      nav {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 70px;
+        background: white;
+        padding: 15px 4%;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .slideshow {
+        height: 300px;
+      }
+
+      .brand h1 {
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 40px 0;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+  <!-- Header -->
   <header class="topbar">
+
     <div class="container nav">
 
       <div class="brand">
-        <div class="logo">সজযু</div>
+
+        <div class="logo">
+          সজযু
+        </div>
 
         <div>
           <h1>সৈয়দপুর জাগ্রত যুব সংঘ</h1>
           <p>ঐক্য • সেবা • উন্নয়ন</p>
         </div>
+
       </div>
 
+
       <nav id="mainNav">
+
         <a href="#home">হোম</a>
-        <a href="#about">আমাদের সম্পর্কে</a>
-        <a href="#membership">সদস্য হন</a>
-        <a href="#contact">যোগাযোগ</a>
-        <a href="admin.html">🔐 Admin Panel</a>
+
+        <a href="#about">
+          আমাদের সম্পর্কে
+        </a>
+
+        <a href="#notice">
+          নোটিশ
+        </a>
+
+        <a href="#members">
+          কমিটি
+        </a>
+
+        <a href="#gallery">
+          কার্যক্রম
+        </a>
+
+        <a href="#donation">
+          অনুদান
+        </a>
+
+        <a href="#complaint">
+          মতামত
+        </a>
+
+        <a href="admin.html">
+          🔐 Admin
+        </a>
+
       </nav>
 
-      <button id="menuBtn" class="menu-btn">☰</button>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+      >
+        ☰
+      </button>
 
     </div>
+
   </header>
 
 
-  <main>
+  <!-- Hero + Slideshow -->
+  <section class="hero" id="home">
 
-    <!-- Hero -->
-    <section class="hero" id="home">
+    <div class="container hero-grid">
 
-      <div class="container hero-content">
+      <div>
 
-        <div>
+        <span class="badge">
+          আমাদের সংগঠন
+        </span>
 
-          <span class="badge">আমাদের সংগঠন</span>
+        <h2>
+          তরুণদের শক্তিতে
+          গড়ি সুন্দর সমাজ
+        </h2>
 
-          <h2>তরুণদের শক্তিতে গড়ি সুন্দর সমাজ</h2>
+        <p>
+          ঐক্য, মানবতা ও সমাজসেবার মাধ্যমে
+          একটি সুন্দর ও সচেতন সমাজ গড়াই
+          আমাদের লক্ষ্য।
+        </p>
+
+
+        <div class="actions">
+
+          <a
+            href="#membership"
+            class="btn primary"
+          >
+            সদস্য হন
+          </a>
+
+          <a
+            href="#about"
+            class="btn secondary"
+          >
+            আরও জানুন
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Slideshow -->
+
+      <div class="slideshow">
+
+        <div class="slide active">
+
+          <div class="slide-content">
+
+            <div class="slide-icon">
+              🤝
+            </div>
+
+            <h3>
+              সমাজসেবায় আমরা
+            </h3>
+
+            <p>
+              মানুষের পাশে দাঁড়ানোই
+              আমাদের অঙ্গীকার
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide">
+
+          <div class="slide-content">
+
+            <div class="slide-icon">
+              ❤️
+            </div>
+
+            <h3>
+              মানবিক কার্যক্রম
+            </h3>
+
+            <p>
+              অসহায় মানুষের সহযোগিতায়
+              আমরা একসাথে
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide">
+
+          <div class="slide-content">
+
+            <div class="slide-icon">
+              🌱
+            </div>
+
+            <h3>
+              সামাজিক উন্নয়ন
+            </h3>
+
+            <p>
+              তরুণদের অংশগ্রহণে
+              সুন্দর সমাজ গড়ি
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="slide-btn prev"
+          onclick="changeSlide(-1)"
+          type="button"
+        >
+          ❮
+        </button>
+
+
+        <button
+          class="slide-btn next"
+          onclick="changeSlide(1)"
+          type="button"
+        >
+          ❯
+        </button>
+
+
+        <div class="dots">
+
+          <button
+            class="dot active"
+            onclick="goToSlide(0)"
+            type="button"
+          ></button>
+
+          <button
+            class="dot"
+            onclick="goToSlide(1)"
+            type="button"
+          ></button>
+
+          <button
+            class="dot"
+            onclick="goToSlide(2)"
+            type="button"
+          ></button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- About -->
+  <section
+    class="section"
+    id="about"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>
+          আমাদের সম্পর্কে
+        </span>
+
+        <h2>
+          আমরা কী করি?
+        </h2>
+
+      </div>
+
+
+      <p class="lead">
+        সৈয়দপুর জাগ্রত যুব সংঘ তরুণদের
+        একত্রিত করে সামাজিক, মানবিক ও
+        উন্নয়নমূলক কাজে অংশগ্রহণ করে।
+      </p>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <div class="icon">
+            🤝
+          </div>
+
+          <h3>
+            সমাজসেবা
+          </h3>
 
           <p>
-            সৈয়দপুর জাগ্রত যুব সংঘ একটি স্বেচ্ছাসেবী সংগঠন।
-            সমাজসেবা, মানবিক সহায়তা ও তরুণদের উন্নয়নের জন্য
-            আমরা একসাথে কাজ করি।
+            অসহায় ও সুবিধাবঞ্চিত
+            মানুষের পাশে দাঁড়ানো।
           </p>
 
-          <div class="actions">
-            <a href="#membership" class="btn primary">
-              সদস্য হন
-            </a>
+        </div>
 
-            <a href="#about" class="btn secondary">
-              আরও জানুন
-            </a>
+
+        <div class="card">
+
+          <div class="icon">
+            ❤️
           </div>
+
+          <h3>
+            মানবিক সহায়তা
+          </h3>
+
+          <p>
+            প্রয়োজনের সময় মানুষের
+            পাশে থেকে সহযোগিতা করা।
+          </p>
 
         </div>
 
 
-        <div class="hero-card">
+        <div class="card">
 
-          <div class="stat">
-            <strong>সেবা</strong>
-            <span>মানুষের পাশে থাকা</span>
+          <div class="icon">
+            🌱
           </div>
 
-          <div class="stat">
-            <strong>ঐক্য</strong>
-            <span>তরুণদের একসাথে কাজ</span>
-          </div>
+          <h3>
+            সামাজিক উন্নয়ন
+          </h3>
 
-          <div class="stat">
-            <strong>উন্নয়ন</strong>
-            <span>সমাজের ইতিবাচক পরিবর্তন</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- About -->
-    <section class="section" id="about">
-
-      <div class="container">
-
-        <div class="section-title">
-          <span>আমাদের সম্পর্কে</span>
-          <h2>আমরা কী করি?</h2>
-        </div>
-
-        <p class="lead">
-          আমরা তরুণদের একত্রিত করে সমাজের বিভিন্ন মানবিক,
-          সামাজিক ও উন্নয়নমূলক কাজে অংশগ্রহণ করি।
-        </p>
-
-
-        <div class="cards">
-
-          <div class="card">
-            <div class="icon">🤝</div>
-            <h3>সমাজসেবা</h3>
-            <p>
-              অসহায় ও সুবিধাবঞ্চিত মানুষের পাশে দাঁড়ানো।
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="icon">❤️</div>
-            <h3>মানবিক সহায়তা</h3>
-            <p>
-              প্রয়োজনের সময় মানুষের পাশে থেকে সহযোগিতা করা।
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="icon">🌱</div>
-            <h3>সামাজিক উন্নয়ন</h3>
-            <p>
-              সুন্দর ও সচেতন সমাজ গঠনে তরুণদের সম্পৃক্ত করা।
-            </p>
-          </div>
+          <p>
+            সুন্দর সমাজ গঠনে
+            তরুণদের সম্পৃক্ত করা।
+          </p>
 
         </div>
 
       </div>
 
-    </section>
-
-
-    <!-- Membership -->
-    <section class="section muted" id="membership">
-
-      <div class="container narrow">
-
-        <div class="section-title">
-          <span>সদস্যপদ</span>
-          <h2>সংগঠনের সদস্য হতে আবেদন করুন</h2>
-        </div>
-
-        <p class="lead">
-          নিচের ফর্মটি পূরণ করে সদস্য হওয়ার জন্য আবেদন করুন।
-        </p>
-
-
-        <form id="memberForm" class="form">
-
-          <div>
-            <label for="name">পূর্ণ নাম</label>
-
-            <input
-              type="text"
-              id="name"
-              placeholder="আপনার পূর্ণ নাম"
-              required
-            >
-          </div>
-
-
-          <div>
-            <label for="phone">মোবাইল নম্বর</label>
-
-            <input
-              type="tel"
-              id="phone"
-              placeholder="01XXXXXXXXX"
-              required
-            >
-          </div>
-
-
-          <div>
-            <label for="email">ইমেইল</label>
-
-            <input
-              type="email"
-              id="email"
-              placeholder="আপনার ইমেইল"
-            >
-          </div>
-
-
-          <button type="submit" class="btn primary">
-            আবেদন জমা দিন
-          </button>
-
-          <p id="formMessage" class="form-message"></p>
-
-        </form>
-
-      </div>
-
-    </section>
-
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-
-      <div class="container">
-
-        <div class="section-title">
-          <span>যোগাযোগ</span>
-          <h2>আমাদের সাথে যোগাযোগ করুন</h2>
-        </div>
-
-
-        <div class="contact-grid">
-
-          <div class="card">
-            <div class="icon">📞</div>
-            <h3>ফোন</h3>
-            <p>আপনাদের অফিসিয়াল নম্বর এখানে যোগ করা হবে।</p>
-          </div>
-
-
-          <div class="card">
-            <div class="icon">📧</div>
-            <h3>ইমেইল</h3>
-            <p>আপনাদের অফিসিয়াল ইমেইল এখানে যোগ করা হবে।</p>
-          </div>
-
-
-          <div class="card">
-            <div class="icon">📍</div>
-            <h3>ঠিকানা</h3>
-            <p>সংগঠনের ঠিকানা এখানে যোগ করা হবে।</p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    <div class="container">
-      © 2026 সৈয়দপুর জাগ্রত যুব সংঘ
     </div>
+
+  </section>
+
+
+  <!-- Notice -->
+  <section
+    class="section muted"
+    id="notice"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>
+          নোটিশ
+        </span>
+
+        <h2>
+          গুরুত্বপূর্ণ ঘোষণা
+        </h2>
+
+      </div>
+
+
+      <div class="notice-list">
+
+        <div class="notice">
+
+          <h3>
+            সংগঠনের ওয়েবসাইট চালু হয়েছে
+          </h3>
+
+          <p>
+            সৈয়দপুর জাগ্রত যুব সংঘের
+            অফিসিয়াল ওয়েবসাইটে আপনাকে স্বাগতম।
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Committee -->
+  <section
+    class="section"
+    id="members"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>
+          আমাদের কমিটি
+        </span>
+
+        <h2>
+          কমিটি সদস্যবৃন্দ
+        </h2>
+
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card member-card">
+
+          <div class="member-photo">
+            👤
+          </div>
+
+          <h3>
+            সভাপতি
+          </h3>
+
+          <p>
+            নাম এখানে যোগ হবে
+          </p>
+
+        </div>
+
+
+        <div class="card member-card">
+
+          <div class="member-photo">
+            👤
+          </div>
+
+          <h3>
+            সাধারণ সম্পাদক
+          </h3>
+
+          <p>
+            নাম এখানে যোগ হবে
+          </p>
+
+        </div>
+
+
+        <div class="card member-card">
+
+          <div class="member-photo">
+            👤
+          </div>
+
+          <h3>
+            সাংগঠনিক সম্পাদক
+          </h3>
+
+          <p>
+            নাম এখানে যোগ হবে
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Activities -->
+  <section
+    class="section muted"
+    id="gallery"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>
+          আমাদের কার্যক্রম
+        </span>
+
+        <h2>
+          সমাজসেবামূলক কার্যক্রম
+        </h2>
+
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <div class="icon">
+            🏫
+          </div>
+
+          <h3>
+            শিক্ষামূলক কার্যক্রম
+          </h3>
+
+          <p>
+            শিক্ষার্থীদের সহযোগিতা ও
+            সচেতনতা কার্যক্রম।
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            🌳
+          </div>
+
+          <h3>
+            বৃক্ষরোপণ
+          </h3>
+
+          <p>
+            পরিবেশ রক্ষায়
+            বৃক্ষরোপণ কর্মসূচি।
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            🫶
+          </div>
+
+          <h3>
+            মানবিক সহায়তা
+          </h3>
+
+          <p>
+            অসহায় মানুষের পাশে
+            সহযোগিতামূলক কার্যক্রম।
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Donation -->
+  <section
+    class="section"
+    id="donation"
+  >
+
+    <div class="container">
+
+      <div class="donation">
+
+        <div class="section-title">
+
+          <span>
+            অনুদান
+          </span>
+
+          <h2>
+            মানবিক কাজে সহযোগিতা করুন
+          </h2>
+
+        </div>
+
+        <p>
+          আপনার সামান্য সহযোগিতাও
+          একটি মানুষের জীবনে বড় পরিবর্তন
+          আনতে পারে।
+        </p>
+
+        <p>
+          অনুদানের বিস্তারিত তথ্য
+          শীঘ্রই এখানে যুক্ত করা হবে।
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Membership -->
+  <section
+    class="section muted"
+    id="membership"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>
+          সদস্যপদ
+        </span>
+
+        <h2>
+          সংগঠনের সদস্য হতে আবেদন করুন
+        </h2>
+
+      </div>
+
+
+      <form
+        id="memberForm"
+        class="form"
+      >
+
+        <input
+          type="text"
+          id="name"
+          placeholder="পূর্ণ নাম"
+          required
+        >
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="মোবাইল নম্বর"
+          required
+        >
+
+        <input
+          type="email"
+          id="email"
+          placeholder="ইমেইল"
+        >
+
+        <button
+          type="submit"
+          class="btn primary"
+        >
+          আবেদন জমা দিন
+        </button>
+
+        <p
+          id="formMessage"
+          class="lead"
+        ></p>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- Complaint -->
+  <section
+    class="section"
+    id="complaint"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>
+          মতামত ও অভিযোগ
+        </span>
+
+        <h2>
+          আপনার মতামত আমাদের জানান
+        </h2>
+
+      </div>
+
+
+      <form class="form">
+
+        <input
+          type="text"
+          placeholder="আপনার নাম"
+        >
+
+        <input
+          type="tel"
+          placeholder="মোবাইল নম্বর"
+        >
+
+        <textarea
+          placeholder="আপনার মতামত বা অভিযোগ লিখুন..."
+        ></textarea>
+
+        <button
+          type="button"
+          class="btn primary"
+          onclick="alert('আপনার মতামত গ্রহণ করা হয়েছে।')"
+        >
+          পাঠিয়ে দিন
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 সৈয়দপুর জাগ্রত যুব সংঘ
+      </p>
+
+      <p>
+        ঐক্য • সেবা • উন্নয়ন
+      </p>
+
+    </div>
+
   </footer>
 
 
-  <!-- JavaScript -->
-  <script src="app.js"></script>
+  <!-- Slideshow Script -->
+  <script>
+
+    let currentSlide = 0;
+
+    const slides =
+      document.querySelectorAll(".slide");
+
+    const dots =
+      document.querySelectorAll(".dot");
+
+
+    function showSlide(index) {
+
+      if (!slides.length) return;
+
+      if (index >= slides.length) {
+        currentSlide = 0;
+      }
+
+      else if (index < 0) {
+        currentSlide =
+          slides.length - 1;
+      }
+
+      else {
+        currentSlide = index;
+      }
+
+
+      slides.forEach(slide => {
+        slide.classList.remove("active");
+      });
+
+
+      dots.forEach(dot => {
+        dot.classList.remove("active");
+      });
+
+
+      slides[currentSlide]
+        .classList.add("active");
+
+
+      if (dots[currentSlide]) {
+        dots[currentSlide]
+          .classList.add("active");
+      }
+
+    }
+
+
+    function changeSlide(direction) {
+
+      showSlide(
+        currentSlide + direction
+      );
+
+    }
+
+
+    function goToSlide(index) {
+
+      showSlide(index);
+
+    }
+
+
+    setInterval(() => {
+
+      showSlide(
+        currentSlide + 1
+      );
+
+    }, 5000);
+
+
+    /* Mobile menu */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+
+    if (menuBtn && mainNav) {
+
+      menuBtn.addEventListener(
+        "click",
+        () => {
+
+          mainNav.classList.toggle("show");
+
+        }
+      );
+
+    }
+
+  </script>
 
 </body>
 </html>
