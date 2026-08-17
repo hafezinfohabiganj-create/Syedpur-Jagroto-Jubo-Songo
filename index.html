@@ -1,39 +1,262 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#146c4b">
-<link rel="manifest" href="manifest.json">
-<title>সৈয়দপুর জাগ্রত যুব সংঘ</title>
-<style>
-body{font-family:Arial,sans-serif;margin:0;background:#f4f7f5;color:#17352a}
-header{background:#103e30;color:white;padding:35px 20px;text-align:center}
-main{max-width:700px;margin:auto;padding:20px}
-.card{background:white;padding:20px;margin:15px 0;border-radius:18px}
-a,button{background:#146c4b;color:white;padding:12px 18px;border:0;border-radius:10px;text-decoration:none}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সৈয়দপুর জাগ্রত যুব সংঘ</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header>
-<h1>সৈয়দপুর জাগ্রত যুব সংঘ</h1>
-<p>অফিসিয়াল ওয়েবসাইট</p>
-</header>
 
-<main>
-<div class="card">
-<h2>🏢 আমাদের সংগঠন</h2>
-<p>সৈয়দপুর জাগ্রত যুব সংঘের অফিসিয়াল ওয়েবসাইটে আপনাকে স্বাগতম।</p>
-</div>
+  <header class="topbar">
+    <div class="container nav">
 
-<div class="card">
-<h2>📱 অ্যাপ ইনস্টল</h2>
-<p>এই ওয়েবসাইটটি মোবাইলের Home Screen-এ অ্যাপ হিসেবে ব্যবহার করা যাবে।</p>
-</div>
+      <div class="brand">
+        <div class="logo">সজযু</div>
 
-<div class="card">
-<a href="admin.html">🔐 Admin Panel</a>
-</div>
-</main>
+        <div>
+          <h1>সৈয়দপুর জাগ্রত যুব সংঘ</h1>
+          <p>ঐক্য • সেবা • উন্নয়ন</p>
+        </div>
+      </div>
+
+      <nav id="mainNav">
+        <a href="#home">হোম</a>
+        <a href="#about">আমাদের সম্পর্কে</a>
+        <a href="#membership">সদস্য হন</a>
+        <a href="#contact">যোগাযোগ</a>
+        <a href="admin.html">🔐 Admin Panel</a>
+      </nav>
+
+      <button id="menuBtn" class="menu-btn">☰</button>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+      <div class="container hero-content">
+
+        <div>
+
+          <span class="badge">আমাদের সংগঠন</span>
+
+          <h2>তরুণদের শক্তিতে গড়ি সুন্দর সমাজ</h2>
+
+          <p>
+            সৈয়দপুর জাগ্রত যুব সংঘ একটি স্বেচ্ছাসেবী সংগঠন।
+            সমাজসেবা, মানবিক সহায়তা ও তরুণদের উন্নয়নের জন্য
+            আমরা একসাথে কাজ করি।
+          </p>
+
+          <div class="actions">
+            <a href="#membership" class="btn primary">
+              সদস্য হন
+            </a>
+
+            <a href="#about" class="btn secondary">
+              আরও জানুন
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="stat">
+            <strong>সেবা</strong>
+            <span>মানুষের পাশে থাকা</span>
+          </div>
+
+          <div class="stat">
+            <strong>ঐক্য</strong>
+            <span>তরুণদের একসাথে কাজ</span>
+          </div>
+
+          <div class="stat">
+            <strong>উন্নয়ন</strong>
+            <span>সমাজের ইতিবাচক পরিবর্তন</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="section" id="about">
+
+      <div class="container">
+
+        <div class="section-title">
+          <span>আমাদের সম্পর্কে</span>
+          <h2>আমরা কী করি?</h2>
+        </div>
+
+        <p class="lead">
+          আমরা তরুণদের একত্রিত করে সমাজের বিভিন্ন মানবিক,
+          সামাজিক ও উন্নয়নমূলক কাজে অংশগ্রহণ করি।
+        </p>
+
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="icon">🤝</div>
+            <h3>সমাজসেবা</h3>
+            <p>
+              অসহায় ও সুবিধাবঞ্চিত মানুষের পাশে দাঁড়ানো।
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">❤️</div>
+            <h3>মানবিক সহায়তা</h3>
+            <p>
+              প্রয়োজনের সময় মানুষের পাশে থেকে সহযোগিতা করা।
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🌱</div>
+            <h3>সামাজিক উন্নয়ন</h3>
+            <p>
+              সুন্দর ও সচেতন সমাজ গঠনে তরুণদের সম্পৃক্ত করা।
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Membership -->
+    <section class="section muted" id="membership">
+
+      <div class="container narrow">
+
+        <div class="section-title">
+          <span>সদস্যপদ</span>
+          <h2>সংগঠনের সদস্য হতে আবেদন করুন</h2>
+        </div>
+
+        <p class="lead">
+          নিচের ফর্মটি পূরণ করে সদস্য হওয়ার জন্য আবেদন করুন।
+        </p>
+
+
+        <form id="memberForm" class="form">
+
+          <div>
+            <label for="name">পূর্ণ নাম</label>
+
+            <input
+              type="text"
+              id="name"
+              placeholder="আপনার পূর্ণ নাম"
+              required
+            >
+          </div>
+
+
+          <div>
+            <label for="phone">মোবাইল নম্বর</label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="01XXXXXXXXX"
+              required
+            >
+          </div>
+
+
+          <div>
+            <label for="email">ইমেইল</label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="আপনার ইমেইল"
+            >
+          </div>
+
+
+          <button type="submit" class="btn primary">
+            আবেদন জমা দিন
+          </button>
+
+          <p id="formMessage" class="form-message"></p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+
+      <div class="container">
+
+        <div class="section-title">
+          <span>যোগাযোগ</span>
+          <h2>আমাদের সাথে যোগাযোগ করুন</h2>
+        </div>
+
+
+        <div class="contact-grid">
+
+          <div class="card">
+            <div class="icon">📞</div>
+            <h3>ফোন</h3>
+            <p>আপনাদের অফিসিয়াল নম্বর এখানে যোগ করা হবে।</p>
+          </div>
+
+
+          <div class="card">
+            <div class="icon">📧</div>
+            <h3>ইমেইল</h3>
+            <p>আপনাদের অফিসিয়াল ইমেইল এখানে যোগ করা হবে।</p>
+          </div>
+
+
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3>ঠিকানা</h3>
+            <p>সংগঠনের ঠিকানা এখানে যোগ করা হবে।</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+      © 2026 সৈয়দপুর জাগ্রত যুব সংঘ
+    </div>
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+
 </body>
 </html>
