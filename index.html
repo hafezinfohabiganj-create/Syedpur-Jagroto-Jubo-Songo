@@ -2,21 +2,10 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no">
-
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>হাফেজ তিজারা</title>
 
 <style>
-
-/* ==================================================
-   RESET
-================================================== */
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -24,542 +13,256 @@ user-scalable=no">
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
 }
 
 body{
-    font-family:
-        "Noto Sans Bengali",
-        "SolaimanLipi",
-        Arial,
-        sans-serif;
-
-    background:#f2f4f6;
+    font-family:"Noto Sans Bengali","SolaimanLipi",Arial,sans-serif;
+    background:#f1f3f5;
     color:#202124;
-
-    transition:
-        background .25s ease,
-        color .25s ease;
+    transition:.25s;
 }
-
-
-/* ==================================================
-   APP
-================================================== */
 
 .app{
     width:100%;
     height:100dvh;
-    max-height:100dvh;
-
     overflow:hidden;
-
     display:flex;
     flex-direction:column;
-
-    background:#f2f4f6;
-
-    transition:
-        background .25s ease;
 }
 
-
-/* ==================================================
-   HEADER
-================================================== */
+/* HEADER */
 
 .header{
-
-    flex:0 0 52px;
-    height:52px;
-
+    flex:0 0 42px;
+    height:42px;
     display:grid;
-    grid-template-columns:48px 1fr 48px;
-
+    grid-template-columns:40px 1fr 40px;
     align-items:center;
-
-    padding:0 4px;
-
     background:#087bd1;
-    color:white;
-
-    box-shadow:
-        0 2px 7px rgba(0,0,0,.18);
-
-    z-index:10;
+    color:#fff;
+    box-shadow:0 2px 6px rgba(0,0,0,.16);
 }
 
 .header-title{
-
     text-align:center;
-
-    font-size:23px;
+    font-size:18px;
     font-weight:900;
-
-    white-space:nowrap;
 }
 
-.menu-btn,
-.more-btn{
-
-    width:44px;
-    height:44px;
-
+.menu-btn,.more-btn{
+    width:38px;
+    height:38px;
     border:0;
     background:transparent;
-
-    color:white;
-
-    font-size:29px;
+    color:#fff;
+    font-size:24px;
     font-weight:bold;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    cursor:pointer;
 }
 
-.menu-btn:active,
-.more-btn:active{
-
+.menu-btn:active,.more-btn:active{
     transform:scale(.88);
 }
 
-
-/* ==================================================
-   TOTAL BOX
-================================================== */
+/* TOTAL */
 
 .total-box{
-
-    flex:0 0 70px;
-    height:70px;
-
-    margin:5px 7px 4px;
-
-    padding:5px 12px;
-
+    flex:0 0 58px;
+    height:58px;
+    margin:4px 6px 3px;
+    padding:4px 10px;
     display:grid;
-
-    grid-template-columns:1fr 115px;
-
+    grid-template-columns:1fr 105px;
     align-items:center;
-
-    background:#ffffff;
-
-    border-radius:11px;
-
-    box-shadow:
-        0 2px 7px rgba(0,0,0,.09);
-
-    transition:
-        background .25s ease,
-        box-shadow .25s ease;
+    background:#fff;
+    border-radius:9px;
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
 
-.total-left{
-
-    min-width:0;
-}
-
-.total-label{
-
+.total-label,
+.today-label{
     color:#777;
-
-    font-size:13px;
-    line-height:16px;
+    font-size:10px;
 }
 
 .total-money{
-
     color:#087bd1;
-
-    font-size:35px;
-    line-height:37px;
-
+    font-size:26px;
+    line-height:27px;
     font-weight:900;
 }
 
 .total-count{
-
-    color:#888;
-
-    font-size:10px;
+    color:#999;
+    font-size:8px;
 }
 
-
-/* TODAY SELL */
-
-.today-selling{
-
-    border-left:1px solid #e1e3e5;
-
-    padding-left:12px;
-
+.today-box{
     text-align:center;
+    border-left:1px solid #e2e2e2;
+    padding-left:8px;
 }
 
-.today-selling-title{
-
-    color:#777;
-
-    font-size:11px;
-}
-
-.today-selling-number{
-
+.today-number{
     color:#087bd1;
-
-    font-size:22px;
-    line-height:25px;
-
+    font-size:18px;
     font-weight:900;
+    line-height:20px;
 }
 
-.today-selling-small{
-
-    color:#888;
-
-    font-size:9px;
-}
-
-
-/* ==================================================
-   REPORT ROW
-================================================== */
+/* REPORT */
 
 .report-grid{
-
-    flex:0 0 47px;
-    height:47px;
-
+    flex:0 0 38px;
+    height:38px;
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:5px;
-
-    padding:0 7px 4px;
+    grid-template-columns:repeat(4,1fr);
+    gap:4px;
+    padding:0 6px 3px;
 }
 
 .report-box{
-
     background:#fff;
-
-    border-radius:8px;
-
+    border-radius:7px;
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
-    box-shadow:
-        0 1px 4px rgba(0,0,0,.07);
-
-    overflow:hidden;
-
-    transition:
-        background .25s ease,
-        box-shadow .25s ease;
+    box-shadow:0 1px 4px rgba(0,0,0,.07);
 }
 
 .report-title{
-
     color:#777;
-
-    font-size:9px;
-    line-height:11px;
-
-    white-space:nowrap;
+    font-size:8px;
 }
 
 .report-value{
-
     color:#087bd1;
-
-    font-size:14px;
-    line-height:16px;
-
+    font-size:12px;
     font-weight:900;
 }
 
-
-/* ==================================================
-   1 - 5
-================================================== */
+/* 1-5 */
 
 .extra-row{
-
-    flex:0 0 37px;
-    height:37px;
-
+    flex:0 0 31px;
+    height:31px;
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    gap:5px;
-
-    padding:0 7px 4px;
+    grid-template-columns:repeat(5,1fr);
+    gap:4px;
+    padding:0 6px 3px;
 }
 
 .extra-btn{
-
     border:0;
-
-    border-radius:7px;
-
+    border-radius:6px;
     background:#e7f1fa;
-
     color:#087bd1;
-
-    font-size:19px;
+    font-size:16px;
     font-weight:900;
-
-    box-shadow:
-        0 1px 3px rgba(0,0,0,.08);
-
-    transition:
-        transform .10s ease,
-        box-shadow .10s ease,
-        background .15s ease;
-
-    cursor:pointer;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);
+    transition:transform .08s,box-shadow .08s;
 }
 
 .extra-btn:active{
-
-    transform:
-        scale(.91);
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,.20);
-
-    background:#cfe5f8;
+    transform:scale(.90);
+    box-shadow:0 4px 10px rgba(0,0,0,.22);
 }
 
-
-/* ==================================================
-   MONEY GRID
-================================================== */
+/* MONEY GRID */
 
 .money-grid{
-
     flex:1;
     min-height:0;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,minmax(0,1fr));
-
-    grid-template-rows:
-        repeat(5,minmax(0,1fr));
-
-    gap:5px;
-
-    padding:
-        0 7px 6px;
-
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-template-rows:repeat(5,minmax(0,1fr));
+    gap:4px;
+    padding:0 6px 5px;
     overflow:hidden;
 }
 
-
-/* ==================================================
-   MONEY CARD
-================================================== */
-
 .money-card{
-
     min-width:0;
     min-height:0;
-
     background:#fff;
-
-    border-radius:8px;
-
-    padding:3px;
-
+    border-radius:7px;
+    padding:2px;
     display:flex;
-
     flex-direction:column;
-
-    box-shadow:
-        0 1px 5px rgba(0,0,0,.08);
-
-    transition:
-        transform .10s ease,
-        box-shadow .10s ease,
-        background .25s ease;
+    box-shadow:0 1px 4px rgba(0,0,0,.08);
+    transition:transform .10s,box-shadow .10s;
 }
-
-
-/*
-   পুরো কার্ডে টাচ করলে
-   হালকা shadow + চাপের effect
-*/
 
 .money-card:active{
-
-    transform:
-        scale(.975);
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.19);
+    transform:scale(.975);
+    box-shadow:0 5px 14px rgba(0,0,0,.20);
 }
-
-
-/* ==================================================
-   PRICE
-================================================== */
 
 .money-title{
-
-    flex:0 0 23px;
-    height:23px;
-
+    flex:0 0 20px;
+    height:20px;
     display:flex;
-
     justify-content:center;
     align-items:center;
-
-    color:#202124;
-
-    font-size:18px;
-    line-height:20px;
-
+    font-size:16px;
     font-weight:900;
-
-    white-space:nowrap;
 }
-
-
-/* ==================================================
-   CARD TOTAL
-================================================== */
 
 .money-total{
-
     flex:1;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
     color:#087bd1;
-
-    font-size:10px;
-
+    font-size:9px;
     font-weight:900;
-
-    white-space:nowrap;
 }
 
-
-/* ==================================================
-   PLUS MINUS
-================================================== */
-
 .control{
-
-    flex:0 0 29px;
-    height:29px;
-
+    flex:0 0 25px;
+    height:25px;
     display:grid;
-
-    grid-template-columns:
-        29px 1fr 29px;
-
-    border:
-        1px solid #d9dcdf;
-
-    border-radius:6px;
-
+    grid-template-columns:26px 1fr 26px;
+    border:1px solid #d9dcdf;
+    border-radius:5px;
     overflow:hidden;
 }
 
 .control button{
-
     border:0;
-
     background:#f0f2f3;
-
     color:#222;
-
-    font-size:21px;
+    font-size:19px;
     font-weight:900;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    cursor:pointer;
-
-    transition:
-        transform .08s ease,
-        box-shadow .08s ease,
-        background .08s ease;
+    transition:transform .07s,background .07s,box-shadow .07s;
 }
 
-
-/*
-   PLUS/MINUS PRESS EFFECT
-*/
-
 .control button:active{
-
-    transform:
-        scale(.88);
-
-    background:#d8e9f8;
-
-    box-shadow:
-        inset 0 0 7px rgba(0,0,0,.20);
+    transform:scale(.84);
+    background:#cfe5f8;
+    box-shadow:inset 0 0 7px rgba(0,0,0,.22);
 }
 
 .quantity{
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
     background:#fff;
-
-    color:#202124;
-
-    font-size:18px;
-
+    font-size:15px;
     font-weight:900;
 }
 
-
-/* ==================================================
-   MENU
-================================================== */
+/* MENU */
 
 .overlay{
-
     position:fixed;
-
     inset:0;
-
-    background:
-        rgba(0,0,0,.40);
-
+    background:rgba(0,0,0,.40);
     z-index:100;
-
     display:none;
 }
 
@@ -567,26 +270,16 @@ body{
     display:block;
 }
 
-
 .side-menu{
-
     position:fixed;
-
     top:0;
-    left:-280px;
-
-    width:280px;
+    left:-285px;
+    width:285px;
     height:100%;
-
     background:#fff;
-
     z-index:200;
-
-    transition:
-        left .22s ease;
-
-    box-shadow:
-        4px 0 14px rgba(0,0,0,.25);
+    transition:left .22s ease;
+    box-shadow:4px 0 15px rgba(0,0,0,.25);
 }
 
 .side-menu.open{
@@ -594,830 +287,325 @@ body{
 }
 
 .side-title{
-
-    height:53px;
-
+    height:48px;
     display:flex;
     align-items:center;
-
-    padding:0 16px;
-
+    padding:0 15px;
     background:#087bd1;
-
-    color:white;
-
-    font-size:21px;
-
+    color:#fff;
+    font-size:19px;
     font-weight:900;
 }
 
 .side-item{
-
-    padding:16px;
-
-    border-bottom:
-        1px solid #e8e8e8;
-
-    color:#222;
-
-    font-size:15px;
-
-    cursor:pointer;
-
-    transition:
-        background .12s ease;
+    padding:14px 15px;
+    border-bottom:1px solid #e8e8e8;
+    font-size:14px;
 }
 
-.side-item:active{
-    background:#edf3f8;
-}
+/* SETTINGS */
 
-
-/* ==================================================
-   REPORT PAGE
-================================================== */
-
-.report-page{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#f2f4f6;
-
-    z-index:500;
-
+.setting-panel{
     display:none;
-
-    overflow:hidden;
+    position:fixed;
+    inset:0;
+    z-index:500;
+    background:#f1f3f5;
 }
 
-.report-header{
-
-    height:53px;
-
-    display:flex;
-
-    align-items:center;
-
-    padding:0 9px;
-
+.setting-header{
+    height:48px;
     background:#087bd1;
-
-    color:white;
-
-    font-size:20px;
-
+    color:#fff;
+    display:flex;
+    align-items:center;
+    font-size:18px;
     font-weight:900;
 }
 
 .back{
-
-    width:44px;
-    height:44px;
-
+    width:45px;
+    height:45px;
     border:0;
-
     background:transparent;
-
-    color:white;
-
-    font-size:34px;
+    color:#fff;
+    font-size:32px;
 }
 
-.report-content{
-
-    padding:8px;
+.setting-content{
+    padding:10px;
 }
 
-.detail-box{
-
-    background:white;
-
+.setting-box{
+    background:#fff;
     border-radius:9px;
-
-    padding:12px;
-
-    margin-bottom:7px;
-
-    box-shadow:
-        0 1px 5px rgba(0,0,0,.08);
+    padding:15px;
+    margin-bottom:8px;
+    box-shadow:0 1px 5px rgba(0,0,0,.08);
 }
 
-.detail-title{
-
-    color:#777;
-
-    font-size:13px;
+.setting-label{
+    font-size:14px;
+    font-weight:800;
 }
 
-.detail-money{
-
+.volume-number{
     color:#087bd1;
-
-    font-size:28px;
-
+    font-size:23px;
     font-weight:900;
 }
 
+input[type="range"]{
+    width:100%;
+    margin-top:10px;
+}
 
-/* ==================================================
-   DARK THEME
-================================================== */
+/* DARK */
 
 body.dark{
-
     background:#17191c;
-
-    color:#f0f1f2;
+    color:#f1f3f4;
 }
 
 body.dark .app{
-
     background:#17191c;
 }
 
 body.dark .total-box,
 body.dark .report-box,
 body.dark .money-card{
-
-    background:#222528;
-
-    box-shadow:
-        0 2px 7px rgba(0,0,0,.35);
+    background:#23272a;
+    box-shadow:0 2px 7px rgba(0,0,0,.38);
 }
 
 body.dark .total-label,
-body.dark .today-selling-title,
-body.dark .today-selling-small,
-body.dark .report-title{
-
-    color:#9da2a7;
-}
-
+body.dark .today-label,
+body.dark .report-title,
 body.dark .total-count{
-
-    color:#8d9398;
+    color:#999;
 }
 
 body.dark .total-money,
-body.dark .today-selling-number,
+body.dark .today-number,
 body.dark .report-value,
 body.dark .money-total{
-
-    color:#64b5f6;
+    color:#6bbcff;
 }
 
-body.dark .today-selling{
-
-    border-left-color:#3a3e42;
-}
-
-body.dark .extra-btn{
-
-    background:#293b49;
-
-    color:#79bff0;
-}
-
-body.dark .extra-btn:active{
-
-    background:#355269;
+body.dark .today-box{
+    border-color:#3b3f43;
 }
 
 body.dark .money-title{
-
     color:#f1f3f4;
+}
+
+body.dark .extra-btn{
+    background:#293d4d;
+    color:#7cc3f5;
 }
 
 body.dark .control{
-
-    border-color:#3b4044;
+    border-color:#3d4246;
 }
 
 body.dark .control button{
-
     background:#303438;
-
-    color:#f1f3f4;
-}
-
-body.dark .control button:active{
-
-    background:#405666;
+    color:#fff;
 }
 
 body.dark .quantity{
-
     background:#24282b;
-
-    color:#f1f3f4;
+    color:#fff;
 }
 
-body.dark .side-menu{
-
-    background:#222528;
-
-    box-shadow:
-        4px 0 14px rgba(0,0,0,.55);
+body.dark .side-menu,
+body.dark .setting-panel{
+    background:#202326;
 }
 
 body.dark .side-item{
-
-    color:#f1f3f4;
-
-    border-bottom-color:#383c40;
+    color:#fff;
+    border-color:#383c40;
 }
 
-body.dark .side-item:active{
-
-    background:#303438;
+body.dark .setting-box{
+    background:#292d30;
 }
-
-body.dark .report-page{
-
-    background:#17191c;
-}
-
-body.dark .detail-box{
-
-    background:#222528;
-
-    box-shadow:
-        0 2px 7px rgba(0,0,0,.35);
-}
-
-body.dark .detail-title{
-
-    color:#9da2a7;
-}
-
-body.dark .detail-money{
-
-    color:#64b5f6;
-}
-
-
-/* ==================================================
-   SMALL SCREEN
-================================================== */
-
-@media(max-height:700px){
-
-    .header{
-
-        flex-basis:48px;
-        height:48px;
-    }
-
-    .header-title{
-        font-size:21px;
-    }
-
-    .total-box{
-
-        flex-basis:62px;
-        height:62px;
-
-        margin:4px 6px 3px;
-    }
-
-    .total-money{
-
-        font-size:31px;
-        line-height:32px;
-    }
-
-    .report-grid{
-
-        flex-basis:43px;
-        height:43px;
-    }
-
-    .extra-row{
-
-        flex-basis:34px;
-        height:34px;
-    }
-
-    .money-title{
-
-        flex-basis:21px;
-        height:21px;
-
-        font-size:16px;
-    }
-
-    .control{
-
-        flex-basis:26px;
-        height:26px;
-
-        grid-template-columns:
-            26px 1fr 26px;
-    }
-
-    .quantity{
-        font-size:16px;
-    }
-}
-
-
-/* ==================================================
-   VERY SMALL SCREEN
-================================================== */
-
-@media(max-height:620px){
-
-    .header{
-
-        flex-basis:44px;
-        height:44px;
-    }
-
-    .header-title{
-        font-size:19px;
-    }
-
-    .total-box{
-
-        flex-basis:54px;
-        height:54px;
-
-        padding:3px 9px;
-    }
-
-    .total-money{
-
-        font-size:27px;
-        line-height:28px;
-    }
-
-    .today-selling-number{
-        font-size:19px;
-    }
-
-    .report-grid{
-
-        flex-basis:38px;
-        height:38px;
-    }
-
-    .extra-row{
-
-        flex-basis:30px;
-        height:30px;
-    }
-
-    .money-title{
-
-        flex-basis:19px;
-        height:19px;
-
-        font-size:14px;
-    }
-
-    .money-total{
-        font-size:8px;
-    }
-
-    .control{
-
-        flex-basis:23px;
-        height:23px;
-
-        grid-template-columns:
-            23px 1fr 23px;
-    }
-
-    .control button{
-        font-size:17px;
-    }
-
-    .quantity{
-        font-size:14px;
-    }
-}
-
 </style>
 </head>
-
 
 <body>
 
 <div class="app">
 
-    <!-- =========================================
-         HEADER
-    ========================================== -->
-
     <div class="header">
 
-        <button
-            class="menu-btn"
-            onclick="openMenu()">
-
-            ☰
-
-        </button>
-
+        <button class="menu-btn" onclick="openMenu()">☰</button>
 
         <div class="header-title">
-
             হাফেজ তিজারা
-
         </div>
 
-
-        <button
-            class="more-btn"
-            onclick="openMenu()">
-
-            ⋮
-
-        </button>
+        <button class="more-btn" onclick="openMenu()">⋮</button>
 
     </div>
 
-
-    <!-- =========================================
-         TOTAL
-    ========================================== -->
 
     <div class="total-box">
 
-        <div class="total-left">
+        <div>
 
             <div class="total-label">
-
                 সর্বমোট টাকা
-
             </div>
 
-            <div
-                class="total-money"
-                id="grandTotal">
-
+            <div class="total-money" id="grandTotal">
                 ৳ ০
-
             </div>
 
-            <div
-                class="total-count"
-                id="grandCount">
-
+            <div class="total-count" id="grandCount">
                 মোট ০ টি
-
             </div>
 
         </div>
 
 
-        <div class="today-selling">
+        <div class="today-box">
 
-            <div class="today-selling-title">
-
+            <div class="today-label">
                 আজকের বিক্রি
-
             </div>
 
-            <div
-                class="today-selling-number"
-                id="todayCount">
-
+            <div class="today-number" id="todayCount">
                 ০ টি
-
-            </div>
-
-            <div class="today-selling-small">
-
-                লেনদেন
-
             </div>
 
         </div>
 
     </div>
 
-
-    <!-- =========================================
-         REPORT
-    ========================================== -->
 
     <div class="report-grid">
 
         <div class="report-box">
-
-            <div class="report-title">
-                আজ
-            </div>
-
-            <div
-                class="report-value"
-                id="today">
-
-                ৳ ০
-
-            </div>
-
+            <div class="report-title">আজ</div>
+            <div class="report-value" id="today">৳ ০</div>
         </div>
 
-
         <div class="report-box">
-
-            <div class="report-title">
-                গত ৭ দিন
-            </div>
-
-            <div
-                class="report-value"
-                id="week">
-
-                ৳ ০
-
-            </div>
-
+            <div class="report-title">৭ দিন</div>
+            <div class="report-value" id="week">৳ ০</div>
         </div>
 
-
         <div class="report-box">
-
-            <div class="report-title">
-                গত ১ মাস
-            </div>
-
-            <div
-                class="report-value"
-                id="month">
-
-                ৳ ০
-
-            </div>
-
+            <div class="report-title">১ মাস</div>
+            <div class="report-value" id="month">৳ ০</div>
         </div>
 
-
         <div class="report-box">
-
-            <div class="report-title">
-                গত ১ বছর
-            </div>
-
-            <div
-                class="report-value"
-                id="year">
-
-                ৳ ০
-
-            </div>
-
+            <div class="report-title">১ বছর</div>
+            <div class="report-value" id="year">৳ ০</div>
         </div>
 
     </div>
 
-
-    <!-- =========================================
-         ১ - ৫
-    ========================================== -->
 
     <div class="extra-row">
 
-        <button
-            class="extra-btn"
-            onclick="addExtra(1)">
-
-            ১
-
-        </button>
-
-        <button
-            class="extra-btn"
-            onclick="addExtra(2)">
-
-            ২
-
-        </button>
-
-        <button
-            class="extra-btn"
-            onclick="addExtra(3)">
-
-            ৩
-
-        </button>
-
-        <button
-            class="extra-btn"
-            onclick="addExtra(4)">
-
-            ৪
-
-        </button>
-
-        <button
-            class="extra-btn"
-            onclick="addExtra(5)">
-
-            ৫
-
-        </button>
+        <button class="extra-btn" onclick="addExtra(1)">১</button>
+        <button class="extra-btn" onclick="addExtra(2)">২</button>
+        <button class="extra-btn" onclick="addExtra(3)">৩</button>
+        <button class="extra-btn" onclick="addExtra(4)">৪</button>
+        <button class="extra-btn" onclick="addExtra(5)">৫</button>
 
     </div>
 
 
-    <!-- =========================================
-         ৫ - ১০০
-    ========================================== -->
-
-    <div
-        class="money-grid"
-        id="moneyGrid">
-
-    </div>
+    <div class="money-grid" id="moneyGrid"></div>
 
 </div>
 
 
-<!-- =========================================
-     OVERLAY
-========================================== -->
-
-<div
-    class="overlay"
-    id="overlay"
-    onclick="closeMenu()">
-
-</div>
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
 
-<!-- =========================================
-     SIDE MENU
-========================================== -->
-
-<div
-    class="side-menu"
-    id="sideMenu">
-
+<div class="side-menu" id="sideMenu">
 
     <div class="side-title">
-
         হাফেজ তিজারা
-
     </div>
 
-
-    <div
-        class="side-item"
-        onclick="showReport()">
-
-        📊 বিস্তারিত হিসাব
-
+    <div class="side-item" onclick="openSettings()">
+        ⚙️ সেটিংস
     </div>
 
-
-    <div
-        class="side-item"
-        onclick="toggleTheme()">
-
+    <div class="side-item" onclick="toggleTheme()">
         🌙 / ☀️ থিম পরিবর্তন
-
     </div>
 
-
-    <div
-        class="side-item"
-        onclick="toggleSound()"
-        id="soundMenu">
-
-        🔊 সাউন্ড: চালু
-
+    <div class="side-item" onclick="toggleSound()">
+        🔊 সাউন্ড চালু / বন্ধ
     </div>
 
-
-    <div
-        class="side-item"
-        onclick="resetToday()">
-
-        🔄 আজকের হিসাব রিসেট
-
-    </div>
-
-
-    <div
-        class="side-item"
-        onclick="resetAll()">
-
-        🗑️ সব হিসাব মুছে ফেলুন
-
+    <div class="side-item" onclick="resetAll()">
+        🗑️ সব হিসাব মুছুন
     </div>
 
 </div>
 
 
-<!-- =========================================
-     REPORT PAGE
-========================================== -->
+<div class="setting-panel" id="settingPanel">
 
-<div
-    class="report-page"
-    id="reportPage">
+    <div class="setting-header">
 
-
-    <div class="report-header">
-
-        <button
-            class="back"
-            onclick="closeReport()">
-
+        <button class="back" onclick="closeSettings()">
             ‹
-
         </button>
 
-
-        <span>
-
-            বিস্তারিত হিসাব
-
-        </span>
+        সেটিংস
 
     </div>
 
 
-    <div class="report-content">
+    <div class="setting-content">
 
+        <div class="setting-box">
 
-        <div class="detail-box">
-
-            <div class="detail-title">
-
-                আজকের হিসাব
-
+            <div class="setting-label">
+                🔊 সাউন্ড ভলিউম
             </div>
 
-            <div
-                class="detail-money"
-                id="detailToday">
-
-                ৳ ০
-
+            <div class="volume-number">
+                <span id="volumeText">৭০</span>%
             </div>
+
+            <input
+                id="volumeSlider"
+                type="range"
+                min="1"
+                max="100"
+                value="70"
+                oninput="changeVolume(this.value)"
+            >
 
         </div>
 
 
-        <div class="detail-box">
+        <div
+            class="setting-box"
+            onclick="toggleSound()">
 
-            <div class="detail-title">
-
-                গত ৭ দিনের হিসাব
-
-            </div>
-
-            <div
-                class="detail-money"
-                id="detailWeek">
-
-                ৳ ০
-
-            </div>
+            🔊 সাউন্ড চালু / বন্ধ
 
         </div>
 
 
-        <div class="detail-box">
+        <div
+            class="setting-box"
+            onclick="toggleTheme()">
 
-            <div class="detail-title">
-
-                গত ১ মাসের হিসাব
-
-            </div>
-
-            <div
-                class="detail-money"
-                id="detailMonth">
-
-                ৳ ০
-
-            </div>
-
-        </div>
-
-
-        <div class="detail-box">
-
-            <div class="detail-title">
-
-                গত ১ বছরের হিসাব
-
-            </div>
-
-            <div
-                class="detail-money"
-                id="detailYear">
-
-                ৳ ০
-
-            </div>
+            🌙 ডার্ক / ☀️ লাইট থিম
 
         </div>
 
@@ -1428,195 +616,210 @@ body.dark .detail-money{
 
 <script>
 
-/* ==================================================
-   PRICE LIST
-================================================== */
+/* ==========================================
+   DATA
+========================================== */
 
-const prices = [];
+const prices=[];
 
-for(
-    let i = 5;
-    i <= 100;
-    i += 5
-){
+for(let i=5;i<=100;i+=5){
     prices.push(i);
 }
 
-
-/* ==================================================
-   DATA
-================================================== */
-
-let quantities =
+let quantities=
     JSON.parse(
-        localStorage.getItem(
-            "hafiz_quantities"
-        )
+        localStorage.getItem("hafiz_quantities")
     ) || {};
 
-
-let extras =
+let extras=
     JSON.parse(
-        localStorage.getItem(
-            "hafiz_extras"
-        )
+        localStorage.getItem("hafiz_extras")
     ) || {};
 
-
-let history =
+let history=
     JSON.parse(
-        localStorage.getItem(
-            "hafiz_history"
-        )
+        localStorage.getItem("hafiz_history")
     ) || {};
 
+let soundEnabled=
+    localStorage.getItem("hafiz_sound")
+    !=="off";
 
-/* ==================================================
-   SOUND
-================================================== */
-
-let soundEnabled =
-    localStorage.getItem(
-        "hafiz_sound"
-    ) !== "off";
-
-
-let audioContext = null;
+let volume=
+    Number(
+        localStorage.getItem("hafiz_volume")
+    ) || 70;
 
 
-/*
-   ছোট soft click sound
-*/
+/* ==========================================
+   AUDIO
+   প্রতিটি ক্লিকের জন্য নতুন AudioContext
+   নয়—একই context, কিন্তু প্রতিটি ক্লিকে
+   আলাদা oscillator তৈরি হবে।
+========================================== */
 
-function playSound(type="plus"){
+let audioContext=null;
+
+function getAudio(){
+
+    if(!audioContext){
+
+        audioContext=
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+    }
+
+    if(
+        audioContext.state==="suspended"
+    ){
+        audioContext.resume();
+    }
+
+    return audioContext;
+}
+
+
+function playClick(type){
 
     if(!soundEnabled){
         return;
     }
 
-
     try{
 
-        if(!audioContext){
+        const ctx=getAudio();
 
-            audioContext =
-                new (
-                    window.AudioContext ||
-                    window.webkitAudioContext
-                )();
+        const oscillator=
+            ctx.createOscillator();
 
-        }
-
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
+        const gain=
+            ctx.createGain();
 
 
         oscillator.connect(gain);
-
         gain.connect(
-            audioContext.destination
+            ctx.destination
         );
 
 
-        if(type === "minus"){
+        /*
+          PLUS = উঁচু টোন
+          MINUS = নিচু টোন
+        */
 
-            oscillator.frequency.value = 180;
+        if(type==="plus"){
+
+            oscillator.type="sine";
+
+            oscillator.frequency.setValueAtTime(
+                620,
+                ctx.currentTime
+            );
+
+            oscillator.frequency.exponentialRampToValueAtTime(
+                820,
+                ctx.currentTime+0.045
+            );
+
+        }else{
+
+            oscillator.type="triangle";
+
+            oscillator.frequency.setValueAtTime(
+                360,
+                ctx.currentTime
+            );
+
+            oscillator.frequency.exponentialRampToValueAtTime(
+                220,
+                ctx.currentTime+0.055
+            );
 
         }
-        else{
-
-            oscillator.frequency.value = 520;
-
-        }
 
 
-        oscillator.type = "sine";
+        const v=
+            Math.max(
+                0.001,
+                volume/100
+            ) * 0.13;
 
 
         gain.gain.setValueAtTime(
             0.0001,
-            audioContext.currentTime
+            ctx.currentTime
         );
 
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.045,
-            audioContext.currentTime + 0.01
+        gain.gain.linearRampToValueAtTime(
+            v,
+            ctx.currentTime+0.006
         );
-
 
         gain.gain.exponentialRampToValueAtTime(
             0.0001,
-            audioContext.currentTime + 0.07
+            ctx.currentTime+0.085
         );
 
 
-        oscillator.start();
+        oscillator.start(
+            ctx.currentTime
+        );
 
         oscillator.stop(
-            audioContext.currentTime + 0.08
+            ctx.currentTime+0.09
         );
 
-    }
-    catch(e){
+    }catch(e){
 
-        console.log("Sound unavailable");
+        console.log(e);
 
     }
 
 }
 
 
-/* ==================================================
-   SOUND TOGGLE
-================================================== */
+/* ==========================================
+   VOLUME
+========================================== */
+
+function changeVolume(value){
+
+    volume=Number(value);
+
+    localStorage.setItem(
+        "hafiz_volume",
+        volume
+    );
+
+    document.getElementById(
+        "volumeText"
+    ).innerText=volume;
+
+}
+
+
+/* ==========================================
+   SOUND
+========================================== */
 
 function toggleSound(){
 
-    soundEnabled =
-        !soundEnabled;
-
+    soundEnabled=!soundEnabled;
 
     localStorage.setItem(
         "hafiz_sound",
-        soundEnabled
-            ? "on"
-            : "off"
+        soundEnabled?"on":"off"
     );
 
-
-    updateSoundMenu();
-
 }
 
 
-function updateSoundMenu(){
-
-    const el =
-        document.getElementById(
-            "soundMenu"
-        );
-
-
-    if(el){
-
-        el.innerText =
-            soundEnabled
-                ? "🔊 সাউন্ড: চালু"
-                : "🔇 সাউন্ড: বন্ধ";
-
-    }
-
-}
-
-
-/* ==================================================
+/* ==========================================
    BANGLA NUMBER
-================================================== */
+========================================== */
 
 function bn(n){
 
@@ -1626,823 +829,499 @@ function bn(n){
 }
 
 
-/* ==================================================
-   TODAY KEY
-================================================== */
+/* ==========================================
+   DATE
+========================================== */
 
 function todayKey(){
 
-    const d =
-        new Date();
+    const d=new Date();
 
-
-    return d.getFullYear()
-        + "-"
-        + String(
-            d.getMonth()+1
-        ).padStart(2,"0")
-        + "-"
-        + String(
-            d.getDate()
-        ).padStart(2,"0");
+    return d.getFullYear()+"-"+
+        String(d.getMonth()+1).padStart(2,"0")+"-"+
+        String(d.getDate()).padStart(2,"0");
 
 }
 
 
-/* ==================================================
+/* ==========================================
    SAVE
-================================================== */
+========================================== */
 
 function save(){
 
     localStorage.setItem(
         "hafiz_quantities",
-        JSON.stringify(
-            quantities
-        )
+        JSON.stringify(quantities)
     );
-
 
     localStorage.setItem(
         "hafiz_extras",
-        JSON.stringify(
-            extras
-        )
+        JSON.stringify(extras)
     );
-
 
     localStorage.setItem(
         "hafiz_history",
-        JSON.stringify(
-            history
-        )
+        JSON.stringify(history)
     );
 
 }
 
 
-/* ==================================================
+/* ==========================================
    RECORD
-================================================== */
+========================================== */
 
 function record(amount){
 
-    const day =
-        todayKey();
-
+    const day=todayKey();
 
     if(!history[day]){
-
-        history[day] = [];
-
+        history[day]=[];
     }
 
-
     history[day].push({
-
         amount:Number(amount),
-
         time:Date.now()
-
     });
 
 }
 
 
-/* ==================================================
+/* ==========================================
    PLUS
-================================================== */
+========================================== */
 
 function plus(price){
 
-    playSound("plus");
+    /*
+       সাউন্ড প্রথমে।
+       তাই দ্রুত পরপর ক্লিক করলেও
+       প্রতিটি ক্লিকের নিজস্ব sound হবে।
+    */
 
+    playClick("plus");
 
-    if(!quantities[price]){
-
-        quantities[price] = 0;
-
-    }
-
-
-    quantities[price]++;
-
+    quantities[price]=
+        Number(quantities[price]||0)+1;
 
     record(price);
 
-
     save();
-
 
     render();
 
 }
 
 
-/* ==================================================
+/* ==========================================
    MINUS
-================================================== */
+========================================== */
 
 function minus(price){
 
     if(
-        !quantities[price] ||
-        quantities[price] <= 0
+        Number(quantities[price]||0)<=0
     ){
-
         return;
-
     }
 
-
-    playSound("minus");
-
+    playClick("minus");
 
     quantities[price]--;
 
-
     record(-price);
 
-
     save();
-
 
     render();
 
 }
 
 
-/* ==================================================
-   ১ - ৫
-================================================== */
+/* ==========================================
+   1-5
+========================================== */
 
 function addExtra(value){
 
-    playSound("plus");
+    playClick("plus");
 
-
-    if(!extras[value]){
-
-        extras[value] = 0;
-
-    }
-
-
-    extras[value]++;
-
+    extras[value]=
+        Number(extras[value]||0)+1;
 
     record(value);
 
-
     save();
-
 
     render();
 
 }
 
 
-/* ==================================================
+/* ==========================================
    TOTAL
-================================================== */
+========================================== */
 
 function totalAmount(){
 
-    let total = 0;
+    let total=0;
 
-
-    prices.forEach(
-        price => {
-
-            total +=
-                price *
-                Number(
-                    quantities[price] || 0
-                );
-
-        }
-    );
-
-
-    for(
-        let i=1;
-        i<=5;
-        i++
-    ){
+    prices.forEach(price=>{
 
         total +=
-            i *
+            price*
             Number(
-                extras[i] || 0
+                quantities[price]||0
+            );
+
+    });
+
+    for(let i=1;i<=5;i++){
+
+        total +=
+            i*
+            Number(
+                extras[i]||0
             );
 
     }
-
 
     return total;
 
 }
 
 
-/* ==================================================
+/* ==========================================
    COUNT
-================================================== */
+========================================== */
 
 function totalCount(){
 
-    let count = 0;
+    let count=0;
 
-
-    prices.forEach(
-        price => {
-
-            count +=
-                Number(
-                    quantities[price] || 0
-                );
-
-        }
-    );
-
-
-    for(
-        let i=1;
-        i<=5;
-        i++
-    ){
+    prices.forEach(price=>{
 
         count +=
             Number(
-                extras[i] || 0
+                quantities[price]||0
+            );
+
+    });
+
+    for(let i=1;i<=5;i++){
+
+        count +=
+            Number(
+                extras[i]||0
             );
 
     }
-
 
     return count;
 
 }
 
 
-/* ==================================================
+/* ==========================================
    TODAY COUNT
-================================================== */
+========================================== */
 
 function todayCount(){
 
-    const day =
-        todayKey();
+    const h=
+        history[todayKey()]||[];
 
-
-    if(!history[day]){
-
-        return 0;
-
-    }
-
-
-    return history[day]
-        .filter(
-            item =>
-                item.amount > 0
-        )
-        .length;
+    return h.filter(
+        x=>Number(x.amount)>0
+    ).length;
 
 }
 
 
-/* ==================================================
-   PERIOD TOTAL
-================================================== */
+/* ==========================================
+   PERIOD
+========================================== */
 
 function periodTotal(days){
 
-    let total = 0;
+    let total=0;
 
+    const now=new Date();
 
-    const now =
-        new Date();
+    const start=new Date(now);
 
-
-    const start =
-        new Date(now);
-
-
-    start.setHours(
-        0,0,0,0
-    );
-
+    start.setHours(0,0,0,0);
 
     start.setDate(
-        start.getDate() - days
+        start.getDate()-days
     );
 
-
     Object.keys(history)
-        .forEach(day => {
+        .forEach(day=>{
 
-            const d =
+            const d=
                 new Date(
-                    day +
-                    "T00:00:00"
+                    day+"T00:00:00"
                 );
 
+            if(d>=start){
 
-            if(d >= start){
+                history[day].forEach(x=>{
 
-                history[day]
-                    .forEach(item => {
+                    total+=Number(x.amount);
 
-                        /*
-                           Positive = বিক্রি
-                           Negative = minus
-                        */
-
-                        total +=
-                            Number(
-                                item.amount
-                            );
-
-                    });
+                });
 
             }
 
         });
 
-
-    return Math.max(
-        0,
-        total
-    );
+    return Math.max(0,total);
 
 }
 
 
-/* ==================================================
+/* ==========================================
    RENDER
-================================================== */
+========================================== */
 
 function render(){
 
-    const grid =
+    const grid=
         document.getElementById(
             "moneyGrid"
         );
 
-
-    grid.innerHTML = "";
-
-
-    prices.forEach(
-        price => {
-
-            const qty =
-                Number(
-                    quantities[price] || 0
-                );
+    grid.innerHTML="";
 
 
-            const total =
-                price * qty;
+    prices.forEach(price=>{
 
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "money-card";
-
-
-            card.innerHTML = `
-
-                <div class="money-title">
-
-                    ৳ ${bn(price)}
-
-                </div>
-
-
-                <div class="money-total">
-
-                    মোট ৳ ${bn(total)}
-
-                </div>
-
-
-                <div class="control">
-
-                    <button
-                        onclick="minus(${price})">
-
-                        −
-
-                    </button>
-
-
-                    <div class="quantity">
-
-                        ${bn(qty)}
-
-                    </div>
-
-
-                    <button
-                        onclick="plus(${price})">
-
-                        +
-
-                    </button>
-
-                </div>
-
-            `;
-
-
-            grid.appendChild(
-                card
+        const qty=
+            Number(
+                quantities[price]||0
             );
 
-        }
-    );
+        const total=price*qty;
 
+        const card=
+            document.createElement("div");
 
-    /* TOTAL */
+        card.className="money-card";
+
+        card.innerHTML=`
+
+            <div class="money-title">
+                ৳ ${bn(price)}
+            </div>
+
+            <div class="money-total">
+                মোট ৳ ${bn(total)}
+            </div>
+
+            <div class="control">
+
+                <button
+                    onclick="minus(${price})">
+                    −
+                </button>
+
+                <div class="quantity">
+                    ${bn(qty)}
+                </div>
+
+                <button
+                    onclick="plus(${price})">
+                    +
+                </button>
+
+            </div>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
 
     document.getElementById(
         "grandTotal"
-    ).innerText =
-        "৳ " +
-        bn(totalAmount());
+    ).innerText=
+        "৳ "+bn(totalAmount());
 
 
     document.getElementById(
         "grandCount"
-    ).innerText =
-        "মোট " +
-        bn(totalCount()) +
-        " টি";
+    ).innerText=
+        "মোট "+bn(totalCount())+" টি";
 
-
-    /* TODAY */
 
     document.getElementById(
         "todayCount"
-    ).innerText =
-        bn(todayCount()) +
-        " টি";
+    ).innerText=
+        bn(todayCount())+" টি";
 
-
-    /* REPORT */
 
     document.getElementById(
         "today"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(0));
+    ).innerText=
+        "৳ "+bn(periodTotal(0));
 
 
     document.getElementById(
         "week"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(6));
+    ).innerText=
+        "৳ "+bn(periodTotal(6));
 
 
     document.getElementById(
         "month"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(29));
+    ).innerText=
+        "৳ "+bn(periodTotal(29));
 
 
     document.getElementById(
         "year"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(364));
+    ).innerText=
+        "৳ "+bn(periodTotal(364));
 
 }
 
 
-/* ==================================================
+/* ==========================================
    MENU
-================================================== */
+========================================== */
 
 function openMenu(){
 
     document
-        .getElementById(
-            "sideMenu"
-        )
-        .classList.add(
-            "open"
-        );
-
+        .getElementById("sideMenu")
+        .classList.add("open");
 
     document
-        .getElementById(
-            "overlay"
-        )
-        .classList.add(
-            "show"
-        );
+        .getElementById("overlay")
+        .classList.add("show");
 
 }
-
 
 function closeMenu(){
 
     document
-        .getElementById(
-            "sideMenu"
-        )
-        .classList.remove(
-            "open"
-        );
-
+        .getElementById("sideMenu")
+        .classList.remove("open");
 
     document
-        .getElementById(
-            "overlay"
-        )
-        .classList.remove(
-            "show"
-        );
+        .getElementById("overlay")
+        .classList.remove("show");
 
 }
 
 
-/* ==================================================
-   DARK / LIGHT THEME
-================================================== */
+/* ==========================================
+   SETTINGS
+========================================== */
+
+function openSettings(){
+
+    closeMenu();
+
+    document.getElementById(
+        "settingPanel"
+    ).style.display="block";
+
+    document.getElementById(
+        "volumeSlider"
+    ).value=volume;
+
+    document.getElementById(
+        "volumeText"
+    ).innerText=volume;
+
+}
+
+function closeSettings(){
+
+    document.getElementById(
+        "settingPanel"
+    ).style.display="none";
+
+}
+
+
+/* ==========================================
+   THEME
+========================================== */
 
 function toggleTheme(){
 
-    document.body
-        .classList.toggle(
-            "dark"
-        );
-
-
-    const dark =
-        document.body
-            .classList.contains(
-                "dark"
-            );
-
+    document.body.classList.toggle("dark");
 
     localStorage.setItem(
         "hafiz_theme",
-        dark
-            ? "dark"
-            : "light"
+        document.body.classList.contains("dark")
+            ?"dark"
+            :"light"
     );
 
-
-    closeMenu();
-
 }
 
 
-/* Load saved theme */
-
-function loadTheme(){
-
-    const theme =
-        localStorage.getItem(
-            "hafiz_theme"
-        );
-
-
-    if(theme === "dark"){
-
-        document.body
-            .classList.add(
-                "dark"
-            );
-
-    }
-
-}
-
-
-/* ==================================================
-   REPORT
-================================================== */
-
-function showReport(){
-
-    closeMenu();
-
-
-    document
-        .getElementById(
-            "reportPage"
-        )
-        .style.display =
-            "block";
-
-
-    document.getElementById(
-        "detailToday"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(0));
-
-
-    document.getElementById(
-        "detailWeek"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(6));
-
-
-    document.getElementById(
-        "detailMonth"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(29));
-
-
-    document.getElementById(
-        "detailYear"
-    ).innerText =
-        "৳ " +
-        bn(periodTotal(364));
-
-}
-
-
-function closeReport(){
-
-    document
-        .getElementById(
-            "reportPage"
-        )
-        .style.display =
-            "none";
-
-}
-
-
-/* ==================================================
-   RESET TODAY
-================================================== */
-
-function resetToday(){
-
-    closeMenu();
-
-
-    if(
-        !confirm(
-            "আজকের হিসাব মুছে ফেলবেন?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    delete history[
-        todayKey()
-    ];
-
-
-    /*
-       বর্তমান quantity আবার
-       history থেকে তৈরি হবে।
-    */
-
-    quantities = {};
-
-    extras = {};
-
-
-    Object.keys(history)
-        .forEach(day => {
-
-            history[day]
-                .forEach(item => {
-
-                    const amount =
-                        Number(
-                            item.amount
-                        );
-
-
-                    if(amount <= 0){
-
-                        return;
-
-                    }
-
-
-                    if(
-                        amount >= 5 &&
-                        amount <= 100 &&
-                        amount % 5 === 0
-                    ){
-
-                        if(
-                            !quantities[amount]
-                        ){
-
-                            quantities[
-                                amount
-                            ] = 0;
-
-                        }
-
-
-                        quantities[
-                            amount
-                        ]++;
-
-                    }
-
-
-                    else if(
-                        amount >= 1 &&
-                        amount <= 5
-                    ){
-
-                        if(
-                            !extras[amount]
-                        ){
-
-                            extras[
-                                amount
-                            ] = 0;
-
-                        }
-
-
-                        extras[
-                            amount
-                        ]++;
-
-                    }
-
-                });
-
-        });
-
-
-    save();
-
-    render();
-
-}
-
-
-/* ==================================================
-   RESET ALL
-================================================== */
+/* ==========================================
+   RESET
+========================================== */
 
 function resetAll(){
 
     closeMenu();
 
-
     if(
         !confirm(
-            "সব হিসাব মুছে ফেলবেন? এই কাজ ফেরত নেওয়া যাবে না।"
+            "সব হিসাব মুছে ফেলবেন?"
         )
     ){
-
         return;
-
     }
 
-
-    quantities = {};
-
-    extras = {};
-
-    history = {};
-
+    quantities={};
+    extras={};
+    history={};
 
     save();
-
     render();
 
 }
 
 
-/* ==================================================
-   START
-================================================== */
+/* ==========================================
+   LOAD
+========================================== */
 
-loadTheme();
+function load(){
 
-updateSoundMenu();
+    if(
+        localStorage.getItem(
+            "hafiz_theme"
+        )==="dark"
+    ){
 
-render();
+        document.body.classList.add("dark");
+
+    }
+
+    document.getElementById(
+        "volumeSlider"
+    ).value=volume;
+
+    document.getElementById(
+        "volumeText"
+    ).innerText=volume;
+
+    render();
+
+}
+
+load();
 
 </script>
 
