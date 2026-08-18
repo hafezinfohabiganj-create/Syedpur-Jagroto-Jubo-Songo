@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>সৈয়দপুর জাগ্রত যুব সংঘ</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f8fafc;
+  color:#17324d;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+button,
+input,
+textarea{
+  font-family:inherit;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:12px;
+  background:#0f766e;
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+  font-size:12px;
+}
+
+.brand h1{
+  margin:0;
+  font-size:17px;
+}
+
+.brand p{
+  margin:0;
+  color:#64748b;
+  font-size:12px;
+}
+
+nav{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:#17324d;
+  font-size:14px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:#0f766e;
+}
+
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  font-size:27px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+  padding:55px 0;
+  background:linear-gradient(135deg,#ecfdf5,#eff6ff);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:50px;
+  background:#ccfbf1;
+  color:#0f766e;
+  font-weight:bold;
+}
+
+.hero h2{
+  margin:15px 0;
+  font-size:clamp(34px,6vw,58px);
+  line-height:1.15;
+}
+
+.hero-text{
+  color:#475569;
+  font-size:18px;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  border-radius:10px;
+  padding:11px 19px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.primary{
+  background:#0f766e;
+  color:#fff;
+}
+
+.secondary{
+  background:#fff;
+  color:#0f766e;
+  border:1px solid #0f766e;
+}
+
+/* SLIDER */
+
+.slideshow{
+  position:relative;
+  height:370px;
+  overflow:hidden;
+  border-radius:22px;
+  background:#0f766e;
+  box-shadow:0 15px 40px #0f172a22;
+}
+
+.slide{
+  display:none;
+  width:100%;
+  height:100%;
+}
+
+.slide.active{
+  display:block;
+}
+
+.slide-content{
+  width:100%;
+  height:100%;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+}
+
+.slide-icon{
+  font-size:70px;
+}
+
+.slide-content h3{
+  margin:5px 0 8px;
+  font-size:28px;
+}
+
+.slide-content p{
+  margin:0;
+}
+
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:#ffffffcc;
+  cursor:pointer;
+}
+
+.prev{
+  left:12px;
+}
+
+.next{
+  right:12px;
+}
+
+.dots{
+  position:absolute;
+  bottom:15px;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:center;
+  gap:7px;
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#ffffff80;
+  cursor:pointer;
+}
+
+.dot.active{
+  background:#fff;
+}
+
+/* SECTION */
+
+.section{
+  padding:65px 0;
+}
+
+.section-light{
+  background:#fff;
+}
+
+.section-gray{
+  background:#f1f5f9;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-heading span{
+  color:#0f766e;
+  font-weight:bold;
+}
+
+.section-heading h2{
+  margin:5px 0 8px;
+  font-size:32px;
+}
+
+.section-heading p{
+  max-width:700px;
+  margin:auto;
+  color:#64748b;
+}
+
+/* NOTICE */
+
+.notice-board{
+  max-width:850px;
+  margin:auto;
+}
+
+.notice-card{
+  background:#fff;
+  border-left:5px solid #0f766e;
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 5px 20px #0f172a0d;
+}
+
+.notice-card h3{
+  margin:0 0 5px;
+}
+
+.notice-date{
+  color:#64748b;
+  font-size:13px;
+}
+
+/* CARDS */
+
+.three-cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+/* MEMBERS */
+
+.member-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:16px 10px;
+  text-align:center;
+  box-shadow:0 5px 18px #0f172a0d;
+}
+
+.member-photo{
+  width:100px;
+  height:100px;
+  margin:0 auto 10px;
+  border-radius:50%;
+  overflow:hidden;
+  background:#ccfbf1;
+  border:3px solid #0f766e;
+  display:grid;
+  place-items:center;
+  font-size:42px;
+}
+
+.member-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.member-card h3{
+  margin:5px 0 2px;
+  font-size:15px;
+}
+
+.position{
+  margin:0;
+  color:#0f766e;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* GENERAL MEMBERS */
+
+.general-member{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:12px 8px;
+  text-align:center;
+  box-shadow:0 5px 18px #0f172a0d;
+}
+
+.general-member .member-photo{
+  width:80px;
+  height:80px;
+  font-size:32px;
+}
+
+.general-member h3{
+  margin:5px 0 2px;
+  font-size:14px;
+}
+
+/* SEE MORE */
+
+.see-more-box{
+  text-align:center;
+  margin-top:25px;
+}
+
+.see-more{
+  display:inline-block;
+  padding:10px 24px;
+  border-radius:9px;
+  background:#0f766e;
+  color:#fff;
+  font-weight:bold;
+  font-size:14px;
+}
+
+/* ACTIVITIES */
+
+.activity-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:20px 12px;
+  text-align:center;
+  box-shadow:0 5px 18px #0f172a0d;
+}
+
+.activity-icon{
+  font-size:42px;
+}
+
+.activity-card h3{
+  margin:7px 0 4px;
+  font-size:16px;
+}
+
+.activity-card p{
+  margin:0;
+  color:#64748b;
+  font-size:13px;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.gallery-item{
+  height:180px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#dbeafe;
+  display:grid;
+  place-items:center;
+  font-size:45px;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* VIDEOS */
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.video-card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+}
+
+.video-box{
+  height:180px;
+  background:#0f172a;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:50px;
+}
+
+.video-card h3{
+  margin:10px;
+  font-size:15px;
+  text-align:center;
+}
+
+/* DONATION */
+
+.donation-box{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  padding:35px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#ecfdf5,#eff6ff);
+}
+
+.donation-box p{
+  color:#475569;
+}
+
+.donation-methods{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:22px;
+}
+
+.donation-method{
+  background:#fff;
+  border-radius:12px;
+  padding:15px;
+  font-weight:bold;
+}
+
+/* FORMS */
+
+.form-box{
+  max-width:750px;
+  margin:auto;
+  background:#fff;
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 8px 30px #0f172a0d;
+}
+
+.form{
+  display:grid;
+  gap:15px;
+}
+
+.form label{
+  font-weight:bold;
+}
+
+.form input,
+.form textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  font-size:15px;
+  font-family:inherit;
+}
+
+.form textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.photo-upload{
+  padding:13px;
+  border:2px dashed #cbd5e1;
+  border-radius:10px;
+  background:#f8fafc;
+}
+
+.form-message{
+  text-align:center;
+  font-weight:bold;
+  margin:0;
+}
+
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.contact-card{
+  text-align:center;
+  background:#fff;
+  border-radius:16px;
+  padding:22px;
+  border:1px solid #e5e7eb;
+}
+
+.contact-icon{
+  font-size:38px;
+}
+
+.contact-card h3{
+  margin:7px 0;
+}
+
+.contact-card a{
+  color:#0f766e;
+  font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+  background:#0f172a;
+  color:#fff;
+  padding:45px 0 22px;
+  text-align:center;
+}
+
+.footer-title{
+  font-size:27px;
+  font-weight:bold;
+}
+
+.footer-subtitle{
+  color:#cbd5e1;
+  margin:5px 0 20px;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.footer-links a{
+  color:#fff;
+}
+
+.copyright{
+  border-top:1px solid #334155;
+  padding-top:18px;
+  color:#94a3b8;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  nav{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:72px;
+    background:#fff;
+    padding:15px 4%;
+    flex-direction:column;
+    align-items:flex-start;
+    border-bottom:1px solid #e5e7eb;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .three-cards{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
+  }
+
+  .video-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
+  }
+
+  .gallery-item,
+  .video-box{
+    height:130px;
+  }
+
+  .donation-methods{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .contact-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .member-photo{
+    width:75px;
+    height:75px;
+  }
+
+  .general-member .member-photo{
+    width:65px;
+    height:65px;
+  }
+
+  .member-card{
+    padding:10px 5px;
+  }
+
+  .member-card h3{
+    font-size:12px;
+  }
+
+  .position{
+    font-size:10px;
+  }
+
+  .general-member h3{
+    font-size:11px;
+  }
+
+  .activity-card{
+    padding:12px 5px;
+  }
+
+  .activity-icon{
+    font-size:30px;
+  }
+
+  .activity-card h3{
+    font-size:12px;
+  }
+
+  .activity-card p{
+    font-size:10px;
+    line-height:1.4;
+  }
+}
+
+@media(max-width:600px){
+
+  .container{
+    width:94%;
+  }
+
+  .hero{
+    padding:38px 0;
+  }
+
+  .hero h2{
+    font-size:34px;
+  }
+
+  .slideshow{
+    height:280px;
+  }
+
+  .section{
+    padding:48px 0;
+  }
+
+  .section-heading h2{
+    font-size:26px;
+  }
+
+  .three-cards{
+    grid-template-columns:repeat(3,1fr);
+    gap:6px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:5px;
+  }
+
+  .video-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:5px;
+  }
+
+  .gallery-item,
+  .video-box{
+    height:95px;
+  }
+
+  .member-photo{
+    width:60px;
+    height:60px;
+    border-width:2px;
+    font-size:25px;
+  }
+
+  .general-member .member-photo{
+    width:55px;
+    height:55px;
+    border-width:2px;
+  }
+
+  .member-card{
+    padding:8px 3px;
+    border-radius:10px;
+  }
+
+  .member-card h3{
+    font-size:10px;
+  }
+
+  .position{
+    font-size:8px;
+  }
+
+  .general-member{
+    padding:8px 3px;
+    border-radius:10px;
+  }
+
+  .general-member h3{
+    font-size:9px;
+  }
+
+  .activity-card{
+    padding:10px 3px;
+    border-radius:10px;
+  }
+
+  .activity-icon{
+    font-size:25px;
+  }
+
+  .activity-card h3{
+    font-size:10px;
+  }
+
+  .activity-card p{
+    font-size:8px;
+  }
+
+  .see-more{
+    padding:8px 20px;
+    font-size:12px;
+  }
+
+  .donation-box{
+    padding:25px 15px;
+  }
+
+  .contact-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:6px;
+  }
+
+  .contact-card{
+    padding:12px 4px;
+  }
+
+  .contact-icon{
+    font-size:25px;
+  }
+
+  .contact-card h3{
+    font-size:10px;
+  }
+
+  .contact-card a{
+    font-size:8px;
+  }
+
+  .brand h1{
+    font-size:13px;
+  }
+
+  .brand p{
+    font-size:9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+<div class="container nav">
+
+<div class="brand">
+
+<div class="logo">
+সজযু
+</div>
+
+<div>
+<h1>সৈয়দপুর জাগ্রত যুব সংঘ</h1>
+<p>ঐক্য • সেবা • উন্নয়ন</p>
+</div>
+
+</div>
+
+<nav id="mainNav">
+
+<a href="#home">হোম</a>
+<a href="#about">সম্পর্কে</a>
+<a href="#notice">নোটিশ</a>
+<a href="#committee">কমিটি</a>
+<a href="#members">সদস্য</a>
+<a href="#activities">কার্যক্রম</a>
+<a href="#gallery">গ্যালারি</a>
+<a href="#videos">ভিডিও</a>
+<a href="#donation">অনুদান</a>
+<a href="#membership">সদস্যপদ</a>
+<a href="#contact">যোগাযোগ</a>
+
+</nav>
+
+<button class="menu-btn" id="menuBtn">
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div>
+
+<span class="badge">
+সৈয়দপুর জাগ্রত যুব সংঘ
+</span>
+
+<h2>
+তরুণদের শক্তিতে
+গড়ি সুন্দর সমাজ
+</h2>
+
+<p class="hero-text">
+ঐক্য, মানবতা ও সমাজসেবার মাধ্যমে
+একটি সুন্দর, সচেতন ও মানবিক সমাজ
+গড়ে তোলাই আমাদের লক্ষ্য।
+</p>
+
+<div class="actions">
+
+<a href="#membership" class="btn primary">
+সদস্য হন
+</a>
+
+<a href="#about" class="btn secondary">
+আমাদের সম্পর্কে
+</a>
+
+</div>
+
+</div>
+
+
+<div class="slideshow">
+
+<div class="slide active">
+
+<div class="slide-content">
+
+<div class="slide-icon">🤝</div>
+
+<h3>মানুষের পাশে আমরা</h3>
+
+<p>
+মানবিক ও সামাজিক কাজে
+একসাথে এগিয়ে চলি।
+</p>
+
+</div>
+
+</div>
+
+
+<div class="slide">
+
+<div class="slide-content">
+
+<div class="slide-icon">🌱</div>
+
+<h3>পরিবেশ রক্ষায় উদ্যোগ</h3>
+
+<p>
+বৃক্ষরোপণ ও পরিচ্ছন্নতা
+কার্যক্রমে অংশগ্রহণ।
+</p>
+
+</div>
+
+</div>
+
+
+<div class="slide">
+
+<div class="slide-content">
+
+<div class="slide-icon">❤️</div>
+
+<h3>মানবিক সহযোগিতা</h3>
+
+<p>
+প্রয়োজনের সময় অসহায়
+মানুষের পাশে দাঁড়ানো।
+</p>
+
+</div>
+
+</div>
+
+
+<button class="slide-btn prev" onclick="changeSlide(-1)">
+❮
+</button>
+
+<button class="slide-btn next" onclick="changeSlide(1)">
+❯
+</button>
+
+
+<div class="dots">
+
+<button class="dot active" onclick="goToSlide(0)"></button>
+
+<button class="dot" onclick="goToSlide(1)"></button>
+
+<button class="dot" onclick="goToSlide(2)"></button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-light" id="about">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>আমাদের সম্পর্কে</span>
+
+<h2>সৈয়দপুর জাগ্রত যুব সংঘ</h2>
+
+<p>
+তরুণদের ঐক্যবদ্ধ করে মানবিক,
+সামাজিক ও উন্নয়নমূলক কর্মকাণ্ডে
+অংশগ্রহণ করাই আমাদের অন্যতম লক্ষ্য।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-gray" id="notice">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Notice Board</span>
+
+<h2>গুরুত্বপূর্ণ নোটিশ</h2>
+
+<p>
+সংগঠনের গুরুত্বপূর্ণ ঘোষণা ও
+নোটিশ এখানে প্রকাশ করা হবে।
+</p>
+
+</div>
+
+<div class="notice-board">
+
+<div class="notice-card">
+
+<h3 id="noticeTitleDisplay">
+সংগঠনের ওয়েবসাইট চালু হয়েছে
+</h3>
+
+<p id="noticeTextDisplay">
+আমাদের অফিসিয়াল ওয়েবসাইটে
+সবাইকে স্বাগতম।
+</p>
+
+<div class="notice-date" id="noticeDateDisplay">
+তারিখ: ২০২৬
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-light" id="committee">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Committee Members</span>
+
+<h2>কমিটি সদস্যবৃন্দ</h2>
+
+<p>
+সংগঠনের দায়িত্বপ্রাপ্ত কমিটি সদস্যদের
+পরিচিতি এখানে থাকবে।
+</p>
+
+</div>
+
+
+<div class="three-cards">
+
+<div class="member-card">
+
+<div class="member-photo">
+👤
+</div>
+
+<h3>অমুকের নাম</h3>
+
+<p class="position">সভাপতি</p>
+
+</div>
+
+
+<div class="member-card">
+
+<div class="member-photo">
+👤
+</div>
+
+<h3>অমুকের নাম</h3>
+
+<p class="position">সাংগঠনিক সম্পাদক</p>
+
+</div>
+
+
+<div class="member-card">
+
+<div class="member-photo">
+👤
+</div>
+
+<h3>অমুকের নাম</h3>
+
+<p class="position">ক্যাশিয়ার</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-gray" id="members">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Members</span>
+
+<h2>সাধারণ সদস্যবৃন্দ</h2>
+
+<p>
+সংগঠনের সাধারণ সদস্যদের ছবি,
+নাম ও পরিচয় এখানে থাকবে।
+</p>
+
+</div>
+
+
+<div class="three-cards">
+
+<div class="general-member">
+
+<div class="member-photo">
+👤
+</div>
+
+<h3>সদস্যের নাম</h3>
+
+<p class="position">সদস্য</p>
+
+</div>
+
+
+<div class="general-member">
+
+<div class="member-photo">
+👤
+</div>
+
+<h3>সদস্যের নাম</h3>
+
+<p class="position">সদস্য</p>
+
+</div>
+
+
+<div class="general-member">
+
+<div class="member-photo">
+👤
+</div>
+
+<h3>সদস্যের নাম</h3>
+
+<p class="position">সদস্য</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-light" id="activities">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Activities</span>
+
+<h2>আমাদের কার্যক্রম</h2>
+
+<p>
+সংগঠনের বিভিন্ন সামাজিক ও
+মানবিক কার্যক্রম এখানে থাকবে।
+</p>
+
+</div>
+
+
+<div class="three-cards">
+
+<div class="activity-card">
+
+<div class="activity-icon">🧹</div>
+
+<h3>পরিচ্ছন্নতা অভিযান</h3>
+
+<p>
+পরিবেশ পরিচ্ছন্ন রাখা ও
+সচেতনতা সৃষ্টি।
+</p>
+
+</div>
+
+
+<div class="activity-card">
+
+<div class="activity-icon">🤝</div>
+
+<h3>মানবিক সহযোগিতা</h3>
+
+<p>
+অসহায় ও প্রয়োজনীয় মানুষের
+পাশে দাঁড়ানো।
+</p>
+
+</div>
+
+
+<div class="activity-card">
+
+<div class="activity-icon">🩸</div>
+
+<h3>রক্তদান কর্মসূচি</h3>
+
+<p>
+জরুরি প্রয়োজনে রক্তদানে
+মানুষকে উৎসাহিত করা।
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-gray" id="gallery">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Photo Gallery</span>
+
+<h2>ফটো গ্যালারি</h2>
+
+<p>
+আমাদের বিভিন্ন কার্যক্রমের
+ছবি এখানে থাকবে।
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+📷
+</div>
+
+<div class="gallery-item">
+📷
+</div>
+
+<div class="gallery-item">
+📷
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-light" id="videos">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Video Gallery</span>
+
+<h2>ভিডিও গ্যালারি</h2>
+
+<p>
+আমাদের কার্যক্রমের ভিডিও
+এখানে থাকবে।
+</p>
+
+</div>
+
+
+<div class="video-grid">
+
+<div class="video-card">
+
+<div class="video-box">
+▶️
+</div>
+
+<h3>
+কার্যক্রমের ভিডিও
+</h3>
+
+</div>
+
+
+<div class="video-card">
+
+<div class="video-box">
+▶️
+</div>
+
+<h3>
+কার্যক্রমের ভিডিও
+</h3>
+
+</div>
+
+
+<div class="video-card">
+
+<div class="video-box">
+▶️
+</div>
+
+<h3>
+কার্যক্রমের ভিডিও
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-light" id="donation">
+
+<div class="container">
+
+<div class="donation-box">
+
+<div class="section-heading">
+
+<span>Donation</span>
+
+<h2>
+মানবিক ও সামাজিক কাজে
+সহযোগিতা করুন
+</h2>
+
+</div>
+
+<p>
+আমাদের বিভিন্ন সামাজিক ও মানবিক
+কার্যক্রম পরিচালনায় আপনার সহযোগিতা
+গুরুত্বপূর্ণ।
+</p>
+
+
+<div class="donation-methods">
+
+<div class="donation-method">
+বিকাশ
+</div>
+
+<div class="donation-method">
+নগদ
+</div>
+
+<div class="donation-method">
+ব্যাংক
+</div>
+
+<div class="donation-method">
+অন্যান্য
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-gray" id="membership">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Membership</span>
+
+<h2>সদস্যপদের জন্য আবেদন করুন</h2>
+
+<p>
+সংগঠনের সদস্য হতে আগ্রহী হলে
+নিচের ফর্মটি পূরণ করুন।
+</p>
+
+</div>
+
+
+<div class="form-box">
+
+<form class="form" id="memberForm">
+
+<div>
+
+<label>পূর্ণ নাম</label>
+
+<input
+type="text"
+id="name"
+placeholder="আপনার পূর্ণ নাম"
+required>
+
+</div>
+
+
+<div>
+
+<label>মোবাইল নম্বর</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="আপনার মোবাইল নম্বর"
+required>
+
+</div>
+
+
+<div>
+
+<label>ইমেইল</label>
+
+<input
+type="email"
+id="email"
+placeholder="আপনার ইমেইল">
+
+</div>
+
+
+<div>
+
+<label>ছবি</label>
+
+<div class="photo-upload">
+
+<input
+type="file"
+id="photo"
+accept="image/*">
+
+</div>
+
+</div>
+
+
+<div>
+
+<label>ঠিকানা</label>
+
+<textarea
+id="address"
+placeholder="আপনার ঠিকানা"></textarea>
+
+</div>
+
+
+<div>
+
+<label>মতামত</label>
+
+<textarea
+id="memberOpinion"
+placeholder="আপনার মতামত লিখুন..."></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="btn primary">
+
+সদস্যপদের আবেদন জমা দিন
+
+</button>
+
+<p
+id="formMessage"
+class="form-message">
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-light">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>মতামত ও অভিযোগ</span>
+
+<h2>আপনার কথা আমাদের জানান</h2>
+
+<p>
+সংগঠনের উন্নতির জন্য আপনার
+মতামত, পরামর্শ বা অভিযোগ জানান।
+</p>
+
+</div>
+
+
+<div class="form-box">
+
+<form class="form" id="feedbackForm">
+
+<input
+type="text"
+id="feedbackName"
+placeholder="আপনার নাম"
+required>
+
+<input
+type="tel"
+id="feedbackPhone"
+placeholder="মোবাইল নম্বর">
+
+<textarea
+id="feedbackText"
+placeholder="আপনার মতামত বা অভিযোগ লিখুন..."
+required></textarea>
+
+<button
+type="submit"
+class="btn primary">
+
+পাঠিয়ে দিন
+
+</button>
+
+<p
+id="feedbackMessage"
+class="form-message">
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section section-gray" id="contact">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Contact</span>
+
+<h2>যোগাযোগ করুন</h2>
+
+<p>
+জরুরি প্রয়োজনে নিচের মাধ্যমগুলো
+ব্যবহার করুন।
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<div class="contact-icon">
+📞
+</div>
+
+<h3>জরুরি যোগাযোগ</h3>
+
+<a href="tel:+8800000000000">
++880 0000-000000
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">
+💬
+</div>
+
+<h3>WhatsApp</h3>
+
+<a href="#">
+যোগাযোগ করুন
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">
+💙
+</div>
+
+<h3>Messenger</h3>
+
+<a href="#">
+যোগাযোগ করুন
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-title">
+সৈয়দপুর জাগ্রত যুব সংঘ
+</div>
+
+<div class="footer-subtitle">
+হবিগঞ্জ সদর • ঐক্য • সেবা • মানবতা
+</div>
+
+
+<div class="footer-links">
+
+<a href="#home">হোম</a>
+<a href="#committee">কমিটি</a>
+<a href="#members">সদস্য</a>
+<a href="#activities">কার্যক্রম</a>
+<a href="#gallery">গ্যালারি</a>
+<a href="#contact">যোগাযোগ</a>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 সৈয়দপুর জাগ্রত যুব সংঘ —
+সর্বস্বত্ব সংরক্ষিত।
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- Firebase -->
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+
+
+<script>
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyBrN5aBMhLMEeTOvjsydhUUCUkzRDBBT1Q",
+
+  authDomain:
+    "syedpur-jagroto-jubo-songo.firebaseapp.com",
+
+  projectId:
+    "syedpur-jagroto-jubo-songo",
+
+  storageBucket:
+    "syedpur-jagroto-jubo-songo.firebasestorage.app",
+
+  messagingSenderId:
+    "168072726413",
+
+  appId:
+    "1:168072726413:web:2d9d7b7492fdc6ff31dfc4",
+
+  measurementId:
+    "G-5Q2848LGVV"
+
+};
+
+
+if(!firebase.apps.length){
+
+  firebase.initializeApp(firebaseConfig);
+
+}
+
+
+const db = firebase.firestore();
+
+const storage = firebase.storage();
+
+
+/* MOBILE MENU */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const mainNav =
+document.getElementById("mainNav");
+
+
+if(menuBtn && mainNav){
+
+  menuBtn.addEventListener("click",()=>{
+
+    mainNav.classList.toggle("show");
+
+  });
+
+
+  document
+  .querySelectorAll("#mainNav a")
+  .forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+      if(window.innerWidth <= 900){
+
+        mainNav.classList.remove("show");
+
+      }
+
+    });
+
+  });
+
+}
+
+
+/* MEMBER FORM */
+
+const memberForm =
+document.getElementById("memberForm");
+
+
+if(memberForm){
+
+  memberForm.addEventListener(
+    "submit",
+    async function(e){
+
+      e.preventDefault();
+
+
+      const message =
+      document.getElementById("formMessage");
+
+
+      const name =
+      document.getElementById("name")
+      .value
+      .trim();
+
+
+      const phone =
+      document.getElementById("phone")
+      .value
+      .trim();
+
+
+      const email =
+      document.getElementById("email")
+      .value
+      .trim();
+
+
+      const address =
+      document.getElementById("address")
+      .value
+      .trim();
+
+
+      const opinion =
+      document.getElementById("memberOpinion")
+      .value
+      .trim();
+
+
+      const photoInput =
+      document.getElementById("photo");
+
+
+      if(!name || !phone){
+
+        message.textContent =
+        "নাম ও মোবাইল নম্বর অবশ্যই দিতে হবে।";
+
+        return;
+
+      }
+
+
+      message.textContent =
+      "তথ্য জমা হচ্ছে...";
+
+
+      try{
+
+        let photoURL = "";
+
+
+        /* PHOTO UPLOAD */
+
+        if(
+          photoInput.files &&
+          photoInput.files.length > 0
+        ){
+
+          const file =
+          photoInput.files[0];
+
+
+          const fileName =
+          "members/" +
+          Date.now() +
+          "_" +
+          file.name;
+
+
+          const storageRef =
+          storage.ref(fileName);
+
+
+          await storageRef.put(file);
+
+
+          photoURL =
+          await storageRef.getDownloadURL();
+
+        }
+
+
+        /* FIRESTORE */
+
+        await db
+        .collection("members")
+        .add({
+
+          name: name,
+
+          phone: phone,
+
+          email: email,
+
+          address: address,
+
+          opinion: opinion,
+
+          photoURL: photoURL,
+
+          status: "pending",
+
+          createdAt:
+          firebase.firestore
+          .FieldValue
+          .serverTimestamp()
+
+        });
+
+
+        message.textContent =
+        "✅ আপনার সদস্যপদের আবেদন সফলভাবে জমা হয়েছে।";
+
+
+        memberForm.reset();
+
+
+      }catch(error){
+
+        console.error(error);
+
+
+        message.textContent =
+        "❌ তথ্য জমা দিতে সমস্যা হয়েছে। আবার চেষ্টা করুন।";
+
+      }
+
+    }
+
+  );
+
+}
+
+
+/* FEEDBACK FORM */
+
+const feedbackForm =
+document.getElementById("feedbackForm");
+
+
+if(feedbackForm){
+
+  feedbackForm.addEventListener(
+    "submit",
+    async function(e){
+
+      e.preventDefault();
+
+
+      const message =
+      document.getElementById("feedbackMessage");
+
+
+      const name =
+      document.getElementById("feedbackName")
+      .value
+      .trim();
+
+
+      const phone =
+      document.getElementById("feedbackPhone")
+      .value
+      .trim();
+
+
+      const text =
+      document.getElementById("feedbackText")
+      .value
+      .trim();
+
+
+      if(!name || !text){
+
+        message.textContent =
+        "নাম ও মতামত লিখুন।";
+
+        return;
+
+      }
+
+
+      message.textContent =
+      "পাঠানো হচ্ছে...";
+
+
+      try{
+
+        await db
+        .collection("feedback")
+        .add({
+
+          name: name,
+
+          phone: phone,
+
+          message: text,
+
+          createdAt:
+          firebase.firestore
+          .FieldValue
+          .serverTimestamp()
+
+        });
+
+
+        message.textContent =
+        "✅ আপনার মতামত সফলভাবে পাঠানো হয়েছে।";
+
+
+        feedbackForm.reset();
+
+
+      }catch(error){
+
+        console.error(error);
+
+
+        message.textContent =
+        "❌ মতামত পাঠাতে সমস্যা হয়েছে। আবার চেষ্টা করুন।";
+
+      }
+
+    }
+
+  );
+
+}
+
+
+/* NOTICE FROM FIRESTORE */
+
+async function loadNotice(){
+
+  try{
+
+    const snapshot =
+    await db
+    .collection("notices")
+    .orderBy("createdAt","desc")
+    .limit(1)
+    .get();
+
+
+    if(!snapshot.empty){
+
+      const data =
+      snapshot.docs[0].data();
+
+
+      const title =
+      document.getElementById(
+        "noticeTitleDisplay"
+      );
+
+
+      const text =
+      document.getElementById(
+        "noticeTextDisplay"
+      );
+
+
+      const date =
+      document.getElementById(
+        "noticeDateDisplay"
+      );
+
+
+      if(title && data.title){
+
+        title.textContent =
+        data.title;
+
+      }
+
+
+      if(text && data.text){
+
+        text.textContent =
+        data.text;
+
+      }
+
+
+      if(date){
+
+        date.textContent =
+        "সর্বশেষ নোটিশ";
+
+      }
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Notice not available yet."
+    );
+
+  }
+
+}
+
+
+loadNotice();
+
+
+/* SLIDESHOW */
+
+let currentSlide = 0;
+
+let slideTimer = null;
+
+
+function getSlides(){
+
+  return document.querySelectorAll(
+    ".slide"
+  );
+
+}
+
+
+function getDots(){
+
+  return document.querySelectorAll(
+    ".dot"
+  );
+
+}
+
+
+function showSlide(index){
+
+  const slides =
+  getSlides();
+
+
+  const dots =
+  getDots();
+
+
+  if(!slides.length){
+
+    return;
+
+  }
+
+
+  if(index >= slides.length){
+
+    currentSlide = 0;
+
+  }
+
+  else if(index < 0){
+
+    currentSlide =
+    slides.length - 1;
+
+  }
+
+  else{
+
+    currentSlide =
+    index;
+
+  }
+
+
+  slides.forEach(slide=>{
+
+    slide.classList.remove(
+      "active"
+    );
+
+  });
+
+
+  dots.forEach(dot=>{
+
+    dot.classList.remove(
+      "active"
+    );
+
+  });
+
+
+  slides[currentSlide]
+  .classList.add("active");
+
+
+  if(dots[currentSlide]){
+
+    dots[currentSlide]
+    .classList.add("active");
+
+  }
+
+}
+
+
+function changeSlide(direction){
+
+  showSlide(
+    currentSlide + direction
+  );
+
+  restartSlideTimer();
+
+}
+
+
+function goToSlide(index){
+
+  showSlide(index);
+
+  restartSlideTimer();
+
+}
+
+
+function startSlideTimer(){
+
+  clearInterval(slideTimer);
+
+
+  slideTimer =
+  setInterval(()=>{
+
+    showSlide(
+      currentSlide + 1
+    );
+
+  },5000);
+
+}
+
+
+function restartSlideTimer(){
+
+  startSlideTimer();
+
+}
+
+
+document.addEventListener(
+  "DOMContentLoaded",
+  ()=>{
+
+    showSlide(0);
+
+    startSlideTimer();
+
+  }
+);
+
+</script>
+
+</body>
+</html>
