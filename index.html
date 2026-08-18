@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+  --bg:#f2f3f4;
+  --card:#ffffff;
+  --soft:#f7f8f9;
+  --text:#202428;
+  --muted:#777e84;
+  --blue:#1687d8;
+  --blueSoft:#e8f4fc;
+  --border:#dce1e5;
+  --green:#19a568;
+  --red:#df5555;
+  --shadow:0 2px 7px rgba(0,0,0,.10);
+}
+
+body.dark{
+  --bg:#17191b;
+  --card:#222527;
+  --soft:#292d30;
+  --text:#f3f5f6;
+  --muted:#aeb4b8;
+  --blue:#48a9ef;
+  --blueSoft:#263d4d;
+  --border:#3b4145;
+  --shadow:0 2px 8px rgba(0,0,0,.35);
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  margin:0;
+  overflow:hidden;
+  background:var(--bg);
+  color:var(--text);
+  font-family:
+    "Noto Sans Bengali",
+    "Noto Sans",
+    Arial,sans-serif;
+}
+
+button{
+  border:0;
+  outline:0;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+  width:100%;
+  height:100dvh;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  height:61px;
+  flex:0 0 61px;
+  background:#1484d4;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.menuBtn,
+.moreBtn{
+  width:40px;
+  height:40px;
+  background:transparent;
+  color:#fff;
+  font-size:28px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.headerCenter{
+  text-align:center;
+  line-height:1;
+}
+
+.headerTitle{
+  font-size:24px;
+  font-weight:900;
+}
+
+.tagline{
+  margin-top:5px;
+  font-size:10px;
+  opacity:.9;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+  flex:1;
+  min-height:0;
+  padding:6px 8px 4px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  overflow:hidden;
+}
+
+/* =========================
+   TOP SUMMARY
+========================= */
+
+.summary{
+  flex:0 0 73px;
+  min-height:73px;
+  background:var(--card);
+  border-radius:15px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  overflow:hidden;
+}
+
+.totalBox{
+  padding:5px 15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.totalLabel{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+}
+
+.totalMoney{
+  color:var(--blue);
+  font-size:36px;
+  line-height:1.05;
+  font-weight:950;
+  letter-spacing:-.5px;
+}
+
+.todayTransactions{
+  border-left:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:3px;
+}
+
+.todayTransactions .label{
+  color:var(--text);
+  font-size:15px;
+  font-weight:900;
+  line-height:1.05;
+}
+
+.todayTransactions .number{
+  color:var(--blue);
+  font-size:29px;
+  font-weight:950;
+  line-height:1;
+  margin-top:3px;
+}
+
+/* =========================
+   PERIOD
+========================= */
+
+.periods{
+  flex:0 0 45px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:5px;
+}
+
+.periodBtn{
+  min-width:0;
+  background:var(--card);
+  border-radius:11px;
+  box-shadow:var(--shadow);
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease,
+    background .12s ease;
+}
+
+.periodBtn span{
+  font-size:9px;
+  line-height:1;
+}
+
+.periodBtn strong{
+  color:var(--blue);
+  font-size:15px;
+  line-height:1.1;
+}
+
+.periodBtn.active{
+  background:var(--blue);
+}
+
+.periodBtn.active span,
+.periodBtn.active strong{
+  color:#fff;
+}
+
+.periodBtn:active{
+  transform:translateY(2px) scale(.96);
+  box-shadow:
+    inset 0 3px 7px rgba(0,0,0,.20);
+}
+
+/* =========================
+   INSTANT TRANSACTION
+========================= */
+
+.instant{
+  flex:0 0 61px;
+  min-height:61px;
+  background:var(--card);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  padding:5px 8px;
+  display:grid;
+  grid-template-rows:19px 1fr;
+  gap:3px;
+  overflow:hidden;
+}
+
+.instantHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.instantTitle{
+  font-size:14px;
+  font-weight:900;
+}
+
+.pendingInfo{
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+}
+
+.instantBody{
+  display:flex;
+  gap:5px;
+  min-width:0;
+  align-items:center;
+}
+
+.pendingList{
+  flex:1;
+  min-width:0;
+  display:flex;
+  gap:5px;
+  overflow:hidden;
+}
+
+.emptyPending{
+  color:var(--muted);
+  font-size:11px;
+  display:flex;
+  align-items:center;
+}
+
+.pendingItem{
+  flex:0 0 auto;
+  height:31px;
+  min-width:61px;
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-left:6px;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+  animation:pendingIn .18s ease;
+}
+
+.pendingDelete{
+  width:26px;
+  height:26px;
+  margin-right:2px;
+  border-radius:7px;
+  background:#f8dcdc;
+  color:#d94d4d;
+  font-size:18px;
+  font-weight:900;
+
+  transition:
+    transform .13s ease,
+    box-shadow .13s ease,
+    background .13s ease;
+}
+
+.pendingDelete:active{
+  transform:
+    scale(.82)
+    rotate(-8deg);
+  box-shadow:
+    inset 0 3px 7px rgba(0,0,0,.25);
+  background:#efbcbc;
+}
+
+.addAllBtn{
+  flex:0 0 auto;
+  height:31px;
+  padding:0 9px;
+  border-radius:8px;
+  background:var(--green);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+
+  transition:
+    transform .13s ease,
+    box-shadow .13s ease,
+    filter .13s ease;
+}
+
+.addAllBtn:active{
+  transform:
+    translateY(2px)
+    scale(.94);
+  box-shadow:
+    inset 0 4px 8px rgba(0,0,0,.27);
+  filter:brightness(.9);
+}
+
+@keyframes pendingIn{
+  from{
+    opacity:0;
+    transform:scale(.75) translateY(4px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+/* =========================
+   QUICK 1-5
+========================= */
+
+.quick{
+  flex:0 0 29px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:5px;
+}
+
+.quick button{
+  background:var(--blueSoft);
+  color:var(--blue);
+  border-radius:8px;
+  font-size:15px;
+  font-weight:950;
+
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease,
+    background .12s ease;
+}
+
+.quick button:active{
+  transform:
+    translateY(2px)
+    scale(.94);
+  box-shadow:
+    inset 0 3px 7px rgba(0,0,0,.22);
+  background:var(--blue);
+  color:#fff;
+}
+
+/* =========================
+   PRICE GRID
+========================= */
+
+.priceGrid{
+  flex:1;
+  min-height:0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(5,minmax(0,1fr));
+  gap:5px;
+}
+
+.priceCard{
+  min-width:0;
+  min-height:0;
+  background:var(--card);
+  border-radius:11px;
+  box-shadow:var(--shadow);
+  padding:4px;
+  display:grid;
+  grid-template-rows:23px 1fr 34px;
+  text-align:center;
+  overflow:hidden;
+
+  transition:
+    transform .13s cubic-bezier(.2,.8,.3,1),
+    box-shadow .13s ease,
+    background .13s ease;
+}
+
+.priceCard.pressed{
+  transform:
+    translateY(3px)
+    scale(.965);
+
+  box-shadow:
+    inset 0 4px 10px rgba(0,0,0,.20),
+    0 1px 2px rgba(0,0,0,.08);
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.price{
+  font-size:19px;
+  line-height:1;
+  font-weight:950;
+}
+
+.cardTotal{
+  align-self:center;
+  color:var(--blue);
+  font-size:11px;
+  font-weight:800;
+}
+
+/* =========================
+   COUNTER
+========================= */
+
+.counter{
+  height:32px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  border:1px solid var(--border);
+  border-radius:9px;
+  overflow:hidden;
+}
+
+.counter button{
+  background:var(--soft);
+  color:var(--text);
+  font-size:21px;
+  font-weight:950;
+
+  transition:
+    transform .09s ease,
+    background .09s ease,
+    box-shadow .09s ease;
+}
+
+.counter button.plus{
+  color:var(--blue);
+}
+
+.counter button.minus{
+  color:var(--red);
+}
+
+.counter button:active{
+  transform:scale(.82);
+  background:var(--blueSoft);
+  box-shadow:
+    inset 0 3px 7px rgba(0,0,0,.23);
+}
+
+.countValue{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--card);
+  font-size:16px;
+  font-weight:950;
+}
+
+/* =========================
+   DRAWER
+========================= */
+
+.drawer{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(0,0,0,.45);
+  display:none;
+}
+
+.drawer.open{
+  display:block;
+}
+
+.drawerPanel{
+  position:absolute;
+  top:0;
+  right:0;
+  width:min(320px,88vw);
+  height:100%;
+  background:var(--card);
+  box-shadow:-6px 0 20px rgba(0,0,0,.3);
+  padding:18px;
+}
+
+.drawerTitle{
+  text-align:center;
+  font-size:22px;
+  font-weight:950;
+  margin-bottom:18px;
+}
+
+.closeDrawer{
+  position:absolute;
+  left:10px;
+  top:10px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--text);
+  font-size:22px;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.closeDrawer:active{
+  transform:scale(.78) rotate(-10deg);
+  box-shadow:inset 0 3px 7px rgba(0,0,0,.25);
+}
+
+.settingRow{
+  background:var(--soft);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.settingRow label{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.volumeLine{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.volumeLine input{
+  flex:1;
+}
+
+.settingBtn{
+  width:100%;
+  min-height:38px;
+  margin-top:7px;
+  border-radius:9px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:900;
+}
+
+/* =========================
+   SMALL SCREEN
+========================= */
+
+@media(max-height:650px){
+
+  .header{
+    height:52px;
+    flex-basis:52px;
+  }
+
+  .headerTitle{
+    font-size:21px;
+  }
+
+  .tagline{
+    font-size:8px;
+    margin-top:3px;
+  }
+
+  .main{
+    padding:4px 6px 3px;
+    gap:4px;
+  }
+
+  .summary{
+    flex-basis:66px;
+    min-height:66px;
+  }
+
+  .totalMoney{
+    font-size:31px;
+  }
+
+  .todayTransactions .label{
+    font-size:13px;
+  }
+
+  .todayTransactions .number{
+    font-size:25px;
+  }
+
+  .periods{
+    flex-basis:40px;
+  }
+
+  .instant{
+    flex-basis:55px;
+    min-height:55px;
+  }
+
+  .quick{
+    flex-basis:25px;
+  }
+
+  .quick button{
+    font-size:13px;
+  }
+
+  .priceCard{
+    grid-template-rows:20px 1fr 29px;
+    border-radius:9px;
+  }
+
+  .price{
+    font-size:16px;
+  }
+
+  .cardTotal{
+    font-size:9px;
+  }
+
+  .counter{
+    height:27px;
+  }
+
+  .counter button{
+    font-size:18px;
+  }
+
+  .countValue{
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+
+  <button class="menuBtn" id="menuBtn">☰</button>
+
+  <div class="headerCenter">
+    <div class="headerTitle">হাফেজ তিজারাহ</div>
+    <div class="tagline">পরিবারের নিত্যদিনের বাজার</div>
+  </div>
+
+  <button class="moreBtn" id="moreBtn">⋮</button>
+
+</header>
+
+
+<main class="main">
+
+  <!-- TOP SUMMARY -->
+  <section class="summary">
+
+    <div class="totalBox">
+
+      <div class="totalLabel">
+        সর্বমোট টাকা
+      </div>
+
+      <div
+        class="totalMoney"
+        id="totalMoney">
+        ৳ ০
+      </div>
+
+    </div>
+
+
+    <div class="todayTransactions">
+
+      <div class="label">
+        আজকের লেনদেন
+      </div>
+
+      <div
+        class="number"
+        id="transactionCount">
+        ০
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PERIODS -->
+  <section class="periods">
+
+    <button class="periodBtn active">
+      <span>আজ</span>
+      <strong id="periodToday">৳ ০</strong>
+    </button>
+
+    <button class="periodBtn">
+      <span>৭ দিন</span>
+      <strong id="period7">৳ ০</strong>
+    </button>
+
+    <button class="periodBtn">
+      <span>১৫ দিন</span>
+      <strong id="period15">৳ ০</strong>
+    </button>
+
+    <button class="periodBtn">
+      <span>১ মাস</span>
+      <strong id="period30">৳ ০</strong>
+    </button>
+
+    <button class="periodBtn">
+      <span>১ বছর</span>
+      <strong id="period365">৳ ০</strong>
+    </button>
+
+  </section>
+
+
+  <!-- INSTANT -->
+  <section class="instant">
+
+    <div class="instantHead">
+
+      <div class="instantTitle">
+        ⚡ ইনস্ট্যান্ট লেনদেন
+      </div>
+
+      <div
+        class="pendingInfo"
+        id="pendingInfo">
+        পেন্ডিং: ০ | ৳ ০
+      </div>
+
+    </div>
+
+
+    <div class="instantBody">
+
+      <div
+        class="pendingList"
+        id="pendingList">
+
+        <div class="emptyPending">
+          কোনো পেন্ডিং লেনদেন নেই
+        </div>
+
+      </div>
+
+      <button
+        class="addAllBtn"
+        id="addAllBtn">
+        ✓ মোট টাকায় যোগ
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUICK 1-5 -->
+  <section class="quick">
+
+    <button data-quick="1">১</button>
+    <button data-quick="2">২</button>
+    <button data-quick="3">৩</button>
+    <button data-quick="4">৪</button>
+    <button data-quick="5">৫</button>
+
+  </section>
+
+
+  <!-- PRICE GRID -->
+  <section
+    class="priceGrid"
+    id="priceGrid">
+  </section>
+
+</main>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div
+  class="drawer"
+  id="drawer">
+
+  <div class="drawerPanel">
+
+    <button
+      class="closeDrawer"
+      id="closeDrawer">
+      ×
+    </button>
+
+    <div class="drawerTitle">
+      সেটিংস
+    </div>
+
+
+    <div class="settingRow">
+
+      <label>
+        🔊 সাউন্ড ভলিউম:
+        <b id="volumeText">১০০%</b>
+      </label>
+
+      <div class="volumeLine">
+
+        <span>১</span>
+
+        <input
+          type="range"
+          id="volumeSlider"
+          min="1"
+          max="100"
+          value="100">
+
+        <span>১০০</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="settingRow">
+
+      <label>🌙 থিম</label>
+
+      <button
+        class="settingBtn"
+        id="themeBtn">
+        Dark / Light
+      </button>
+
+    </div>
+
+
+    <div class="settingRow">
+
+      <label>💾 Backup</label>
+
+      <button
+        class="settingBtn"
+        id="backupBtn">
+        Backup ডাউনলোড
+      </button>
+
+      <button
+        class="settingBtn"
+        id="restoreBtn">
+        Backup Restore
+      </button>
+
+      <input
+        type="file"
+        id="restoreFile"
+        accept=".json"
+        style="display:none">
+
+    </div>
+
+
+    <div class="settingRow">
+
+      <label>🔊 Sound Test</label>
+
+      <button
+        class="settingBtn"
+        id="testPlus">
+        + Plus Sound
+      </button>
+
+      <button
+        class="settingBtn"
+        id="testMinus">
+        − Minus Sound
+      </button>
+
+      <button
+        class="settingBtn"
+        id="testAdd">
+        ✓ যোগ Sound
+      </button>
+
+      <button
+        class="settingBtn"
+        id="testDelete">
+        × Delete Sound
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   DATA
+========================================= */
+
+const KEY="hafez_tijaraho_data";
+
+let state={
+  total:0,
+  totalTransactions:0,
+  counts:{},
+  pending:[],
+  history:[],
+  volume:100,
+  dark:false
+};
+
+
+/* =========================================
+   BANGLA NUMBERS
+========================================= */
+
+const BN="০১২৩৪৫৬৭৮৯";
+
+function bn(n){
+
+  return String(
+    Math.round(Number(n)||0)
+  ).replace(
+    /\d/g,
+    x=>BN[x]
+  );
+
+}
+
+function money(n){
+
+  return "৳ "+bn(n);
+
+}
+
+
+/* =========================================
+   STORAGE
+========================================= */
+
+function load(){
+
+  try{
+
+    const x=
+      localStorage.getItem(KEY);
+
+    if(x){
+
+      state={
+        ...state,
+        ...JSON.parse(x)
+      };
+
+    }
+
+  }catch(e){}
+
+}
+
+
+function save(){
+
+  localStorage.setItem(
+    KEY,
+    JSON.stringify(state)
+  );
+
+}
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+function init(){
+
+  for(
+    let p=5;
+    p<=100;
+    p+=5
+  ){
+
+    if(
+      typeof state.counts[p]
+      !=="number"
+    ){
+
+      state.counts[p]=0;
+
+    }
+
+  }
+
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+function within(date,days){
+
+  const now=
+    new Date();
+
+  const d=
+    new Date(date);
+
+  return (
+    now-d
+    <=days*86400000
+  );
+
+}
+
+
+function periodTotal(days){
+
+  return state.history
+    .filter(
+      x=>within(x.date,days)
+    )
+    .reduce(
+      (a,b)=>
+        a+Number(b.amount),
+      0
+    );
+
+}
+
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+function renderSummary(){
+
+  document
+    .getElementById("totalMoney")
+    .textContent=
+      money(state.total);
+
+  document
+    .getElementById("transactionCount")
+    .textContent=
+      bn(state.totalTransactions);
+
+  document
+    .getElementById("periodToday")
+    .textContent=
+      money(periodTotal(1));
+
+  document
+    .getElementById("period7")
+    .textContent=
+      money(periodTotal(7));
+
+  document
+    .getElementById("period15")
+    .textContent=
+      money(periodTotal(15));
+
+  document
+    .getElementById("period30")
+    .textContent=
+      money(periodTotal(30));
+
+  document
+    .getElementById("period365")
+    .textContent=
+      money(periodTotal(365));
+
+}
+
+
+/* =========================================
+   PRICE GRID
+========================================= */
+
+function createGrid(){
+
+  const grid=
+    document.getElementById(
+      "priceGrid"
+    );
+
+  grid.innerHTML="";
+
+  for(
+    let p=5;
+    p<=100;
+    p+=5
+  ){
+
+    const card=
+      document.createElement("div");
+
+    card.className=
+      "priceCard";
+
+    card.dataset.price=p;
+
+    card.innerHTML=`
+
+      <div class="price">
+        ৳ ${bn(p)}
+      </div>
+
+      <div class="cardTotal">
+        মোট ${money(
+          p*(state.counts[p]||0)
+        )}
+      </div>
+
+      <div class="counter">
+
+        <button
+          class="minus"
+          data-price="${p}">
+          −
+        </button>
+
+        <div
+          class="countValue"
+          id="count-${p}">
+          ${bn(state.counts[p]||0)}
+        </div>
+
+        <button
+          class="plus"
+          data-price="${p}">
+          +
+        </button>
+
+      </div>
+
+    `;
+
+    grid.appendChild(card);
+
+  }
+
+}
+
+
+/* =========================================
+   UPDATE CARD
+========================================= */
+
+function updateCard(p){
+
+  const count=
+    state.counts[p]||0;
+
+  const value=
+    document.getElementById(
+      "count-"+p
+    );
+
+  if(value){
+
+    value.textContent=
+      bn(count);
+
+  }
+
+  const card=
+    document.querySelector(
+      `.priceCard[data-price="${p}"]`
+    );
+
+  if(card){
+
+    card.querySelector(
+      ".cardTotal"
+    ).textContent=
+      "মোট "+
+      money(p*count);
+
+  }
+
+}
+
+
+/* =========================================
+   AUDIO
+========================================= */
+
+let audio=null;
+
+function audioEngine(){
+
+  if(!audio){
+
+    audio=
+      new(
+        window.AudioContext||
+        window.webkitAudioContext
+      )();
+
+  }
+
+  if(audio.state==="suspended"){
+
+    audio.resume();
+
+  }
+
+  return audio;
+
+}
+
+
+function sound(type){
+
+  try{
+
+    const ctx=
+      audioEngine();
+
+    const osc=
+      ctx.createOscillator();
+
+    const gain=
+      ctx.createGain();
+
+    const vol=
+      Math.max(
+        .01,
+        (state.volume||100)/100
+      );
+
+    osc.connect(gain);
+
+    gain.connect(
+      ctx.destination
+    );
+
+    const now=
+      ctx.currentTime;
+
+    let start=700;
+    let end=700;
+    let time=.12;
+
+    if(type==="plus"){
+
+      start=650;
+      end=1050;
+      time=.13;
+
+    }
+
+    if(type==="minus"){
+
+      start=420;
+      end=190;
+      time=.16;
+
+    }
+
+    if(type==="add"){
+
+      start=850;
+      end=1500;
+      time=.25;
+
+    }
+
+    if(type==="delete"){
+
+      start=360;
+      end=80;
+      time=.28;
+
+    }
+
+    osc.type=
+      type==="delete"
+      ?"sawtooth"
+      :"sine";
+
+    osc.frequency.setValueAtTime(
+      start,
+      now
+    );
+
+    osc.frequency.exponentialRampToValueAtTime(
+      end,
+      now+time
+    );
+
+    gain.gain.setValueAtTime(
+      .0001,
+      now
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .42*vol,
+      now+.015
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .0001,
+      now+time
+    );
+
+    osc.start(now);
+
+    osc.stop(
+      now+time+.03
+    );
+
+  }catch(e){}
+
+}
+
+
+/* =========================================
+   PRESS EFFECT
+========================================= */
+
+function press(el){
+
+  if(!el)return;
+
+  el.classList.remove(
+    "pressed"
+  );
+
+  void el.offsetWidth;
+
+  el.classList.add(
+    "pressed"
+  );
+
+  setTimeout(
+    ()=>{
+      el.classList.remove(
+        "pressed"
+      );
+    },
+    170
+  );
+
+}
+
+
+/* =========================================
+   PLUS
+========================================= */
+
+function plus(p){
+
+  p=Number(p);
+
+  state.counts[p]++;
+
+  state.pending.push({
+
+    id:
+      Date.now()+
+      Math.random(),
+
+    amount:p,
+
+    date:
+      new Date().toISOString()
+
+  });
+
+  sound("plus");
+
+  updateCard(p);
+
+  renderPending();
+
+  save();
+
+}
+
+
+/* =========================================
+   MINUS
+========================================= */
+
+function minus(p){
+
+  p=Number(p);
+
+  if(
+    (state.counts[p]||0)
+    <=0
+  ){
+
+    sound("minus");
+
+    return;
+
+  }
+
+  state.counts[p]--;
+
+  /*
+    সর্বশেষ একই amount-এর
+    pending item বাদ হবে।
+  */
+
+  for(
+    let i=
+      state.pending.length-1;
+    i>=0;
+    i--
+  ){
+
+    if(
+      Number(
+        state.pending[i].amount
+      )===p
+    ){
+
+      state.pending.splice(i,1);
+
+      break;
+
+    }
+
+  }
+
+  sound("minus");
+
+  updateCard(p);
+
+  renderPending();
+
+  save();
+
+}
+
+
+/* =========================================
+   PENDING
+========================================= */
+
+function renderPending(){
+
+  const list=
+    document.getElementById(
+      "pendingList"
+    );
+
+  list.innerHTML="";
+
+  let total=0;
+
+  state.pending.forEach(item=>{
+
+    total+=
+      Number(item.amount);
+
+    const el=
+      document.createElement(
+        "div"
+      );
+
+    el.className=
+      "pendingItem";
+
+    el.innerHTML=`
+
+      <span>
+        ${money(item.amount)}
+      </span>
+
+      <button
+        class="pendingDelete"
+        data-id="${item.id}">
+        ×
+      </button>
+
+    `;
+
+    list.appendChild(el);
+
+  });
+
+
+  if(
+    !state.pending.length
+  ){
+
+    list.innerHTML=`
+      <div class="emptyPending">
+        কোনো পেন্ডিং লেনদেন নেই
+      </div>
+    `;
+
+  }
+
+
+  document
+    .getElementById(
+      "pendingInfo"
+    )
+    .textContent=
+      "পেন্ডিং: "+
+      bn(state.pending.length)+
+      " | "+
+      money(total);
+
+}
+
+
+/* =========================================
+   ADD ALL PENDING
+========================================= */
+
+function addAll(){
+
+  if(!state.pending.length){
+
+    sound("add");
+
+    return;
+
+  }
+
+  state.pending.forEach(item=>{
+
+    state.total+=
+      Number(item.amount);
+
+    state.totalTransactions++;
+
+    state.history.push({
+
+      amount:
+        Number(item.amount),
+
+      date:
+        new Date().toISOString()
+
+    });
+
+  });
+
+  sound("add");
+
+  render();
+
+  save();
+
+}
+
+
+/* =========================================
+   DELETE PENDING
+========================================= */
+
+function deletePending(id){
+
+  const i=
+    state.pending.findIndex(
+      x=>
+        String(x.id)===
+        String(id)
+    );
+
+  if(i<0)return;
+
+  state.pending.splice(i,1);
+
+  sound("delete");
+
+  renderPending();
+
+  save();
+
+}
+
+
+/* =========================================
+   PRICE EVENTS
+========================================= */
+
+document
+  .getElementById(
+    "priceGrid"
+  )
+  .addEventListener(
+    "click",
+    e=>{
+
+      const plusBtn=
+        e.target.closest(
+          ".plus"
+        );
+
+      const minusBtn=
+        e.target.closest(
+          ".minus"
+        );
+
+      if(plusBtn){
+
+        const card=
+          plusBtn.closest(
+            ".priceCard"
+          );
+
+        press(card);
+
+        plus(
+          plusBtn.dataset.price
+        );
+
+        return;
+
+      }
+
+      if(minusBtn){
+
+        const card=
+          minusBtn.closest(
+            ".priceCard"
+          );
+
+        press(card);
+
+        minus(
+          minusBtn.dataset.price
+        );
+
+      }
+
+    }
+  );
+
+
+/* =========================================
+   PENDING EVENTS
+========================================= */
+
+document
+  .getElementById(
+    "pendingList"
+  )
+  .addEventListener(
+    "click",
+    e=>{
+
+      const btn=
+        e.target.closest(
+          ".pendingDelete"
+        );
+
+      if(btn){
+
+        deletePending(
+          btn.dataset.id
+        );
+
+      }
+
+    }
+  );
+
+
+/* =========================================
+   ADD ALL
+========================================= */
+
+document
+  .getElementById(
+    "addAllBtn"
+  )
+  .addEventListener(
+    "click",
+    function(){
+
+      press(this);
+
+      addAll();
+
+    }
+  );
+
+
+/* =========================================
+   QUICK 1-5
+========================================= */
+
+document
+  .querySelectorAll(
+    ".quick button"
+  )
+  .forEach(btn=>{
+
+    btn.addEventListener(
+      "click",
+      ()=>{
+
+        sound("plus");
+
+        state.pending.push({
+
+          id:
+            Date.now()+
+            Math.random(),
+
+          amount:
+            Number(
+              btn.dataset.quick
+            ),
+
+          date:
+            new Date().toISOString()
+
+        });
+
+        renderPending();
+
+        save();
+
+      }
+    );
+
+  });
+
+
+/* =========================================
+   PERIOD BUTTONS
+========================================= */
+
+document
+  .querySelectorAll(
+    ".periodBtn"
+  )
+  .forEach(btn=>{
+
+    btn.addEventListener(
+      "click",
+      function(){
+
+        document
+          .querySelectorAll(
+            ".periodBtn"
+          )
+          .forEach(
+            x=>
+              x.classList.remove(
+                "active"
+              )
+          );
+
+        this.classList.add(
+          "active"
+        );
+
+        sound("plus");
+
+      }
+    );
+
+  });
+
+
+/* =========================================
+   DRAWER
+========================================= */
+
+const drawer=
+  document.getElementById(
+    "drawer"
+  );
+
+function openDrawer(){
+
+  drawer.classList.add(
+    "open"
+  );
+
+}
+
+function closeDrawer(){
+
+  drawer.classList.remove(
+    "open"
+  );
+
+}
+
+document
+  .getElementById(
+    "menuBtn"
+  )
+  .onclick=
+    openDrawer;
+
+document
+  .getElementById(
+    "moreBtn"
+  )
+  .onclick=
+    openDrawer;
+
+document
+  .getElementById(
+    "closeDrawer"
+  )
+  .onclick=
+    closeDrawer;
+
+drawer.onclick=
+  e=>{
+
+    if(e.target===drawer){
+
+      closeDrawer();
+
+    }
+
+  };
+
+
+/* =========================================
+   VOLUME
+========================================= */
+
+const slider=
+  document.getElementById(
+    "volumeSlider"
+  );
+
+const volumeText=
+  document.getElementById(
+    "volumeText"
+  );
+
+slider.value=
+  state.volume||100;
+
+volumeText.textContent=
+  bn(slider.value)+"%";
+
+slider.oninput=
+  function(){
+
+    state.volume=
+      Number(this.value);
+
+    volumeText.textContent=
+      bn(state.volume)+"%";
+
+    save();
+
+  };
+
+
+/* =========================================
+   THEME
+========================================= */
+
+function theme(){
+
+  document.body.classList.toggle(
+    "dark",
+    state.dark
+  );
+
+}
+
+document
+  .getElementById(
+    "themeBtn"
+  )
+  .onclick=
+    ()=>{
+
+      state.dark=
+        !state.dark;
+
+      theme();
+
+      save();
+
+    };
+
+
+/* =========================================
+   BACKUP
+========================================= */
+
+document
+  .getElementById(
+    "backupBtn"
+  )
+  .onclick=
+    ()=>{
+
+      const blob=
+        new Blob(
+          [
+            JSON.stringify(
+              state,
+              null,
+              2
+            )
+          ],
+          {
+            type:
+              "application/json"
+          }
+        );
+
+      const url=
+        URL.createObjectURL(
+          blob
+        );
+
+      const a=
+        document.createElement(
+          "a"
+        );
+
+      a.href=url;
+
+      a.download=
+        "hafez-tijaraho-backup.json";
+
+      a.click();
+
+      URL.revokeObjectURL(
+        url
+      );
+
+    };
+
+
+/* =========================================
+   RESTORE
+========================================= */
+
+const restoreFile=
+  document.getElementById(
+    "restoreFile"
+  );
+
+document
+  .getElementById(
+    "restoreBtn"
+  )
+  .onclick=
+    ()=>restoreFile.click();
+
+restoreFile.onchange=
+  function(){
+
+    const file=
+      this.files[0];
+
+    if(!file)return;
+
+    const reader=
+      new FileReader();
+
+    reader.onload=
+      ()=>{
+      
+        try{
+
+          state={
+            ...state,
+            ...JSON.parse(
+              reader.result
+            )
+          };
+
+          init();
+
+          theme();
+
+          slider.value=
+            state.volume||100;
+
+          volumeText.textContent=
+            bn(
+              state.volume||100
+            )+"%";
+
+          createGrid();
+
+          render();
+
+          save();
+
+          alert(
+            "Backup সফলভাবে Restore হয়েছে।"
+          );
+
+        }catch(e){
+
+          alert(
+            "Backup ফাইলটি সঠিক নয়।"
+          );
+
+        }
+
+      };
+
+    reader.readAsText(file);
+
+  };
+
+
+/* =========================================
+   SOUND TEST
+========================================= */
+
+document
+  .getElementById(
+    "testPlus"
+  )
+  .onclick=
+    ()=>sound("plus");
+
+document
+  .getElementById(
+    "testMinus"
+  )
+  .onclick=
+    ()=>sound("minus");
+
+document
+  .getElementById(
+    "testAdd"
+  )
+  .onclick=
+    ()=>sound("add");
+
+document
+  .getElementById(
+    "testDelete"
+  )
+  .onclick=
+    ()=>sound("delete");
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function render(){
+
+  renderSummary();
+
+  renderPending();
+
+  for(
+    let p=5;
+    p<=100;
+    p+=5
+  ){
+
+    updateCard(p);
+
+  }
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+load();
+
+init();
+
+theme();
+
+createGrid();
+
+render();
+
+
+/* =========================================
+   UNLOCK AUDIO ON FIRST TOUCH
+========================================= */
+
+document.addEventListener(
+  "pointerdown",
+  ()=>{
+    try{
+      audioEngine();
+    }catch(e){}
+  },
+  {
+    once:true,
+    passive:true
+  }
+);
+
+
+/* =========================================
+   KEEP SCREEN FIXED
+========================================= */
+
+document.addEventListener(
+  "touchmove",
+  e=>{
+
+    if(
+      !e.target.closest(
+        ".drawerPanel"
+      )
+    ){
+
+      e.preventDefault();
+
+    }
+
+  },
+  {
+    passive:false
+  }
+);
+
+</script>
+
+</body>
+</html>
