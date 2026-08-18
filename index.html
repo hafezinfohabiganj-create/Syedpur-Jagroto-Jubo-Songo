@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no,
+               viewport-fit=cover">
+
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+/* =========================================================
+   HAFEZ TIJARAH
+   ALL-IN-ONE HTML + CSS + JAVASCRIPT
+   ========================================================= */
+
+:root{
+    --blue:#168bd1;
+    --blue2:#0f7fc5;
+    --blue-soft:#eaf6ff;
+
+    --bg:#f3f5f7;
+    --card:#ffffff;
+    --text:#20252a;
+    --muted:#72777c;
+    --border:#dce1e5;
+
+    --green:#20a66a;
+    --red:#d95555;
+
+    --shadow:0 3px 12px rgba(0,0,0,.08);
+    --radius:14px;
+}
+
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+
+body{
+    font-family:
+        "Noto Sans Bengali",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+
+    touch-action:manipulation;
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark{
+    --bg:#171a1d;
+    --card:#22272b;
+    --text:#f4f5f6;
+    --muted:#aeb4b8;
+    --border:#373d42;
+    --blue-soft:#263b4a;
+    --shadow:0 3px 12px rgba(0,0,0,.28);
+}
+
+/* ================= APP ================= */
+
+.app{
+    width:100%;
+    height:100dvh;
+    max-height:100dvh;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    flex:0 0 auto;
+    height:72px;
+
+    background:var(--blue);
+    color:#fff;
+
+    display:grid;
+    grid-template-columns:58px 1fr 58px;
+    align-items:center;
+
+    padding:0 6px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+    z-index:10;
+}
+
+.menu-btn,
+.more-btn{
+    width:48px;
+    height:48px;
+
+    border:0;
+    background:transparent;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+    border-radius:50%;
+}
+
+.menu-btn:active,
+.more-btn:active{
+    background:rgba(255,255,255,.18);
+    transform:scale(.90);
+}
+
+.brand{
+    min-width:0;
+    text-align:center;
+    line-height:1;
+}
+
+.brand-title{
+    font-size:25px;
+    font-weight:900;
+    white-space:nowrap;
+}
+
+.brand-subtitle{
+    margin-top:5px;
+    font-size:12px;
+    opacity:.9;
+    white-space:nowrap;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    flex:1 1 auto;
+    min-height:0;
+
+    overflow:hidden;
+
+    padding:
+        6px
+        7px
+        calc(6px + env(safe-area-inset-bottom));
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+/* ================= TOP SUMMARY ================= */
+
+.summary{
+    flex:0 0 78px;
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+
+    overflow:hidden;
+}
+
+.total-box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    border-right:1px solid var(--border);
+
+    min-width:0;
+}
+
+.total-label{
+    font-size:14px;
+    font-weight:700;
+    line-height:1;
+    color:var(--muted);
+
+    /* IMPORTANT:
+       Label is centered exactly over the amount */
+    text-align:center;
+    width:max-content;
+    max-width:100%;
+}
+
+.total-number{
+    margin-top:3px;
+
+    color:var(--blue);
+
+    font-size:32px;
+    font-weight:900;
+    line-height:1;
+
+    text-align:center;
+    white-space:nowrap;
+}
+
+.today-box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    min-width:0;
+}
+
+.today-label{
+    font-size:13px;
+    font-weight:800;
+    line-height:1.1;
+
+    color:var(--text);
+
+    text-align:center;
+}
+
+.today-label .small{
+    display:block;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:1px;
+}
+
+.today-number{
+    margin-top:3px;
+
+    color:var(--blue);
+
+    font-size:27px;
+    font-weight:900;
+    line-height:1;
+}
+
+/* ================= REPORT TABS ================= */
+
+.report-tabs{
+    flex:0 0 50px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:5px;
+
+    min-height:0;
+}
+
+.report-tab{
+    min-width:0;
+
+    border:1px solid var(--border);
+    border-radius:13px;
+
+    background:var(--card);
+    color:var(--blue);
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:2px;
+
+    transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        background .16s ease;
+}
+
+.report-tab .report-title{
+    font-size:10px;
+    color:var(--muted);
+    line-height:1;
+    white-space:nowrap;
+}
+
+.report-tab .report-value{
+    margin-top:3px;
+
+    font-size:16px;
+    font-weight:900;
+    line-height:1;
+
+    white-space:nowrap;
+}
+
+.report-tab.active{
+    background:var(--blue);
+    color:#fff;
+    border-color:var(--blue);
+}
+
+.report-tab.active .report-title{
+    color:#fff;
+}
+
+.report-tab:active{
+    transform:scale(.94);
+    box-shadow:0 1px 4px rgba(0,0,0,.16);
+}
+
+/* ================= INSTANT TRANSACTION ================= */
+
+.instant{
+    flex:0 0 63px;
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+.instant-top{
+    height:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 10px;
+}
+
+.instant-title{
+    font-size:14px;
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.instant-pending{
+    color:var(--blue);
+    font-size:12px;
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.instant-body{
+    flex:1;
+    min-height:0;
+
+    display:flex;
+    align-items:center;
+
+    gap:5px;
+
+    padding:3px 7px 5px;
+}
+
+.pending-list{
+    flex:1;
+    min-width:0;
+
+    height:31px;
+
+    display:flex;
+    align-items:center;
+
+    gap:4px;
+
+    overflow:hidden;
+}
+
+.pending-item{
+    flex:0 0 auto;
+
+    height:30px;
+    min-width:67px;
+
+    border:1px solid var(--border);
+    border-radius:9px;
+
+    background:var(--bg);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding-left:7px;
+
+    color:var(--blue);
+    font-weight:900;
+    font-size:13px;
+
+    animation:pendingIn .22s ease both;
+}
+
+@keyframes pendingIn{
+    from{
+        opacity:0;
+        transform:translateY(-5px) scale(.94);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.pending-delete{
+    width:29px;
+    height:29px;
+
+    border:0;
+    border-left:1px solid rgba(0,0,0,.05);
+
+    background:#ffe3e3;
+    color:var(--red);
+
+    font-size:17px;
+    font-weight:900;
+
+    border-radius:0 8px 8px 0;
+
+    transition:
+        transform .15s ease,
+        background .15s ease;
+}
+
+.pending-delete:active{
+    transform:scale(.82);
+    background:#ffc9c9;
+}
+
+.add-all{
+    flex:0 0 auto;
+
+    height:34px;
+
+    padding:0 10px;
+
+    border:0;
+    border-radius:9px;
+
+    background:var(--green);
+    color:#fff;
+
+    font-size:12px;
+    font-weight:900;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.12);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+.add-all:active{
+    transform:scale(.91);
+    box-shadow:0 0 0 rgba(0,0,0,0);
+}
+
+/* ================= QUICK 1-5 ================= */
+
+.quick{
+    flex:0 0 39px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:5px;
+}
+
+.quick-btn{
+    border:1px solid var(--border);
+    border-radius:10px;
+
+    background:var(--blue-soft);
+    color:var(--blue);
+
+    font-size:15px;
+    font-weight:900;
+
+    box-shadow:var(--shadow);
+
+    transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        background .16s ease;
+}
+
+.quick-btn:active{
+    transform:scale(.88);
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,.18);
+    background:rgba(22,139,209,.16);
+}
+
+/* ================= PRICE GRID ================= */
+
+.price-grid{
+    flex:1 1 auto;
+    min-height:0;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    grid-template-rows:repeat(5,minmax(0,1fr));
+
+    gap:5px;
+
+    overflow:hidden;
+}
+
+.price-card{
+    min-width:0;
+    min-height:0;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+    border-radius:13px;
+
+    box-shadow:var(--shadow);
+
+    display:grid;
+
+    grid-template-rows:
+        1fr
+        auto
+        auto;
+
+    align-items:center;
+    justify-items:center;
+
+    padding:3px 4px 5px;
+
+    transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        border-color .16s ease;
+}
+
+/*
+   IMPORTANT:
+   Only the clicked card gets the transition.
+*/
+.price-card.pressed{
+    transform:scale(.94);
+
+    border-color:var(--blue);
+
+    box-shadow:
+        0 0 0 2px rgba(22,139,209,.20),
+        0 3px 7px rgba(0,0,0,.15);
+}
+
+.price{
+    font-size:20px;
+    font-weight:900;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+    color:var(--text);
+}
+
+.card-total{
+    color:var(--blue);
+
+    font-size:11px;
+    font-weight:900;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+    margin:1px 0 3px;
+}
+
+/* ================= +/- CONTROL ================= */
+
+.controls{
+    width:100%;
+    height:29px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+
+    border:1px solid var(--border);
+    border-radius:9px;
+
+    overflow:hidden;
+}
+
+.control-btn{
+    border:0;
+
+    background:var(--bg);
+
+    font-size:18px;
+    font-weight:900;
+
+    line-height:1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:
+        transform .13s ease,
+        background .13s ease,
+        box-shadow .13s ease;
+}
+
+.control-btn.minus{
+    color:var(--red);
+}
+
+.control-btn.plus{
+    color:var(--blue);
+}
+
+.control-btn.number{
+    color:var(--text);
+    background:var(--card);
+    font-size:15px;
+}
+
+.control-btn:active{
+    transform:scale(.78);
+
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,.18);
+}
+
+.control-btn.plus:active{
+    background:rgba(22,139,209,.13);
+}
+
+.control-btn.minus:active{
+    background:rgba(217,85,85,.13);
+}
+
+/* ================= SETTINGS PANEL ================= */
+
+.settings-overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:none;
+    align-items:flex-end;
+
+    z-index:100;
+}
+
+.settings-overlay.show{
+    display:flex;
+}
+
+.settings{
+    width:100%;
+
+    max-height:75dvh;
+
+    background:var(--card);
+    color:var(--text);
+
+    border-radius:20px 20px 0 0;
+
+    padding:16px;
+
+    box-shadow:0 -8px 30px rgba(0,0,0,.22);
+
+    animation:sheetIn .22s ease;
+}
+
+@keyframes sheetIn{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.settings-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:14px;
+}
+
+.settings-title{
+    font-size:19px;
+    font-weight:900;
+}
+
+.close-settings{
+    width:38px;
+    height:38px;
+
+    border:0;
+    border-radius:50%;
+
+    background:var(--bg);
+    color:var(--text);
+
+    font-size:20px;
+}
+
+.setting-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    min-height:48px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.setting-label{
+    font-size:14px;
+    font-weight:700;
+}
+
+.setting-control{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.volume-value{
+    min-width:40px;
+    text-align:right;
+
+    color:var(--blue);
+    font-weight:900;
+}
+
+input[type="range"]{
+    width:145px;
+    accent-color:var(--blue);
+}
+
+.toggle{
+    width:48px;
+    height:27px;
+
+    border:0;
+    border-radius:20px;
+
+    background:#aab0b4;
+
+    position:relative;
+}
+
+.toggle::after{
+    content:"";
+
+    position:absolute;
+
+    width:21px;
+    height:21px;
+
+    top:3px;
+    left:3px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    transition:.18s;
+}
+
+.toggle.on{
+    background:var(--blue);
+}
+
+.toggle.on::after{
+    transform:translateX(21px);
+}
+
+.backup-btn{
+    margin-top:13px;
+
+    width:100%;
+    height:42px;
+
+    border:0;
+    border-radius:11px;
+
+    background:var(--blue);
+    color:#fff;
+
+    font-size:14px;
+    font-weight:900;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/*
+   Small screens:
+   make everything slightly tighter so the whole
+   interface remains visible.
+*/
+
+@media(max-height:700px){
+
+    .header{
+        height:62px;
+    }
+
+    .brand-title{
+        font-size:22px;
+    }
+
+    .brand-subtitle{
+        font-size:10px;
+    }
+
+    .summary{
+        flex-basis:70px;
+    }
+
+    .total-number{
+        font-size:29px;
+    }
+
+    .today-number{
+        font-size:24px;
+    }
+
+    .report-tabs{
+        flex-basis:45px;
+    }
+
+    .instant{
+        flex-basis:57px;
+    }
+
+    .quick{
+        flex-basis:35px;
+    }
+
+    .price{
+        font-size:18px;
+    }
+
+    .card-total{
+        font-size:10px;
+    }
+
+    .controls{
+        height:26px;
+    }
+
+    .control-btn{
+        font-size:16px;
+    }
+
+    .control-btn.number{
+        font-size:13px;
+    }
+}
+
+@media(max-width:380px){
+
+    .header{
+        grid-template-columns:48px 1fr 48px;
+    }
+
+    .menu-btn,
+    .more-btn{
+        width:42px;
+        height:42px;
+        font-size:26px;
+    }
+
+    .brand-title{
+        font-size:20px;
+    }
+
+    .summary{
+        grid-template-columns:1.1fr .9fr;
+    }
+
+    .total-number{
+        font-size:26px;
+    }
+
+    .today-number{
+        font-size:21px;
+    }
+
+    .report-tab .report-title{
+        font-size:8px;
+    }
+
+    .report-tab .report-value{
+        font-size:14px;
+    }
+
+    .price{
+        font-size:16px;
+    }
+
+    .card-total{
+        font-size:9px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+            ☰
+        </button>
+
+        <div class="brand">
+            <div class="brand-title">
+                হাফেজ তিজারাহ
+            </div>
+
+            <div class="brand-subtitle">
+                পরিবারের নিত্যদিনের বাজার
+            </div>
+        </div>
+
+        <button class="more-btn" id="settingsBtn" aria-label="Settings">
+            ⋮
+        </button>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- SUMMARY -->
+
+        <section class="summary">
+
+            <div class="total-box">
+
+                <!--
+                    IMPORTANT:
+                    "সর্বমোট টাকা" is centered exactly
+                    above the amount.
+                -->
+
+                <div class="total-label">
+                    সর্বমোট টাকা
+                </div>
+
+                <div class="total-number" id="grandTotal">
+                    ৳ ০
+                </div>
+
+            </div>
+
+
+            <div class="today-box">
+
+                <div class="today-label">
+
+                    <span class="small">
+                        আজকের
+                    </span>
+
+                    লেনদেন
+
+                </div>
+
+                <div class="today-number" id="todayTransactions">
+                    ০
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPORT -->
+
+        <section class="report-tabs">
+
+            <button class="report-tab active"
+                    data-period="today">
+
+                <span class="report-title">
+                    আজকের বিক্রি
+                </span>
+
+                <span class="report-value"
+                      id="reportToday">
+                    ৳ ০
+                </span>
+
+            </button>
+
+
+            <button class="report-tab"
+                    data-period="7">
+
+                <span class="report-title">
+                    গত ৭ দিন
+                </span>
+
+                <span class="report-value"
+                      id="report7">
+                    ৳ ০
+                </span>
+
+            </button>
+
+
+            <button class="report-tab"
+                    data-period="15">
+
+                <span class="report-title">
+                    গত ১৫ দিন
+                </span>
+
+                <span class="report-value"
+                      id="report15">
+                    ৳ ০
+                </span>
+
+            </button>
+
+
+            <button class="report-tab"
+                    data-period="30">
+
+                <span class="report-title">
+                    গত ১ মাস
+                </span>
+
+                <span class="report-value"
+                      id="report30">
+                    ৳ ০
+                </span>
+
+            </button>
+
+
+            <button class="report-tab"
+                    data-period="365">
+
+                <span class="report-title">
+                    গত ১ বছর
+                </span>
+
+                <span class="report-value"
+                      id="report365">
+                    ৳ ০
+                </span>
+
+            </button>
+
+        </section>
+
+
+        <!-- INSTANT TRANSACTION -->
+
+        <section class="instant">
+
+            <div class="instant-top">
+
+                <div class="instant-title">
+                    ⚡ ইনস্ট্যান্ট লেনদেন
+                </div>
+
+                <div class="instant-pending"
+                     id="pendingInfo">
+                    পেন্ডিং: ০ | ৳ ০
+                </div>
+
+            </div>
+
+
+            <div class="instant-body">
+
+                <div class="pending-list"
+                     id="pendingList">
+                </div>
+
+                <button class="add-all"
+                        id="addAllBtn">
+                    ✓ মোট টাকায় যোগ
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK 1-5 -->
+
+        <section class="quick">
+
+            <button class="quick-btn" data-extra="1">১</button>
+            <button class="quick-btn" data-extra="2">২</button>
+            <button class="quick-btn" data-extra="3">৩</button>
+            <button class="quick-btn" data-extra="4">৪</button>
+            <button class="quick-btn" data-extra="5">৫</button>
+
+        </section>
+
+
+        <!-- PRICE GRID -->
+
+        <section class="price-grid"
+                 id="priceGrid">
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= SETTINGS ================= -->
+
+<div class="settings-overlay"
+     id="settingsOverlay">
+
+    <div class="settings">
+
+        <div class="settings-head">
+
+            <div class="settings-title">
+                সেটিংস
+            </div>
+
+            <button class="close-settings"
+                    id="closeSettings">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div class="setting-label">
+                সাউন্ড
+            </div>
+
+            <div class="setting-control">
+
+                <button class="toggle on"
+                        id="soundToggle">
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div class="setting-label">
+                সাউন্ড ভলিউম
+            </div>
+
+            <div class="setting-control">
+
+                <input type="range"
+                       id="volumeRange"
+                       min="1"
+                       max="100"
+                       value="100">
+
+                <span class="volume-value"
+                      id="volumeValue">
+                    ১০০%
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div class="setting-label">
+                ডার্ক থিম
+            </div>
+
+            <div class="setting-control">
+
+                <button class="toggle"
+                        id="darkToggle">
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button class="backup-btn"
+                id="exportBtn">
+            💾 ডেটার ব্যাকআপ নিন
+        </button>
+
+
+        <button class="backup-btn"
+                id="resetBtn"
+                style="background:#d95555;">
+            ⚠️ সব হিসাব রিসেট
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+/* =========================================================
+   HAFEZ TIJARAH - JAVASCRIPT
+   ========================================================= */
+
+
+/* ================= BANGLA NUMBER ================= */
+
+const bnDigits = "০১২৩৪৫৬৭৮৯";
+
+function bnNumber(value){
+
+    value = Number(value) || 0;
+
+    return String(value)
+        .replace(/\d/g, d => bnDigits[d]);
+
+}
+
+
+/* ================= MONEY FORMAT ================= */
+
+function money(value){
+
+    value = Math.round(Number(value) || 0);
+
+    return "৳ " + bnNumber(value);
+
+}
+
+
+/* ================= DATE HELPERS ================= */
+
+function dateKey(date = new Date()){
+
+    const y = date.getFullYear();
+
+    const m = String(date.getMonth()+1).padStart(2,"0");
+
+    const d = String(date.getDate()).padStart(2,"0");
+
+    return `${y}-${m}-${d}`;
+
+}
+
+
+function daysAgo(days){
+
+    const d = new Date();
+
+    d.setHours(0,0,0,0);
+
+    d.setDate(d.getDate() - days);
+
+    return d;
+
+}
+
+
+/* ================= DATA ================= */
+
+const STORAGE_KEY = "hafez_tijarah_v4";
+
+
+let data = {
+
+    grandTotal: 0,
+
+    counts: {},
+
+    transactions: [],
+
+    pending: [],
+
+    sound: true,
+
+    volume: 100,
+
+    dark: false
+
+};
+
+
+/* ================= LOAD ================= */
+
+function loadData(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(STORAGE_KEY);
+
+        if(saved){
+
+            const parsed = JSON.parse(saved);
+
+            data = {
+                ...data,
+                ...parsed
+            };
+
+        }
+
+    }catch(error){
+
+        console.log(error);
+
+    }
+
+}
+
+
+/* ================= SAVE ================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* ================= INITIALIZE ================= */
+
+loadData();
+
+
+/* ================= SOUND ENGINE ================= */
+
+let audioContext = null;
+
+
+function getAudioContext(){
+
+    if(!audioContext){
+
+        const AudioCtx =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if(AudioCtx){
+
+            audioContext = new AudioCtx();
+
+        }
+
+    }
+
+    return audioContext;
+
+}
+
+
+/*
+   Generates sound locally.
+   No external audio file is required.
+*/
+
+function playSound(type){
+
+    if(!data.sound) return;
+
+    const ctx = getAudioContext();
+
+    if(!ctx) return;
+
+    if(ctx.state === "suspended"){
+
+        ctx.resume();
+
+    }
+
+
+    const volume =
+        Math.max(0.01, data.volume / 100);
+
+
+    const now = ctx.currentTime;
+
+
+    const osc = ctx.createOscillator();
+
+    const gain = ctx.createGain();
+
+
+    osc.connect(gain);
+
+    gain.connect(ctx.destination);
+
+
+    let frequency = 500;
+
+    let duration = .09;
+
+
+    if(type === "plus"){
+
+        frequency = 760;
+
+        duration = .085;
+
+    }
+
+
+    if(type === "minus"){
+
+        frequency = 280;
+
+        duration = .11;
+
+    }
+
+
+    if(type === "delete"){
+
+        frequency = 180;
+
+        duration = .15;
+
+    }
+
+
+    if(type === "addAll"){
+
+        frequency = 900;
+
+        duration = .25;
+
+    }
+
+
+    if(type === "quick"){
+
+        frequency = 620;
+
+        duration = .07;
+
+    }
+
+
+    osc.type = "sine";
+
+    osc.frequency.setValueAtTime(
+        frequency,
+        now
+    );
+
+
+    if(type === "addAll"){
+
+        osc.frequency.exponentialRampToValueAtTime(
+            1250,
+            now + .12
+        );
+
+    }
+
+
+    if(type === "delete"){
+
+        osc.frequency.exponentialRampToValueAtTime(
+            100,
+            now + duration
+        );
+
+    }
+
+
+    gain.gain.setValueAtTime(
+        0.0001,
+        now
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        Math.min(.9, .38 * volume),
+        now + .012
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        now + duration
+    );
+
+
+    osc.start(now);
+
+    osc.stop(now + duration + .02);
+
+}
+
+
+/* ================= PRICE LIST ================= */
+
+const prices = [];
+
+for(let i = 5; i <= 100; i += 5){
+
+    prices.push(i);
+
+}
+
+
+/* ================= PRICE GRID ================= */
+
+const priceGrid =
+    document.getElementById("priceGrid");
+
+
+function renderPriceGrid(){
+
+    priceGrid.innerHTML = "";
+
+
+    prices.forEach(price => {
+
+        if(data.counts[price] == null){
+
+            data.counts[price] = 0;
+
+        }
+
+
+        const card =
+            document.createElement("div");
+
+        card.className = "price-card";
+
+        card.dataset.price = price;
+
+
+        const title =
+            document.createElement("div");
+
+        title.className = "price";
+
+        title.textContent =
+            money(price);
+
+
+        const total =
+            document.createElement("div");
+
+        total.className = "card-total";
+
+        total.dataset.totalFor = price;
+
+
+        const controls =
+            document.createElement("div");
+
+        controls.className = "controls";
+
+
+        const minus =
+            document.createElement("button");
+
+        minus.className =
+            "control-btn minus";
+
+        minus.textContent = "−";
+
+
+        const number =
+            document.createElement("button");
+
+        number.className =
+            "control-btn number";
+
+
+        const plus =
+            document.createElement("button");
+
+        plus.className =
+            "control-btn plus";
+
+        plus.textContent = "+";
+
+
+        controls.appendChild(minus);
+
+        controls.appendChild(number);
+
+        controls.appendChild(plus);
+
+
+        card.appendChild(title);
+
+        card.appendChild(total);
+
+        card.appendChild(controls);
+
+
+        priceGrid.appendChild(card);
+
+
+        updateCard(card);
+
+
+        /*
+           PLUS
+        */
+
+        plus.addEventListener("click", function(e){
+
+            e.stopPropagation();
+
+            data.counts[price] =
+                (data.counts[price] || 0) + 1;
+
+
+            addPending(price);
+
+
+            saveData();
+
+            updateCard(card);
+
+            updateDashboard();
+
+
+            pressCard(card);
+
+            playSound("plus");
+
+        });
+
+
+        /*
+           MINUS
+        */
+
+        minus.addEventListener("click", function(e){
+
+            e.stopPropagation();
+
+            if((data.counts[price] || 0) <= 0){
+
+                return;
+
+            }
+
+
+            data.counts[price]--;
+
+            removeOnePending(price);
+
+
+            saveData();
+
+            updateCard(card);
+
+            updateDashboard();
+
+
+            pressCard(card);
+
+            playSound("minus");
+
+        });
+
+
+        /*
+           NUMBER AREA
+           Adds one transaction to pending.
+        */
+
+        number.addEventListener("click", function(e){
+
+            e.stopPropagation();
+
+            data.counts[price] =
+                (data.counts[price] || 0) + 1;
+
+
+            addPending(price);
+
+
+            saveData();
+
+            updateCard(card);
+
+            updateDashboard();
+
+
+            pressCard(card);
+
+            playSound("plus");
+
+        });
+
+    });
+
+}
+
+
+/* ================= CARD UPDATE ================= */
+
+function updateCard(card){
+
+    const price =
+        Number(card.dataset.price);
+
+    const count =
+        data.counts[price] || 0;
+
+
+    const number =
+        card.querySelector(".number");
+
+    const total =
+        card.querySelector(
+            `[data-total-for="${price}"]`
+        );
+
+
+    number.textContent =
+        bnNumber(count);
+
+
+    total.textContent =
+        "মোট " + money(price * count);
+
+}
+
+
+/* ================= CARD PRESS EFFECT ================= */
+
+function pressCard(card){
+
+    /*
+       Only the clicked card gets the effect.
+    */
+
+    card.classList.remove("pressed");
+
+    void card.offsetWidth;
+
+    card.classList.add("pressed");
+
+
+    setTimeout(() => {
+
+        card.classList.remove("pressed");
+
+    }, 190);
+
+}
+
+
+/* ================= PENDING ================= */
+
+function addPending(amount){
+
+    data.pending.push({
+
+        id:
+            Date.now() +
+            Math.random(),
+
+        amount: Number(amount),
+
+        time: Date.now()
+
+    });
+
+
+    renderPending();
+
+}
+
+
+function removeOnePending(amount){
+
+    const index =
+        data.pending.findIndex(
+            item => item.amount === amount
+        );
+
+
+    if(index !== -1){
+
+        data.pending.splice(index,1);
+
+        renderPending();
+
+    }
+
+}
+
+
+/* ================= QUICK AMOUNT ================= */
+
+document.querySelectorAll(".quick-btn")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const extra =
+            Number(button.dataset.extra);
+
+
+        addPending(extra);
+
+        saveData();
+
+        updateDashboard();
+
+        playSound("quick");
+
+
+        button.animate(
+            [
+                {
+                    transform:"scale(1)"
+                },
+                {
+                    transform:"scale(.86)"
+                },
+                {
+                    transform:"scale(1)"
+                }
+            ],
+            {
+                duration:170,
+                easing:"ease-out"
+            }
+        );
+
+    });
+
+});
+
+
+/* ================= RENDER PENDING ================= */
+
+const pendingList =
+    document.getElementById("pendingList");
+
+
+function renderPending(){
+
+    pendingList.innerHTML = "";
+
+
+    data.pending.forEach(item => {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "pending-item";
+
+
+        const amount =
+            document.createElement("span");
+
+        amount.textContent =
+            money(item.amount);
+
+
+        const deleteBtn =
+            document.createElement("button");
+
+        deleteBtn.className =
+            "pending-delete";
+
+        deleteBtn.textContent = "×";
+
+
+        deleteBtn.addEventListener(
+            "click",
+            function(){
+
+                data.pending =
+                    data.pending.filter(
+                        p => p.id !== item.id
+                    );
+
+
+                saveData();
+
+                renderPending();
+
+                updateDashboard();
+
+                playSound("delete");
+
+            }
+        );
+
+
+        element.appendChild(amount);
+
+        element.appendChild(deleteBtn);
+
+
+        pendingList.appendChild(element);
+
+    });
+
+
+    updatePendingInfo();
+
+}
+
+
+/* ================= PENDING INFO ================= */
+
+function updatePendingInfo(){
+
+    const count =
+        data.pending.length;
+
+
+    const total =
+        data.pending.reduce(
+            (sum,item) =>
+                sum + Number(item.amount),
+            0
+        );
+
+
+    document.getElementById(
+        "pendingInfo"
+    ).textContent =
+        "পেন্ডিং: " +
+        bnNumber(count) +
+        " | " +
+        money(total);
+
+}
+
+
+/* ================= ADD ALL TO TOTAL ================= */
+
+document.getElementById("addAllBtn")
+.addEventListener("click", () => {
+
+    if(data.pending.length === 0){
+
+        return;
+
+    }
+
+
+    const amount =
+        data.pending.reduce(
+            (sum,item) =>
+                sum + Number(item.amount),
+            0
+        );
+
+
+    /*
+       IMPORTANT:
+       Pending amount is added to grand total
+       only when this button is pressed.
+    */
+
+    data.grandTotal += amount;
+
+
+    data.transactions.push({
+
+        amount: amount,
+
+        date: new Date().toISOString(),
+
+        dateKey: dateKey()
+
+    });
+
+
+    /*
+       Pending list becomes empty after
+       successful addition.
+    */
+
+    data.pending = [];
+
+
+    saveData();
+
+    renderPending();
+
+    updateDashboard();
+
+
+    playSound("addAll");
+
+
+    const button =
+        document.getElementById("addAllBtn");
+
+
+    button.animate(
+        [
+            {
+                transform:"scale(1)"
+            },
+            {
+                transform:"scale(.90)"
+            },
+            {
+                transform:"scale(1.04)"
+            },
+            {
+                transform:"scale(1)"
+            }
+        ],
+        {
+            duration:320,
+            easing:"ease-out"
+        }
+    );
+
+});
+
+
+/* ================= DASHBOARD ================= */
+
+function updateDashboard(){
+
+    document.getElementById(
+        "grandTotal"
+    ).textContent =
+        money(data.grandTotal);
+
+
+    const today =
+        dateKey();
+
+
+    const todayTransactions =
+        data.transactions.filter(
+            t => t.dateKey === today
+        );
+
+
+    document.getElementById(
+        "todayTransactions"
+    ).textContent =
+        bnNumber(
+            todayTransactions.length
+        );
+
+
+    const todayTotal =
+        todayTransactions.reduce(
+            (sum,t) =>
+                sum + Number(t.amount),
+            0
+        );
+
+
+    document.getElementById(
+        "reportToday"
+    ).textContent =
+        money(todayTotal);
+
+
+    const periods = [7,15,30,365];
+
+
+    periods.forEach(days => {
+
+        const start =
+            daysAgo(days);
+
+
+        const total =
+            data.transactions.reduce(
+                (sum,t) => {
+
+                    const d =
+                        new Date(t.date);
+
+                    if(d >= start){
+
+                        return sum +
+                            Number(t.amount);
+
+                    }
+
+                    return sum;
+
+                },
+                0
+            );
+
+
+        document.getElementById(
+            "report" + days
+        ).textContent =
+            money(total);
+
+    });
+
+}
+
+
+/* ================= REPORT TAB CLICK ================= */
+
+document.querySelectorAll(".report-tab")
+.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        document.querySelectorAll(
+            ".report-tab"
+        ).forEach(t =>
+            t.classList.remove("active")
+        );
+
+
+        tab.classList.add("active");
+
+    });
+
+});
+
+
+/* ================= SETTINGS ================= */
+
+const settingsOverlay =
+    document.getElementById(
+        "settingsOverlay"
+    );
+
+
+document.getElementById("settingsBtn")
+.addEventListener("click", () => {
+
+    settingsOverlay.classList.add("show");
+
+});
+
+
+document.getElementById("closeSettings")
+.addEventListener("click", () => {
+
+    settingsOverlay.classList.remove("show");
+
+});
+
+
+settingsOverlay.addEventListener(
+    "click",
+    e => {
+
+        if(e.target === settingsOverlay){
+
+            settingsOverlay.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* ================= SOUND TOGGLE ================= */
+
+const soundToggle =
+    document.getElementById(
+        "soundToggle"
+    );
+
+
+function updateSoundToggle(){
+
+    soundToggle.classList.toggle(
+        "on",
+        data.sound
+    );
+
+}
+
+
+soundToggle.addEventListener("click", () => {
+
+    data.sound = !data.sound;
+
+    saveData();
+
+    updateSoundToggle();
+
+});
+
+
+/* ================= VOLUME ================= */
+
+const volumeRange =
+    document.getElementById(
+        "volumeRange"
+    );
+
+const volumeValue =
+    document.getElementById(
+        "volumeValue"
+    );
+
+
+volumeRange.value =
+    data.volume;
+
+
+volumeValue.textContent =
+    bnNumber(data.volume) + "%";
+
+
+volumeRange.addEventListener(
+    "input",
+    () => {
+
+        data.volume =
+            Number(volumeRange.value);
+
+
+        volumeValue.textContent =
+            bnNumber(data.volume) + "%";
+
+
+        saveData();
+
+    }
+);
+
+
+/* ================= DARK MODE ================= */
+
+const darkToggle =
+    document.getElementById(
+        "darkToggle"
+    );
+
+
+function applyDark(){
+
+    document.body.classList.toggle(
+        "dark",
+        data.dark
+    );
+
+
+    darkToggle.classList.toggle(
+        "on",
+        data.dark
+    );
+
+}
+
+
+darkToggle.addEventListener(
+    "click",
+    () => {
+
+        data.dark = !data.dark;
+
+        saveData();
+
+        applyDark();
+
+    }
+);
+
+
+/* ================= EXPORT BACKUP ================= */
+
+document.getElementById("exportBtn")
+.addEventListener("click", () => {
+
+    const backup =
+        JSON.stringify(
+            data,
+            null,
+            2
+        );
+
+
+    const blob =
+        new Blob(
+            [backup],
+            {
+                type:"application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+        "hafez-tijarah-backup.json";
+
+
+    a.click();
+
+
+    URL.revokeObjectURL(url);
+
+});
+
+
+/* ================= RESET ================= */
+
+document.getElementById("resetBtn")
+.addEventListener("click", () => {
+
+    const yes =
+        confirm(
+            "সব হিসাব মুছে ফেলতে চান?"
+        );
+
+
+    if(!yes){
+
+        return;
+
+    }
+
+
+    data = {
+
+        grandTotal:0,
+
+        counts:{},
+
+        transactions:[],
+
+        pending:[],
+
+        sound:true,
+
+        volume:100,
+
+        dark:false
+
+    };
+
+
+    saveData();
+
+
+    renderPriceGrid();
+
+    renderPending();
+
+    updateDashboard();
+
+    updateSoundToggle();
+
+    applyDark();
+
+
+    volumeRange.value = 100;
+
+    volumeValue.textContent =
+        "১০০%";
+
+});
+
+
+/* ================= MENU ================= */
+
+document.getElementById("menuBtn")
+.addEventListener("click", () => {
+
+    settingsOverlay.classList.add("show");
+
+});
+
+
+/* ================= PREVENT DOUBLE TAP ZOOM ================= */
+
+let lastTouch = 0;
+
+document.addEventListener(
+    "touchend",
+    function(e){
+
+        const now =
+            Date.now();
+
+
+        if(now - lastTouch <= 280){
+
+            e.preventDefault();
+
+        }
+
+
+        lastTouch = now;
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+/* ================= START ================= */
+
+renderPriceGrid();
+
+renderPending();
+
+updateDashboard();
+
+updateSoundToggle();
+
+applyDark();
+
+</script>
+
+</body>
+</html>
