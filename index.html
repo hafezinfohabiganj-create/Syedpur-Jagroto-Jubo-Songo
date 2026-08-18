@@ -2,10 +2,21 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1,
+      maximum-scale=1,
+      user-scalable=no">
+
 <title>হাফেজ তিজারা</title>
 
 <style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -13,85 +24,132 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
 }
 
 body{
-    font-family:"Noto Sans Bengali","SolaimanLipi",Arial,sans-serif;
+    font-family:
+        "Noto Sans Bengali",
+        "SolaimanLipi",
+        Arial,
+        sans-serif;
+
     background:#f1f3f5;
     color:#202124;
-    transition:.25s;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
 }
 
 .app{
     width:100%;
     height:100dvh;
     overflow:hidden;
+
     display:flex;
     flex-direction:column;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header{
-    flex:0 0 42px;
-    height:42px;
+    flex:0 0 40px;
+    height:40px;
+
     display:grid;
     grid-template-columns:40px 1fr 40px;
+
     align-items:center;
+
     background:#087bd1;
-    color:#fff;
-    box-shadow:0 2px 6px rgba(0,0,0,.16);
+    color:white;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.16);
 }
 
 .header-title{
     text-align:center;
-    font-size:18px;
+
+    font-size:17px;
     font-weight:900;
+
+    white-space:nowrap;
 }
 
-.menu-btn,.more-btn{
+.menu-btn,
+.more-btn{
     width:38px;
     height:38px;
+
     border:0;
     background:transparent;
-    color:#fff;
-    font-size:24px;
+
+    color:white;
+
+    font-size:23px;
     font-weight:bold;
+
+    transition:
+        transform .08s ease;
 }
 
-.menu-btn:active,.more-btn:active{
-    transform:scale(.88);
+.menu-btn:active,
+.more-btn:active{
+    transform:scale(.82);
 }
 
-/* TOTAL */
+
+/* =========================================================
+   TOTAL BOX
+========================================================= */
 
 .total-box{
-    flex:0 0 58px;
-    height:58px;
+    flex:0 0 56px;
+    height:56px;
+
     margin:4px 6px 3px;
-    padding:4px 10px;
+
+    padding:4px 9px;
+
     display:grid;
-    grid-template-columns:1fr 105px;
+    grid-template-columns:1fr 100px;
+
     align-items:center;
-    background:#fff;
+
+    background:white;
+
     border-radius:9px;
-    box-shadow:0 2px 6px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.08);
 }
 
 .total-label,
 .today-label{
     color:#777;
-    font-size:10px;
+    font-size:9px;
 }
 
 .total-money{
     color:#087bd1;
-    font-size:26px;
-    line-height:27px;
+
+    font-size:24px;
+    line-height:24px;
+
     font-weight:900;
 }
 
@@ -102,36 +160,55 @@ body{
 
 .today-box{
     text-align:center;
-    border-left:1px solid #e2e2e2;
-    padding-left:8px;
+
+    border-left:
+        1px solid #e1e1e1;
+
+    padding-left:7px;
 }
 
 .today-number{
     color:#087bd1;
-    font-size:18px;
+
+    font-size:17px;
+    line-height:19px;
+
     font-weight:900;
-    line-height:20px;
 }
 
-/* REPORT */
+
+/* =========================================================
+   REPORT
+========================================================= */
 
 .report-grid{
-    flex:0 0 38px;
-    height:38px;
+    flex:0 0 37px;
+    height:37px;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:4px;
-    padding:0 6px 3px;
+
+    padding:
+        0 6px 3px;
 }
 
 .report-box{
-    background:#fff;
+    background:white;
+
     border-radius:7px;
+
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
-    box-shadow:0 1px 4px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 1px 4px rgba(0,0,0,.07);
 }
 
 .report-title{
@@ -141,128 +218,351 @@ body{
 
 .report-value{
     color:#087bd1;
-    font-size:12px;
+    font-size:11px;
     font-weight:900;
 }
 
-/* 1-5 */
+
+/* =========================================================
+   EXTRA 1-5
+========================================================= */
 
 .extra-row{
-    flex:0 0 31px;
-    height:31px;
+    flex:0 0 30px;
+    height:30px;
+
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+        repeat(5,1fr);
+
     gap:4px;
-    padding:0 6px 3px;
+
+    padding:
+        0 6px 3px;
 }
 
 .extra-btn{
     border:0;
+
     border-radius:6px;
+
     background:#e7f1fa;
+
     color:#087bd1;
-    font-size:16px;
+
+    font-size:15px;
     font-weight:900;
-    box-shadow:0 1px 3px rgba(0,0,0,.08);
-    transition:transform .08s,box-shadow .08s;
+
+    box-shadow:
+        0 1px 3px rgba(0,0,0,.08);
+
+    transition:
+        transform .08s ease,
+        box-shadow .08s ease;
 }
 
 .extra-btn:active{
-    transform:scale(.90);
-    box-shadow:0 4px 10px rgba(0,0,0,.22);
+    transform:scale(.88);
+
+    box-shadow:
+        0 4px 10px
+        rgba(0,0,0,.22);
 }
 
-/* MONEY GRID */
+
+/* =========================================================
+   INSTANT TRANSACTION
+========================================================= */
+
+.instant-panel{
+    flex:0 0 58px;
+    height:58px;
+
+    margin:
+        0 6px 4px;
+
+    padding:5px 7px;
+
+    background:white;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.09);
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+.instant-header{
+    flex:0 0 17px;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+}
+
+.instant-title{
+    font-size:10px;
+    font-weight:900;
+
+    color:#555;
+}
+
+.instant-total{
+    font-size:11px;
+    font-weight:900;
+
+    color:#087bd1;
+}
+
+.instant-list{
+    flex:1;
+
+    min-height:0;
+
+    display:flex;
+
+    gap:4px;
+
+    overflow:hidden;
+}
+
+.instant-empty{
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#999;
+
+    font-size:9px;
+}
+
+.instant-item{
+    min-width:110px;
+
+    height:31px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 28px 28px;
+
+    align-items:center;
+
+    gap:2px;
+
+    padding:2px 3px;
+
+    background:#f5f8fa;
+
+    border:1px solid #e2e7eb;
+
+    border-radius:6px;
+}
+
+.instant-money{
+    color:#087bd1;
+
+    font-size:14px;
+    font-weight:900;
+
+    text-align:center;
+}
+
+.instant-add,
+.instant-delete{
+    height:25px;
+    width:25px;
+
+    border:0;
+
+    border-radius:5px;
+
+    font-size:13px;
+    font-weight:900;
+
+    transition:
+        transform .08s ease,
+        box-shadow .08s ease;
+}
+
+.instant-add{
+    background:#dff3e5;
+    color:#14813b;
+}
+
+.instant-delete{
+    background:#fde5e5;
+    color:#c62828;
+}
+
+.instant-add:active,
+.instant-delete:active{
+    transform:scale(.82);
+
+    box-shadow:
+        inset 0 0 7px
+        rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   MONEY GRID
+========================================================= */
 
 .money-grid{
     flex:1;
+
     min-height:0;
+
     display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    grid-template-rows:repeat(5,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    grid-template-rows:
+        repeat(5,minmax(0,1fr));
+
     gap:4px;
-    padding:0 6px 5px;
+
+    padding:
+        0 6px 5px;
+
     overflow:hidden;
 }
 
 .money-card{
     min-width:0;
     min-height:0;
-    background:#fff;
+
+    background:white;
+
     border-radius:7px;
+
     padding:2px;
+
     display:flex;
     flex-direction:column;
-    box-shadow:0 1px 4px rgba(0,0,0,.08);
-    transition:transform .10s,box-shadow .10s;
+
+    box-shadow:
+        0 1px 4px
+        rgba(0,0,0,.08);
+
+    transition:
+        transform .09s ease,
+        box-shadow .09s ease;
 }
 
 .money-card:active{
-    transform:scale(.975);
-    box-shadow:0 5px 14px rgba(0,0,0,.20);
+    transform:scale(.965);
+
+    box-shadow:
+        0 5px 14px
+        rgba(0,0,0,.22);
 }
 
 .money-title{
-    flex:0 0 20px;
-    height:20px;
+    flex:0 0 19px;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
-    font-size:16px;
+
+    font-size:15px;
     font-weight:900;
 }
 
 .money-total{
     flex:1;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     color:#087bd1;
+
     font-size:9px;
     font-weight:900;
 }
 
 .control{
     flex:0 0 25px;
-    height:25px;
+
     display:grid;
-    grid-template-columns:26px 1fr 26px;
-    border:1px solid #d9dcdf;
+
+    grid-template-columns:
+        26px 1fr 26px;
+
+    border:
+        1px solid #d9dcdf;
+
     border-radius:5px;
+
     overflow:hidden;
 }
 
 .control button{
     border:0;
+
     background:#f0f2f3;
+
     color:#222;
+
     font-size:19px;
     font-weight:900;
-    transition:transform .07s,background .07s,box-shadow .07s;
+
+    transition:
+        transform .07s ease,
+        background .07s ease,
+        box-shadow .07s ease;
 }
 
 .control button:active{
-    transform:scale(.84);
+    transform:scale(.82);
+
     background:#cfe5f8;
-    box-shadow:inset 0 0 7px rgba(0,0,0,.22);
+
+    box-shadow:
+        inset 0 0 8px
+        rgba(0,0,0,.25);
 }
 
 .quantity{
     display:flex;
+
     justify-content:center;
     align-items:center;
-    background:#fff;
+
+    background:white;
+
     font-size:15px;
     font-weight:900;
 }
 
-/* MENU */
+
+/* =========================================================
+   SIDE MENU
+========================================================= */
 
 .overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.40);
+
+    background:
+        rgba(0,0,0,.42);
+
     z-index:100;
+
     display:none;
 }
 
@@ -272,14 +572,23 @@ body{
 
 .side-menu{
     position:fixed;
+
     top:0;
     left:-285px;
+
     width:285px;
     height:100%;
-    background:#fff;
+
+    background:white;
+
     z-index:200;
-    transition:left .22s ease;
-    box-shadow:4px 0 15px rgba(0,0,0,.25);
+
+    transition:
+        left .22s ease;
+
+    box-shadow:
+        4px 0 15px
+        rgba(0,0,0,.25);
 }
 
 .side-menu.open{
@@ -288,37 +597,65 @@ body{
 
 .side-title{
     height:48px;
+
     display:flex;
+
     align-items:center;
+
     padding:0 15px;
+
     background:#087bd1;
-    color:#fff;
-    font-size:19px;
+
+    color:white;
+
+    font-size:18px;
     font-weight:900;
 }
 
 .side-item{
     padding:14px 15px;
-    border-bottom:1px solid #e8e8e8;
+
+    border-bottom:
+        1px solid #e8e8e8;
+
     font-size:14px;
+
+    transition:
+        background .1s ease;
 }
 
-/* SETTINGS */
+.side-item:active{
+    background:#edf4f9;
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 .setting-panel{
     display:none;
+
     position:fixed;
+
     inset:0;
+
     z-index:500;
+
     background:#f1f3f5;
 }
 
 .setting-header{
     height:48px;
+
     background:#087bd1;
-    color:#fff;
+
+    color:white;
+
     display:flex;
+
     align-items:center;
+
     font-size:18px;
     font-weight:900;
 }
@@ -326,9 +663,13 @@ body{
 .back{
     width:45px;
     height:45px;
+
     border:0;
+
     background:transparent;
-    color:#fff;
+
+    color:white;
+
     font-size:32px;
 }
 
@@ -337,11 +678,17 @@ body{
 }
 
 .setting-box{
-    background:#fff;
+    background:white;
+
     border-radius:9px;
-    padding:15px;
+
+    padding:14px;
+
     margin-bottom:8px;
-    box-shadow:0 1px 5px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 1px 5px
+        rgba(0,0,0,.08);
 }
 
 .setting-label{
@@ -350,45 +697,87 @@ body{
 }
 
 .volume-number{
+    margin-top:4px;
+
     color:#087bd1;
-    font-size:23px;
+
+    font-size:24px;
     font-weight:900;
 }
 
-input[type="range"]{
+.volume-slider{
     width:100%;
+
     margin-top:10px;
 }
 
-/* DARK */
+.test-buttons{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:7px;
+
+    margin-top:10px;
+}
+
+.test-btn{
+    border:0;
+
+    border-radius:7px;
+
+    padding:10px;
+
+    font-size:13px;
+    font-weight:900;
+}
+
+.test-plus{
+    background:#dff3e5;
+    color:#14783a;
+}
+
+.test-minus{
+    background:#fde4e4;
+    color:#b51e1e;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
 
 body.dark{
     background:#17191c;
     color:#f1f3f4;
 }
 
-body.dark .app{
-    background:#17191c;
-}
-
 body.dark .total-box,
 body.dark .report-box,
-body.dark .money-card{
+body.dark .money-card,
+body.dark .instant-panel{
     background:#23272a;
-    box-shadow:0 2px 7px rgba(0,0,0,.38);
+
+    box-shadow:
+        0 2px 7px
+        rgba(0,0,0,.40);
 }
 
 body.dark .total-label,
 body.dark .today-label,
 body.dark .report-title,
-body.dark .total-count{
+body.dark .total-count,
+body.dark .instant-title{
     color:#999;
 }
 
 body.dark .total-money,
 body.dark .today-number,
 body.dark .report-value,
-body.dark .money-total{
+body.dark .money-total,
+body.dark .instant-total,
+body.dark .instant-money{
     color:#6bbcff;
 }
 
@@ -411,12 +800,17 @@ body.dark .control{
 
 body.dark .control button{
     background:#303438;
-    color:#fff;
+    color:white;
 }
 
 body.dark .quantity{
     background:#24282b;
-    color:#fff;
+    color:white;
+}
+
+body.dark .instant-item{
+    background:#2b3034;
+    border-color:#41474c;
 }
 
 body.dark .side-menu,
@@ -425,141 +819,409 @@ body.dark .setting-panel{
 }
 
 body.dark .side-item{
-    color:#fff;
+    color:white;
     border-color:#383c40;
 }
 
 body.dark .setting-box{
     background:#292d30;
 }
+
+
+/* =========================================================
+   CONFIRM DIALOG
+========================================================= */
+
+.confirm-overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        rgba(0,0,0,.48);
+}
+
+.confirm-overlay.show{
+    display:flex;
+}
+
+.confirm-box{
+    width:88%;
+    max-width:330px;
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:17px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.28);
+
+    animation:
+        dialogIn .14s ease;
+}
+
+@keyframes dialogIn{
+
+    from{
+        transform:scale(.90);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.confirm-title{
+    font-size:16px;
+    font-weight:900;
+
+    margin-bottom:6px;
+}
+
+.confirm-text{
+    font-size:13px;
+    color:#666;
+
+    margin-bottom:14px;
+}
+
+.confirm-buttons{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:7px;
+}
+
+.confirm-btn{
+    border:0;
+
+    border-radius:7px;
+
+    padding:10px;
+
+    font-weight:900;
+}
+
+.confirm-no{
+    background:#eceff1;
+    color:#333;
+}
+
+.confirm-yes{
+    background:#087bd1;
+    color:white;
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
-    <div class="header">
 
-        <button class="menu-btn" onclick="openMenu()">☰</button>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <div class="header-title">
-            হাফেজ তিজারা
-        </div>
+<div class="header">
 
-        <button class="more-btn" onclick="openMenu()">⋮</button>
+    <button
+        class="menu-btn"
+        onclick="openMenu()">
+        ☰
+    </button>
 
+    <div class="header-title">
+        হাফেজ তিজারা
     </div>
 
-
-    <div class="total-box">
-
-        <div>
-
-            <div class="total-label">
-                সর্বমোট টাকা
-            </div>
-
-            <div class="total-money" id="grandTotal">
-                ৳ ০
-            </div>
-
-            <div class="total-count" id="grandCount">
-                মোট ০ টি
-            </div>
-
-        </div>
-
-
-        <div class="today-box">
-
-            <div class="today-label">
-                আজকের বিক্রি
-            </div>
-
-            <div class="today-number" id="todayCount">
-                ০ টি
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="report-grid">
-
-        <div class="report-box">
-            <div class="report-title">আজ</div>
-            <div class="report-value" id="today">৳ ০</div>
-        </div>
-
-        <div class="report-box">
-            <div class="report-title">৭ দিন</div>
-            <div class="report-value" id="week">৳ ০</div>
-        </div>
-
-        <div class="report-box">
-            <div class="report-title">১ মাস</div>
-            <div class="report-value" id="month">৳ ০</div>
-        </div>
-
-        <div class="report-box">
-            <div class="report-title">১ বছর</div>
-            <div class="report-value" id="year">৳ ০</div>
-        </div>
-
-    </div>
-
-
-    <div class="extra-row">
-
-        <button class="extra-btn" onclick="addExtra(1)">১</button>
-        <button class="extra-btn" onclick="addExtra(2)">২</button>
-        <button class="extra-btn" onclick="addExtra(3)">৩</button>
-        <button class="extra-btn" onclick="addExtra(4)">৪</button>
-        <button class="extra-btn" onclick="addExtra(5)">৫</button>
-
-    </div>
-
-
-    <div class="money-grid" id="moneyGrid"></div>
+    <button
+        class="more-btn"
+        onclick="openMenu()">
+        ⋮
+    </button>
 
 </div>
 
 
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<!-- =====================================================
+     TOTAL
+===================================================== -->
+
+<div class="total-box">
+
+    <div>
+
+        <div class="total-label">
+            সর্বমোট টাকা
+        </div>
+
+        <div
+            class="total-money"
+            id="grandTotal">
+            ৳ ০
+        </div>
+
+        <div
+            class="total-count"
+            id="grandCount">
+            মোট ০ টি
+        </div>
+
+    </div>
 
 
-<div class="side-menu" id="sideMenu">
+    <div class="today-box">
+
+        <div class="today-label">
+            আজকের বিক্রি
+        </div>
+
+        <div
+            class="today-number"
+            id="todayCount">
+            ০ টি
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     REPORT
+===================================================== -->
+
+<div class="report-grid">
+
+    <div class="report-box">
+
+        <div class="report-title">
+            আজ
+        </div>
+
+        <div
+            class="report-value"
+            id="today">
+            ৳ ০
+        </div>
+
+    </div>
+
+
+    <div class="report-box">
+
+        <div class="report-title">
+            ৭ দিন
+        </div>
+
+        <div
+            class="report-value"
+            id="week">
+            ৳ ০
+        </div>
+
+    </div>
+
+
+    <div class="report-box">
+
+        <div class="report-title">
+            ১ মাস
+        </div>
+
+        <div
+            class="report-value"
+            id="month">
+            ৳ ০
+        </div>
+
+    </div>
+
+
+    <div class="report-box">
+
+        <div class="report-title">
+            ১ বছর
+        </div>
+
+        <div
+            class="report-value"
+            id="year">
+            ৳ ০
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     1-5
+===================================================== -->
+
+<div class="extra-row">
+
+    <button
+        class="extra-btn"
+        onclick="addInstant(1)">
+        ১
+    </button>
+
+    <button
+        class="extra-btn"
+        onclick="addInstant(2)">
+        ২
+    </button>
+
+    <button
+        class="extra-btn"
+        onclick="addInstant(3)">
+        ৩
+    </button>
+
+    <button
+        class="extra-btn"
+        onclick="addInstant(4)">
+        ৪
+    </button>
+
+    <button
+        class="extra-btn"
+        onclick="addInstant(5)">
+        ৫
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     INSTANT TRANSACTION
+===================================================== -->
+
+<div class="instant-panel">
+
+    <div class="instant-header">
+
+        <div class="instant-title">
+            ⚡ ইনস্ট্যান্ট লেনদেন
+        </div>
+
+        <div
+            class="instant-total"
+            id="instantTotal">
+            ৳ ০
+        </div>
+
+    </div>
+
+
+    <div
+        class="instant-list"
+        id="instantList">
+
+        <div class="instant-empty">
+            এখনো কোনো পেন্ডিং লেনদেন নেই
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MONEY GRID
+===================================================== -->
+
+<div
+    class="money-grid"
+    id="moneyGrid">
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeMenu()">
+</div>
+
+
+<div
+    class="side-menu"
+    id="sideMenu">
 
     <div class="side-title">
         হাফেজ তিজারা
     </div>
 
-    <div class="side-item" onclick="openSettings()">
+
+    <div
+        class="side-item"
+        onclick="openSettings()">
         ⚙️ সেটিংস
     </div>
 
-    <div class="side-item" onclick="toggleTheme()">
+
+    <div
+        class="side-item"
+        onclick="toggleTheme()">
         🌙 / ☀️ থিম পরিবর্তন
     </div>
 
-    <div class="side-item" onclick="toggleSound()">
+
+    <div
+        class="side-item"
+        onclick="toggleSound()">
         🔊 সাউন্ড চালু / বন্ধ
     </div>
 
-    <div class="side-item" onclick="resetAll()">
+
+    <div
+        class="side-item"
+        onclick="resetAll()">
         🗑️ সব হিসাব মুছুন
     </div>
 
 </div>
 
 
-<div class="setting-panel" id="settingPanel">
+<!-- =====================================================
+     SETTINGS
+===================================================== -->
+
+<div
+    class="setting-panel"
+    id="settingPanel">
 
     <div class="setting-header">
 
-        <button class="back" onclick="closeSettings()">
+        <button
+            class="back"
+            onclick="closeSettings()">
             ‹
         </button>
 
@@ -577,17 +1239,41 @@ body.dark .setting-box{
             </div>
 
             <div class="volume-number">
-                <span id="volumeText">৭০</span>%
+
+                <span id="volumeText">
+                    100
+                </span>%
+
             </div>
 
+
             <input
+                class="volume-slider"
                 id="volumeSlider"
                 type="range"
                 min="1"
                 max="100"
-                value="70"
+                value="100"
                 oninput="changeVolume(this.value)"
             >
+
+
+            <div class="test-buttons">
+
+                <button
+                    class="test-btn test-plus"
+                    onclick="playSound('plus')">
+                    ＋ Plus Test
+                </button>
+
+
+                <button
+                    class="test-btn test-minus"
+                    onclick="playSound('minus')">
+                    − Minus Test
+                </button>
+
+            </div>
 
         </div>
 
@@ -614,57 +1300,132 @@ body.dark .setting-box{
 </div>
 
 
+<!-- =====================================================
+     CONFIRM
+===================================================== -->
+
+<div
+    class="confirm-overlay"
+    id="confirmOverlay">
+
+    <div class="confirm-box">
+
+        <div
+            class="confirm-title">
+            মোট হিসাবে যোগ করবেন?
+        </div>
+
+        <div
+            class="confirm-text"
+            id="confirmText">
+            এই টাকা সর্বমোট টাকার সাথে যোগ হবে।
+        </div>
+
+
+        <div class="confirm-buttons">
+
+            <button
+                class="confirm-btn confirm-no"
+                onclick="cancelConfirm()">
+                না
+            </button>
+
+
+            <button
+                class="confirm-btn confirm-yes"
+                onclick="confirmAdd()">
+                হ্যাঁ, যোগ করুন
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 <script>
 
-/* ==========================================
-   DATA
-========================================== */
+/* =========================================================
+   PRICE DATA
+========================================================= */
 
 const prices=[];
 
-for(let i=5;i<=100;i+=5){
+for(
+    let i=5;
+    i<=100;
+    i+=5
+){
     prices.push(i);
 }
 
-let quantities=
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+let quantities =
     JSON.parse(
-        localStorage.getItem("hafiz_quantities")
+        localStorage.getItem(
+            "hafiz_quantities"
+        )
     ) || {};
 
-let extras=
+
+let history =
     JSON.parse(
-        localStorage.getItem("hafiz_extras")
+        localStorage.getItem(
+            "hafiz_history"
+        )
     ) || {};
 
-let history=
+
+let instantTransactions =
     JSON.parse(
-        localStorage.getItem("hafiz_history")
-    ) || {};
+        localStorage.getItem(
+            "hafiz_instant_transactions"
+        )
+    ) || [];
 
-let soundEnabled=
-    localStorage.getItem("hafiz_sound")
-    !=="off";
 
-let volume=
+let soundEnabled =
+    localStorage.getItem(
+        "hafiz_sound"
+    ) !== "off";
+
+
+let volume =
     Number(
-        localStorage.getItem("hafiz_volume")
-    ) || 70;
+        localStorage.getItem(
+            "hafiz_volume"
+        )
+    ) || 100;
 
 
-/* ==========================================
-   AUDIO
-   প্রতিটি ক্লিকের জন্য নতুন AudioContext
-   নয়—একই context, কিন্তু প্রতিটি ক্লিকে
-   আলাদা oscillator তৈরি হবে।
-========================================== */
+let pendingConfirmId=null;
+
+
+/* =========================================================
+   AUDIO ENGINE
+========================================================= */
 
 let audioContext=null;
 
-function getAudio(){
+
+/*
+   AudioContext একবার তৈরি হবে।
+   কিন্তু প্রতিটি ক্লিকের জন্য নতুন
+   oscillator + gain node তৈরি হবে।
+
+   তাই rapid clicks হারিয়ে যাবে না।
+*/
+
+function getAudioContext(){
 
     if(!audioContext){
 
-        audioContext=
+        audioContext =
             new (
                 window.AudioContext ||
                 window.webkitAudioContext
@@ -672,654 +1433,1327 @@ function getAudio(){
 
     }
 
+
     if(
-        audioContext.state==="suspended"
+        audioContext.state ===
+        "suspended"
     ){
+
         audioContext.resume();
+
     }
 
+
     return audioContext;
+
 }
 
 
-function playClick(type){
+/* =========================================================
+   MASTER VOLUME
+========================================================= */
+
+function getMasterGain(ctx){
+
+    /*
+       100% = পূর্ণ volume
+
+       50% = অর্ধেকের কাছাকাছি
+
+       logarithmic curve ব্যবহার করছি
+       যাতে volume slider বাস্তবে
+       noticeable হয়।
+    */
+
+    const normalized =
+        Math.max(
+            0,
+            Math.min(
+                1,
+                volume / 100
+            )
+        );
+
+
+    return Math.pow(
+        normalized,
+        0.72
+    );
+
+}
+
+
+/* =========================================================
+   PLAY SOUND
+========================================================= */
+
+function playSound(type){
 
     if(!soundEnabled){
         return;
     }
 
+
     try{
 
-        const ctx=getAudio();
+        const ctx =
+            getAudioContext();
 
-        const oscillator=
+
+        const now =
+            ctx.currentTime;
+
+
+        const oscillator =
             ctx.createOscillator();
 
-        const gain=
+
+        const gain =
             ctx.createGain();
 
 
+        const compressor =
+            ctx.createDynamicsCompressor();
+
+
         oscillator.connect(gain);
-        gain.connect(
+
+        gain.connect(compressor);
+
+        compressor.connect(
             ctx.destination
         );
 
 
         /*
-          PLUS = উঁচু টোন
-          MINUS = নিচু টোন
+          Compressor ব্যবহার করার কারণে
+          mobile speaker-এ sound আরও পরিষ্কার
+          এবং consistent হবে।
         */
 
-        if(type==="plus"){
+        compressor.threshold.setValueAtTime(
+            -18,
+            now
+        );
+
+        compressor.knee.setValueAtTime(
+            10,
+            now
+        );
+
+        compressor.ratio.setValueAtTime(
+            8,
+            now
+        );
+
+        compressor.attack.setValueAtTime(
+            0.003,
+            now
+        );
+
+        compressor.release.setValueAtTime(
+            0.08,
+            now
+        );
+
+
+        if(type === "plus"){
+
+            /*
+              PLUS:
+              দুই ধাপের bright click
+            */
 
             oscillator.type="sine";
 
+
             oscillator.frequency.setValueAtTime(
-                620,
-                ctx.currentTime
+                650,
+                now
             );
 
             oscillator.frequency.exponentialRampToValueAtTime(
-                820,
-                ctx.currentTime+0.045
+                980,
+                now + 0.035
             );
+
 
         }else{
 
+            /*
+              MINUS:
+              নিচু এবং একটু ভারী click
+            */
+
             oscillator.type="triangle";
 
+
             oscillator.frequency.setValueAtTime(
-                360,
-                ctx.currentTime
+                430,
+                now
             );
 
             oscillator.frequency.exponentialRampToValueAtTime(
-                220,
-                ctx.currentTime+0.055
+                250,
+                now + 0.06
             );
 
         }
 
 
-        const v=
-            Math.max(
-                0.001,
-                volume/100
-            ) * 0.13;
+        const master =
+            getMasterGain(ctx);
+
+
+        /*
+          আগের version-এর 0.13
+          fixed volume এখানে নেই।
+
+          এখন slider-এর value সরাসরি
+          gain-এর ওপর কাজ করছে।
+        */
+
+        const peak =
+            0.42 * master;
 
 
         gain.gain.setValueAtTime(
             0.0001,
-            ctx.currentTime
+            now
         );
 
+
         gain.gain.linearRampToValueAtTime(
-            v,
-            ctx.currentTime+0.006
+            peak,
+            now + 0.004
         );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            Math.max(
+                0.0001,
+                peak * 0.55
+            ),
+            now + 0.035
+        );
+
 
         gain.gain.exponentialRampToValueAtTime(
             0.0001,
-            ctx.currentTime+0.085
+            now + 0.11
         );
 
 
-        oscillator.start(
-            ctx.currentTime
-        );
+        oscillator.start(now);
 
         oscillator.stop(
-            ctx.currentTime+0.09
+            now + 0.12
         );
 
-    }catch(e){
 
-        console.log(e);
+    }catch(error){
+
+        console.log(
+            "Audio error:",
+            error
+        );
 
     }
 
 }
 
 
-/* ==========================================
+/* =========================================================
    VOLUME
-========================================== */
+========================================================= */
 
 function changeVolume(value){
 
-    volume=Number(value);
+    volume =
+        Number(value);
+
 
     localStorage.setItem(
         "hafiz_volume",
         volume
     );
 
+
     document.getElementById(
         "volumeText"
-    ).innerText=volume;
+    ).innerText =
+        volume;
 
 }
 
 
-/* ==========================================
-   SOUND
-========================================== */
+/* =========================================================
+   SOUND TOGGLE
+========================================================= */
 
 function toggleSound(){
 
-    soundEnabled=!soundEnabled;
+    soundEnabled =
+        !soundEnabled;
+
 
     localStorage.setItem(
         "hafiz_sound",
-        soundEnabled?"on":"off"
+        soundEnabled
+            ? "on"
+            : "off"
     );
+
+
+    /*
+      Sound চালু করলে ছোট test sound।
+    */
+
+    if(soundEnabled){
+
+        playSound("plus");
+
+    }
 
 }
 
 
-/* ==========================================
+/* =========================================================
    BANGLA NUMBER
-========================================== */
+========================================================= */
 
-function bn(n){
+function bn(number){
 
-    return Number(n)
+    return Number(number)
         .toLocaleString("bn-BD");
 
 }
 
 
-/* ==========================================
+/* =========================================================
    DATE
-========================================== */
+========================================================= */
 
 function todayKey(){
 
-    const d=new Date();
+    const d =
+        new Date();
 
-    return d.getFullYear()+"-"+
-        String(d.getMonth()+1).padStart(2,"0")+"-"+
-        String(d.getDate()).padStart(2,"0");
+
+    return (
+        d.getFullYear()
+        + "-"
+        +
+        String(
+            d.getMonth()+1
+        ).padStart(2,"0")
+        + "-"
+        +
+        String(
+            d.getDate()
+        ).padStart(2,"0")
+    );
 
 }
 
 
-/* ==========================================
+/* =========================================================
    SAVE
-========================================== */
+========================================================= */
 
 function save(){
 
     localStorage.setItem(
         "hafiz_quantities",
-        JSON.stringify(quantities)
+        JSON.stringify(
+            quantities
+        )
     );
 
-    localStorage.setItem(
-        "hafiz_extras",
-        JSON.stringify(extras)
-    );
 
     localStorage.setItem(
         "hafiz_history",
-        JSON.stringify(history)
+        JSON.stringify(
+            history
+        )
+    );
+
+
+    localStorage.setItem(
+        "hafiz_instant_transactions",
+        JSON.stringify(
+            instantTransactions
+        )
     );
 
 }
 
 
-/* ==========================================
-   RECORD
-========================================== */
+/* =========================================================
+   RECORD HISTORY
+========================================================= */
 
 function record(amount){
 
-    const day=todayKey();
+    const day =
+        todayKey();
+
 
     if(!history[day]){
+
         history[day]=[];
+
     }
 
+
     history[day].push({
-        amount:Number(amount),
-        time:Date.now()
+
+        amount:
+            Number(amount),
+
+        time:
+            Date.now()
+
     });
 
 }
 
 
-/* ==========================================
-   PLUS
-========================================== */
+/* =========================================================
+   CREATE INSTANT TRANSACTION
+========================================================= */
 
-function plus(price){
+function createInstant(amount){
 
-    /*
-       সাউন্ড প্রথমে।
-       তাই দ্রুত পরপর ক্লিক করলেও
-       প্রতিটি ক্লিকের নিজস্ব sound হবে।
-    */
+    const transaction={
 
-    playClick("plus");
+        id:
+            Date.now()
+            +
+            Math.random(),
 
-    quantities[price]=
-        Number(quantities[price]||0)+1;
+        amount:
+            Number(amount),
 
-    record(price);
+        createdAt:
+            Date.now(),
+
+        added:
+            false
+
+    };
+
+
+    instantTransactions.unshift(
+        transaction
+    );
+
 
     save();
 
-    render();
+    renderInstant();
 
 }
 
 
-/* ==========================================
-   MINUS
-========================================== */
+/* =========================================================
+   MONEY BUTTON
+========================================================= */
 
-function minus(price){
+function moneyClicked(price){
+
+    /*
+      এখন আর সরাসরি মোট হিসাবে যাবে না।
+
+      আগে Instant Transaction হবে।
+    */
+
+    playSound("plus");
+
+    createInstant(price);
+
+}
+
+
+/* =========================================================
+   1-5 BUTTON
+========================================================= */
+
+function addInstant(value){
+
+    playSound("plus");
+
+    createInstant(value);
+
+}
+
+
+/* =========================================================
+   ADD INSTANT TO TOTAL
+========================================================= */
+
+function askAddToTotal(id){
+
+    const item =
+        instantTransactions.find(
+            x => x.id === id
+        );
+
+
+    if(!item){
+        return;
+    }
+
+
+    pendingConfirmId=id;
+
+
+    document.getElementById(
+        "confirmText"
+    ).innerText =
+        "৳ "
+        +
+        bn(item.amount)
+        +
+        " সর্বমোট টাকার সাথে যোগ করতে চান?";
+
+
+    document.getElementById(
+        "confirmOverlay"
+    ).classList.add("show");
+
+}
+
+
+/* =========================================================
+   CONFIRM ADD
+========================================================= */
+
+function confirmAdd(){
 
     if(
-        Number(quantities[price]||0)<=0
+        pendingConfirmId === null
     ){
         return;
     }
 
-    playClick("minus");
 
-    quantities[price]--;
+    const item =
+        instantTransactions.find(
+            x =>
+                x.id ===
+                pendingConfirmId
+        );
 
-    record(-price);
+
+    if(!item){
+
+        cancelConfirm();
+
+        return;
+
+    }
+
+
+    /*
+      এবারই প্রথম মোট হিসাবে যাবে।
+    */
+
+    quantities[item.amount] =
+        Number(
+            quantities[item.amount] || 0
+        ) + 1;
+
+
+    /*
+      History-তেও এখন record হবে।
+    */
+
+    record(item.amount);
+
+
+    /*
+      Instant transaction থাকবে।
+      শুধু added=true হবে।
+    */
+
+    item.added=true;
+
+    item.addedAt=Date.now();
+
 
     save();
 
+    cancelConfirm();
+
     render();
+
+    renderInstant();
 
 }
 
 
-/* ==========================================
-   1-5
-========================================== */
+/* =========================================================
+   CANCEL CONFIRM
+========================================================= */
 
-function addExtra(value){
+function cancelConfirm(){
 
-    playClick("plus");
+    pendingConfirmId=null;
 
-    extras[value]=
-        Number(extras[value]||0)+1;
-
-    record(value);
-
-    save();
-
-    render();
+    document.getElementById(
+        "confirmOverlay"
+    ).classList.remove("show");
 
 }
 
 
-/* ==========================================
-   TOTAL
-========================================== */
+/* =========================================================
+   REMOVE INSTANT
+========================================================= */
+
+function deleteInstant(id){
+
+    playSound("minus");
+
+
+    instantTransactions =
+        instantTransactions.filter(
+            x =>
+                x.id !== id
+        );
+
+
+    save();
+
+    renderInstant();
+
+}
+
+
+/* =========================================================
+   MINUS INSTANT
+========================================================= */
+
+function minusInstant(id){
+
+    playSound("minus");
+
+
+    const item =
+        instantTransactions.find(
+            x =>
+                x.id === id
+        );
+
+
+    if(!item){
+        return;
+    }
+
+
+    /*
+      Instant amount থেকে
+      সরাসরি delete না করে
+      quantity 1 করে কমানো।
+    */
+
+    item.amount--;
+
+
+    if(item.amount<=0){
+
+        instantTransactions =
+            instantTransactions.filter(
+                x =>
+                    x.id !== id
+            );
+
+    }
+
+
+    save();
+
+    renderInstant();
+
+}
+
+
+/* =========================================================
+   TOTAL AMOUNT
+========================================================= */
 
 function totalAmount(){
 
     let total=0;
 
-    prices.forEach(price=>{
 
-        total +=
-            price*
-            Number(
-                quantities[price]||0
-            );
+    prices.forEach(
+        price => {
 
-    });
+            total +=
+                price *
+                Number(
+                    quantities[price] || 0
+                );
 
-    for(let i=1;i<=5;i++){
+        }
+    );
 
-        total +=
-            i*
-            Number(
-                extras[i]||0
-            );
-
-    }
 
     return total;
 
 }
 
 
-/* ==========================================
-   COUNT
-========================================== */
+/* =========================================================
+   TOTAL COUNT
+========================================================= */
 
 function totalCount(){
 
     let count=0;
 
-    prices.forEach(price=>{
 
-        count +=
-            Number(
-                quantities[price]||0
-            );
+    prices.forEach(
+        price => {
 
-    });
+            count +=
+                Number(
+                    quantities[price] || 0
+                );
 
-    for(let i=1;i<=5;i++){
+        }
+    );
 
-        count +=
-            Number(
-                extras[i]||0
-            );
-
-    }
 
     return count;
 
 }
 
 
-/* ==========================================
-   TODAY COUNT
-========================================== */
-
-function todayCount(){
-
-    const h=
-        history[todayKey()]||[];
-
-    return h.filter(
-        x=>Number(x.amount)>0
-    ).length;
-
-}
-
-
-/* ==========================================
-   PERIOD
-========================================== */
+/* =========================================================
+   PERIOD TOTAL
+========================================================= */
 
 function periodTotal(days){
 
     let total=0;
 
-    const now=new Date();
 
-    const start=new Date(now);
+    const now =
+        new Date();
 
-    start.setHours(0,0,0,0);
 
-    start.setDate(
-        start.getDate()-days
+    const start =
+        new Date(now);
+
+
+    start.setHours(
+        0,0,0,0
     );
 
+
+    start.setDate(
+        start.getDate()
+        -
+        days
+    );
+
+
     Object.keys(history)
-        .forEach(day=>{
+        .forEach(
+            day => {
 
-            const d=
-                new Date(
-                    day+"T00:00:00"
-                );
+                const d =
+                    new Date(
+                        day
+                        +
+                        "T00:00:00"
+                    );
 
-            if(d>=start){
 
-                history[day].forEach(x=>{
+                if(d >= start){
 
-                    total+=Number(x.amount);
+                    history[day]
+                        .forEach(
+                            x => {
 
-                });
+                                total +=
+                                    Number(
+                                        x.amount
+                                    );
+
+                            }
+                        );
+
+                }
 
             }
+        );
 
-        });
 
-    return Math.max(0,total);
+    return Math.max(
+        0,
+        total
+    );
 
 }
 
 
-/* ==========================================
-   RENDER
-========================================== */
+/* =========================================================
+   RENDER MAIN
+========================================================= */
 
 function render(){
 
-    const grid=
+    const grid =
         document.getElementById(
             "moneyGrid"
         );
 
+
     grid.innerHTML="";
 
 
-    prices.forEach(price=>{
+    prices.forEach(
+        price => {
 
-        const qty=
-            Number(
-                quantities[price]||0
-            );
+            const qty =
+                Number(
+                    quantities[price] || 0
+                );
 
-        const total=price*qty;
 
-        const card=
-            document.createElement("div");
+            const total =
+                price * qty;
 
-        card.className="money-card";
 
-        card.innerHTML=`
+            const card =
+                document.createElement(
+                    "div"
+                );
 
-            <div class="money-title">
-                ৳ ${bn(price)}
-            </div>
 
-            <div class="money-total">
-                মোট ৳ ${bn(total)}
-            </div>
+            card.className=
+                "money-card";
 
-            <div class="control">
 
-                <button
-                    onclick="minus(${price})">
-                    −
-                </button>
+            card.innerHTML=`
 
-                <div class="quantity">
-                    ${bn(qty)}
+                <div class="money-title">
+                    ৳ ${bn(price)}
                 </div>
 
-                <button
-                    onclick="plus(${price})">
-                    +
-                </button>
+                <div class="money-total">
+                    মোট ৳ ${bn(total)}
+                </div>
 
-            </div>
+                <div class="control">
 
-        `;
+                    <button
+                        onclick="
+                            minusPrice(${price})
+                        ">
+                        −
+                    </button>
 
-        grid.appendChild(card);
+                    <div class="quantity">
+                        ${bn(qty)}
+                    </div>
 
-    });
+                    <button
+                        onclick="
+                            plusPrice(${price})
+                        ">
+                        +
+                    </button>
+
+                </div>
+            `;
+
+
+            grid.appendChild(
+                card
+            );
+
+        }
+    );
 
 
     document.getElementById(
         "grandTotal"
-    ).innerText=
-        "৳ "+bn(totalAmount());
+    ).innerText =
+        "৳ "
+        +
+        bn(
+            totalAmount()
+        );
 
 
     document.getElementById(
         "grandCount"
-    ).innerText=
-        "মোট "+bn(totalCount())+" টি";
+    ).innerText =
+        "মোট "
+        +
+        bn(
+            totalCount()
+        )
+        +
+        " টি";
 
 
     document.getElementById(
         "todayCount"
-    ).innerText=
-        bn(todayCount())+" টি";
+    ).innerText =
+        bn(
+            todayCount()
+        )
+        +
+        " টি";
 
 
     document.getElementById(
         "today"
-    ).innerText=
-        "৳ "+bn(periodTotal(0));
+    ).innerText =
+        "৳ "
+        +
+        bn(
+            periodTotal(0)
+        );
 
 
     document.getElementById(
         "week"
-    ).innerText=
-        "৳ "+bn(periodTotal(6));
+    ).innerText =
+        "৳ "
+        +
+        bn(
+            periodTotal(6)
+        );
 
 
     document.getElementById(
         "month"
-    ).innerText=
-        "৳ "+bn(periodTotal(29));
+    ).innerText =
+        "৳ "
+        +
+        bn(
+            periodTotal(29)
+        );
 
 
     document.getElementById(
         "year"
-    ).innerText=
-        "৳ "+bn(periodTotal(364));
+    ).innerText =
+        "৳ "
+        +
+        bn(
+            periodTotal(364)
+        );
 
 }
 
 
-/* ==========================================
+/* =========================================================
+   PLUS PRICE
+========================================================= */
+
+function plusPrice(price){
+
+    /*
+      প্রথমে instant transaction।
+    */
+
+    moneyClicked(price);
+
+}
+
+
+/* =========================================================
+   MINUS PRICE
+========================================================= */
+
+function minusPrice(price){
+
+    /*
+      Main total-এর minus
+      শুধু already-added quantity কমাবে।
+    */
+
+    if(
+        Number(
+            quantities[price] || 0
+        ) <= 0
+    ){
+
+        playSound("minus");
+
+        return;
+
+    }
+
+
+    playSound("minus");
+
+
+    quantities[price]--;
+
+
+    record(
+        -price
+    );
+
+
+    save();
+
+    render();
+
+}
+
+
+/* =========================================================
+   TODAY COUNT
+========================================================= */
+
+function todayCount(){
+
+    const h =
+        history[
+            todayKey()
+        ]
+        ||
+        [];
+
+
+    return h.filter(
+        x =>
+            Number(
+                x.amount
+            ) > 0
+    ).length;
+
+}
+
+
+/* =========================================================
+   RENDER INSTANT
+========================================================= */
+
+function renderInstant(){
+
+    const list =
+        document.getElementById(
+            "instantList"
+        );
+
+
+    list.innerHTML="";
+
+
+    if(
+        instantTransactions.length === 0
+    ){
+
+        list.innerHTML=`
+            <div class="instant-empty">
+                এখনো কোনো পেন্ডিং লেনদেন নেই
+            </div>
+        `;
+
+        document.getElementById(
+            "instantTotal"
+        ).innerText =
+            "৳ ০";
+
+        return;
+
+    }
+
+
+    let pendingTotal=0;
+
+
+    instantTransactions
+        .forEach(
+            item => {
+
+                if(!item.added){
+
+                    pendingTotal +=
+                        Number(
+                            item.amount
+                        );
+
+                }
+
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className=
+                    "instant-item";
+
+
+                div.innerHTML=`
+
+                    <div class="instant-money">
+                        ৳ ${bn(item.amount)}
+                        ${
+                            item.added
+                            ? " ✓"
+                            : ""
+                        }
+                    </div>
+
+                    ${
+                        item.added
+                        ?
+                        `
+                        <button
+                            class="
+                            instant-delete"
+                            onclick="
+                            deleteInstant(${item.id})
+                            ">
+                            🗑
+                        </button>
+                        `
+                        :
+                        `
+                        <button
+                            class="
+                            instant-add"
+                            onclick="
+                            askAddToTotal(${item.id})
+                            ">
+                            ✓
+                        </button>
+
+                        <button
+                            class="
+                            instant-delete"
+                            onclick="
+                            deleteInstant(${item.id})
+                            ">
+                            🗑
+                        </button>
+                        `
+                    }
+
+                `;
+
+
+                list.appendChild(
+                    div
+                );
+
+            }
+        );
+
+
+    document.getElementById(
+        "instantTotal"
+    ).innerText =
+        "৳ "
+        +
+        bn(
+            pendingTotal
+        );
+
+}
+
+
+/* =========================================================
    MENU
-========================================== */
+========================================================= */
 
 function openMenu(){
 
     document
-        .getElementById("sideMenu")
-        .classList.add("open");
+        .getElementById(
+            "sideMenu"
+        )
+        .classList.add(
+            "open"
+        );
+
 
     document
-        .getElementById("overlay")
-        .classList.add("show");
+        .getElementById(
+            "overlay"
+        )
+        .classList.add(
+            "show"
+        );
 
 }
+
 
 function closeMenu(){
 
     document
-        .getElementById("sideMenu")
-        .classList.remove("open");
+        .getElementById(
+            "sideMenu"
+        )
+        .classList.remove(
+            "open"
+        );
+
 
     document
-        .getElementById("overlay")
-        .classList.remove("show");
+        .getElementById(
+            "overlay"
+        )
+        .classList.remove(
+            "show"
+        );
 
 }
 
 
-/* ==========================================
+/* =========================================================
    SETTINGS
-========================================== */
+========================================================= */
 
 function openSettings(){
 
     closeMenu();
 
+
     document.getElementById(
         "settingPanel"
-    ).style.display="block";
+    ).style.display =
+        "block";
+
 
     document.getElementById(
         "volumeSlider"
-    ).value=volume;
+    ).value =
+        volume;
+
 
     document.getElementById(
         "volumeText"
-    ).innerText=volume;
+    ).innerText =
+        volume;
 
 }
+
 
 function closeSettings(){
 
     document.getElementById(
         "settingPanel"
-    ).style.display="none";
+    ).style.display =
+        "none";
 
 }
 
 
-/* ==========================================
+/* =========================================================
    THEME
-========================================== */
+========================================================= */
 
 function toggleTheme(){
 
-    document.body.classList.toggle("dark");
+    document.body
+        .classList
+        .toggle("dark");
+
 
     localStorage.setItem(
         "hafiz_theme",
-        document.body.classList.contains("dark")
-            ?"dark"
-            :"light"
+        document.body
+            .classList
+            .contains("dark")
+            ?
+            "dark"
+            :
+            "light"
     );
 
 }
 
 
-/* ==========================================
+/* =========================================================
    RESET
-========================================== */
+========================================================= */
 
 function resetAll(){
 
     closeMenu();
+
 
     if(
         !confirm(
             "সব হিসাব মুছে ফেলবেন?"
         )
     ){
+
         return;
+
     }
 
+
     quantities={};
-    extras={};
+
     history={};
 
+    instantTransactions=[];
+
+
     save();
+
     render();
+
+    renderInstant();
 
 }
 
 
-/* ==========================================
+/* =========================================================
    LOAD
-========================================== */
+========================================================= */
 
 function load(){
 
     if(
         localStorage.getItem(
             "hafiz_theme"
-        )==="dark"
+        )
+        ===
+        "dark"
     ){
 
-        document.body.classList.add("dark");
+        document.body
+            .classList
+            .add("dark");
 
     }
 
+
     document.getElementById(
         "volumeSlider"
-    ).value=volume;
+    ).value =
+        volume;
+
 
     document.getElementById(
         "volumeText"
-    ).innerText=volume;
+    ).innerText =
+        volume;
+
 
     render();
 
+    renderInstant();
+
 }
+
 
 load();
 
