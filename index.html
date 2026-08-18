@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>দৈনিক টাকা হিসাব</title>
+<title>হাফেজ তিজারা</title>
 
 <style>
 *{
@@ -14,407 +14,394 @@
 }
 
 body{
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
-    background:#f2f4f7;
+    font-family:"Noto Sans Bengali",Arial,sans-serif;
+    background:#f1f3f5;
     color:#222;
-    min-height:100vh;
 }
 
 .app{
-    max-width:650px;
+    max-width:700px;
     margin:auto;
     min-height:100vh;
-    background:#f7f8fa;
+    background:#f5f6f8;
 }
 
 /* HEADER */
 .header{
-    height:58px;
-    background:#0878d1;
-    color:white;
+    height:64px;
+    background:#087bd1;
+    color:#fff;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 15px;
+    padding:0 16px;
     position:sticky;
     top:0;
     z-index:100;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
 }
 
-.header-left{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.header-title{
+    font-size:24px;
+    font-weight:800;
 }
 
-.menu{
-    font-size:26px;
+.menu-btn,
+.more-btn{
+    border:0;
+    background:transparent;
+    color:white;
+    font-size:30px;
     cursor:pointer;
 }
 
-.title{
-    font-size:18px;
-    font-weight:bold;
-}
-
-.menu-right{
-    font-size:25px;
+.menu-btn{
+    font-size:34px;
 }
 
 /* TOTAL */
-.total-box{
-    background:white;
+.total-card{
     margin:10px;
-    border-radius:10px;
-    padding:12px 15px;
-    box-shadow:0 1px 5px rgba(0,0,0,.10);
+    padding:15px 18px;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,.10);
 }
 
 .total-label{
-    color:#666;
-    font-size:13px;
+    color:#777;
+    font-size:17px;
 }
 
 .total-money{
-    color:#0878d1;
-    font-size:30px;
-    font-weight:bold;
-    margin-top:3px;
+    color:#087bd1;
+    font-size:42px;
+    font-weight:900;
+    margin-top:2px;
 }
 
 .total-count{
     color:#777;
-    font-size:12px;
+    font-size:14px;
     margin-top:3px;
 }
 
-/* STATS */
-.stats{
+/* REPORT BOXES */
+.report-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:7px;
-    padding:0 10px 8px;
+    padding:0 10px 10px;
 }
 
-.stat{
-    background:white;
-    border-radius:8px;
-    padding:9px 5px;
+.report-card{
+    background:#fff;
+    border-radius:10px;
+    padding:9px 4px;
     text-align:center;
-    box-shadow:0 1px 4px rgba(0,0,0,.08);
+    box-shadow:0 1px 5px rgba(0,0,0,.08);
 }
 
-.stat-title{
+.report-title{
     font-size:11px;
     color:#777;
 }
 
-.stat-value{
-    font-size:16px;
-    font-weight:bold;
-    color:#0878d1;
-    margin-top:3px;
+.report-value{
+    color:#087bd1;
+    font-size:17px;
+    font-weight:800;
+    margin-top:4px;
 }
 
 /* MONEY GRID */
 .money-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7px;
-    padding:0 10px 80px;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    padding:0 8px 12px;
 }
 
 .money-card{
-    background:white;
-    border-radius:8px;
-    min-height:72px;
-    padding:7px;
-    box-shadow:0 1px 4px rgba(0,0,0,.09);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    background:#fff;
+    border-radius:11px;
+    padding:9px;
+    box-shadow:0 2px 6px rgba(0,0,0,.09);
 }
 
-.money-top{
+.money-header{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     margin-bottom:7px;
 }
 
 .money-name{
-    font-size:14px;
-    font-weight:bold;
+    font-size:20px;
+    font-weight:900;
 }
 
 .money-total{
-    font-size:12px;
-    color:#0878d1;
-    font-weight:bold;
+    color:#087bd1;
+    font-size:15px;
+    font-weight:800;
 }
 
-.controls{
+.quantity-box{
     display:grid;
-    grid-template-columns:38px 1fr 38px;
-    height:34px;
-    border:1px solid #ddd;
-    border-radius:6px;
+    grid-template-columns:42px 1fr 42px;
+    height:43px;
+    border:2px solid #e1e3e5;
+    border-radius:8px;
     overflow:hidden;
 }
 
-.btn{
+.control-btn{
     border:0;
-    background:#f0f2f4;
-    font-size:21px;
-    font-weight:bold;
+    background:#eef0f2;
+    font-size:28px;
+    font-weight:900;
     cursor:pointer;
 }
 
-.btn:active{
-    background:#dcecff;
+.control-btn:active{
+    background:#d8eaff;
 }
 
 .quantity{
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:17px;
-    font-weight:bold;
-    background:white;
+    justify-content:center;
+    background:#fff;
+    font-size:25px;
+    font-weight:900;
 }
 
-/* ADD BUTTON */
-.add-btn{
+/* EXTRA 1-5 */
+.extra-section{
+    margin:2px 8px 80px;
+    background:#fff;
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,.09);
+}
+
+.extra-title{
+    text-align:center;
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:9px;
+}
+
+.extra-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:6px;
+}
+
+.extra-card{
+    border:1px solid #ddd;
+    border-radius:8px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.extra-value{
+    padding:6px 2px;
+    font-size:18px;
+    font-weight:900;
+    color:#087bd1;
+}
+
+.extra-count{
+    font-size:15px;
+    font-weight:bold;
+    padding:2px;
+}
+
+.extra-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.extra-buttons button{
+    border:0;
+    height:30px;
+    font-size:19px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.extra-minus{
+    background:#f0f1f2;
+}
+
+.extra-plus{
+    background:#dcebff;
+    color:#087bd1;
+}
+
+/* FLOATING BUTTON */
+.fab{
     position:fixed;
     right:18px;
     bottom:20px;
-    width:54px;
-    height:54px;
-    border-radius:50%;
+    width:58px;
+    height:58px;
     border:0;
-    background:#0878d1;
+    border-radius:50%;
+    background:#087bd1;
     color:white;
-    font-size:32px;
-    line-height:54px;
-    box-shadow:0 4px 12px rgba(0,0,0,.25);
+    font-size:38px;
+    box-shadow:0 4px 14px rgba(0,0,0,.28);
     cursor:pointer;
     z-index:200;
 }
 
-.add-btn:active{
-    transform:scale(.94);
-}
-
-/* MODAL */
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:500;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:100%;
-    max-width:360px;
-    background:white;
-    border-radius:12px;
-    padding:20px;
-}
-
-.modal-box h3{
-    margin-bottom:15px;
-    font-size:18px;
-}
-
-.input{
-    width:100%;
-    height:45px;
-    border:1px solid #ccc;
-    border-radius:7px;
-    padding:0 12px;
-    font-size:16px;
-    outline:none;
-}
-
-.input:focus{
-    border-color:#0878d1;
-}
-
-.modal-buttons{
-    display:flex;
-    gap:8px;
-    margin-top:14px;
-}
-
-.modal-buttons button{
-    flex:1;
-    height:42px;
-    border:0;
-    border-radius:7px;
-    font-size:15px;
-    cursor:pointer;
-}
-
-.cancel{
-    background:#eee;
-}
-
-.save{
-    background:#0878d1;
-    color:white;
-}
-
-/* REPORT */
-.report{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#f7f8fa;
-    z-index:400;
-    overflow:auto;
-}
-
-.report-header{
-    background:#0878d1;
-    color:white;
-    padding:15px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-weight:bold;
-}
-
-.back{
-    font-size:25px;
-    cursor:pointer;
-}
-
-.report-content{
-    padding:12px;
-}
-
-.report-card{
-    background:white;
-    border-radius:10px;
-    padding:15px;
-    margin-bottom:10px;
-    box-shadow:0 1px 5px rgba(0,0,0,.08);
-}
-
-.report-card h3{
-    font-size:15px;
-    margin-bottom:8px;
-}
-
-.report-money{
-    color:#0878d1;
-    font-size:25px;
-    font-weight:bold;
-}
-
-.history{
-    margin-top:8px;
-    font-size:13px;
-    color:#666;
-}
-
-/* SIDE MENU */
-.side-menu{
-    position:fixed;
-    top:0;
-    left:-280px;
-    width:280px;
-    height:100%;
-    background:white;
-    z-index:700;
-    transition:.25s;
-    box-shadow:3px 0 12px rgba(0,0,0,.2);
-}
-
-.side-menu.open{
-    left:0;
-}
-
-.side-title{
-    height:58px;
-    background:#0878d1;
-    color:white;
-    display:flex;
-    align-items:center;
-    padding:0 18px;
-    font-size:18px;
-    font-weight:bold;
-}
-
-.side-item{
-    padding:16px 18px;
-    border-bottom:1px solid #eee;
-    cursor:pointer;
-    font-size:15px;
-}
-
-.side-item:active{
-    background:#eee;
-}
-
+/* MENU */
 .overlay{
-    display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.35);
-    z-index:650;
+    background:rgba(0,0,0,.4);
+    display:none;
+    z-index:500;
 }
 
 .overlay.show{
     display:block;
 }
 
-/* MOBILE */
-@media(max-width:430px){
-    .money-grid{
-        gap:6px;
-        padding-left:7px;
-        padding-right:7px;
+.side-menu{
+    position:fixed;
+    top:0;
+    left:-290px;
+    width:290px;
+    height:100vh;
+    background:#fff;
+    z-index:600;
+    transition:.25s;
+    box-shadow:3px 0 12px rgba(0,0,0,.25);
+}
+
+.side-menu.open{
+    left:0;
+}
+
+.side-header{
+    height:64px;
+    background:#087bd1;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 18px;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.side-item{
+    padding:17px 18px;
+    border-bottom:1px solid #eee;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.side-item:active{
+    background:#eee;
+}
+
+/* REPORT PAGE */
+.report-page{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:700;
+    background:#f5f6f8;
+    overflow:auto;
+}
+
+.report-header{
+    height:64px;
+    background:#087bd1;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:0 15px;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.report-back{
+    font-size:32px;
+    cursor:pointer;
+}
+
+.report-body{
+    padding:10px;
+}
+
+.big-report{
+    background:#fff;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:9px;
+    box-shadow:0 2px 7px rgba(0,0,0,.08);
+}
+
+.big-report-title{
+    color:#777;
+    font-size:15px;
+}
+
+.big-report-value{
+    color:#087bd1;
+    font-size:30px;
+    font-weight:900;
+    margin-top:4px;
+}
+
+/* RESPONSIVE */
+@media(max-width:500px){
+
+    .header-title{
+        font-size:22px;
     }
 
-    .total-box{
-        margin:7px;
+    .report-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .stats{
-        padding-left:7px;
-        padding-right:7px;
-    }
-
-    .money-card{
-        min-height:68px;
-        padding:6px;
-    }
-
-    .controls{
-        grid-template-columns:34px 1fr 34px;
-        height:32px;
-    }
-
-    .btn{
-        font-size:19px;
-    }
-
-    .quantity{
-        font-size:15px;
+    .total-money{
+        font-size:40px;
     }
 
     .money-name{
-        font-size:13px;
+        font-size:19px;
+    }
+
+    .quantity-box{
+        grid-template-columns:39px 1fr 39px;
+    }
+}
+
+@media(max-width:340px){
+
+    .money-grid{
+        gap:5px;
+        padding-left:5px;
+        padding-right:5px;
+    }
+
+    .money-card{
+        padding:7px;
+    }
+
+    .money-name{
+        font-size:17px;
+    }
+
+    .quantity-box{
+        grid-template-columns:34px 1fr 34px;
     }
 }
 </style>
@@ -425,73 +412,83 @@ body{
 <div class="app">
 
     <!-- HEADER -->
-    <div class="header">
-        <div class="header-left">
-            <div class="menu" onclick="openMenu()">☰</div>
-            <div class="title">টাকার হিসাব</div>
+    <header class="header">
+
+        <button class="menu-btn" onclick="openMenu()">☰</button>
+
+        <div class="header-title">
+            হাফেজ তিজারা
         </div>
-        <div class="menu-right">⋮</div>
-    </div>
+
+        <button class="more-btn">⋮</button>
+
+    </header>
+
 
     <!-- TOTAL -->
-    <div class="total-box">
-        <div class="total-label">সর্বমোট টাকা</div>
-        <div class="total-money" id="grandTotal">৳ 0</div>
-        <div class="total-count" id="grandCount">মোট 0 টি</div>
-    </div>
+    <section class="total-card">
 
-    <!-- STATS -->
-    <div class="stats">
-
-        <div class="stat">
-            <div class="stat-title">আজ</div>
-            <div class="stat-value" id="todayTotal">৳ 0</div>
+        <div class="total-label">
+            সর্বমোট টাকা
         </div>
 
-        <div class="stat">
-            <div class="stat-title">৭ দিন</div>
-            <div class="stat-value" id="weekTotal">৳ 0</div>
+        <div class="total-money" id="grandTotal">
+            ৳ ০
         </div>
 
-        <div class="stat">
-            <div class="stat-title">৩০ দিন</div>
-            <div class="stat-value" id="monthTotal">৳ 0</div>
+        <div class="total-count" id="grandCount">
+            মোট ০ টি
         </div>
 
-    </div>
+    </section>
 
-    <!-- MONEY CARDS -->
-    <div class="money-grid" id="moneyGrid"></div>
+
+    <!-- REPORT SUMMARY -->
+    <section class="report-grid">
+
+        <div class="report-card">
+            <div class="report-title">আজকের হিসাব</div>
+            <div class="report-value" id="todayTotal">৳ ০</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-title">গত ৭ দিন</div>
+            <div class="report-value" id="weekTotal">৳ ০</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-title">গত ৩০ দিন</div>
+            <div class="report-value" id="monthTotal">৳ ০</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-title">গত ১ বছর</div>
+            <div class="report-value" id="yearTotal">৳ ০</div>
+        </div>
+
+    </section>
+
+
+    <!-- 5-100 MONEY -->
+    <section class="money-grid" id="moneyGrid"></section>
+
+
+    <!-- EXTRA 1-5 -->
+    <section class="extra-section">
+
+        <div class="extra-title">
+            অতিরিক্ত টাকা
+        </div>
+
+        <div class="extra-grid" id="extraGrid"></div>
+
+    </section>
 
 </div>
 
-<!-- ADD BUTTON -->
-<button class="add-btn" onclick="openAddModal()">+</button>
 
-
-<!-- ADD MONEY MODAL -->
-<div class="modal" id="addModal">
-
-    <div class="modal-box">
-
-        <h3>নতুন টাকার ঘর যোগ করুন</h3>
-
-        <input
-            class="input"
-            id="newMoneyInput"
-            type="number"
-            min="1"
-            placeholder="যেমন: ১০০"
-        >
-
-        <div class="modal-buttons">
-            <button class="cancel" onclick="closeAddModal()">বাতিল</button>
-            <button class="save" onclick="addMoney()">যোগ করুন</button>
-        </div>
-
-    </div>
-
-</div>
+<!-- FLOATING + -->
+<button class="fab" onclick="scrollToExtra()">+</button>
 
 
 <!-- SIDE MENU -->
@@ -499,12 +496,12 @@ body{
 
 <div class="side-menu" id="sideMenu">
 
-    <div class="side-title">
-        হিসাবের মেনু
+    <div class="side-header">
+        হাফেজ তিজারা
     </div>
 
-    <div class="side-item" onclick="showReport()">
-        📊 রিপোর্ট দেখুন
+    <div class="side-item" onclick="openReport()">
+        📊 বিস্তারিত রিপোর্ট
     </div>
 
     <div class="side-item" onclick="resetToday()">
@@ -518,41 +515,41 @@ body{
 </div>
 
 
-<!-- REPORT -->
-<div class="report" id="report">
+<!-- REPORT PAGE -->
+<div class="report-page" id="reportPage">
 
     <div class="report-header">
-        <div class="back" onclick="closeReport()">‹</div>
-        <div>হিসাবের রিপোর্ট</div>
+
+        <div class="report-back" onclick="closeReport()">
+            ‹
+        </div>
+
+        <div>
+            বিস্তারিত রিপোর্ট
+        </div>
+
     </div>
 
-    <div class="report-content">
+    <div class="report-body">
 
-        <div class="report-card">
-            <h3>আজকের বিক্রি</h3>
-            <div class="report-money" id="reportToday">৳ 0</div>
+        <div class="big-report">
+            <div class="big-report-title">আজকের মোট বিক্রি</div>
+            <div class="big-report-value" id="detailToday">৳ ০</div>
         </div>
 
-        <div class="report-card">
-            <h3>গত ৭ দিনের বিক্রি</h3>
-            <div class="report-money" id="reportWeek">৳ 0</div>
+        <div class="big-report">
+            <div class="big-report-title">গত ৭ দিনের মোট বিক্রি</div>
+            <div class="big-report-value" id="detailWeek">৳ ০</div>
         </div>
 
-        <div class="report-card">
-            <h3>গত ৩০ দিনের বিক্রি</h3>
-            <div class="report-money" id="reportMonth">৳ 0</div>
+        <div class="big-report">
+            <div class="big-report-title">গত ৩০ দিনের মোট বিক্রি</div>
+            <div class="big-report-value" id="detailMonth">৳ ০</div>
         </div>
 
-        <div class="report-card">
-            <h3>আজ কতবার টাকা নেওয়া হয়েছে</h3>
-            <div class="report-money" id="reportCount">0 বার</div>
-        </div>
-
-        <div class="report-card">
-            <h3>আজকের বিস্তারিত</h3>
-            <div class="history" id="reportDetails">
-                কোনো হিসাব নেই।
-            </div>
+        <div class="big-report">
+            <div class="big-report-title">গত ১ বছরের মোট বিক্রি</div>
+            <div class="big-report-value" id="detailYear">৳ ০</div>
         </div>
 
     </div>
@@ -563,53 +560,45 @@ body{
 <script>
 
 /* =========================================
-   DATA
+   মূল টাকা: ৫ থেকে ১০০
 ========================================= */
 
-let moneyItems = JSON.parse(
-    localStorage.getItem("moneyItems")
-) || [
-    1,
-    2,
-    5,
-    10,
-    20,
-    30,
-    50,
-    100,
-    200,
-    500
-];
+const baseMoney = [];
 
-let quantities = JSON.parse(
-    localStorage.getItem("quantities")
-) || {};
-
-let history = JSON.parse(
-    localStorage.getItem("history")
-) || [];
+for(let i = 5; i <= 100; i += 5){
+    baseMoney.push(i);
+}
 
 
 /* =========================================
-   SAVE
+   ১ থেকে ৫ টাকা
 ========================================= */
 
-function saveData(){
+const extraMoney = [1,2,3,4,5];
 
-    localStorage.setItem(
-        "moneyItems",
-        JSON.stringify(moneyItems)
-    );
 
-    localStorage.setItem(
-        "quantities",
-        JSON.stringify(quantities)
-    );
+/* =========================================
+   DATA LOAD
+========================================= */
 
-    localStorage.setItem(
-        "history",
-        JSON.stringify(history)
-    );
+let baseQty =
+    JSON.parse(localStorage.getItem("hafiz_base_qty")) || {};
+
+let extraQty =
+    JSON.parse(localStorage.getItem("hafiz_extra_qty")) || {};
+
+let history =
+    JSON.parse(localStorage.getItem("hafiz_history")) || {};
+
+
+/* =========================================
+   বাংলা সংখ্যা
+========================================= */
+
+function bn(number){
+
+    return Number(number)
+        .toLocaleString("bn-BD");
 }
 
 
@@ -617,109 +606,216 @@ function saveData(){
    DATE
 ========================================= */
 
-function getToday(){
+function dateString(date){
 
-    let d = new Date();
+    return date.getFullYear()
+        + "-"
+        + String(date.getMonth()+1).padStart(2,"0")
+        + "-"
+        + String(date.getDate()).padStart(2,"0");
 
-    return d.getFullYear() +
-        "-" +
-        String(d.getMonth()+1).padStart(2,"0") +
-        "-" +
-        String(d.getDate()).padStart(2,"0");
 }
 
 
-function getDateDaysAgo(days){
+function today(){
+
+    return dateString(new Date());
+
+}
+
+
+function daysAgo(days){
 
     let d = new Date();
 
     d.setDate(d.getDate() - days);
 
-    return d.getFullYear() +
-        "-" +
-        String(d.getMonth()+1).padStart(2,"0") +
-        "-" +
-        String(d.getDate()).padStart(2,"0");
+    return dateString(d);
+
 }
 
 
 /* =========================================
-   ADD / MINUS
+   SAVE
 ========================================= */
 
-function increase(price){
+function save(){
 
-    if(!quantities[price]){
-        quantities[price] = 0;
-    }
+    localStorage.setItem(
+        "hafiz_base_qty",
+        JSON.stringify(baseQty)
+    );
 
-    quantities[price]++;
+    localStorage.setItem(
+        "hafiz_extra_qty",
+        JSON.stringify(extraQty)
+    );
 
-    history.push({
-        date:getToday(),
-        price:Number(price),
-        amount:Number(price),
-        type:"add",
-        time:new Date().toLocaleTimeString()
-    });
+    localStorage.setItem(
+        "hafiz_history",
+        JSON.stringify(history)
+    );
 
-    saveData();
-    render();
 }
 
 
-function decrease(price){
+/* =========================================
+   RECORD TRANSACTION
+========================================= */
 
-    if(!quantities[price]){
+function record(amount){
+
+    let d = today();
+
+    if(!history[d]){
+        history[d] = [];
+    }
+
+    history[d].push({
+        amount:Number(amount),
+        time:new Date().toLocaleTimeString()
+    });
+
+}
+
+
+/* =========================================
+   ADD BASE MONEY
+========================================= */
+
+function addBase(price){
+
+    if(!baseQty[price]){
+        baseQty[price] = 0;
+    }
+
+    baseQty[price]++;
+
+    record(price);
+
+    save();
+
+    render();
+
+}
+
+
+/* =========================================
+   MINUS BASE MONEY
+========================================= */
+
+function minusBase(price){
+
+    if(!baseQty[price]){
         return;
     }
 
-    quantities[price]--;
+    baseQty[price]--;
 
-    history.push({
-        date:getToday(),
-        price:Number(price),
-        amount:Number(price),
-        type:"minus",
-        time:new Date().toLocaleTimeString()
-    });
+    record(-price);
 
-    saveData();
+    save();
+
     render();
+
 }
 
 
 /* =========================================
-   TOTAL
+   ADD EXTRA 1-5
 ========================================= */
 
-function calculateGrandTotal(){
+function addExtra(value){
 
-    let total = 0;
+    if(!extraQty[value]){
+        extraQty[value] = 0;
+    }
 
-    moneyItems.forEach(price => {
+    extraQty[value]++;
 
-        let q = quantities[price] || 0;
+    record(value);
 
-        total += Number(price) * Number(q);
+    save();
 
-    });
+    render();
 
-    return total;
 }
 
 
-function calculateGrandCount(){
+/* =========================================
+   MINUS EXTRA
+========================================= */
 
-    let count = 0;
+function minusExtra(value){
 
-    moneyItems.forEach(price => {
+    if(!extraQty[value]){
+        return;
+    }
 
-        count += Number(quantities[price] || 0);
+    extraQty[value]--;
+
+    record(-value);
+
+    save();
+
+    render();
+
+}
+
+
+/* =========================================
+   CURRENT TOTAL
+========================================= */
+
+function getCurrentTotal(){
+
+    let total = 0;
+
+    baseMoney.forEach(price => {
+
+        total +=
+            price * Number(baseQty[price] || 0);
 
     });
 
+
+    extraMoney.forEach(value => {
+
+        total +=
+            value * Number(extraQty[value] || 0);
+
+    });
+
+
+    return total;
+
+}
+
+
+/* =========================================
+   CURRENT COUNT
+========================================= */
+
+function getCurrentCount(){
+
+    let count = 0;
+
+    baseMoney.forEach(price => {
+
+        count += Number(baseQty[price] || 0);
+
+    });
+
+
+    extraMoney.forEach(value => {
+
+        count += Number(extraQty[value] || 0);
+
+    });
+
+
     return count;
+
 }
 
 
@@ -727,83 +823,109 @@ function calculateGrandCount(){
    PERIOD TOTAL
 ========================================= */
 
-function calculatePeriod(days){
-
-    let startDate = getDateDaysAgo(days);
+function periodTotal(days){
 
     let total = 0;
 
-    history.forEach(item => {
+    let start =
+        new Date();
 
-        if(
-            item.type === "add" &&
-            item.date >= startDate
-        ){
-            total += Number(item.amount);
+    start.setHours(0,0,0,0);
+
+    start.setDate(
+        start.getDate() - days
+    );
+
+
+    Object.keys(history).forEach(day => {
+
+        let d =
+            new Date(day + "T00:00:00");
+
+        if(d >= start){
+
+            history[day].forEach(item => {
+
+                /*
+                 শুধু যোগ করা টাকা রিপোর্টে
+                 ধরা হবে।
+                */
+                if(item.amount > 0){
+
+                    total +=
+                        Number(item.amount);
+
+                }
+
+            });
+
         }
 
     });
 
+
     return total;
-}
-
-
-function calculateToday(){
-
-    return calculatePeriod(0);
 
 }
 
 
 /* =========================================
-   RENDER CARDS
+   RENDER MONEY CARDS
 ========================================= */
 
-function render(){
+function renderBase(){
 
-    let grid = document.getElementById("moneyGrid");
+    const grid =
+        document.getElementById("moneyGrid");
 
     grid.innerHTML = "";
 
-    moneyItems.forEach(price => {
 
-        let quantity = quantities[price] || 0;
+    baseMoney.forEach(price => {
 
-        let card = document.createElement("div");
+        let qty =
+            Number(baseQty[price] || 0);
 
-        card.className = "money-card";
+        let total =
+            price * qty;
+
+
+        let card =
+            document.createElement("div");
+
+        card.className =
+            "money-card";
+
 
         card.innerHTML = `
 
-            <div class="money-top">
+            <div class="money-header">
 
                 <div class="money-name">
-                    ৳ ${Number(price).toLocaleString("bn-BD")}
+                    ৳ ${bn(price)}
                 </div>
 
                 <div class="money-total">
-                    ৳ ${(Number(price)*quantity).toLocaleString("bn-BD")}
+                    ৳ ${bn(total)}
                 </div>
 
             </div>
 
-            <div class="controls">
+            <div class="quantity-box">
 
                 <button
-                    class="btn"
-                    onclick="decrease(${price})"
-                >
+                    class="control-btn"
+                    onclick="minusBase(${price})">
                     −
                 </button>
 
                 <div class="quantity">
-                    ${quantity.toLocaleString("bn-BD")}
+                    ${bn(qty)}
                 </div>
 
                 <button
-                    class="btn"
-                    onclick="increase(${price})"
-                >
+                    class="control-btn"
+                    onclick="addBase(${price})">
                     +
                 </button>
 
@@ -811,94 +933,136 @@ function render(){
 
         `;
 
+
         grid.appendChild(card);
 
     });
 
-
-    /* TOTAL */
-
-    document.getElementById("grandTotal").innerText =
-        "৳ " + calculateGrandTotal().toLocaleString("bn-BD");
-
-
-    document.getElementById("grandCount").innerText =
-        "মোট " + calculateGrandCount().toLocaleString("bn-BD") + " টি";
-
-
-    /* STATS */
-
-    let today = calculateToday();
-    let week = calculatePeriod(6);
-    let month = calculatePeriod(29);
-
-
-    document.getElementById("todayTotal").innerText =
-        "৳ " + today.toLocaleString("bn-BD");
-
-    document.getElementById("weekTotal").innerText =
-        "৳ " + week.toLocaleString("bn-BD");
-
-    document.getElementById("monthTotal").innerText =
-        "৳ " + month.toLocaleString("bn-BD");
 }
 
 
 /* =========================================
-   ADD NEW MONEY
+   RENDER EXTRA 1-5
 ========================================= */
 
-function openAddModal(){
+function renderExtra(){
 
-    document.getElementById("addModal")
-        .classList.add("show");
+    const grid =
+        document.getElementById("extraGrid");
 
-    document.getElementById("newMoneyInput")
-        .focus();
+    grid.innerHTML = "";
+
+
+    extraMoney.forEach(value => {
+
+        let qty =
+            Number(extraQty[value] || 0);
+
+
+        let card =
+            document.createElement("div");
+
+        card.className =
+            "extra-card";
+
+
+        card.innerHTML = `
+
+            <div class="extra-value">
+                +${bn(value)} টাকা
+            </div>
+
+            <div class="extra-count">
+                ${bn(qty)}
+            </div>
+
+            <div class="extra-buttons">
+
+                <button
+                    class="extra-minus"
+                    onclick="minusExtra(${value})">
+                    −
+                </button>
+
+                <button
+                    class="extra-plus"
+                    onclick="addExtra(${value})">
+                    +
+                </button>
+
+            </div>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
 }
 
 
-function closeAddModal(){
+/* =========================================
+   RENDER EVERYTHING
+========================================= */
 
-    document.getElementById("addModal")
-        .classList.remove("show");
+function render(){
 
-    document.getElementById("newMoneyInput").value = "";
+    renderBase();
 
-}
+    renderExtra();
 
 
-function addMoney(){
+    let total =
+        getCurrentTotal();
 
-    let value = Number(
-        document.getElementById("newMoneyInput").value
-    );
 
-    if(!value || value <= 0){
+    let count =
+        getCurrentCount();
 
-        alert("সঠিক টাকার পরিমাণ দিন।");
 
-        return;
-    }
+    document.getElementById("grandTotal")
+        .innerText =
+        "৳ " + bn(total);
 
-    if(moneyItems.includes(value)){
 
-        alert("এই টাকার ঘর আগে থেকেই আছে।");
+    document.getElementById("grandCount")
+        .innerText =
+        "মোট " + bn(count) + " টি";
 
-        return;
-    }
 
-    moneyItems.push(value);
+    let todayTotal =
+        periodTotal(0);
 
-    moneyItems.sort((a,b)=>a-b);
+    let weekTotal =
+        periodTotal(6);
 
-    quantities[value] = 0;
+    let monthTotal =
+        periodTotal(29);
 
-    saveData();
+    let yearTotal =
+        periodTotal(364);
 
-    closeAddModal();
 
-    render();
+    document.getElementById("todayTotal")
+        .innerText =
+        "৳ " + bn(todayTotal);
+
+
+    document.getElementById("weekTotal")
+        .innerText =
+        "৳ " + bn(weekTotal);
+
+
+    document.getElementById("monthTotal")
+        .innerText =
+        "৳ " + bn(monthTotal);
+
+
+    document.getElementById("yearTotal")
+        .innerText =
+        "৳ " + bn(yearTotal);
+
 }
 
 
@@ -915,6 +1079,7 @@ function openMenu(){
     document
         .getElementById("overlay")
         .classList.add("show");
+
 }
 
 
@@ -927,6 +1092,7 @@ function closeMenu(){
     document
         .getElementById("overlay")
         .classList.remove("show");
+
 }
 
 
@@ -934,89 +1100,43 @@ function closeMenu(){
    REPORT
 ========================================= */
 
-function showReport(){
+function openReport(){
 
     closeMenu();
 
     document
-        .getElementById("report")
+        .getElementById("reportPage")
         .style.display = "block";
 
-    updateReport();
+
+    document.getElementById("detailToday")
+        .innerText =
+        "৳ " + bn(periodTotal(0));
+
+
+    document.getElementById("detailWeek")
+        .innerText =
+        "৳ " + bn(periodTotal(6));
+
+
+    document.getElementById("detailMonth")
+        .innerText =
+        "৳ " + bn(periodTotal(29));
+
+
+    document.getElementById("detailYear")
+        .innerText =
+        "৳ " + bn(periodTotal(364));
+
 }
 
 
 function closeReport(){
 
     document
-        .getElementById("report")
+        .getElementById("reportPage")
         .style.display = "none";
 
-}
-
-
-function updateReport(){
-
-    let today = calculatePeriod(0);
-    let week = calculatePeriod(6);
-    let month = calculatePeriod(29);
-
-
-    document.getElementById("reportToday").innerText =
-        "৳ " + today.toLocaleString("bn-BD");
-
-
-    document.getElementById("reportWeek").innerText =
-        "৳ " + week.toLocaleString("bn-BD");
-
-
-    document.getElementById("reportMonth").innerText =
-        "৳ " + month.toLocaleString("bn-BD");
-
-
-    let todayItems = history.filter(
-        item =>
-        item.date === getToday() &&
-        item.type === "add"
-    );
-
-
-    document.getElementById("reportCount").innerText =
-        todayItems.length.toLocaleString("bn-BD") +
-        " বার";
-
-
-    let details =
-        document.getElementById("reportDetails");
-
-
-    if(todayItems.length === 0){
-
-        details.innerText = "আজ কোনো হিসাব নেই।";
-
-        return;
-    }
-
-
-    let html = "";
-
-    todayItems.forEach(item => {
-
-        html += `
-            <div style="
-                padding:7px 0;
-                border-bottom:1px solid #eee;
-                display:flex;
-                justify-content:space-between;
-            ">
-                <span>৳ ${Number(item.amount).toLocaleString("bn-BD")}</span>
-                <span>${item.time}</span>
-            </div>
-        `;
-
-    });
-
-    details.innerHTML = html;
 }
 
 
@@ -1028,64 +1148,82 @@ function resetToday(){
 
     closeMenu();
 
-    if(
-        !confirm(
-            "আজকের হিসাব মুছে ফেলতে চান?"
-        )
-    ){
+
+    if(!confirm(
+        "আজকের সব হিসাব মুছে ফেলবেন?"
+    )){
         return;
     }
 
 
-    let today = getToday();
+    let d = today();
+
+    delete history[d];
 
 
-    history = history.filter(
-        item => item.date !== today
-    );
+    /*
+       বর্তমান quantity নতুন করে
+       হিসাব করা হচ্ছে।
+    */
+
+    baseQty = {};
+
+    extraQty = {};
 
 
-    /* Recalculate current quantities */
+    Object.keys(history).forEach(day => {
 
-    quantities = {};
+        history[day].forEach(item => {
 
-    moneyItems.forEach(price => {
-        quantities[price] = 0;
+            if(item.amount > 0){
+
+                let amount =
+                    Number(item.amount);
+
+
+                /*
+                 Base amount হলে
+                 তার count ফিরিয়ে নেওয়া।
+                 */
+
+                if(
+                    amount >= 5 &&
+                    amount % 5 === 0 &&
+                    amount <= 100
+                ){
+
+                    if(!baseQty[amount]){
+                        baseQty[amount] = 0;
+                    }
+
+                    baseQty[amount]++;
+
+                }
+
+                else if(
+                    amount >= 1 &&
+                    amount <= 5
+                ){
+
+                    if(!extraQty[amount]){
+                        extraQty[amount] = 0;
+                    }
+
+                    extraQty[amount]++;
+
+                }
+
+            }
+
+        });
+
     });
 
 
-    history.forEach(item => {
-
-        if(item.type === "add"){
-
-            if(!quantities[item.price]){
-                quantities[item.price] = 0;
-            }
-
-            quantities[item.price]++;
-
-        }
-
-        else if(item.type === "minus"){
-
-            if(!quantities[item.price]){
-                quantities[item.price] = 0;
-            }
-
-            quantities[item.price]--;
-
-            if(quantities[item.price] < 0){
-                quantities[item.price] = 0;
-            }
-
-        }
-
-    });
-
-
-    saveData();
+    save();
 
     render();
+
 }
 
 
@@ -1097,52 +1235,50 @@ function resetAll(){
 
     closeMenu();
 
-    if(
-        !confirm(
-            "সাবধান! সব হিসাব মুছে যাবে। নিশ্চিত?"
-        )
-    ){
+
+    if(!confirm(
+        "সতর্কতা! সব হিসাব মুছে যাবে। নিশ্চিত?"
+    )){
         return;
     }
 
 
-    history = [];
+    baseQty = {};
 
-    quantities = {};
+    extraQty = {};
 
-    moneyItems.forEach(price => {
-        quantities[price] = 0;
-    });
+    history = {};
 
 
-    saveData();
+    save();
 
     render();
 
-    alert("সব হিসাব মুছে ফেলা হয়েছে।");
+
+    alert(
+        "সব হিসাব মুছে ফেলা হয়েছে।"
+    );
+
 }
 
 
 /* =========================================
-   ENTER KEY
+   FLOATING BUTTON
 ========================================= */
 
-document
-    .getElementById("newMoneyInput")
-    .addEventListener(
-        "keydown",
-        function(event){
+function scrollToExtra(){
 
-            if(event.key === "Enter"){
-                addMoney();
-            }
+    document
+        .querySelector(".extra-section")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
-        }
-    );
+}
 
 
 /* =========================================
-   START APP
+   START
 ========================================= */
 
 render();
