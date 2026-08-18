@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel - সৈয়দপুর জাগ্রত যুব সংঘ</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f1f5f9;
+  color:#17324d;
+  line-height:1.6;
+}
+
+.container{
+  width:min(950px,92%);
+  margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  background:#0f766e;
+  color:#fff;
+  padding:25px 15px;
+  text-align:center;
+}
+
+.header h1{
+  margin:0;
+  font-size:27px;
+}
+
+.header p{
+  margin:5px 0 0;
+  color:#d1fae5;
+}
+
+/* ================= CARD ================= */
+
+.card{
+  background:#fff;
+  margin-bottom:20px;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 5px 25px #0f172a14;
+}
+
+.card h2{
+  margin-top:0;
+  color:#0f766e;
+}
+
+/* ================= LOGIN ================= */
+
+.login-box{
+  max-width:450px;
+  margin:50px auto;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:13px;
+  margin-bottom:16px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  font-size:15px;
+  font-family:inherit;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:12px 20px;
+  background:#0f766e;
+  color:#fff;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+.danger{
+  background:#dc2626;
+}
+
+.secondary{
+  background:#475569;
+}
+
+.back{
+  display:inline-block;
+  margin-top:15px;
+  color:#0f766e;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* ================= MESSAGE ================= */
+
+.message{
+  margin-top:12px;
+  font-weight:bold;
+}
+
+.success{
+  color:#15803d;
+}
+
+.error{
+  color:#dc2626;
+}
+
+/* ================= ADMIN PANEL ================= */
+
+#panel{
+  display:none;
+  padding:35px 0;
+}
+
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.stat{
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 5px 20px #0f172a0d;
+}
+
+.stat-icon{
+  font-size:35px;
+}
+
+.stat-number{
+  font-size:28px;
+  font-weight:bold;
+  color:#0f766e;
+}
+
+.stat-title{
+  color:#64748b;
+  font-size:14px;
+}
+
+/* ================= MEMBERS ================= */
+
+.member-list{
+  display:grid;
+  gap:12px;
+}
+
+.member-item{
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:15px;
+  background:#f8fafc;
+}
+
+.member-item h3{
+  margin:0 0 5px;
+  color:#0f766e;
+}
+
+.member-item p{
+  margin:3px 0;
+}
+
+.member-photo{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+}
+
+/* ================= NOTICE ================= */
+
+.notice-item{
+  border-left:5px solid #0f766e;
+  background:#f8fafc;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.notice-item h3{
+  margin:0 0 5px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0f172a;
+  color:#cbd5e1;
+  text-align:center;
+  padding:25px 10px;
+  margin-top:30px;
+}
+
+footer strong{
+  color:#fff;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+  .header h1{
+    font-size:22px;
+  }
+
+  .dashboard{
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+  }
+
+  .stat{
+    padding:12px 5px;
+  }
+
+  .stat-icon{
+    font-size:25px;
+  }
+
+  .stat-number{
+    font-size:21px;
+  }
+
+  .stat-title{
+    font-size:10px;
+  }
+
+  .card{
+    padding:18px 14px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<h1>🔐 Admin Panel</h1>
+
+<p>
+সৈয়দপুর জাগ্রত যুব সংঘ
+</p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ================= LOGIN ================= -->
+
+<div class="card login-box" id="loginBox">
+
+<h2>
+🔑 অ্যাডমিন লগইন
+</h2>
+
+<p>
+শুধু অ্যাডমিনের জন্য।
+</p>
+
+<label>
+পাসওয়ার্ড
+</label>
+
+<input
+type="password"
+id="password"
+placeholder="অ্যাডমিন পাসওয়ার্ড লিখুন"
+>
+
+<button
+onclick="login()"
+>
+Login
+</button>
+
+<div
+id="loginMessage"
+class="message"
+></div>
+
+<a
+href="index.html"
+class="back"
+>
+← মূল ওয়েবসাইটে ফিরে যান
+</a>
+
+</div>
+
+
+<!-- ================= ADMIN PANEL ================= -->
+
+<div id="panel">
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard">
+
+<div class="stat">
+
+<div class="stat-icon">
+👥
+</div>
+
+<div
+class="stat-number"
+id="memberCount"
+>
+0
+</div>
+
+<div class="stat-title">
+সদস্য আবেদন
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+📢
+</div>
+
+<div
+class="stat-number"
+id="noticeCount"
+>
+0
+</div>
+
+<div class="stat-title">
+নোটিশ
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🌐
+</div>
+
+<div class="stat-number">
+✓
+</div>
+
+<div class="stat-title">
+ওয়েবসাইট
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= WELCOME ================= -->
+
+<div class="card">
+
+<h2>
+📊 অ্যাডমিন ড্যাশবোর্ড
+</h2>
+
+<p>
+স্বাগতম, অ্যাডমিন।
+এখান থেকে ওয়েবসাইটের গুরুত্বপূর্ণ তথ্য
+পরিচালনা করা যাবে।
+</p>
+
+</div>
+
+
+<!-- ================= NOTICE ================= -->
+
+<div class="card">
+
+<h2>
+📢 নতুন নোটিশ
+</h2>
+
+<label>
+নোটিশের শিরোনাম
+</label>
+
+<input
+type="text"
+id="noticeTitle"
+placeholder="নোটিশের শিরোনাম লিখুন"
+>
+
+<label>
+নোটিশের বিস্তারিত
+</label>
+
+<textarea
+id="noticeText"
+placeholder="নোটিশের বিস্তারিত লিখুন..."
+></textarea>
+
+<button
+onclick="saveNotice()"
+>
+নোটিশ সংরক্ষণ করুন
+</button>
+
+<div
+id="noticeMessage"
+class="message"
+></div>
+
+</div>
+
+
+<!-- ================= SAVED NOTICE ================= -->
+
+<div class="card">
+
+<h2>
+📋 সংরক্ষিত নোটিশ
+</h2>
+
+<div id="noticeList">
+
+<p>
+কোনো নোটিশ পাওয়া যায়নি।
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= MEMBERS ================= -->
+
+<div class="card">
+
+<h2>
+👥 সদস্য আবেদন
+</h2>
+
+<div id="memberList">
+
+<p>
+সদস্যদের তথ্য লোড হচ্ছে...
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= ADMIN OPTIONS ================= -->
+
+<div class="card">
+
+<h2>
+⚙️ অ্যাডমিন অপশন
+</h2>
+
+<button
+class="danger"
+onclick="logout()"
+>
+Logout
+</button>
+
+<br>
+
+<a
+href="index.html"
+class="back"
+>
+← মূল ওয়েবসাইটে ফিরে যান
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<strong>
+সৈয়দপুর জাগ্রত যুব সংঘ
+</strong>
+
+<br>
+
+Admin Panel
+
+</footer>
+
+
+<!-- ================= FIREBASE ================= -->
+
+<script>
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyBrN5aBMhLMEeTOvjsydhUUCUkzRDBBT1Q",
+
+authDomain:
+"syedpur-jagroto-jubo-songo.firebaseapp.com",
+
+projectId:
+"syedpur-jagroto-jubo-songo",
+
+storageBucket:
+"syedpur-jagroto-jubo-songo.firebasestorage.app",
+
+messagingSenderId:
+"168072726413",
+
+appId:
+"1:168072726413:web:2d9d7b7492fdc6ff31dfc4",
+
+measurementId:
+"G-5Q2848LGVV"
+
+};
+
+
+/* Firebase Load */
+
+function loadFirebase(){
+
+return new Promise((resolve,reject)=>{
+
+if(window.firebase){
+
+resolve();
+
+return;
+
+}
+
+const scripts=[
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js",
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"
+
+];
+
+let loaded=0;
+
+scripts.forEach(src=>{
+
+const script=document.createElement("script");
+
+script.src=src;
+
+script.onload=()=>{
+
+loaded++;
+
+if(loaded===scripts.length){
+
+resolve();
+
+}
+
+};
+
+script.onerror=()=>{
+
+reject(
+new Error("Firebase load failed")
+);
+
+};
+
+document.head.appendChild(script);
+
+});
+
+});
+
+}
+
+
+/* ================= LOGIN ================= */
+
+function login(){
+
+const password=
+document.getElementById("password").value;
+
+if(password==="admin123"){
+
+document.getElementById(
+"loginBox"
+).style.display="none";
+
+document.getElementById(
+"panel"
+).style.display="block";
+
+loadData();
+
+}else{
+
+document.getElementById(
+"loginMessage"
+).textContent=
+"❌ ভুল পাসওয়ার্ড!";
+
+document.getElementById(
+"loginMessage"
+).className=
+"message error";
+
+}
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logout(){
+
+document.getElementById(
+"panel"
+).style.display="none";
+
+document.getElementById(
+"loginBox"
+).style.display="block";
+
+document.getElementById(
+"password"
+).value="";
+
+}
+
+
+/* ================= FIREBASE START ================= */
+
+let db=null;
+
+loadFirebase()
+
+.then(()=>{
+
+if(!firebase.apps.length){
+
+firebase.initializeApp(
+firebaseConfig
+);
+
+}
+
+db=firebase.firestore();
+
+console.log(
+"Firebase connected successfully"
+);
+
+})
+
+.catch(error=>{
+
+console.error(
+"Firebase error:",
+error
+);
+
+});
+
+
+/* ================= LOAD DATA ================= */
+
+async function loadData(){
+
+if(!db){
+
+setTimeout(
+loadData,
+1000
+);
+
+return;
+
+}
+
+loadMembers();
+
+loadNotices();
+
+}
+
+
+/* ================= MEMBERS ================= */
+
+async function loadMembers(){
+
+try{
+
+const snapshot=
+await db
+.collection("members")
+.orderBy(
+"createdAt",
+"desc"
+)
+.get();
+
+const list=
+document.getElementById(
+"memberList"
+);
+
+const count=
+document.getElementById(
+"memberCount"
+);
+
+count.textContent=
+snapshot.size;
+
+
+if(snapshot.empty){
+
+list.innerHTML=
+"<p>এখনো কোনো সদস্য আবেদন জমা হয়নি।</p>";
+
+return;
+
+}
+
+
+list.innerHTML="";
+
+
+snapshot.forEach(doc=>{
+
+const data=doc.data();
+
+const item=
+document.createElement("div");
+
+item.className=
+"member-item";
+
+item.innerHTML=`
+
+<h3>
+${escapeHtml(data.name || "নাম নেই")}
+</h3>
+
+<p>
+📱 মোবাইল:
+${escapeHtml(data.Phone || data.phone || "")}
+</p>
+
+<p>
+📧 ইমেইল:
+${escapeHtml(data.Email || data.email || "")}
+</p>
+
+`;
+
+list.appendChild(item);
+
+});
+
+}catch(error){
+
+console.error(error);
+
+document.getElementById(
+"memberList"
+).innerHTML=
+"<p class='error'>সদস্যদের তথ্য লোড করা যায়নি।</p>";
+
+}
+
+}
+
+
+/* ================= SAVE NOTICE ================= */
+
+async function saveNotice(){
+
+const title=
+document.getElementById(
+"noticeTitle"
+).value.trim();
+
+const text=
+document.getElementById(
+"noticeText"
+).value.trim();
+
+const message=
+document.getElementById(
+"noticeMessage"
+);
+
+
+if(!title || !text){
+
+message.textContent=
+"⚠️ শিরোনাম ও বিস্তারিত লিখুন।";
+
+message.className=
+"message error";
+
+return;
+
+}
+
+
+if(!db){
+
+message.textContent=
+"⏳ Firebase সংযোগ হচ্ছে। একটু অপেক্ষা করুন।";
+
+return;
+
+}
+
+
+try{
+
+await db
+.collection("notices")
+.add({
+
+title:title,
+
+text:text,
+
+createdAt:
+firebase.firestore
+.FieldValue
+.serverTimestamp()
+
+});
+
+
+message.textContent=
+"✅ নোটিশ সফলভাবে সংরক্ষণ হয়েছে।";
+
+message.className=
+"message success";
+
+
+document.getElementById(
+"noticeTitle"
+).value="";
+
+document.getElementById(
+"noticeText"
+).value="";
+
+
+loadNotices();
+
+
+}catch(error){
+
+console.error(error);
+
+message.textContent=
+"❌ নোটিশ সংরক্ষণ করা যায়নি।";
+
+message.className=
+"message error";
+
+}
+
+}
+
+
+/* ================= LOAD NOTICES ================= */
+
+async function loadNotices(){
+
+if(!db){
+
+setTimeout(
+loadNotices,
+1000
+);
+
+return;
+
+}
+
+
+try{
+
+const snapshot=
+await db
+.collection("notices")
+.orderBy(
+"createdAt",
+"desc"
+)
+.get();
+
+
+const list=
+document.getElementById(
+"noticeList"
+);
+
+const count=
+document.getElementById(
+"noticeCount"
+);
+
+count.textContent=
+snapshot.size;
+
+
+if(snapshot.empty){
+
+list.innerHTML=
+"<p>কোনো নোটিশ নেই।</p>";
+
+return;
+
+}
+
+
+list.innerHTML="";
+
+
+snapshot.forEach(doc=>{
+
+const data=
+doc.data();
+
+const item=
+document.createElement(
+"div"
+);
+
+item.className=
+"notice-item";
+
+item.innerHTML=`
+
+<h3>
+${escapeHtml(data.title || "")}
+</h3>
+
+<p>
+${escapeHtml(data.text || "")}
+</p>
+
+`;
+
+list.appendChild(item);
+
+});
+
+}catch(error){
+
+console.error(error);
+
+document.getElementById(
+"noticeList"
+).innerHTML=
+"<p class='error'>নোটিশ লোড করা যায়নি।</p>";
+
+}
+
+}
+
+
+/* ================= SECURITY ================= */
+
+function escapeHtml(value){
+
+return String(value)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
