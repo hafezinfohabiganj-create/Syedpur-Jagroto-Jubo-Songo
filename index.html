@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
+
+<title>হাজেগঞ্জ তিজারাহ</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+    overflow:hidden;
+    font-family:"Noto Sans Bengali",Arial,sans-serif;
+    background:#eef3f5;
+}
+
+body{
+    touch-action:manipulation;
+}
+
+button{
+    font-family:inherit;
+    border:0;
+    outline:0;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    height:11vh;
+    min-height:78px;
+    background:#1594d1;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    position:relative;
+}
+
+.menu{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:38px;
+    line-height:1;
+}
+
+.settings{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+}
+
+.title{
+    font-size:clamp(25px,7vw,38px);
+    font-weight:900;
+    line-height:1;
+}
+
+.subtitle{
+    font-size:clamp(12px,3.5vw,17px);
+    margin-top:4px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    height:89vh;
+    padding:8px 10px;
+    overflow:hidden;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary{
+    height:13vh;
+    min-height:90px;
+    max-height:120px;
+
+    background:white;
+    border-radius:22px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    box-shadow:0 3px 12px #0002;
+
+    overflow:hidden;
+}
+
+.summaryBox{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.summaryBox:first-child{
+    border-right:1px solid #ddd;
+}
+
+.summaryTitle{
+    color:#666;
+    font-size:clamp(13px,3.8vw,18px);
+    font-weight:bold;
+}
+
+.summaryValue{
+    color:#1594d1;
+    font-size:clamp(30px,9vw,48px);
+    font-weight:900;
+    line-height:1.1;
+}
+
+/* =========================
+   INSTANT
+========================= */
+
+.instant{
+    height:18vh;
+    min-height:130px;
+    max-height:165px;
+
+    margin-top:8px;
+
+    background:white;
+    border-radius:22px;
+
+    padding:8px;
+
+    box-shadow:0 3px 12px #0002;
+
+    display:flex;
+    flex-direction:column;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+.instant.hide{
+    opacity:0;
+    transform:scale(.92);
+    pointer-events:none;
+}
+
+.instantTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:30px;
+}
+
+.instantTitle{
+    font-size:clamp(17px,5vw,24px);
+    font-weight:900;
+}
+
+.pending{
+    color:#1594d1;
+    font-size:clamp(12px,3.5vw,17px);
+    font-weight:bold;
+}
+
+.pending span{
+    font-size:clamp(16px,4.5vw,22px);
+}
+
+.pendingArea{
+    flex:1;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    overflow:hidden;
+    padding:3px 0;
+}
+
+.pendingTab{
+    flex-shrink:0;
+
+    background:#edf8fd;
+    border:2px solid #ccecf9;
+
+    color:#1594d1;
+
+    border-radius:13px;
+
+    min-width:64px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+    font-weight:900;
+
+    animation:
+        pendingIn .25s ease;
+}
+
+@keyframes pendingIn{
+    from{
+        opacity:0;
+        transform:scale(.65);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.addButton{
+    width:100%;
+    height:42px;
+
+    background:#20ad6c;
+    color:white;
+
+    border-radius:13px;
+
+    font-size:clamp(16px,4.5vw,21px);
+    font-weight:900;
+
+    transition:.15s;
+}
+
+.addButton:active{
+    transform:scale(.96);
+}
+
+/* =========================
+   QUICK NUMBERS
+========================= */
+
+.quick{
+    height:9vh;
+    min-height:62px;
+    max-height:82px;
+
+    margin-top:8px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:7px;
+}
+
+.quick button{
+    background:#e5f4fc;
+    color:#1594d1;
+
+    border-radius:17px;
+
+    font-size:clamp(22px,7vw,34px);
+    font-weight:900;
+
+    box-shadow:
+        inset 0 -2px 0 #cfe9f5,
+        0 2px 5px #0001;
+
+    transition:.12s;
+}
+
+.quick button:active{
+    transform:scale(.88);
+    background:#1594d1;
+    color:white;
+}
+
+/* =========================
+   MONEY GRID
+========================= */
+
+.grid{
+    height:calc(60vh - 8px);
+
+    margin-top:8px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    grid-template-rows:
+        repeat(5,1fr);
+
+    gap:7px;
+
+    overflow:hidden;
+}
+
+.money{
+    background:white;
+
+    border-radius:17px;
+
+    box-shadow:0 2px 7px #0002;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:0;
+
+    transition:
+        transform .12s ease,
+        background .12s ease;
+}
+
+.money:active{
+    transform:scale(.91);
+    background:#eaf8ff;
+}
+
+.moneyValue{
+    font-size:clamp(20px,6vw,29px);
+    font-weight:900;
+    line-height:1;
+}
+
+.moneyTotal{
+    color:#1594d1;
+    font-size:clamp(10px,3vw,14px);
+    font-weight:bold;
+    margin-top:3px;
+}
+
+.moneyHint{
+    color:#888;
+    font-size:9px;
+}
+
+/* =========================
+   EFFECTS
+========================= */
+
+.pop{
+    animation:pop .22s ease;
+}
+
+@keyframes pop{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.10);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* =========================
+   VERY SMALL SCREEN
+========================= */
+
+@media(max-height:700px){
+
+    .header{
+        height:10vh;
+        min-height:65px;
+    }
+
+    .main{
+        height:90vh;
+        padding:5px 7px;
+    }
+
+    .summary{
+        height:12vh;
+        min-height:75px;
+    }
+
+    .instant{
+        height:18vh;
+        min-height:115px;
+    }
+
+    .quick{
+        height:9vh;
+        min-height:55px;
+    }
+
+    .grid{
+        height:51vh;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="menu">☰</div>
+
+    <div class="title">
+        হাজেগঞ্জ তিজারাহ
+    </div>
+
+    <div class="subtitle">
+        পরিবারের নিত্যদিনের বাজার
+    </div>
+
+    <div class="settings">
+        ⚙
+    </div>
+
+</header>
+
+
+<main class="main">
+
+<!-- =========================
+     SUMMARY
+========================= -->
+
+<section class="summary">
+
+    <div class="summaryBox">
+
+        <div class="summaryTitle">
+            সর্বমোট টাকা
+        </div>
+
+        <div
+            class="summaryValue"
+            id="grandTotal">
+            ৳ ০
+        </div>
+
+    </div>
+
+
+    <div class="summaryBox">
+
+        <div class="summaryTitle">
+            আজকের লেনদেন
+        </div>
+
+        <div
+            class="summaryValue"
+            id="transactionCount">
+            ০
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INSTANT TRANSACTION
+========================= -->
+
+<section
+    class="instant"
+    id="instantBox">
+
+    <div class="instantTop">
+
+        <div class="instantTitle">
+            ⚡ ইনস্ট্যান্ট লেনদেন
+        </div>
+
+        <div class="pending">
+
+            পেন্ডিং:
+            <span id="pendingCount">
+                ০
+            </span>
+
+            |
+            
+            ৳
+            <span id="pendingMoney">
+                ০
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="pendingArea"
+        id="pendingArea">
+    </div>
+
+
+    <button
+        class="addButton"
+        onclick="addPendingToMain()">
+
+        ✓ মোট টাকায় যোগ
+
+    </button>
+
+</section>
+
+
+<!-- =========================
+     QUICK 1-5
+========================= -->
+
+<section class="quick">
+
+    <button onclick="addSale(1,this)">
+        ১
+    </button>
+
+    <button onclick="addSale(2,this)">
+        ২
+    </button>
+
+    <button onclick="addSale(3,this)">
+        ৩
+    </button>
+
+    <button onclick="addSale(4,this)">
+        ৪
+    </button>
+
+    <button onclick="addSale(5,this)">
+        ৫
+    </button>
+
+</section>
+
+
+<!-- =========================
+     MONEY BUTTONS
+========================= -->
+
+<section
+    class="grid"
+    id="moneyGrid">
+</section>
+
+
+</main>
+
+
+<script>
+
+/* ==================================
+   বাংলা সংখ্যা
+================================== */
+
+function bn(number){
+
+    const en =
+        "0123456789";
+
+    const bangla =
+        "০১২৩৪৫৬৭৮৯";
+
+    return String(number)
+        .replace(
+            /[0-9]/g,
+            digit =>
+                bangla[
+                    en.indexOf(digit)
+                ]
+        );
+}
+
+
+/* ==================================
+   টাকার বাটন
+================================== */
+
+const moneyValues = [
+
+    5,10,15,20,
+
+    25,30,35,40,
+
+    45,50,55,60,
+
+    65,70,75,80,
+
+    85,90,95,100
+
+];
+
+
+/* ==================================
+   মোট টাকা
+================================== */
+
+let grandTotal =
+    Number(
+        localStorage.getItem(
+            "grandTotal"
+        )
+    ) || 0;
+
+
+/* ==================================
+   আজকের লেনদেন
+================================== */
+
+let transactionCount =
+    Number(
+        localStorage.getItem(
+            "transactionCount"
+        )
+    ) || 0;
+
+
+/* ==================================
+   Pending Sale
+================================== */
+
+let pendingSales =
+    JSON.parse(
+        localStorage.getItem(
+            "pendingSales"
+        )
+    ) || [];
+
+
+/* ==================================
+   Sound
+================================== */
+
+let audioContext = null;
+
+function playSound(value){
+
+    try{
+
+        if(!audioContext){
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }
+
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            audioContext.resume();
+
+        }
+
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        /*
+          প্রতিটি টাকার জন্য
+          আলাদা pitch
+        */
+
+        const frequency =
+            450 +
+            (Number(value) * 7);
+
+
+        oscillator.frequency.value =
+            Math.min(
+                frequency,
+                1200
+            );
+
+
+        oscillator.type =
+            "sine";
+
+
+        gain.gain.setValueAtTime(
+            0.28,
+            audioContext.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            audioContext.currentTime + 0.18
+        );
+
+
+        oscillator.start();
+
+
+        oscillator.stop(
+            audioContext.currentTime + 0.18
+        );
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Sound error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================
+   Money Grid তৈরি
+================================== */
+
+const moneyGrid =
+    document.getElementById(
+        "moneyGrid"
+    );
+
+
+moneyValues.forEach(
+    value => {
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.className =
+            "money";
+
+
+        button.innerHTML = `
+
+            <div class="moneyValue">
+                ৳ ${bn(value)}
+            </div>
+
+            <div class="moneyTotal">
+                ক্লিক করলে পেন্ডিং
+            </div>
+
+        `;
+
+
+        button.onclick =
+            function(){
+
+                addSale(
+                    value,
+                    button
+                );
+
+            };
+
+
+        moneyGrid.appendChild(
+            button
+        );
+
+    }
+);
+
+
+/* ==================================
+   Sale যোগ
+================================== */
+
+function addSale(
+    amount,
+    button
+){
+
+    /*
+      এখানে টাকা সরাসরি
+      সর্বমোটে যাচ্ছে না।
+
+      আগে Pending-এ যাচ্ছে।
+    */
+
+    pendingSales.push(
+        Number(amount)
+    );
+
+
+    /* Animation */
+
+    if(button){
+
+        button.classList.remove(
+            "pop"
+        );
+
+        void button.offsetWidth;
+
+        button.classList.add(
+            "pop"
+        );
+
+    }
+
+
+    /* Sound */
+
+    playSound(amount);
+
+
+    /* Screen Update */
+
+    renderPending();
+
+
+    saveData();
+
+}
+
+
+/* ==================================
+   Pending দেখানো
+================================== */
+
+function renderPending(){
+
+    const area =
+        document.getElementById(
+            "pendingArea"
+        );
+
+
+    area.innerHTML = "";
+
+
+    pendingSales.forEach(
+        amount => {
+
+            const tab =
+                document.createElement(
+                    "div"
+                );
+
+
+            tab.className =
+                "pendingTab";
+
+
+            tab.textContent =
+                "৳ " + bn(amount);
+
+
+            area.appendChild(
+                tab
+            );
+
+        }
+    );
+
+
+    /*
+      Pending count
+    */
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        bn(
+            pendingSales.length
+        );
+
+
+    /*
+      Pending money
+    */
+
+    const total =
+        pendingSales.reduce(
+            (
+                sum,
+                value
+            ) =>
+                sum + value,
+            0
+        );
+
+
+    document.getElementById(
+        "pendingMoney"
+    ).textContent =
+        bn(total);
+
+
+    /*
+      Pending থাকলে box থাকবে।
+      Pending না থাকলে box থাকবে না।
+    */
+
+    const instantBox =
+        document.getElementById(
+            "instantBox"
+        );
+
+
+    if(
+        pendingSales.length === 0
+    ){
+
+        instantBox.classList.add(
+            "hide"
+        );
+
+    }
+    else{
+
+        instantBox.classList.remove(
+            "hide"
+        );
+
+    }
+
+}
+
+
+/* ==================================
+   Pending → সর্বমোট
+================================== */
+
+function addPendingToMain(){
+
+    /*
+      Pending না থাকলে কিছু হবে না
+    */
+
+    if(
+        pendingSales.length === 0
+    ){
+
+        playSound(1);
+
+        return;
+
+    }
+
+
+    /*
+      Pending মোট
+    */
+
+    const pendingTotal =
+        pendingSales.reduce(
+            (
+                sum,
+                value
+            ) =>
+                sum + value,
+            0
+        );
+
+
+    /*
+      Pending যতগুলো
+      লেনদেন
+    */
+
+    const pendingNumber =
+        pendingSales.length;
+
+
+    /*
+      এবারই শুধু
+      সর্বমোটে যোগ হবে
+    */
+
+    grandTotal +=
+        pendingTotal;
+
+
+    transactionCount +=
+        pendingNumber;
+
+
+    /*
+      Pending পুরোপুরি খালি
+    */
+
+    pendingSales = [];
+
+
+    /*
+      Save
+    */
+
+    saveData();
+
+
+    /*
+      Summary Update
+    */
+
+    updateSummary();
+
+
+    /*
+      Instant Box Update
+      → Pending 0
+      → টাকা 0
+      → Box Remove
+    */
+
+    renderPending();
+
+
+    /*
+      বড় Confirm Sound
+    */
+
+    playConfirmSound();
+
+}
+
+
+/* ==================================
+   Confirm Sound
+================================== */
+
+function playConfirmSound(){
+
+    try{
+
+        if(!audioContext){
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }
+
+
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            audioContext.resume();
+
+        }
+
+
+        const now =
+            audioContext.currentTime;
+
+
+        /*
+          দুইটা tone
+          একটার পর একটা
+        */
+
+        [700,1000].forEach(
+            (frequency,index)=>{
+
+                const osc =
+                    audioContext
+                    .createOscillator();
+
+
+                const gain =
+                    audioContext
+                    .createGain();
+
+
+                osc.connect(gain);
+
+                gain.connect(
+                    audioContext.destination
+                );
+
+
+                osc.frequency.value =
+                    frequency;
+
+
+                osc.type =
+                    "sine";
+
+
+                gain.gain.setValueAtTime(
+                    0.35,
+                    now +
+                    index * 0.13
+                );
+
+
+                gain.gain.exponentialRampToValueAtTime(
+                    0.001,
+                    now +
+                    index * 0.13 +
+                    0.20
+                );
+
+
+                osc.start(
+                    now +
+                    index * 0.13
+                );
+
+
+                osc.stop(
+                    now +
+                    index * 0.13 +
+                    0.20
+                );
+
+            }
+        );
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+}
+
+
+/* ==================================
+   Summary
+================================== */
+
+function updateSummary(){
+
+    document.getElementById(
+        "grandTotal"
+    ).textContent =
+        "৳ " +
+        bn(grandTotal);
+
+
+    document.getElementById(
+        "transactionCount"
+    ).textContent =
+        bn(transactionCount);
+
+}
+
+
+/* ==================================
+   Save
+================================== */
+
+function saveData(){
+
+    localStorage.setItem(
+        "grandTotal",
+        grandTotal
+    );
+
+
+    localStorage.setItem(
+        "transactionCount",
+        transactionCount
+    );
+
+
+    localStorage.setItem(
+        "pendingSales",
+        JSON.stringify(
+            pendingSales
+        )
+    );
+
+}
+
+
+/* ==================================
+   প্রথমবার চালু
+================================== */
+
+updateSummary();
+
+renderPending();
+
+</script>
+
+</body>
+</html>
