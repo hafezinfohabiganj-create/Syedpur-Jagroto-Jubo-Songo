@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+  --blue:#168fd0;
+  --blue-dark:#0878b5;
+  --blue-light:#e9f7ff;
+  --green:#20a86b;
+  --green-light:#e9f8ef;
+  --red:#e65b64;
+  --red-light:#fff0f1;
+  --text:#17191d;
+  --muted:#68727a;
+  --white:#fff;
+  --shadow:0 4px 14px rgba(0,0,0,.12);
+}
+
+html,body{
+  width:100%;
+  min-height:100%;
+  background:#eef5f8;
+  color:var(--text);
+  font-family:
+    "Noto Sans Bengali",
+    "Noto Serif Bengali",
+    Arial,
+    sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+  padding-bottom:8px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  height:76px;
+  background:linear-gradient(135deg,#1597d8,#087fbe);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:6px 14px;
+  box-shadow:0 3px 10px rgba(0,0,0,.18);
+}
+
+.header-left{
+  width:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.menu{
+  font-size:29px;
+  line-height:1;
+  color:white;
+}
+
+.brand{
+  flex:1;
+  text-align:center;
+  line-height:1;
+}
+
+.brand-title{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.brand-subtitle{
+  margin-top:5px;
+  font-size:13px;
+  font-weight:500;
+  opacity:.95;
+}
+
+.header-right{
+  width:42px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.settings{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:rgba(255,255,255,.95);
+  color:#222;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:21px;
+}
+
+/* =========================
+   TOTAL / TODAY
+========================= */
+
+.summary{
+  margin:10px 10px 8px;
+  height:132px;
+  background:white;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  overflow:hidden;
+}
+
+.summary-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.summary-box + .summary-box{
+  border-left:1px solid #d9dfe3;
+}
+
+.summary-label{
+  color:#555e64;
+  font-size:17px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.total-amount{
+  margin-top:5px;
+  color:var(--blue);
+  font-size:42px;
+  font-weight:900;
+  line-height:1;
+}
+
+.today-title{
+  font-size:21px;
+  font-weight:900;
+  line-height:1.15;
+}
+
+.today-count{
+  margin-top:4px;
+  color:var(--blue);
+  font-size:39px;
+  font-weight:900;
+  line-height:1;
+}
+
+/* =========================
+   REPORT TABS
+========================= */
+
+.reports{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+  padding:0 10px 8px;
+}
+
+.report{
+  min-width:0;
+  height:68px;
+  border-radius:18px;
+  background:white;
+  box-shadow:0 3px 9px rgba(0,0,0,.10);
+  border:1px solid #e4e9ec;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    color .18s ease;
+}
+
+.report.active{
+  background:var(--blue);
+  color:white;
+  transform:translateY(-1px);
+  box-shadow:0 4px 11px rgba(22,143,208,.30);
+}
+
+.report-name{
+  font-size:13px;
+  font-weight:800;
+  line-height:1.05;
+  color:#596269;
+}
+
+.report.active .report-name{
+  color:white;
+}
+
+.report-value{
+  margin-top:4px;
+  font-size:19px;
+  font-weight:900;
+  color:var(--blue);
+  line-height:1;
+}
+
+.report.active .report-value{
+  color:white;
+}
+
+/* =========================
+   INSTANT TRANSACTION
+========================= */
+
+.instant{
+  margin:0 10px 7px;
+  background:white;
+  border-radius:19px;
+  box-shadow:var(--shadow);
+  padding:8px 9px;
+  overflow:hidden;
+}
+
+.instant-head{
+  min-height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:5px;
+}
+
+.instant-title{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-size:20px;
+  font-weight:900;
+  line-height:1;
+}
+
+.lightning{
+  font-size:23px;
+}
+
+.pending{
+  color:var(--blue-dark);
+  font-size:15px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.instant-body{
+  margin-top:5px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-height:39px;
+}
+
+.pending-list{
+  flex:1;
+  display:flex;
+  gap:5px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.pending-list::-webkit-scrollbar{
+  display:none;
+}
+
+.pending-item{
+  flex:0 0 auto;
+  min-width:96px;
+  height:36px;
+  border:1px solid #d9e0e4;
+  border-radius:12px;
+  background:#f7fbfd;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  overflow:hidden;
+  animation:pendingIn .25s ease both;
+}
+
+.pending-item .money{
+  padding:0 8px;
+  color:var(--blue);
+  font-size:17px;
+  font-weight:900;
+}
+
+.pending-delete{
+  width:35px;
+  height:100%;
+  border:0;
+  background:#fde5e7;
+  color:#db4d58;
+  font-size:20px;
+  font-weight:900;
+  cursor:pointer;
+  transition:
+    transform .16s ease,
+    background .16s ease;
+}
+
+.pending-delete:active{
+  transform:scale(.84);
+  background:#ffd1d5;
+}
+
+.add-all{
+  flex:0 0 auto;
+  height:40px;
+  border:0;
+  border-radius:12px;
+  padding:0 15px;
+  background:linear-gradient(135deg,#20ad72,#15995f);
+  color:white;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:0 4px 9px rgba(32,168,107,.25);
+  cursor:pointer;
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.add-all:active{
+  transform:scale(.94);
+  box-shadow:0 2px 5px rgba(32,168,107,.2);
+}
+
+@keyframes pendingIn{
+  from{
+    opacity:0;
+    transform:translateX(14px) scale(.94);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+@keyframes removeItem{
+  to{
+    opacity:0;
+    transform:translateX(25px) scale(.8);
+  }
+}
+
+/* =========================
+   NUMBER TABS 1-5
+========================= */
+
+.quick-tabs{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+  padding:0 10px 7px;
+}
+
+.quick-tab{
+  height:48px;
+  border:1px solid #dbeaf2;
+  border-radius:16px;
+  background:#e8f6fd;
+  color:var(--blue-dark);
+  font-size:23px;
+  font-weight:900;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+
+  /* শুধু যেটাতে ক্লিক করা হবে সেটাতেই animation */
+  transition:
+    transform .16s ease,
+    background .16s ease,
+    box-shadow .16s ease;
+}
+
+.quick-tab:active{
+  transform:scale(.91);
+}
+
+.quick-tab.selected{
+  background:#ccecff;
+  box-shadow:
+    0 0 0 2px rgba(22,143,208,.16),
+    0 4px 10px rgba(22,143,208,.18);
+  animation:quickSelected .28s ease;
+}
+
+@keyframes quickSelected{
+  0%{transform:scale(.92)}
+  60%{transform:scale(1.04)}
+  100%{transform:scale(1)}
+}
+
+/* =========================
+   MONEY GRID
+========================= */
+
+.money-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  padding:0 10px;
+}
+
+.money-card{
+  min-width:0;
+  height:128px;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 3px 10px rgba(0,0,0,.11);
+  border:1px solid #e4e9ec;
+  padding:7px 6px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  transition:
+    transform .17s ease,
+    box-shadow .17s ease;
+}
+
+.money-card.flash{
+  animation:moneyFlash .32s ease;
+}
+
+@keyframes moneyFlash{
+  0%{transform:scale(.96)}
+  55%{
+    transform:scale(1.035);
+    box-shadow:0 0 0 3px rgba(22,143,208,.16),
+               0 7px 15px rgba(0,0,0,.13);
+  }
+  100%{transform:scale(1)}
+}
+
+.money-title{
+  color:#15171a;
+  font-size:25px;
+  font-weight:900;
+  line-height:1;
+  margin-top:1px;
+}
+
+.money-total{
+  color:var(--blue);
+  font-size:14px;
+  font-weight:800;
+  line-height:1;
+  margin-top:1px;
+}
+
+.counter{
+  width:100%;
+  height:43px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  border-radius:13px;
+  overflow:hidden;
+  border:1px solid #dce3e7;
+}
+
+.counter button{
+  border:0;
+  font-size:24px;
+  font-weight:900;
+  cursor:pointer;
+  transition:
+    transform .13s ease,
+    filter .13s ease;
+}
+
+.counter button:active{
+  transform:scale(.86);
+  filter:brightness(.94);
+}
+
+.minus{
+  color:#cf4e59;
+  background:var(--red-light);
+}
+
+.plus{
+  color:#27904c;
+  background:var(--green-light);
+}
+
+.count{
+  background:#fff;
+  color:#17191d;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:20px;
+  font-weight:900;
+}
+
+/* =========================
+   SOUND / RESPONSIVE
+========================= */
+
+@media(max-width:380px){
+
+  .header{
+    height:70px;
+  }
+
+  .brand-title{
+    font-size:26px;
+  }
+
+  .brand-subtitle{
+    font-size:11px;
+  }
+
+  .summary{
+    height:118px;
+  }
+
+  .summary-label{
+    font-size:15px;
+  }
+
+  .total-amount{
+    font-size:35px;
+  }
+
+  .today-title{
+    font-size:18px;
+  }
+
+  .today-count{
+    font-size:33px;
+  }
+
+  .report{
+    height:62px;
+    border-radius:16px;
+  }
+
+  .report-name{
+    font-size:11px;
+  }
+
+  .report-value{
+    font-size:17px;
+  }
+
+  .instant-title{
+    font-size:18px;
+  }
+
+  .pending{
+    font-size:13px;
+  }
+
+  .add-all{
+    padding:0 11px;
+    font-size:13px;
+  }
+
+  .quick-tab{
+    height:43px;
+    font-size:21px;
+  }
+
+  .money-grid{
+    gap:6px;
+    padding:0 8px;
+  }
+
+  .money-card{
+    height:119px;
+    border-radius:16px;
+  }
+
+  .money-title{
+    font-size:22px;
+  }
+
+  .money-total{
+    font-size:12px;
+  }
+
+  .counter{
+    height:39px;
+  }
+
+  .counter button{
+    font-size:22px;
+  }
+
+  .count{
+    font-size:18px;
+  }
+}
+
+/* খুব ছোট স্ক্রিনে সবকিছু এক স্ক্রিনে বেশি ফিট হবে */
+@media(max-width:350px){
+
+  .summary{
+    height:108px;
+  }
+
+  .total-amount{
+    font-size:32px;
+  }
+
+  .today-count{
+    font-size:29px;
+  }
+
+  .money-card{
+    height:112px;
+  }
+
+  .money-title{
+    font-size:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+  <div class="header-left">
+    <div class="menu">☰</div>
+  </div>
+
+  <div class="brand">
+    <div class="brand-title">হাফেজ তিজারাহ</div>
+    <div class="brand-subtitle">পরিবারের নিত্যদিনের বাজার</div>
+  </div>
+
+  <div class="header-right">
+    <div class="settings">⚙</div>
+  </div>
+
+</header>
+
+
+<!-- =========================
+     TOTAL / TODAY
+========================= -->
+
+<section class="summary">
+
+  <div class="summary-box">
+
+    <div class="summary-label">
+      সর্বমোট টাকা
+    </div>
+
+    <div class="total-amount" id="grandTotal">
+      ৳ ০
+    </div>
+
+  </div>
+
+
+  <div class="summary-box">
+
+    <div class="today-title">
+      আজকের<br>লেনদেন
+    </div>
+
+    <div class="today-count" id="todayTransactions">
+      ০
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     REPORTS
+========================= -->
+
+<section class="reports">
+
+  <button class="report active">
+    <span class="report-name">আজকের বিক্রি</span>
+    <span class="report-value" id="todayReport">৳ ০</span>
+  </button>
+
+  <button class="report">
+    <span class="report-name">গত ৭ দিন</span>
+    <span class="report-value">৳ ০</span>
+  </button>
+
+  <button class="report">
+    <span class="report-name">গত ১৫ দিন</span>
+    <span class="report-value">৳ ০</span>
+  </button>
+
+  <button class="report">
+    <span class="report-name">গত ১ মাস</span>
+    <span class="report-value">৳ ০</span>
+  </button>
+
+  <button class="report">
+    <span class="report-name">গত ১ বছর</span>
+    <span class="report-value">৳ ০</span>
+  </button>
+
+</section>
+
+
+<!-- =========================
+     INSTANT TRANSACTION
+========================= -->
+
+<section class="instant">
+
+  <div class="instant-head">
+
+    <div class="instant-title">
+      <span class="lightning">⚡</span>
+      <span>ইনস্ট্যান্ট লেনদেন</span>
+    </div>
+
+    <div class="pending" id="pendingText">
+      পেন্ডিং: ০ | ৳ ০
+    </div>
+
+  </div>
+
+
+  <div class="instant-body">
+
+    <div class="pending-list" id="pendingList">
+    </div>
+
+    <button class="add-all" id="addAll">
+      ✓ মোট টাকায় যোগ
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     QUICK NUMBER TABS
+========================= -->
+
+<section class="quick-tabs">
+
+  <button class="quick-tab" data-value="1">১</button>
+  <button class="quick-tab" data-value="2">২</button>
+  <button class="quick-tab" data-value="3">৩</button>
+  <button class="quick-tab" data-value="4">৪</button>
+  <button class="quick-tab" data-value="5">৫</button>
+
+</section>
+
+
+<!-- =========================
+     MONEY GRID
+========================= -->
+
+<section class="money-grid" id="moneyGrid"></section>
+
+
+<script>
+
+/* =========================================================
+   DATA
+========================================================= */
+
+const moneyValues = [
+  5,10,15,20,
+  25,30,35,40,
+  45,50,55,60,
+  65,70,75,80,
+  85,90,95,100
+];
+
+const counts = {};
+
+moneyValues.forEach(v=>{
+  counts[v] = 0;
+});
+
+let grandTotal = 0;
+let todayTransactions = 0;
+
+let pending = [];
+
+
+/* =========================================================
+   BANGLA NUMBER
+========================================================= */
+
+function bn(value){
+
+  const map = {
+    "0":"০",
+    "1":"১",
+    "2":"২",
+    "3":"৩",
+    "4":"৪",
+    "5":"৫",
+    "6":"৬",
+    "7":"৭",
+    "8":"৮",
+    "9":"৯"
+  };
+
+  return String(value)
+    .replace(/[0-9]/g,n=>map[n]);
+}
+
+
+/* =========================================================
+   SOUND ENGINE
+   সব sound একই base volume-এ
+========================================================= */
+
+let audioCtx = null;
+
+function getAudio(){
+
+  if(!audioCtx){
+
+    audioCtx =
+      new (window.AudioContext ||
+           window.webkitAudioContext)();
+
+  }
+
+  if(audioCtx.state === "suspended"){
+    audioCtx.resume();
+  }
+
+  return audioCtx;
+}
+
+
+function playSound(type="add"){
+
+  const ctx = getAudio();
+
+  const now = ctx.currentTime;
+
+  const gain = ctx.createGain();
+  const osc = ctx.createOscillator();
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  /* সব sound-এর master level একই */
+  gain.gain.setValueAtTime(.28,now);
+
+  if(type==="add"){
+
+    osc.type="sine";
+
+    osc.frequency.setValueAtTime(520,now);
+    osc.frequency.exponentialRampToValueAtTime(
+      880,
+      now+.16
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      now+.28
+    );
+
+    osc.start(now);
+    osc.stop(now+.28);
+
+  }
+
+  else if(type==="remove"){
+
+    osc.type="triangle";
+
+    osc.frequency.setValueAtTime(600,now);
+    osc.frequency.exponentialRampToValueAtTime(
+      180,
+      now+.20
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      now+.25
+    );
+
+    osc.start(now);
+    osc.stop(now+.25);
+
+  }
+
+  else if(type==="success"){
+
+    osc.type="sine";
+
+    osc.frequency.setValueAtTime(500,now);
+    osc.frequency.setValueAtTime(650,now+.10);
+    osc.frequency.setValueAtTime(850,now+.20);
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      now+.40
+    );
+
+    osc.start(now);
+    osc.stop(now+.40);
+  }
+}
+
+
+/* =========================================================
+   MONEY GRID
+========================================================= */
+
+const grid = document.getElementById("moneyGrid");
+
+
+function renderGrid(){
+
+  grid.innerHTML="";
+
+  moneyValues.forEach(value=>{
+
+    const card =
+      document.createElement("div");
+
+    card.className="money-card";
+
+    card.dataset.value=value;
+
+    card.innerHTML=`
+
+      <div class="money-title">
+        ৳ ${bn(value)}
+      </div>
+
+      <div class="money-total">
+        মোট: ৳ ${bn(value * counts[value])}
+      </div>
+
+      <div class="counter">
+
+        <button
+          class="minus"
+          aria-label="minus">
+          −
+        </button>
+
+        <div class="count">
+          ${bn(counts[value])}
+        </div>
+
+        <button
+          class="plus"
+          aria-label="plus">
+          +
+        </button>
+
+      </div>
+    `;
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+renderGrid();
+
+
+/* =========================================================
+   PLUS / MINUS
+   শুধু যে card-এ click হবে সেটাতেই effect
+========================================================= */
+
+grid.addEventListener("click",function(e){
+
+  const plus =
+    e.target.closest(".plus");
+
+  const minus =
+    e.target.closest(".minus");
+
+  if(!plus && !minus) return;
+
+  const card =
+    e.target.closest(".money-card");
+
+  const value =
+    Number(card.dataset.value);
+
+
+  if(plus){
+
+    counts[value]++;
+
+    playSound("add");
+
+  }
+
+  if(minus){
+
+    if(counts[value] > 0){
+      counts[value]--;
+      playSound("remove");
+    }
+
+  }
+
+
+  updateCard(card,value);
+
+});
+
+
+function updateCard(card,value){
+
+  const count =
+    card.querySelector(".count");
+
+  const total =
+    card.querySelector(".money-total");
+
+
+  count.textContent =
+    bn(counts[value]);
+
+
+  total.textContent =
+    `মোট: ৳ ${bn(value * counts[value])}`;
+
+
+  /*
+     শুধু clicked card animation
+  */
+
+  card.classList.remove("flash");
+
+  void card.offsetWidth;
+
+  card.classList.add("flash");
+
+
+  setTimeout(()=>{
+    card.classList.remove("flash");
+  },350);
+
+
+  calculateTotal();
+
+}
+
+
+/* =========================================================
+   TOTAL CALCULATION
+========================================================= */
+
+function calculateTotal(){
+
+  let total=0;
+  let transactions=0;
+
+  moneyValues.forEach(value=>{
+
+    total += value * counts[value];
+
+    transactions += counts[value];
+
+  });
+
+  grandTotal=total;
+  todayTransactions=transactions;
+
+
+  document.getElementById(
+    "grandTotal"
+  ).textContent =
+    `৳ ${bn(grandTotal)}`;
+
+
+  document.getElementById(
+    "todayTransactions"
+  ).textContent =
+    bn(todayTransactions);
+
+
+  document.getElementById(
+    "todayReport"
+  ).textContent =
+    `৳ ${bn(grandTotal)}`;
+}
+
+
+/* =========================================================
+   QUICK NUMBER TABS
+========================================================= */
+
+document
+.querySelectorAll(".quick-tab")
+.forEach(tab=>{
+
+  tab.addEventListener("click",function(){
+
+    /*
+       অন্য কোনো tab-এ animation নয়।
+       শুধু clicked tab।
+    */
+
+    document
+      .querySelectorAll(".quick-tab")
+      .forEach(t=>{
+        t.classList.remove("selected");
+      });
+
+    this.classList.add("selected");
+
+    playSound("add");
+
+  });
+
+});
+
+
+/* =========================================================
+   PENDING TRANSACTION
+========================================================= */
+
+function addPending(amount){
+
+  const id =
+    Date.now() + Math.random();
+
+  pending.push({
+    id:id,
+    amount:amount
+  });
+
+  renderPending();
+
+}
+
+
+function renderPending(){
+
+  const list =
+    document.getElementById(
+      "pendingList"
+    );
+
+  list.innerHTML="";
+
+  let pendingTotal=0;
+
+  pending.forEach(item=>{
+
+    pendingTotal += item.amount;
+
+    const el =
+      document.createElement("div");
+
+    el.className="pending-item";
+
+    el.dataset.id=item.id;
+
+    el.innerHTML=`
+
+      <span class="money">
+        ৳ ${bn(item.amount)}
+      </span>
+
+      <button
+        class="pending-delete"
+        aria-label="delete">
+        ×
+      </button>
+    `;
+
+    list.appendChild(el);
+
+  });
+
+
+  document.getElementById(
+    "pendingText"
+  ).textContent =
+    `পেন্ডিং: ${bn(pending.length)} | ৳ ${bn(pendingTotal)}`;
+
+}
+
+
+/* =========================================================
+   PENDING DELETE
+   সাথে সাথে remove
+========================================================= */
+
+document
+.getElementById("pendingList")
+.addEventListener("click",function(e){
+
+  const btn =
+    e.target.closest(
+      ".pending-delete"
+    );
+
+  if(!btn) return;
+
+  const item =
+    btn.closest(".pending-item");
+
+  const id =
+    Number(item.dataset.id);
+
+
+  item.style.animation =
+    "removeItem .18s ease forwards";
+
+
+  setTimeout(()=>{
+
+    pending =
+      pending.filter(
+        x=>x.id!==id
+      );
+
+    renderPending();
+
+  },170);
+
+
+  playSound("remove");
+
+});
+
+
+/* =========================================================
+   QUICK TABS → PENDING
+========================================================= */
+
+document
+.querySelectorAll(".quick-tab")
+.forEach(tab=>{
+
+  tab.addEventListener("dblclick",function(){
+
+    const value =
+      Number(this.dataset.value) * 5;
+
+    addPending(value);
+
+    playSound("add");
+
+  });
+
+});
+
+
+/* =========================================================
+   ADD ALL PENDING TO TOTAL
+   যোগ করার পর pending সম্পূর্ণ clear
+========================================================= */
+
+document
+.getElementById("addAll")
+.addEventListener("click",function(){
+
+  if(pending.length===0){
+
+    playSound("remove");
+
+    return;
+  }
+
+
+  let amount=0;
+
+  pending.forEach(item=>{
+    amount += item.amount;
+  });
+
+
+  grandTotal += amount;
+
+  todayTransactions += pending.length;
+
+
+  document.getElementById(
+    "grandTotal"
+  ).textContent =
+    `৳ ${bn(grandTotal)}`;
+
+
+  document.getElementById(
+    "todayTransactions"
+  ).textContent =
+    bn(todayTransactions);
+
+
+  document.getElementById(
+    "todayReport"
+  ).textContent =
+    `৳ ${bn(grandTotal)}`;
+
+
+  /*
+     গুরুত্বপূর্ণ:
+     মোট টাকায় যোগ করার সাথে সাথেই
+     সব pending remove
+  */
+
+  pending=[];
+
+  renderPending();
+
+
+  /*
+     বড় success sound
+  */
+
+  playSound("success");
+
+});
+
+
+/* =========================================================
+   REPORT TAB ACTIVE
+   শুধু clicked report transition
+========================================================= */
+
+document
+.querySelectorAll(".report")
+.forEach(report=>{
+
+  report.addEventListener("click",function(){
+
+    document
+      .querySelectorAll(".report")
+      .forEach(r=>{
+        r.classList.remove("active");
+      });
+
+    this.classList.add("active");
+
+  });
+
+});
+
+
+/* =========================================================
+   DEMO / INITIAL
+========================================================= */
+
+calculateTotal();
+renderPending();
+
+
+/* =========================================================
+   OPTIONAL:
+   QUICK TAB-এ একবার click করলে সেই amount pending-এ যোগ
+   চাইলে এই অংশ ব্যবহার করতে পারো।
+========================================================= */
+
+document
+.querySelectorAll(".quick-tab")
+.forEach(tab=>{
+
+  tab.addEventListener("click",function(){
+
+    const number =
+      Number(this.dataset.value);
+
+    /*
+       ১→৫ টাকা
+       ২→১০ টাকা
+       ৩→১৫ টাকা
+       ৪→২০ টাকা
+       ৫→২৫ টাকা
+    */
+
+    const amount =
+      number * 5;
+
+    addPending(amount);
+
+  });
+
+});
+
+
+</script>
+
+</body>
+</html>
