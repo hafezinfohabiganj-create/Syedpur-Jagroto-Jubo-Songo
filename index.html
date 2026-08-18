@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+
+/* =========================================================
+   HAFEZ TIJARAH
+   COMPACT MOBILE INTERFACE
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:
+        "Noto Sans Bengali",
+        "Noto Serif Bengali",
+        Arial,
+        sans-serif;
+
+    background:#f3f4f6;
+    color:#202124;
+}
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app{
+    width:100%;
+    height:100dvh;
+    max-width:480px;
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    background:#f5f6f7;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header{
+    flex:0 0 54px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:5px 12px;
+
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+
+    box-shadow:0 1px 5px rgba(0,0,0,.05);
+}
+
+.brand{
+    min-width:0;
+}
+
+.brand-name{
+    font-size:21px;
+    line-height:1;
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.tagline{
+    margin-top:3px;
+
+    font-size:9px;
+    line-height:1;
+
+    color:#777;
+}
+
+.settings-btn{
+    width:34px;
+    height:34px;
+
+    border:0;
+    border-radius:50%;
+
+    background:#f0f1f2;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:
+        transform .12s ease,
+        box-shadow .12s ease;
+}
+
+.settings-btn:active{
+    transform:scale(.88);
+    box-shadow:inset 0 2px 6px rgba(0,0,0,.18);
+}
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.summary{
+    flex:0 0 92px;
+
+    margin:6px 9px 5px;
+    padding:7px 10px;
+
+    display:grid;
+    grid-template-columns:1.4fr .8fr;
+    align-items:center;
+
+    border-radius:16px;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
+}
+
+.total-box{
+    text-align:center;
+}
+
+.total-label{
+    font-size:13px;
+    font-weight:700;
+
+    color:#555;
+}
+
+.total-money{
+    margin-top:2px;
+
+    font-size:31px;
+    line-height:1;
+
+    font-weight:900;
+
+    text-align:center;
+
+    white-space:nowrap;
+}
+
+.today-box{
+    text-align:center;
+
+    border-left:1px solid #e5e7eb;
+}
+
+.today-label{
+    font-size:12px;
+    font-weight:700;
+}
+
+.today-title{
+    font-size:16px;
+    line-height:1.05;
+
+    font-weight:800;
+
+    margin-top:2px;
+}
+
+.today-count{
+    margin-top:2px;
+
+    font-size:25px;
+    line-height:1;
+
+    font-weight:900;
+}
+
+/* =========================================================
+   REPORT TABS
+   ========================================================= */
+
+.report-tabs{
+    flex:0 0 49px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    gap:5px;
+
+    margin:0 9px 5px;
+}
+
+.report-btn{
+    height:49px;
+
+    border:0;
+    border-radius:12px;
+
+    background:#ffffff;
+
+    color:#4b5563;
+
+    font-size:10px;
+    line-height:1.05;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 1px 5px rgba(0,0,0,.05);
+
+    transition:
+        transform .12s ease,
+        box-shadow .12s ease,
+        background .12s ease;
+}
+
+.report-btn strong{
+    display:block;
+
+    margin-top:3px;
+
+    font-size:16px;
+
+    line-height:1;
+}
+
+.report-btn.active{
+    background:#e9eef5;
+    color:#111827;
+}
+
+.report-btn:active{
+    transform:scale(.92);
+
+    box-shadow:
+        inset 0 2px 6px rgba(0,0,0,.18);
+}
+
+/* =========================================================
+   INSTANT TRANSACTION
+   ========================================================= */
+
+.instant{
+    flex:0 0 63px;
+
+    margin:0 9px 5px;
+    padding:5px 7px;
+
+    border-radius:14px;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 1px 6px rgba(0,0,0,.06);
+}
+
+.instant-top{
+    height:21px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.instant-title{
+    font-size:14px;
+    font-weight:800;
+}
+
+.pending{
+    font-size:10px;
+
+    padding:3px 7px;
+
+    border-radius:20px;
+
+    background:#f2f3f5;
+}
+
+.instant-list{
+    height:31px;
+
+    display:flex;
+    align-items:center;
+
+    gap:5px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    scrollbar-width:none;
+}
+
+.instant-list::-webkit-scrollbar{
+    display:none;
+}
+
+.instant-item{
+    flex:0 0 auto;
+
+    height:28px;
+
+    display:flex;
+    align-items:center;
+
+    gap:5px;
+
+    padding:2px 5px 2px 9px;
+
+    border-radius:9px;
+
+    background:#f4f5f6;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.instant-item .delete{
+    width:25px;
+    height:24px;
+
+    border:0;
+    border-radius:7px;
+
+    background:#e9eaec;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:
+        transform .12s ease,
+        box-shadow .12s ease;
+}
+
+.instant-item .delete:active{
+    transform:scale(.82);
+
+    box-shadow:
+        inset 0 2px 6px rgba(0,0,0,.2);
+}
+
+/* =========================================================
+   QUICK 1-5
+   ========================================================= */
+
+.quick{
+    flex:0 0 38px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    gap:5px;
+
+    margin:0 9px 5px;
+}
+
+.quick-btn{
+    height:38px;
+
+    border:0;
+    border-radius:10px;
+
+    background:#ffffff;
+
+    font-size:18px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 1px 5px rgba(0,0,0,.05);
+
+    transition:
+        transform .12s ease,
+        box-shadow .12s ease;
+}
+
+.quick-btn:active{
+    transform:scale(.88);
+
+    box-shadow:
+        inset 0 2px 6px rgba(0,0,0,.22);
+}
+
+/* =========================================================
+   MONEY GRID
+   ========================================================= */
+
+.money-area{
+    flex:1;
+
+    min-height:0;
+
+    overflow:hidden;
+
+    padding:0 8px 7px;
+}
+
+.money-grid{
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    grid-auto-rows:minmax(0,1fr);
+
+    gap:5px;
+}
+
+.money-card{
+    min-width:0;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:6px 4px;
+
+    border-radius:13px;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 1px 5px rgba(0,0,0,.055);
+}
+
+.money-value{
+    text-align:center;
+
+    font-size:21px;
+    line-height:1;
+
+    font-weight:900;
+}
+
+.money-total{
+    text-align:center;
+
+    font-size:11px;
+    line-height:1;
+
+    color:#777;
+
+    min-height:11px;
+}
+
+.controls{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:3px;
+}
+
+.control{
+    height:28px;
+
+    border:0;
+
+    border-radius:8px;
+
+    font-size:19px;
+    line-height:1;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:
+        transform .12s ease,
+        box-shadow .12s ease,
+        filter .12s ease;
+}
+
+.plus{
+    background:#e8f4ea;
+    color:#218739;
+}
+
+.minus{
+    background:#f7eaea;
+    color:#c33131;
+}
+
+.control:active{
+    transform:scale(.84);
+
+    box-shadow:
+        inset 0 2px 7px rgba(0,0,0,.22);
+
+    filter:brightness(.95);
+}
+
+/* =========================================================
+   SINGLE BUTTON ANIMATION
+   ONLY CLICKED ELEMENT ANIMATES
+   ========================================================= */
+
+.click-feedback{
+    animation:buttonPress .22s ease-out;
+}
+
+@keyframes buttonPress{
+
+    0%{
+        transform:scale(1);
+    }
+
+    35%{
+        transform:scale(.84);
+    }
+
+    70%{
+        transform:scale(1.035);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* =========================================================
+   MODAL / SETTINGS
+   ========================================================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:none;
+
+    align-items:flex-end;
+    justify-content:center;
+
+    background:rgba(0,0,0,.35);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.settings{
+    width:100%;
+    max-width:480px;
+
+    padding:16px;
+
+    border-radius:20px 20px 0 0;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 -5px 25px rgba(0,0,0,.18);
+}
+
+.settings h2{
+    font-size:18px;
+
+    margin-bottom:13px;
+}
+
+.setting-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.setting-row input{
+    flex:1;
+}
+
+.volume-value{
+    width:45px;
+
+    text-align:right;
+
+    font-weight:800;
+}
+
+.close-settings{
+    width:100%;
+
+    height:40px;
+
+    margin-top:14px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:#eeeeef;
+
+    font-weight:800;
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark{
+    background:#111315;
+    color:#eeeeee;
+}
+
+body.dark .app{
+    background:#111315;
+}
+
+body.dark .header,
+body.dark .summary,
+body.dark .report-btn,
+body.dark .instant,
+body.dark .quick-btn,
+body.dark .money-card{
+    background:#1c1f22;
+
+    color:#eeeeee;
+
+    border-color:#30343a;
+}
+
+body.dark .tagline,
+body.dark .money-total{
+    color:#a9afb7;
+}
+
+body.dark .today-box{
+    border-color:#30343a;
+}
+
+body.dark .pending,
+body.dark .instant-item{
+    background:#292d32;
+}
+
+body.dark .instant-item .delete{
+    background:#343940;
+    color:#ffffff;
+}
+
+body.dark .plus{
+    background:#183d24;
+}
+
+body.dark .minus{
+    background:#401d1d;
+}
+
+body.dark .settings{
+    background:#1c1f22;
+    color:#ffffff;
+}
+
+body.dark .close-settings{
+    background:#30343a;
+    color:#ffffff;
+}
+
+/* =========================================================
+   SMALL HEIGHT DEVICES
+   ========================================================= */
+
+@media(max-height:700px){
+
+    .header{
+        flex-basis:50px;
+    }
+
+    .summary{
+        flex-basis:82px;
+        min-height:82px;
+    }
+
+    .total-money{
+        font-size:28px;
+    }
+
+    .today-count{
+        font-size:22px;
+    }
+
+    .report-tabs{
+        flex-basis:45px;
+    }
+
+    .report-btn{
+        height:45px;
+    }
+
+    .quick{
+        flex-basis:34px;
+    }
+
+    .quick-btn{
+        height:34px;
+        font-size:16px;
+    }
+
+    .instant{
+        flex-basis:57px;
+    }
+
+    .money-value{
+        font-size:19px;
+    }
+
+    .control{
+        height:25px;
+        font-size:17px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="brand-name">
+                হাফেজ তিজারাহ
+            </div>
+
+            <div class="tagline">
+                পরিবারের নিত্যদিনের বাজার
+            </div>
+
+        </div>
+
+        <button
+            class="settings-btn"
+            id="settingsButton"
+            type="button">
+            ⚙
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         TOTAL / TODAY
+         ===================================================== -->
+
+    <section class="summary">
+
+        <div class="total-box">
+
+            <div class="total-label">
+                সর্বমোট টাকা
+            </div>
+
+            <div
+                class="total-money"
+                id="totalMoney">
+                ৳0
+            </div>
+
+        </div>
+
+
+        <div class="today-box">
+
+            <div class="today-label">
+                আজকের
+            </div>
+
+            <div class="today-title">
+                লেনদেন
+            </div>
+
+            <div
+                class="today-count"
+                id="todayCount">
+                0
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REPORTS
+         ===================================================== -->
+
+    <section class="report-tabs">
+
+        <button
+            class="report-btn active"
+            data-report="today">
+
+            আজকের বিক্রি
+
+            <strong id="reportToday">
+                ৳0
+            </strong>
+
+        </button>
+
+
+        <button
+            class="report-btn"
+            data-report="7">
+
+            গত ৭ দিন
+
+            <strong id="report7">
+                ৳0
+            </strong>
+
+        </button>
+
+
+        <button
+            class="report-btn"
+            data-report="15">
+
+            গত ১৫ দিন
+
+            <strong id="report15">
+                ৳0
+            </strong>
+
+        </button>
+
+
+        <button
+            class="report-btn"
+            data-report="30">
+
+            গত ১ মাস
+
+            <strong id="report30">
+                ৳0
+            </strong>
+
+        </button>
+
+
+        <button
+            class="report-btn"
+            data-report="365">
+
+            গত ১ বছর
+
+            <strong id="report365">
+                ৳0
+            </strong>
+
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         INSTANT TRANSACTION
+         ===================================================== -->
+
+    <section class="instant">
+
+        <div class="instant-top">
+
+            <div class="instant-title">
+                ইনস্ট্যান্ট লেনদেন
+            </div>
+
+            <div
+                class="pending"
+                id="pending">
+                Pending: 0
+            </div>
+
+        </div>
+
+
+        <div
+            class="instant-list"
+            id="instantList">
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         QUICK 1 - 5
+         ===================================================== -->
+
+    <section class="quick">
+
+        <button
+            class="quick-btn"
+            data-quick="1">
+            ১
+        </button>
+
+        <button
+            class="quick-btn"
+            data-quick="2">
+            ২
+        </button>
+
+        <button
+            class="quick-btn"
+            data-quick="3">
+            ৩
+        </button>
+
+        <button
+            class="quick-btn"
+            data-quick="4">
+            ৪
+        </button>
+
+        <button
+            class="quick-btn"
+            data-quick="5">
+            ৫
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         MONEY GRID
+         5 - 100
+         ===================================================== -->
+
+    <main class="money-area">
+
+        <div
+            class="money-grid"
+            id="moneyGrid">
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     SETTINGS MODAL
+     ========================================================= -->
+
+<div
+    class="modal"
+    id="settingsModal">
+
+    <div class="settings">
+
+        <h2>
+            সেটিংস
+        </h2>
+
+        <div class="setting-row">
+
+            <span>
+                🔊
+            </span>
+
+            <input
+                type="range"
+                id="soundVolume"
+                min="0"
+                max="100"
+                value="100">
+
+            <span
+                class="volume-value"
+                id="volumeValue">
+                100%
+            </span>
+
+        </div>
+
+
+        <div style="margin-top:14px">
+
+            <button
+                class="close-settings"
+                id="darkModeButton">
+
+                🌙 ডার্ক থিম
+
+            </button>
+
+        </div>
+
+
+        <button
+            class="close-settings"
+            id="closeSettings">
+
+            বন্ধ করুন
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   HAFEZ TIJARAH
+   APPLICATION ENGINE
+   ========================================================= */
+
+
+/* =========================================================
+   DATA
+   ========================================================= */
+
+const amounts = [];
+
+for(let i = 5; i <= 100; i += 5){
+    amounts.push(i);
+}
+
+
+let totals = {};
+
+amounts.forEach(amount => {
+    totals[amount] = 0;
+});
+
+
+let totalMoney = 0;
+
+let todayTransactions = 0;
+
+let instantTransactions = [];
+
+let volume = 1;
+
+
+/* =========================================================
+   LOCAL STORAGE
+   ========================================================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        "hafezTijarahTotals",
+        JSON.stringify(totals)
+    );
+
+    localStorage.setItem(
+        "hafezTijarahTotalMoney",
+        String(totalMoney)
+    );
+
+    localStorage.setItem(
+        "hafezTijarahTodayTransactions",
+        String(todayTransactions)
+    );
+
+    localStorage.setItem(
+        "hafezTijarahInstantTransactions",
+        JSON.stringify(instantTransactions)
+    );
+}
+
+
+function loadData(){
+
+    try{
+
+        const savedTotals =
+            localStorage.getItem(
+                "hafezTijarahTotals"
+            );
+
+        if(savedTotals){
+
+            const parsed =
+                JSON.parse(savedTotals);
+
+            amounts.forEach(amount => {
+
+                totals[amount] =
+                    Number(parsed[amount] || 0);
+
+            });
+
+        }
+
+
+        totalMoney =
+            Number(
+                localStorage.getItem(
+                    "hafezTijarahTotalMoney"
+                ) || 0
+            );
+
+
+        todayTransactions =
+            Number(
+                localStorage.getItem(
+                    "hafezTijarahTodayTransactions"
+                ) || 0
+            );
+
+
+        const savedInstant =
+            localStorage.getItem(
+                "hafezTijarahInstantTransactions"
+            );
+
+        if(savedInstant){
+
+            instantTransactions =
+                JSON.parse(savedInstant);
+
+        }
+
+    }catch(error){
+
+        console.error(
+            "Data loading error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   AUDIO ENGINE
+   ========================================================= */
+
+let audioContext = null;
+
+
+function getAudioContext(){
+
+    if(!audioContext){
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if(!AudioContext){
+            return null;
+        }
+
+        audioContext =
+            new AudioContext();
+
+    }
+
+
+    if(audioContext.state === "suspended"){
+
+        audioContext.resume();
+
+    }
+
+
+    return audioContext;
+
+}
+
+
+/*
+ * প্রতিটি sound-এর base level একই।
+ *
+ * plus
+ * minus
+ * delete
+ * merge
+ */
+
+function playSound(type){
+
+    const ctx =
+        getAudioContext();
+
+    if(!ctx) return;
+
+
+    const now =
+        ctx.currentTime;
+
+
+    const master =
+        ctx.createGain();
+
+
+    master.gain.value =
+        0.90 * volume;
+
+
+    master.connect(
+        ctx.destination
+    );
+
+
+    const osc =
+        ctx.createOscillator();
+
+
+    const gain =
+        ctx.createGain();
+
+
+    osc.connect(gain);
+
+    gain.connect(master);
+
+
+    let start = 500;
+
+    let end = 700;
+
+    let duration = .12;
+
+
+    if(type === "plus"){
+
+        start = 650;
+        end = 900;
+        duration = .11;
+
+    }
+
+
+    if(type === "minus"){
+
+        start = 500;
+        end = 300;
+        duration = .13;
+
+    }
+
+
+    if(type === "delete"){
+
+        start = 430;
+        end = 170;
+        duration = .18;
+
+    }
+
+
+    if(type === "merge"){
+
+        start = 700;
+        end = 1100;
+        duration = .20;
+
+    }
+
+
+    osc.type = "sine";
+
+
+    osc.frequency.setValueAtTime(
+        start,
+        now
+    );
+
+
+    osc.frequency.exponentialRampToValueAtTime(
+        end,
+        now + duration
+    );
+
+
+    gain.gain.setValueAtTime(
+        .001,
+        now
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        .85,
+        now + .015
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        now + duration
+    );
+
+
+    osc.start(now);
+
+    osc.stop(
+        now + duration + .02
+    );
+
+
+    /* Merge confirmation tone */
+
+    if(type === "merge"){
+
+        const osc2 =
+            ctx.createOscillator();
+
+        const gain2 =
+            ctx.createGain();
+
+
+        osc2.connect(gain2);
+
+        gain2.connect(master);
+
+
+        osc2.type = "sine";
+
+
+        osc2.frequency.setValueAtTime(
+            1050,
+            now + .08
+        );
+
+
+        osc2.frequency.exponentialRampToValueAtTime(
+            1350,
+            now + .20
+        );
+
+
+        gain2.gain.setValueAtTime(
+            .001,
+            now + .08
+        );
+
+
+        gain2.gain.exponentialRampToValueAtTime(
+            .70,
+            now + .095
+        );
+
+
+        gain2.gain.exponentialRampToValueAtTime(
+            .001,
+            now + .22
+        );
+
+
+        osc2.start(
+            now + .08
+        );
+
+
+        osc2.stop(
+            now + .24
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SINGLE ELEMENT ANIMATION
+   ========================================================= */
+
+function animateOnly(element){
+
+    if(!element) return;
+
+
+    element.classList.remove(
+        "click-feedback"
+    );
+
+
+    void element.offsetWidth;
+
+
+    element.classList.add(
+        "click-feedback"
+    );
+
+
+    setTimeout(() => {
+
+        element.classList.remove(
+            "click-feedback"
+        );
+
+    },240);
+
+}
+
+
+/* =========================================================
+   MONEY GRID
+   ========================================================= */
+
+function createMoneyGrid(){
+
+    const grid =
+        document.getElementById(
+            "moneyGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    amounts.forEach(amount => {
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "money-card";
+
+
+        card.dataset.amount =
+            amount;
+
+
+        card.innerHTML = `
+
+            <div
+                class="money-value">
+                ৳${amount}
+            </div>
+
+            <div
+                class="money-total"
+                id="amountTotal-${amount}">
+                মোট: 0
+            </div>
+
+            <div
+                class="controls">
+
+                <button
+                    class="control plus"
+                    data-amount="${amount}"
+                    data-action="plus">
+                    +
+                </button>
+
+                <button
+                    class="control minus"
+                    data-amount="${amount}"
+                    data-action="minus">
+                    −
+                </button>
+
+            </div>
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
+
+    updateMoneyCards();
+
+}
+
+
+/* =========================================================
+   UPDATE MONEY CARDS
+   ========================================================= */
+
+function updateMoneyCards(){
+
+    amounts.forEach(amount => {
+
+        const element =
+            document.getElementById(
+                `amountTotal-${amount}`
+            );
+
+
+        if(element){
+
+            element.textContent =
+                `মোট: ৳${totals[amount]}`;
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   ADD MONEY
+   ========================================================= */
+
+function addMoney(amount){
+
+    totals[amount]++;
+
+    totalMoney += amount;
+
+    todayTransactions++;
+
+    saveData();
+
+    updateUI();
+
+    playSound("plus");
+
+}
+
+
+/* =========================================================
+   REMOVE MONEY
+   ========================================================= */
+
+function removeMoney(amount){
+
+    if(totals[amount] <= 0){
+
+        return;
+
+    }
+
+
+    totals[amount]--;
+
+    totalMoney -= amount;
+
+
+    if(totalMoney < 0){
+
+        totalMoney = 0;
+
+    }
+
+
+    saveData();
+
+    updateUI();
+
+    playSound("minus");
+
+}
+
+
+/* =========================================================
+   QUICK 1 - 5
+   ========================================================= */
+
+function quickAdd(number){
+
+    /*
+     * Quick number সরাসরি instant transaction-এ
+     * যোগ হবে।
+     */
+
+    instantTransactions.push({
+        amount:number,
+        id:Date.now()
+    });
+
+
+    saveData();
+
+    renderInstant();
+
+    playSound("plus");
+
+}
+
+
+/* =========================================================
+   INSTANT TRANSACTION RENDER
+   ========================================================= */
+
+function renderInstant(){
+
+    const list =
+        document.getElementById(
+            "instantList"
+        );
+
+
+    list.innerHTML = "";
+
+
+    instantTransactions.forEach(item => {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.className =
+            "instant-item";
+
+
+        div.innerHTML = `
+
+            <span>
+                ৳${item.amount}
+            </span>
+
+            <button
+                class="delete"
+                data-id="${item.id}">
+                ×
+            </button>
+
+        `;
+
+
+        list.appendChild(div);
+
+    });
+
+
+    document.getElementById(
+        "pending"
+    ).textContent =
+        `Pending: ${instantTransactions.length}`;
+
+}
+
+
+/* =========================================================
+   DELETE INSTANT TRANSACTION
+   ========================================================= */
+
+function deleteInstant(id){
+
+    instantTransactions =
+        instantTransactions.filter(
+            item => item.id !== id
+        );
+
+
+    saveData();
+
+    renderInstant();
+
+    playSound("delete");
+
+}
+
+
+/* =========================================================
+   ADD INSTANT TO TOTAL
+   ========================================================= */
+
+function mergeInstant(id){
+
+    const index =
+        instantTransactions.findIndex(
+            item => item.id === id
+        );
+
+
+    if(index === -1){
+
+        return;
+
+    }
+
+
+    const item =
+        instantTransactions[index];
+
+
+    /*
+     * এখানে instant transaction
+     * total-এর সাথে যুক্ত হচ্ছে।
+     */
+
+
+    totalMoney += item.amount;
+
+    todayTransactions++;
+
+
+    /*
+     * Instant transaction
+     * নিজে থেকে delete হচ্ছে না।
+     *
+     * তাই pending history হিসেবে থাকবে।
+     */
+
+
+    saveData();
+
+    updateUI();
+
+    playSound("merge");
+
+}
+
+
+/* =========================================================
+   UPDATE TOTAL
+   ========================================================= */
+
+function updateUI(){
+
+    document.getElementById(
+        "totalMoney"
+    ).textContent =
+        `৳${totalMoney}`;
+
+
+    document.getElementById(
+        "todayCount"
+    ).textContent =
+        todayTransactions;
+
+
+    updateMoneyCards();
+
+    updateReports();
+
+}
+
+
+/* =========================================================
+   REPORTS
+   ========================================================= */
+
+function updateReports(){
+
+    /*
+     * Local version-এর জন্য এখানে
+     * বর্তমান মোট হিসাব দেখানো হচ্ছে।
+     *
+     * Firebase যুক্ত করলে এখানে
+     * real date-based report আসবে।
+     */
+
+    document.getElementById(
+        "reportToday"
+    ).textContent =
+        `৳${totalMoney}`;
+
+
+    document.getElementById(
+        "report7"
+    ).textContent =
+        `৳${totalMoney}`;
+
+
+    document.getElementById(
+        "report15"
+    ).textContent =
+        `৳${totalMoney}`;
+
+
+    document.getElementById(
+        "report30"
+    ).textContent =
+        `৳${totalMoney}`;
+
+
+    document.getElementById(
+        "report365"
+    ).textContent =
+        `৳${totalMoney}`;
+
+}
+
+
+/* =========================================================
+   EVENT: MONEY BUTTONS
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const button =
+            event.target.closest(
+                ".control"
+            );
+
+
+        if(!button){
+
+            return;
+
+        }
+
+
+        const amount =
+            Number(
+                button.dataset.amount
+            );
+
+
+        const action =
+            button.dataset.action;
+
+
+        /*
+         * শুধুমাত্র clicked button
+         * animation পাবে।
+         */
+
+        animateOnly(button);
+
+
+        if(action === "plus"){
+
+            addMoney(amount);
+
+        }
+
+
+        if(action === "minus"){
+
+            removeMoney(amount);
+
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   EVENT: QUICK BUTTONS
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const button =
+            event.target.closest(
+                ".quick-btn"
+            );
+
+
+        if(!button){
+
+            return;
+
+        }
+
+
+        animateOnly(button);
+
+
+        const number =
+            Number(
+                button.dataset.quick
+            );
+
+
+        quickAdd(number);
+
+    },
+    true
+);
+
+
+/* =========================================================
+   EVENT: DELETE
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const button =
+            event.target.closest(
+                ".delete"
+            );
+
+
+        if(!button){
+
+            return;
+
+        }
+
+
+        animateOnly(button);
+
+
+        const id =
+            Number(
+                button.dataset.id
+            );
+
+
+        deleteInstant(id);
+
+    },
+    true
+);
+
+
+/* =========================================================
+   EVENT: INSTANT ITEM CLICK
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const item =
+            event.target.closest(
+                ".instant-item"
+            );
+
+
+        if(!item){
+
+            return;
+
+        }
+
+
+        if(
+            event.target.closest(
+                ".delete"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        const id =
+            Number(
+                item.querySelector(
+                    ".delete"
+                ).dataset.id
+            );
+
+
+        animateOnly(item);
+
+
+        mergeInstant(id);
+
+    },
+    true
+);
+
+
+/* =========================================================
+   REPORT BUTTONS
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const button =
+            event.target.closest(
+                ".report-btn"
+            );
+
+
+        if(!button){
+
+            return;
+
+        }
+
+
+        document.querySelectorAll(
+            ".report-btn"
+        ).forEach(btn => {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        button.classList.add(
+            "active"
+        );
+
+
+        animateOnly(button);
+
+    },
+    true
+);
+
+
+/* =========================================================
+   SETTINGS
+   ========================================================= */
+
+const settingsModal =
+    document.getElementById(
+        "settingsModal"
+    );
+
+
+document.getElementById(
+    "settingsButton"
+).addEventListener(
+    "click",
+    function(){
+
+        settingsModal.classList.add(
+            "show"
+        );
+
+    }
+);
+
+
+document.getElementById(
+    "closeSettings"
+).addEventListener(
+    "click",
+    function(){
+
+        settingsModal.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   VOLUME
+   ========================================================= */
+
+const volumeSlider =
+    document.getElementById(
+        "soundVolume"
+    );
+
+
+const volumeValue =
+    document.getElementById(
+        "volumeValue"
+    );
+
+
+volumeSlider.addEventListener(
+    "input",
+    function(){
+
+        volume =
+            Number(
+                this.value
+            ) / 100;
+
+
+        volumeValue.textContent =
+            `${this.value}%`;
+
+    }
+);
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+document.getElementById(
+    "darkModeButton"
+).addEventListener(
+    "click",
+    function(){
+
+        document.body.classList.toggle(
+            "dark"
+        );
+
+
+        const isDark =
+            document.body.classList.contains(
+                "dark"
+            );
+
+
+        localStorage.setItem(
+            "hafezTijarahDark",
+            isDark
+                ? "1"
+                : "0"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   LOAD DARK MODE
+   ========================================================= */
+
+if(
+    localStorage.getItem(
+        "hafezTijarahDark"
+    ) === "1"
+){
+
+    document.body.classList.add(
+        "dark"
+    );
+
+}
+
+
+/* =========================================================
+   AUDIO UNLOCK FOR ANDROID
+   ========================================================= */
+
+document.addEventListener(
+    "touchstart",
+    function unlockAudio(){
+
+        getAudioContext();
+
+        document.removeEventListener(
+            "touchstart",
+            unlockAudio
+        );
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================================
+   START APPLICATION
+   ========================================================= */
+
+loadData();
+
+createMoneyGrid();
+
+renderInstant();
+
+updateUI();
+
+
+</script>
+
+</body>
+</html>
