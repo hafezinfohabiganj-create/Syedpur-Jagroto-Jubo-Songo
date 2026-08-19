@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#f3f5f7;
+    color:#17202a;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+}
+
+button{
+    font-family:inherit;
+    border:none;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.app{
+    width:100%;
+    max-width:393px;
+    min-height:100vh;
+    background:#fff;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+.header{
+    padding:14px 16px;
+    background:#fff;
+    border-bottom:1px solid #e9ecef;
+}
+
+.header h1{
+    font-size:21px;
+    font-weight:800;
+}
+
+.header p{
+    margin-top:2px;
+    font-size:12px;
+    color:#7a828a;
+}
+
+/* COMMON */
+.today-section,
+.money-section,
+.report-section{
+    padding:12px 14px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:9px;
+}
+
+.section-title h2{
+    font-size:15px;
+    font-weight:750;
+}
+
+.section-title span{
+    min-width:25px;
+    height:22px;
+    padding:0 7px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:20px;
+    background:#eef1f3;
+    color:#5d6670;
+    font-size:11px;
+    font-weight:700;
+}
+
+/* TODAY'S TRANSACTIONS */
+.transaction-list{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    max-height:135px;
+    overflow-y:auto;
+}
+
+.empty-message{
+    padding:17px 10px;
+    text-align:center;
+    border-radius:10px;
+    background:#f7f8f9;
+    color:#90979e;
+    font-size:12px;
+}
+
+.transaction-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px 10px;
+    background:#f7f8f9;
+    border-radius:9px;
+    font-size:13px;
+}
+
+.transaction-left{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.transaction-amount{
+    font-weight:750;
+}
+
+.transaction-quantity{
+    color:#707880;
+    font-size:11px;
+}
+
+.transaction-total{
+    font-weight:800;
+}
+
+/* TOTAL */
+.total-section{
+    margin:0 14px 10px;
+    padding:10px 11px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-radius:12px;
+    background:#f0f3f5;
+}
+
+.total-left{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.total-left span{
+    font-size:13px;
+    color:#68717a;
+    font-weight:650;
+}
+
+.total-left strong{
+    font-size:20px;
+    font-weight:850;
+}
+
+/* ONLY DELETE BUTTON */
+.delete-button{
+    width:34px;
+    height:34px;
+    border-radius:9px;
+    background:#ffe7e7;
+    color:#e53935;
+    font-size:18px;
+    font-weight:900;
+    transition:transform .15s ease;
+}
+
+.delete-button:active{
+    transform:scale(.88);
+}
+
+/* MONEY BUTTONS */
+.money-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+}
+
+.money-button{
+    position:relative;
+    min-height:62px;
+    padding:7px 4px;
+    border-radius:11px;
+    background:#f4f6f7;
+    color:#17202a;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+}
+
+.money-button span{
+    font-size:16px;
+    font-weight:800;
+}
+
+.money-button small{
+    min-width:20px;
+    height:18px;
+    padding:0 5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:#e0e4e7;
+    color:#626a71;
+    font-size:10px;
+    font-weight:700;
+}
+
+/* শুধু যে বাটনে ক্লিক হবে সেটির animation */
+.money-button.clicked{
+    animation:buttonPress .22s ease;
+}
+
+@keyframes buttonPress{
+    0%{transform:scale(1);}
+    50%{transform:scale(.91);}
+    100%{transform:scale(1);}
+}
+
+/* REPORT */
+.report-section{
+    padding-bottom:20px;
+}
+
+.report-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+}
+
+.report-button{
+    min-height:42px;
+    padding:8px;
+    border-radius:9px;
+    background:#f4f6f7;
+    color:#343a40;
+    font-size:12px;
+    font-weight:700;
+    transition:transform .12s ease;
+}
+
+.report-button:last-child{
+    grid-column:span 2;
+}
+
+.report-button:active{
+    transform:scale(.95);
+}
+
+/* SMALL SCREEN */
+@media(max-width:350px){
+
+    .app{
+        max-width:100%;
+    }
+
+    .money-grid{
+        gap:6px;
+    }
+
+    .money-button{
+        min-height:57px;
+    }
+
+    .money-button span{
+        font-size:14px;
+    }
+}
+
+/* SAFE AREA */
+@supports(padding:env(safe-area-inset-bottom)){
+
+    .report-section{
+        padding-bottom:calc(20px + env(safe-area-inset-bottom));
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>হাফেজ তিজারাহ</h1>
+        <p>বিক্রি ও লেনদেন</p>
+    </header>
+
+
+    <!-- আজকের লেনদেন -->
+    <section class="today-section">
+
+        <div class="section-title">
+            <h2>আজকের লেনদেন</h2>
+            <span id="transactionCount">০</span>
+        </div>
+
+        <div id="transactionList" class="transaction-list">
+
+            <div class="empty-message">
+                আজ এখনো কোনো লেনদেন হয়নি
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- সর্বমোট টাকা -->
+    <section class="total-section">
+
+        <div class="total-left">
+            <span>সর্বমোট</span>
+
+            <strong>
+                ৳ <span id="totalAmount">০</span>
+            </strong>
+        </div>
+
+        <!-- শুধু Delete — কোনো Plus নেই -->
+        <button
+            id="deleteButton"
+            class="delete-button"
+            title="সর্বশেষ লেনদেন মুছুন">
+            ✕
+        </button>
+
+    </section>
+
+
+    <!-- INSTANT লেনদেন -->
+    <section class="money-section">
+
+        <div class="section-title">
+            <h2>Instant লেনদেন</h2>
+        </div>
+
+        <div class="money-grid">
+
+            <button class="money-button" data-amount="5">
+                <span>৳৫</span>
+                <small>০</small>
+            </button>
+
+            <button class="money-button" data-amount="10">
+                <span>৳১০</span>
+                <small>০</small>
+            </button>
+
+            <button class="money-button" data-amount="20">
+                <span>৳২০</span>
+                <small>০</small>
+            </button>
+
+            <button class="money-button" data-amount="50">
+                <span>৳৫০</span>
+                <small>০</small>
+            </button>
+
+            <button class="money-button" data-amount="100">
+                <span>৳১০০</span>
+                <small>০</small>
+            </button>
+
+            <button class="money-button" data-amount="200">
+                <span>৳২০০</span>
+                <small>০</small>
+            </button>
+
+            <button class="money-button" data-amount="500">
+                <span>৳৫০০</span>
+                <small>০</small>
+            </button>
+
+            <button class="money-button" data-amount="1000">
+                <span>৳১০০০</span>
+                <small>০</small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- রিপোর্ট -->
+    <section class="report-section">
+
+        <div class="section-title">
+            <h2>রিপোর্ট</h2>
+        </div>
+
+        <div class="report-grid">
+
+            <button class="report-button" data-period="today">
+                আজ বিক্রি
+            </button>
+
+            <button class="report-button" data-period="7">
+                গত ৭ দিন
+            </button>
+
+            <button class="report-button" data-period="15">
+                গত ১৫ দিন
+            </button>
+
+            <button class="report-button" data-period="30">
+                গত ১ মাস
+            </button>
+
+            <button class="report-button" data-period="365">
+                গত ১ বছর
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   হাফেজ তিজারাহ
+   বিক্রি / লেনদেন সিস্টেম
+========================================== */
+
+const moneyButtons =
+    document.querySelectorAll(".money-button");
+
+const transactionList =
+    document.getElementById("transactionList");
+
+const totalAmountElement =
+    document.getElementById("totalAmount");
+
+const transactionCountElement =
+    document.getElementById("transactionCount");
+
+const deleteButton =
+    document.getElementById("deleteButton");
+
+const reportButtons =
+    document.querySelectorAll(".report-button");
+
+
+/* DATA */
+
+let transactions = [];
+
+
+/* বাংলা সংখ্যা */
+
+function toBanglaNumber(number){
+
+    const english = "0123456789";
+    const bangla = "০১২৩৪৫৬৭৮৯";
+
+    return String(number).replace(/[0-9]/g, digit => {
+
+        return bangla[
+            english.indexOf(digit)
+        ];
+
+    });
+}
+
+
+/* মোট টাকা */
+
+function calculateTotal(){
+
+    return transactions.reduce(
+        (total, transaction) => {
+
+            return total +
+                (
+                    transaction.amount *
+                    transaction.quantity
+                );
+
+        },
+        0
+    );
+}
+
+
+/* UI UPDATE */
+
+function updateUI(){
+
+    const total = calculateTotal();
+
+    totalAmountElement.textContent =
+        toBanglaNumber(total);
+
+    transactionCountElement.textContent =
+        toBanglaNumber(transactions.length);
+
+    renderTransactions();
+}
+
+
+/* TRANSACTION RENDER */
+
+function renderTransactions(){
+
+    transactionList.innerHTML = "";
+
+    if(transactions.length === 0){
+
+        transactionList.innerHTML = `
+            <div class="empty-message">
+                আজ এখনো কোনো লেনদেন হয়নি
+            </div>
+        `;
+
+        return;
+    }
+
+
+    transactions.forEach(transaction => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "transaction-item";
+
+        const transactionTotal =
+            transaction.amount *
+            transaction.quantity;
+
+
+        item.innerHTML = `
+
+            <div class="transaction-left">
+
+                <span class="transaction-amount">
+                    ৳${toBanglaNumber(transaction.amount)}
+                </span>
+
+                <span class="transaction-quantity">
+                    × ${toBanglaNumber(transaction.quantity)}
+                </span>
+
+            </div>
+
+            <div class="transaction-total">
+                ৳${toBanglaNumber(transactionTotal)}
+            </div>
+
+        `;
+
+        transactionList.appendChild(item);
+
+    });
+}
+
+
+/* MONEY BUTTON CLICK */
+
+moneyButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const amount =
+            Number(button.dataset.amount);
+
+
+        /* আগে ব্যবহার হয়েছে কিনা */
+
+        const existing =
+            transactions.find(
+                transaction =>
+                    transaction.amount === amount
+            );
+
+
+        if(existing){
+
+            existing.quantity += 1;
+
+        }else{
+
+            transactions.push({
+
+                amount:amount,
+                quantity:1
+
+            });
+
+        }
+
+
+        /* শুধু এই বাটনের animation */
+
+        button.classList.remove("clicked");
+
+        void button.offsetWidth;
+
+        button.classList.add("clicked");
+
+
+        /* Quantity update */
+
+        const currentTransaction =
+            transactions.find(
+                transaction =>
+                    transaction.amount === amount
+            );
+
+
+        const quantityElement =
+            button.querySelector("small");
+
+
+        quantityElement.textContent =
+            toBanglaNumber(
+                currentTransaction.quantity
+            );
+
+
+        /* মোট হিসাব */
+
+        updateUI();
+
+    });
+
+});
+
+
+/* DELETE */
+
+deleteButton.addEventListener(
+    "click",
+    () => {
+
+        if(transactions.length === 0){
+            return;
+        }
+
+
+        /*
+        সর্বশেষ যোগ হওয়া
+        লেনদেন বের করা
+        */
+
+        const lastTransaction =
+            transactions[
+                transactions.length - 1
+            ];
+
+
+        /*
+        সংশ্লিষ্ট বাটন
+        */
+
+        const button =
+            document.querySelector(
+                `.money-button[data-amount="${lastTransaction.amount}"]`
+            );
+
+
+        /*
+        Quantity ১-এর বেশি হলে
+        একটি কমবে
+        */
+
+        if(lastTransaction.quantity > 1){
+
+            lastTransaction.quantity -= 1;
+
+        }else{
+
+            transactions.pop();
+
+        }
+
+
+        /*
+        বাটনের quantity update
+        */
+
+        if(button){
+
+            const remaining =
+                transactions.find(
+                    transaction =>
+                        transaction.amount ===
+                        lastTransaction.amount
+                );
+
+
+            const quantityElement =
+                button.querySelector("small");
+
+
+            quantityElement.textContent =
+                remaining
+                    ? toBanglaNumber(
+                        remaining.quantity
+                    )
+                    : "০";
+        }
+
+
+        updateUI();
+
+    }
+);
+
+
+/* REPORT */
+
+reportButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            const period =
+                button.dataset.period;
+
+
+            if(period === "today"){
+
+                showReport("আজ বিক্রি");
+
+            }else{
+
+                showReport(
+                    button.textContent.trim()
+                );
+
+            }
+
+        }
+    );
+
+});
+
+
+/* REPORT FUNCTION */
+
+function showReport(title){
+
+    const total =
+        calculateTotal();
+
+
+    alert(
+
+        `${title}\n\n` +
+
+        `মোট বিক্রি: ৳${toBanglaNumber(total)}\n` +
+
+        `লেনদেন: ${
+            toBanglaNumber(
+                transactions.length
+            )
+        }`
+
+    );
+}
+
+
+/* INITIAL LOAD */
+
+updateUI();
+
+</script>
+
+</body>
+</html>
