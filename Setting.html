@@ -1,0 +1,127 @@
+<!-- =========================
+     SETTINGS SCREEN
+========================= -->
+
+<div id="settingsScreen" class="screen">
+
+  <!-- Header -->
+  <header class="settings-header">
+
+    <button onclick="openHome()">←</button>
+
+    <div>
+      <h1>সেটিংস</h1>
+      <p>আপনার অ্যাপ সেটিংস পরিচালনা করুন</p>
+    </div>
+
+    <span>⚙</span>
+
+  </header>
+
+
+  <!-- Theme -->
+  <section class="settings-section">
+
+    <h2>🎨 থিম (Theme)</h2>
+
+    <button class="theme-option active">
+      ◉ Light Theme
+      <span>☀️</span>
+    </button>
+
+    <button class="theme-option">
+      ○ Dark Theme
+      <span>🌙</span>
+    </button>
+
+  </section>
+
+
+  <!-- Sound Settings -->
+  <section class="settings-section">
+
+    <h2>🔊 সাউন্ড সেটিংস</h2>
+
+    <div class="setting-row">
+      <span>🔊 Sound On / Off</span>
+      <input type="checkbox" checked>
+    </div>
+
+    <div class="setting-row">
+      <span>🔉 ভলিউম (Volume)</span>
+
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="70"
+      >
+
+      <b>70%</b>
+    </div>
+
+
+    <button
+      class="settings-link"
+      onclick="openSoundSettings()"
+    >
+      🎵 সাউন্ড টাইপ
+      <span>›</span>
+    </button>
+
+
+    <button class="settings-link">
+      🟠 Custom Sound
+      <span>›</span>
+    </button>
+
+  </section>
+
+
+  <!-- History -->
+  <section class="settings-section">
+
+    <button class="settings-link">
+      📊 Sales History
+      <span>›</span>
+    </button>
+
+    <button class="settings-link">
+      🧾 Due History
+      <span>›</span>
+    </button>
+
+  </section>
+
+
+  <!-- Backup -->
+  <section class="settings-section">
+
+    <button class="settings-link">
+      ☁️ Backup & Restore
+      <span>›</span>
+    </button>
+
+    <button class="settings-link">
+      ℹ️ About App
+      <span>›</span>
+    </button>
+
+    <button class="settings-link">
+      🌐 Language
+      <strong>বাংলা ›</strong>
+    </button>
+
+  </section>
+
+
+  <!-- Logout -->
+  <section class="settings-section">
+
+    <button class="logout">
+      🚪 Logout
+    </button>
+
+  </section>
+
+</div>
