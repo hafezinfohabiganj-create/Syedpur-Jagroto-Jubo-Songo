@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+}
+
+body{
+    background:#eef3f9;
+    color:#111;
+    overflow-x:hidden;
+}
+
+.app{
+    width:100%;
+    max-width:520px;
+    min-height:100vh;
+    margin:auto;
+    background:#fff;
+}
+
+/* HEADER */
+.header{
+    height:115px;
+    background:linear-gradient(135deg,#064dcc,#0865e8);
+    color:white;
+    display:flex;
+    align-items:center;
+    padding:15px;
+    box-shadow:0 4px 15px #0002;
+    animation:headerDown .7s ease;
+}
+
+.menu,.settings{
+    width:48px;
+    height:48px;
+    border:0;
+    background:transparent;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.menu:active,.settings:active{
+    transform:scale(.8) rotate(10deg);
+}
+
+.title{
+    flex:1;
+    text-align:center;
+}
+
+.title h1{
+    font-size:28px;
+    margin-bottom:5px;
+}
+
+.title p{
+    font-size:14px;
+}
+
+/* CONTENT */
+.content{
+    padding:15px;
+}
+
+/* SUMMARY */
+.summary{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.card{
+    position:relative;
+    min-height:115px;
+    padding:16px;
+    border:1px solid #dce5ef;
+    border-radius:17px;
+    background:#fff;
+    box-shadow:0 4px 15px #00000008;
+    animation:fadeUp .6s ease both;
+    transition:.25s;
+}
+
+.card:nth-child(2){
+    animation-delay:.1s;
+}
+
+.card:active{
+    transform:scale(.97);
+}
+
+.card span{
+    font-size:15px;
+}
+
+.card strong{
+    display:block;
+    margin-top:13px;
+    color:#07943d;
+    font-size:28px;
+}
+
+.card:nth-child(2) strong{
+    color:#0755ce;
+}
+
+.icon{
+    position:absolute;
+    right:12px;
+    top:12px;
+    width:45px;
+    height:45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:#e9f2ff;
+    font-size:23px;
+}
+
+/* PENDING */
+.pending{
+    margin-top:14px;
+    padding:12px;
+    border:1px solid #ffd4d4;
+    background:#fff8f8;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    animation:fadeUp .7s ease;
+}
+
+.pending-info{
+    flex:1;
+}
+
+.pending-info small{
+    color:#d51f1f;
+}
+
+.pending-info h2{
+    margin-top:4px;
+    color:#d51f1f;
+    font-size:25px;
+}
+
+.add{
+    border:0;
+    background:#07943d;
+    color:white;
+    border-radius:10px;
+    padding:13px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.add:active{
+    transform:scale(.92);
+}
+
+.cancel{
+    width:47px;
+    height:47px;
+    border:0;
+    border-radius:10px;
+    background:#ef2828;
+    color:white;
+    font-size:23px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.cancel:active{
+    transform:rotate(90deg) scale(.9);
+}
+
+/* NUMBER */
+.number-row{
+    margin-top:14px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+}
+
+.number-row button{
+    height:48px;
+    border:1px solid #ffdce6;
+    background:#fff7fa;
+    border-radius:11px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.number-row button:active{
+    transform:translateY(3px) scale(.94);
+    background:#e8f1ff;
+}
+
+/* AMOUNT */
+.amount-grid{
+    margin-top:14px;
+    padding:10px;
+    border:1px solid #d6e3f3;
+    border-radius:15px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.amount{
+    min-height:75px;
+    border:1px solid #dce7f4;
+    border-radius:12px;
+    background:linear-gradient(#fff,#f7faff);
+    color:#0755ce;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+    animation:amountAppear .5s ease both;
+}
+
+.amount small{
+    display:block;
+    color:#111;
+    font-size:14px;
+    font-weight:normal;
+    margin-top:5px;
+}
+
+.amount:active{
+    transform:scale(.91);
+    background:#dfeeff;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,100px);
+    background:#0755ce;
+    color:white;
+    padding:12px 20px;
+    border-radius:30px;
+    box-shadow:0 5px 20px #0004;
+    opacity:0;
+    transition:.35s;
+    z-index:100;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+    opacity:1;
+}
+
+/* ANIMATIONS */
+@keyframes headerDown{
+    from{transform:translateY(-100%);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+@keyframes fadeUp{
+    from{transform:translateY(25px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+@keyframes amountAppear{
+    from{transform:scale(.7);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+@media(max-width:380px){
+    .title h1{font-size:23px}
+    .card strong{font-size:22px}
+    .add{padding:11px 8px;font-size:12px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+
+    <button class="menu">☰</button>
+
+    <div class="title">
+        <h1>হাফেজ তিজারাহ</h1>
+        <p>পরিবারের নিত্যদিনের বাজার</p>
+    </div>
+
+    <button class="settings"
+            onclick="location.href='setting.html'">
+        ⚙
+    </button>
+
+</header>
+
+<main class="content">
+
+<section class="summary">
+
+    <div class="card">
+        <span>সর্বমোট টাকা</span>
+        <strong id="total">৳ ১,২৫০</strong>
+        <div class="icon">💳</div>
+    </div>
+
+    <div class="card">
+        <span>আজকের লেনদেন</span>
+        <strong id="transactions">২৩</strong>
+        <div class="icon">📋</div>
+    </div>
+
+</section>
+
+<section class="pending">
+
+    <div class="pending-info">
+        <small>Pending Amount</small>
+        <h2 id="pending">৳ ৩৬০</h2>
+    </div>
+
+    <button class="add" onclick="addPending()">
+        ✓ মোট টাকায় যোগ
+    </button>
+
+    <button class="cancel" onclick="cancelPending()">
+        ×
+    </button>
+
+</section>
+
+<div class="number-row">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+</div>
+
+<section class="amount-grid">
+
+<script>
+const amounts=[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
+
+amounts.forEach((amount,index)=>{
+    document.write(`
+        <button class="amount"
+                style="animation-delay:${index*0.03}s"
+                onclick="selectAmount(${amount})">
+            ${amount}
+            <small>৳ ${amount}</small>
+        </button>
+    `);
+});
+</script>
+
+</section>
+
+</main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+
+let total=1250;
+let pending=360;
+let transactions=23;
+
+function selectAmount(amount){
+
+    pending += amount;
+
+    document.getElementById("pending").innerText =
+        "৳ " + pending.toLocaleString("bn-BD");
+
+    showToast("৳ " + amount + " যোগ হয়েছে");
+
+    if(navigator.vibrate){
+        navigator.vibrate(40);
+    }
+}
+
+function addPending(){
+
+    total += pending;
+    transactions++;
+
+    document.getElementById("total").innerText =
+        "৳ " + total.toLocaleString("bn-BD");
+
+    document.getElementById("transactions").innerText =
+        transactions.toLocaleString("bn-BD");
+
+    pending=0;
+
+    document.getElementById("pending").innerText="৳ ০";
+
+    showToast("মোট টাকায় যোগ হয়েছে ✓");
+}
+
+function cancelPending(){
+
+    pending=0;
+
+    document.getElementById("pending").innerText="৳ ০";
+
+    showToast("Pending বাতিল হয়েছে");
+
+    if(navigator.vibrate){
+        navigator.vibrate([30,30,30]);
+    }
+}
+
+function showToast(text){
+
+    const toast=document.getElementById("toast");
+
+    toast.innerText=text;
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },1800);
+}
+
+</script>
+
+</body>
+</html>
