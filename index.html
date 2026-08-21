@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>হাফেজ তিজারাহ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family:
+        "Noto Sans Bengali",
+        "Hind Siliguri",
+        Arial,
+        sans-serif;
+
+      background:
+        linear-gradient(
+          180deg,
+          #063ca8 0%,
+          #0b56d8 25%,
+          #eef4ff 25%,
+          #eef4ff 100%
+        );
+
+      min-height: 100vh;
+      color: #111;
+    }
+
+    /* =========================
+       MAIN APP
+    ========================= */
+
+    .app {
+      width: 100%;
+      max-width: 520px;
+      margin: auto;
+      min-height: 100vh;
+      background: #eef4ff;
+      overflow: hidden;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+      position: relative;
+      height: 190px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0639a8,
+          #086be8,
+          #0340b8
+        );
+
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+
+      width: 160%;
+      height: 100px;
+
+      left: -30%;
+      bottom: -35px;
+
+      border-top: 3px solid rgba(255,255,255,.45);
+      border-radius: 50%;
+
+      transform: rotate(-5deg);
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+
+      width: 160%;
+      height: 80px;
+
+      left: -30%;
+      bottom: -15px;
+
+      border-top: 2px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+
+      transform: rotate(4deg);
+    }
+
+    .title {
+      position: relative;
+      z-index: 2;
+
+      font-size: 38px;
+      font-weight: 900;
+
+      text-shadow:
+        0 3px 5px rgba(0,0,0,.25);
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 8px;
+
+      font-size: 20px;
+      font-weight: 700;
+
+      color: #ffe900;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content {
+      padding: 14px;
+    }
+
+    /* =========================
+       TOP SUMMARY
+    ========================= */
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .summary-card {
+      min-height: 135px;
+
+      background: white;
+
+      border-radius: 25px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      box-shadow:
+        0 5px 15px rgba(0,0,0,.12);
+
+      border: 1px solid #e0e8f5;
+
+      padding: 12px 5px;
+    }
+
+    .summary-icon {
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 27px;
+
+      margin-bottom: 7px;
+    }
+
+    .money-icon {
+      background: #e7f8e9;
+    }
+
+    .sale-icon {
+      background: #e7f0ff;
+    }
+
+    .due-icon {
+      background: #fff0e0;
+    }
+
+    .summary-title {
+      font-size: 16px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .summary-value {
+      margin-top: 4px;
+
+      font-size: 29px;
+      font-weight: 900;
+    }
+
+    .total-value {
+      color: #078a20;
+    }
+
+    .transaction-value {
+      color: #1355c5;
+    }
+
+    .due-value {
+      color: #d51b1b;
+    }
+
+    /* =========================
+       REPORT
+    ========================= */
+
+    .reports {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+
+      margin-top: 14px;
+    }
+
+    .report-card {
+      min-height: 125px;
+
+      background: white;
+
+      border-radius: 20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      box-shadow:
+        0 4px 12px rgba(0,0,0,.1);
+
+      padding: 7px;
+    }
+
+    .calendar {
+      font-size: 29px;
+      color: #174dcc;
+
+      margin-bottom: 8px;
+    }
+
+    .report-title {
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .report-value {
+      margin-top: 6px;
+
+      min-height: 26px;
+
+      font-size: 18px;
+      font-weight: 900;
+
+      color: #174dcc;
+    }
+
+    /* =========================
+       PENDING
+    ========================= */
+
+    .pending-area {
+      margin-top: 14px;
+
+      background: white;
+
+      border-radius: 24px;
+
+      padding: 15px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1.65fr;
+
+      gap: 12px;
+
+      box-shadow:
+        0 5px 15px rgba(0,0,0,.12);
+    }
+
+    .pending-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pending-title {
+      font-size: 21px;
+      font-weight: 900;
+
+      color: #142d58;
+    }
+
+    .pending-money {
+      margin-top: 6px;
+
+      font-size: 39px;
+      font-weight: 900;
+
+      color: #c52020;
+    }
+
+    .action-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .action-btn {
+      border: none;
+
+      min-height: 86px;
+
+      border-radius: 18px;
+
+      color: white;
+
+      font-size: 44px;
+
+      font-weight: 900;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow:
+        inset 0 -5px 0 rgba(0,0,0,.15),
+        0 4px 9px rgba(0,0,0,.15);
+
+      transition:
+        transform .12s ease,
+        filter .12s ease;
+    }
+
+    .action-btn:active {
+      transform: scale(.92);
+    }
+
+    .add-btn {
+      background: linear-gradient(
+        145deg,
+        #0cc331,
+        #00891d
+      );
+    }
+
+    .due-btn {
+      background: linear-gradient(
+        145deg,
+        #ffd21a,
+        #f1a400
+      );
+    }
+
+    .cancel-btn {
+      background: linear-gradient(
+        145deg,
+        #ff3434,
+        #e30000
+      );
+    }
+
+    /* =========================
+       NUMBER ROW
+    ========================= */
+
+    .quick-numbers {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+
+      margin-top: 14px;
+    }
+
+    .quick-number {
+      height: 72px;
+
+      background: white;
+
+      border: none;
+
+      border-radius: 19px;
+
+      font-size: 31px;
+      font-weight: 900;
+
+      color: #101d3a;
+
+      box-shadow:
+        0 4px 10px rgba(0,0,0,.1);
+
+      cursor: pointer;
+
+      transition:
+        transform .12s ease;
+    }
+
+    .quick-number:active {
+      transform: scale(.92);
+    }
+
+    /* =========================
+       MONEY PLATES
+    ========================= */
+
+    .money-grid {
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 9px;
+
+      margin-top: 12px;
+    }
+
+    .money-btn {
+      min-height: 95px;
+
+      border: none;
+
+      border-radius: 18px;
+
+      color: white;
+
+      font-size: 27px;
+
+      font-weight: 900;
+
+      cursor: pointer;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow:
+        0 5px 10px rgba(0,0,0,.18);
+
+      transition:
+        transform .12s ease,
+        filter .12s ease;
+    }
+
+    .money-btn span {
+      display: block;
+
+      font-size: 19px;
+
+      margin-top: 4px;
+
+      opacity: .95;
+    }
+
+    .money-btn:active {
+      transform: scale(.91);
+      filter: brightness(1.15);
+    }
+
+    .c1 {
+      background: linear-gradient(145deg,#1767e8,#0d4db5);
+    }
+
+    .c2 {
+      background: linear-gradient(145deg,#15cba7,#07967f);
+    }
+
+    .c3 {
+      background: linear-gradient(145deg,#8b30e8,#5d18bb);
+    }
+
+    .c4 {
+      background: linear-gradient(145deg,#ffad0b,#f28b00);
+    }
+
+    .c5 {
+      background: linear-gradient(145deg,#f42c68,#db1450);
+    }
+
+    .c6 {
+      background: linear-gradient(145deg,#63cf08,#32a600);
+    }
+
+    .c7 {
+      background: linear-gradient(145deg,#2171db,#1652ad);
+    }
+
+    .c8 {
+      background: linear-gradient(145deg,#14b6a1,#098b7d);
+    }
+
+    .c9 {
+      background: linear-gradient(145deg,#1767e8,#0c4fac);
+    }
+
+    .c10 {
+      background: linear-gradient(145deg,#ffad0b,#ef8700);
+    }
+
+    .c11 {
+      background: linear-gradient(145deg,#f83272,#dc1454);
+    }
+
+    .c12 {
+      background: linear-gradient(145deg,#7f30e6,#5916b9);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 430px) {
+
+      .header {
+        height: 160px;
+      }
+
+      .title {
+        font-size: 31px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .content {
+        padding: 10px;
+      }
+
+      .summary-card {
+        min-height: 115px;
+        border-radius: 20px;
+      }
+
+      .summary-title {
+        font-size: 13px;
+      }
+
+      .summary-value {
+        font-size: 25px;
+      }
+
+      .summary-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 23px;
+      }
+
+      .report-card {
+        min-height: 110px;
+        border-radius: 17px;
+      }
+
+      .calendar {
+        font-size: 23px;
+      }
+
+      .report-title {
+        font-size: 11px;
+      }
+
+      .pending-area {
+        grid-template-columns: 1fr 1.6fr;
+        padding: 11px;
+      }
+
+      .pending-title {
+        font-size: 17px;
+      }
+
+      .pending-money {
+        font-size: 32px;
+      }
+
+      .action-btn {
+        min-height: 70px;
+        font-size: 36px;
+      }
+
+      .quick-number {
+        height: 62px;
+        font-size: 27px;
+      }
+
+      .money-btn {
+        min-height: 82px;
+        font-size: 24px;
+      }
+
+      .money-btn span {
+        font-size: 17px;
+      }
+    }
+
+    @media (max-width: 350px) {
+
+      .summary {
+        gap: 5px;
+      }
+
+      .summary-card {
+        padding: 5px;
+      }
+
+      .summary-title {
+        font-size: 11px;
+      }
+
+      .summary-value {
+        font-size: 21px;
+      }
+
+      .reports {
+        gap: 4px;
+      }
+
+      .report-title {
+        font-size: 9px;
+      }
+
+      .pending-area {
+        grid-template-columns: 1fr;
+      }
+
+      .money-grid {
+        gap: 6px;
+      }
+
+      .money-btn {
+        min-height: 75px;
+        border-radius: 15px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+      <h1 class="title">
+        হাফেজ তিজারাহ
+      </h1>
+
+      <div class="subtitle">
+        পরিবারের নিত্যদিনের বাজার
+      </div>
+
+    </header>
+
+
+    <main class="content">
+
+      <!-- =========================
+           SUMMARY
+      ========================== -->
+
+      <section class="summary">
+
+        <div class="summary-card">
+
+          <div class="summary-icon money-icon">
+            💰
+          </div>
+
+          <div class="summary-title">
+            সর্বমোট টাকা
+          </div>
+
+          <div
+            id="totalMoney"
+            class="summary-value total-value">
+            ৳
+          </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+          <div class="summary-icon sale-icon">
+            🛒
+          </div>
+
+          <div class="summary-title">
+            আজকের লেনদেন
+          </div>
+
+          <div
+            id="todayTransactions"
+            class="summary-value transaction-value">
+          </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+          <div class="summary-icon due-icon">
+            👛
+          </div>
+
+          <div class="summary-title">
+            আজকের বাকি
+          </div>
+
+          <div
+            id="todayDue"
+            class="summary-value due-value">
+            ৳
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           REPORT
+      ========================== -->
+
+      <section class="reports">
+
+        <div class="report-card">
+
+          <div class="calendar">📅</div>
+
+          <div class="report-title">
+            আজ বিক্রি
+          </div>
+
+          <div
+            id="reportToday"
+            class="report-value">
+          </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+          <div class="calendar">📅</div>
+
+          <div class="report-title">
+            গত ৭ দিন
+          </div>
+
+          <div
+            id="report7"
+            class="report-value">
+          </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+          <div class="calendar">📅</div>
+
+          <div class="report-title">
+            গত ১৫ দিন
+          </div>
+
+          <div
+            id="report15"
+            class="report-value">
+          </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+          <div class="calendar">📅</div>
+
+          <div class="report-title">
+            গত ১ মাস
+          </div>
+
+          <div
+            id="report30"
+            class="report-value">
+          </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+          <div class="calendar">📅</div>
+
+          <div class="report-title">
+            গত ১ বছর
+          </div>
+
+          <div
+            id="report365"
+            class="report-value">
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           PENDING
+      ========================== -->
+
+      <section class="pending-area">
+
+        <div class="pending-info">
+
+          <div class="pending-title">
+            Pending Amount
+          </div>
+
+          <div
+            id="pendingMoney"
+            class="pending-money">
+            ৳
+          </div>
+
+        </div>
+
+
+        <div class="action-buttons">
+
+          <!-- শুধু সিম্বল -->
+
+          <button
+            class="action-btn add-btn"
+            id="addTotal"
+            aria-label="সর্বমোট টাকায় যোগ">
+
+            ✓
+
+          </button>
+
+
+          <button
+            class="action-btn due-btn"
+            id="addDue"
+            aria-label="বাকি হিসেবে যোগ">
+
+            🤝
+
+          </button>
+
+
+          <button
+            class="action-btn cancel-btn"
+            id="cancelPending"
+            aria-label="বাতিল">
+
+            ✕
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           QUICK NUMBER ROW
+      ========================== -->
+
+      <section class="quick-numbers">
+
+        <button class="quick-number">
+          ১
+        </button>
+
+        <button class="quick-number">
+          ২
+        </button>
+
+        <button class="quick-number">
+          ৩
+        </button>
+
+        <button class="quick-number">
+          ৪
+        </button>
+
+        <button class="quick-number">
+          ৫
+        </button>
+
+      </section>
+
+
+      <!-- =========================
+           MONEY PLATES
+      ========================== -->
+
+      <section class="money-grid">
+
+        <button class="money-btn c1" data-value="5">
+          ৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c2" data-value="10">
+          ১০
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c3" data-value="15">
+          ১৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c4" data-value="20">
+          ২০
+          <span>৳</span>
+        </button>
+
+
+        <button class="money-btn c5" data-value="25">
+          ২৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c6" data-value="30">
+          ৩০
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c7" data-value="35">
+          ৩৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c8" data-value="40">
+          ৪০
+          <span>৳</span>
+        </button>
+
+
+        <button class="money-btn c9" data-value="45">
+          ৪৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c10" data-value="50">
+          ৫০
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c11" data-value="55">
+          ৫৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c12" data-value="60">
+          ৬০
+          <span>৳</span>
+        </button>
+
+
+        <button class="money-btn c2" data-value="65">
+          ৬৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c10" data-value="70">
+          ৭০
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c11" data-value="75">
+          ৭৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c6" data-value="80">
+          ৮০
+          <span>৳</span>
+        </button>
+
+
+        <button class="money-btn c7" data-value="85">
+          ৮৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c3" data-value="90">
+          ৯০
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c5" data-value="95">
+          ৯৫
+          <span>৳</span>
+        </button>
+
+        <button class="money-btn c8" data-value="100">
+          ১০০
+          <span>৳</span>
+        </button>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    let pendingAmount = 0;
+
+    let totalMoney = 0;
+
+    let todayDue = 0;
+
+    let todayTransactions = 0;
+
+    let todaySales = 0;
+
+    let salesHistory = [];
+
+
+    /* =========================
+       BANGLA NUMBER
+    ========================== */
+
+    function banglaNumber(number) {
+
+      const english = "0123456789";
+
+      const bangla = "০১২৩৪৫৬৭৮৯";
+
+      return String(number)
+        .split("")
+        .map(char => {
+
+          const index = english.indexOf(char);
+
+          return index !== -1
+            ? bangla[index]
+            : char;
+
+        })
+        .join("");
+
+    }
+
+
+    /* =========================
+       UPDATE SCREEN
+    ========================== */
+
+    function updateScreen() {
+
+      /*
+        ইচ্ছাকৃতভাবে শুরুতে কোনো শূন্য
+        দেখানো হচ্ছে না।
+      */
+
+      document.getElementById(
+        "pendingMoney"
+      ).textContent =
+        pendingAmount > 0
+          ? "৳ " + banglaNumber(pendingAmount)
+          : "৳";
+
+
+      document.getElementById(
+        "totalMoney"
+      ).textContent =
+        totalMoney > 0
+          ? "৳ " + banglaNumber(totalMoney)
+          : "৳";
+
+
+      document.getElementById(
+        "todayDue"
+      ).textContent =
+        todayDue > 0
+          ? "৳ " + banglaNumber(todayDue)
+          : "৳";
+
+
+      document.getElementById(
+        "todayTransactions"
+      ).textContent =
+        todayTransactions > 0
+          ? banglaNumber(todayTransactions)
+          : "";
+
+
+      updateReports();
+
+    }
+
+
+    /* =========================
+       MONEY PLATE CLICK
+    ========================== */
+
+    document.querySelectorAll(
+      ".money-btn"
+    ).forEach(button => {
+
+      button.addEventListener(
+        "click",
+        function() {
+
+          const value =
+            Number(
+              this.dataset.value
+            );
+
+          pendingAmount += value;
+
+          updateScreen();
+
+          softClick();
+
+        }
+      );
+
+    });
+
+
+    /* =========================
+       GREEN BUTTON
+       ADD TO TOTAL
+    ========================== */
+
+    document.getElementById(
+      "addTotal"
+    ).addEventListener(
+      "click",
+      function() {
+
+        if (pendingAmount <= 0) {
+          return;
+        }
+
+        totalMoney += pendingAmount;
+
+        todayTransactions += 1;
+
+        todaySales += pendingAmount;
+
+        salesHistory.push({
+          amount: pendingAmount,
+          time: Date.now()
+        });
+
+        pendingAmount = 0;
+
+        updateScreen();
+
+        softClick();
+
+      }
+    );
+
+
+    /* =========================
+       YELLOW BUTTON
+       ADD TO DUE
+    ========================== */
+
+    document.getElementById(
+      "addDue"
+    ).addEventListener(
+      "click",
+      function() {
+
+        if (pendingAmount <= 0) {
+          return;
+        }
+
+        todayDue += pendingAmount;
+
+        pendingAmount = 0;
+
+        updateScreen();
+
+        softClick();
+
+      }
+    );
+
+
+    /* =========================
+       RED CANCEL
+    ========================== */
+
+    document.getElementById(
+      "cancelPending"
+    ).addEventListener(
+      "click",
+      function() {
+
+        pendingAmount = 0;
+
+        updateScreen();
+
+        softClick();
+
+      }
+    );
+
+
+    /* =========================
+       REPORT SYSTEM
+    ========================== */
+
+    function updateReports() {
+
+      if (todaySales > 0) {
+
+        document.getElementById(
+          "reportToday"
+        ).textContent =
+          "৳ " +
+          banglaNumber(todaySales);
+
+      } else {
+
+        document.getElementById(
+          "reportToday"
+        ).textContent = "";
+
+      }
+
+
+      const now = Date.now();
+
+      const periods = {
+
+        report7: 7 * 24 * 60 * 60 * 1000,
+
+        report15: 15 * 24 * 60 * 60 * 1000,
+
+        report30: 30 * 24 * 60 * 60 * 1000,
+
+        report365: 365 * 24 * 60 * 60 * 1000
+
+      };
+
+
+      Object.keys(periods).forEach(
+        id => {
+
+          const limit =
+            now - periods[id];
+
+          const total =
+            salesHistory
+              .filter(item =>
+                item.time >= limit
+              )
+              .reduce(
+                (sum, item) =>
+                  sum + item.amount,
+                0
+              );
+
+
+          document.getElementById(
+            id
+          ).textContent =
+            total > 0
+              ? "৳ " + banglaNumber(total)
+              : "";
+
+        }
+      );
+
+    }
+
+
+    /* =========================
+       SOFT CLICK SOUND
+    ========================== */
+
+    let audioContext = null;
+
+
+    function softClick() {
+
+      try {
+
+        if (!audioContext) {
+
+          audioContext =
+            new (
+              window.AudioContext ||
+              window.webkitAudioContext
+            )();
+
+        }
+
+        const oscillator =
+          audioContext.createOscillator();
+
+        const gain =
+          audioContext.createGain();
+
+
+        oscillator.type =
+          "sine";
+
+        oscillator.frequency.value =
+          520;
+
+
+        gain.gain.setValueAtTime(
+          0.0001,
+          audioContext.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+          0.035,
+          audioContext.currentTime + 0.01
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+          0.0001,
+          audioContext.currentTime + 0.08
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+          audioContext.destination
+        );
+
+
+        oscillator.start();
+
+        oscillator.stop(
+          audioContext.currentTime + 0.08
+        );
+
+      } catch (error) {
+
+        // Audio unavailable হলে অ্যাপ চলবে
+
+      }
+
+    }
+
+
+    /* =========================
+       QUICK NUMBER BUTTONS
+    ========================== */
+
+    document.querySelectorAll(
+      ".quick-number"
+    ).forEach(button => {
+
+      button.addEventListener(
+        "click",
+        function() {
+
+          softClick();
+
+          this.style.transform =
+            "scale(.90)";
+
+          setTimeout(() => {
+
+            this.style.transform =
+              "";
+
+          }, 120);
+
+        }
+      );
+
+    });
+
+
+    /* =========================
+       START
+    ========================== */
+
+    updateScreen();
+
+  </script>
+
+</body>
+</html>
