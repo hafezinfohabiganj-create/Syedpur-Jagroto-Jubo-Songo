@@ -54,11 +54,7 @@ body{
 
     align-items:center;
 
-    justify-content:center;
-
-    text-align:center;
-
-    padding:18px 55px 16px 55px;
+    padding:18px 14px;
 
     color:#ffffff;
 
@@ -134,21 +130,122 @@ body{
 
 
 /* =================================
+   HEADER LEFT SIDE
+================================= */
+
+.header-left{
+
+    position:relative;
+
+    z-index:3;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+
+/* =================================
+   PROFILE PICTURE
+================================= */
+
+.profile-picture{
+
+    width:62px;
+    height:62px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    object-position:center top;
+
+    border:3px solid
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.18);
+}
+
+
+/* =================================
+   TITLE AREA
+================================= */
+
+.header-content{
+
+    position:relative;
+
+    z-index:3;
+
+    min-width:0;
+
+    animation:
+        contentEnter .35s
+        ease-out;
+}
+
+
+.header-title{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    letter-spacing:.2px;
+
+    text-shadow:
+        0 2px 5px
+        rgba(0,0,0,.15);
+
+    white-space:nowrap;
+}
+
+
+.header-tagline{
+
+    margin-top:6px;
+
+    font-size:15px;
+
+    font-weight:400;
+
+    opacity:.94;
+
+    letter-spacing:.2px;
+
+    white-space:nowrap;
+}
+
+
+/* =================================
    MENU BUTTON
 ================================= */
 
 .menu-button{
 
-    position:absolute;
+    position:relative;
 
-    left:14px;
-    top:50%;
+    z-index:5;
 
-    transform:
-        translateY(-50%);
+    flex-shrink:0;
 
     width:43px;
     height:43px;
+
+    margin-left:10px;
 
     border:none;
 
@@ -169,8 +266,6 @@ body{
 
     cursor:pointer;
 
-    z-index:5;
-
     transition:
         transform .15s ease,
         background .15s ease;
@@ -186,57 +281,10 @@ body{
 .menu-button:active{
 
     transform:
-        translateY(-50%)
         scale(.84);
 
     background:
         rgba(255,255,255,.28);
-}
-
-
-/* =================================
-   TITLE AREA
-================================= */
-
-.header-content{
-
-    position:relative;
-
-    z-index:3;
-
-    animation:
-        contentEnter .35s
-        ease-out;
-}
-
-
-.header-title{
-
-    font-size:25px;
-
-    font-weight:800;
-
-    line-height:1.2;
-
-    letter-spacing:.2px;
-
-    text-shadow:
-        0 2px 5px
-        rgba(0,0,0,.15);
-}
-
-
-.header-tagline{
-
-    margin-top:5px;
-
-    font-size:13px;
-
-    font-weight:400;
-
-    opacity:.94;
-
-    letter-spacing:.2px;
 }
 
 
@@ -323,20 +371,35 @@ body{
 
         min-height:105px;
 
-        padding-left:52px;
-        padding-right:52px;
+        padding-left:10px;
+        padding-right:10px;
+
+    }
+
+    .profile-picture{
+
+        width:54px;
+        height:54px;
+
+    }
+
+    .header-left{
+
+        gap:9px;
 
     }
 
     .header-title{
 
-        font-size:22px;
+        font-size:23px;
 
     }
 
     .header-tagline{
 
-        font-size:11px;
+        font-size:12px;
+
+        margin-top:4px;
 
     }
 
@@ -346,6 +409,8 @@ body{
         height:40px;
 
         font-size:23px;
+
+        margin-left:7px;
 
     }
 
@@ -365,7 +430,43 @@ body{
 <header class="home-header">
 
 
-    <!-- ONLY MENU BUTTON -->
+    <!-- LEFT SIDE -->
+
+    <div class="header-left">
+
+
+        <!-- SHOP PROFILE PICTURE -->
+
+        <img
+            class="profile-picture"
+            src="1000002056.png"
+            alt="হাফেজ তিজারাহ">
+
+
+        <!-- SHOP INFORMATION -->
+
+        <div class="header-content">
+
+            <h1 class="header-title">
+
+                হাফেজ তিজারাহ
+
+            </h1>
+
+
+            <p class="header-tagline">
+
+                পরিবারের নিত্যদিনের বাজার
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- RIGHT SIDE MENU -->
 
     <button
         class="menu-button"
@@ -375,26 +476,6 @@ body{
         ☰
 
     </button>
-
-
-    <!-- APP INFORMATION -->
-
-    <div class="header-content">
-
-        <h1 class="header-title">
-
-            হাফেজ তিজারাহ
-
-        </h1>
-
-
-        <p class="header-tagline">
-
-            পরিবারের নিত্যদিনের বাজার
-
-        </p>
-
-    </div>
 
 
 </header>
