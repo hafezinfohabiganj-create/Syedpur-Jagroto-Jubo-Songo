@@ -1,12 +1,444 @@
-<!-- Home Screen Header -->
-<div class="app-header">
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
 
-    <img src="logo.png"
-         alt="হাফেজ তিজারাহ লোগো"
-         class="app-logo">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
 
-    <h1>হাফেজ তিজারাহ</h1>
+<title>হাফেজ তিজারাহ</title>
 
-    <p>পরিবারের নিত্যদিনের বাজার</p>
+<style>
 
-</div>
+/* =================================
+   HOME SCREEN HEADER
+================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+
+    font-family:
+        "Noto Sans Bengali",
+        "Nirmala UI",
+        Arial,
+        sans-serif;
+
+    background:#eef3f9;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.home-header{
+
+    width:100%;
+
+    min-height:115px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:18px 55px 16px 55px;
+
+    color:#ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0645b8 0%,
+            #0875e8 52%,
+            #0b8cf2 100%
+        );
+
+    border-radius:
+        0 0 22px 22px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,55,140,.25);
+
+    overflow:hidden;
+
+    animation:
+        headerEnter .3s
+        ease-out;
+}
+
+
+/* Decorative light */
+
+.home-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    top:-115px;
+    right:-50px;
+
+    animation:
+        floatingCircle 2.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* Second decorative light */
+
+.home-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.06);
+
+    bottom:-75px;
+    left:-35px;
+
+}
+
+
+/* =================================
+   MENU BUTTON
+================================= */
+
+.menu-button{
+
+    position:absolute;
+
+    left:14px;
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    width:43px;
+    height:43px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.16);
+
+    color:#ffffff;
+
+    font-size:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:5;
+
+    transition:
+        transform .15s ease,
+        background .15s ease;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.10);
+}
+
+
+/* Menu click animation */
+
+.menu-button:active{
+
+    transform:
+        translateY(-50%)
+        scale(.84);
+
+    background:
+        rgba(255,255,255,.28);
+}
+
+
+/* =================================
+   TITLE AREA
+================================= */
+
+.header-content{
+
+    position:relative;
+
+    z-index:3;
+
+    animation:
+        contentEnter .35s
+        ease-out;
+}
+
+
+.header-title{
+
+    font-size:25px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    letter-spacing:.2px;
+
+    text-shadow:
+        0 2px 5px
+        rgba(0,0,0,.15);
+}
+
+
+.header-tagline{
+
+    margin-top:5px;
+
+    font-size:13px;
+
+    font-weight:400;
+
+    opacity:.94;
+
+    letter-spacing:.2px;
+}
+
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes headerEnter{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(-18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes contentEnter{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(10px)
+            scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes floatingCircle{
+
+    0%,100%{
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(10px)
+            scale(1.06);
+
+    }
+
+}
+
+
+/* =================================
+   OPPO F17 SCREEN FRIENDLY
+================================= */
+
+@media(max-width:360px){
+
+    .home-header{
+
+        min-height:105px;
+
+        padding-left:52px;
+        padding-right:52px;
+
+    }
+
+    .header-title{
+
+        font-size:22px;
+
+    }
+
+    .header-tagline{
+
+        font-size:11px;
+
+    }
+
+    .menu-button{
+
+        width:40px;
+        height:40px;
+
+        font-size:23px;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     HOME SCREEN HEADER
+================================= -->
+
+<header class="home-header">
+
+
+    <!-- ONLY MENU BUTTON -->
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="মেনু">
+
+        ☰
+
+    </button>
+
+
+    <!-- APP INFORMATION -->
+
+    <div class="header-content">
+
+        <h1 class="header-title">
+
+            হাফেজ তিজারাহ
+
+        </h1>
+
+
+        <p class="header-tagline">
+
+            পরিবারের নিত্যদিনের বাজার
+
+        </p>
+
+    </div>
+
+
+</header>
+
+
+
+<script>
+
+/* =================================
+   HOME HEADER JAVASCRIPT
+================================= */
+
+const menuButton =
+    document.getElementById(
+        "menuButton"
+    );
+
+
+/*
+   Menu button click
+
+   এখানে কোনো vibration /
+   navigator.vibrate() ব্যবহার করা হয়নি।
+*/
+
+menuButton.addEventListener(
+    "click",
+    function(){
+
+        console.log(
+            "Menu button clicked"
+        );
+
+        /*
+           পরবর্তীতে এখানে
+           সম্পূর্ণ Menu System
+           যুক্ত করা হবে।
+        */
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
