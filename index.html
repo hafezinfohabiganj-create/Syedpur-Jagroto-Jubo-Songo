@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@500;600;700;800&display=swap');
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:"Noto Sans Bengali",sans-serif;
+  background:#e9edf4;
+  color:#172033;
+}
+
+button,input{
+  font-family:inherit;
+}
+
+:root{
+  --gap:1.05dvh;
+}
+
+/* ================= পুরো অ্যাপ ================= */
+
+.app{
+  width:100%;
+  height:100dvh;
+  overflow:hidden;
+  display:grid;
+
+  /*
+    Header
+    Summary
+    Report
+    Pending
+    ১-৫
+    ৫-১০০ Grid
+
+    সব মিলিয়ে এক স্ক্রিনের ভিতরে
+  */
+  grid-template-rows:
+    12.8%
+    12.8%
+    9%
+    11.8%
+    7.2%
+    1fr;
+
+  gap:var(--gap);
+  padding:0 2.1vw 1.6dvh;
+
+  background:
+    linear-gradient(180deg,#e8ecf3 0%,#f6f7fa 100%);
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  margin:0 -2.1vw;
+  padding:1.5dvh 2.7vw;
+  min-width:0;
+
+  display:grid;
+  grid-template-columns:25% 1fr 25%;
+  align-items:center;
+  gap:1.8vw;
+
+  color:#fff;
+
+  background:
+    linear-gradient(105deg,#103d80,#092f6d);
+
+  border-radius:0 0 0 0;
+}
+
+.control-box{
+  height:100%;
+  min-width:0;
+
+  border:2px solid rgba(255,255,255,.34);
+  border-radius:2.5dvh;
+
+  background:rgba(4,27,65,.18);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.sound-top{
+  display:flex;
+  align-items:center;
+  gap:.8vw;
+}
+
+.sound-icon{
+  font-size:clamp(21px,5.4vw,35px);
+  line-height:1;
+}
+
+.sound-state{
+  border:0;
+  color:#fff;
+  font-weight:800;
+  font-size:clamp(12px,3vw,19px);
+
+  padding:.9dvh 1.5vw;
+  border-radius:1.5dvh;
+
+  background:#07821b;
+}
+
+.volume-line{
+  width:75%;
+  margin-top:1.1dvh;
+
+  display:flex;
+  align-items:center;
+  gap:.7vw;
+}
+
+.volume{
+  width:100%;
+  accent-color:#16b344;
+}
+
+.volume-text{
+  font-size:clamp(10px,2.5vw,15px);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.brand{
+  min-width:0;
+  text-align:center;
+}
+
+.brand h1{
+  margin:0;
+  color:#fff;
+  font-size:clamp(22px,7vw,42px);
+  font-weight:800;
+  line-height:1.05;
+  white-space:nowrap;
+}
+
+.brand p{
+  margin:.8dvh 0 0;
+  font-size:clamp(10px,3vw,19px);
+  white-space:nowrap;
+  color:#f3f5fa;
+}
+
+.theme-icons{
+  display:flex;
+  gap:.7vw;
+}
+
+.theme-btn{
+  width:clamp(29px,7vw,46px);
+  height:clamp(29px,7vw,46px);
+
+  border:0;
+  border-radius:1.5dvh;
+
+  background:#08285d;
+  color:#fff;
+
+  font-size:clamp(17px,4.5vw,29px);
+}
+
+.theme-label{
+  margin-top:.7dvh;
+  font-size:clamp(11px,2.8vw,17px);
+  font-weight:600;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary{
+  min-width:0;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.8vw;
+}
+
+.summary-card{
+  min-width:0;
+  height:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2vw;
+
+  padding:1.3dvh 1.5vw;
+
+  background:#fff;
+  border:1px solid #dce2eb;
+  border-radius:3dvh;
+
+  box-shadow:
+    0 .8dvh 1.8dvh rgba(50,63,88,.08);
+}
+
+.summary-icon{
+  flex:0 0 auto;
+  font-size:clamp(36px,9vw,62px);
+  line-height:1;
+}
+
+.summary-info{
+  min-width:0;
+  text-align:center;
+}
+
+.summary-title{
+  font-size:clamp(13px,3.8vw,23px);
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.summary-value{
+  margin-top:1dvh;
+  font-size:clamp(23px,6vw,38px);
+  font-weight:800;
+  line-height:1;
+}
+
+.total-value{color:#087028}
+.today-value{color:#143e78}
+
+/* ================= REPORT ================= */
+
+.reports{
+  min-width:0;
+
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1.2vw;
+}
+
+.report{
+  min-width:0;
+  height:100%;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:.6dvh .3vw;
+
+  background:#fff;
+  border:1px solid #dce2eb;
+  border-radius:2.2dvh;
+
+  box-shadow:
+    0 .5dvh 1.2dvh rgba(45,58,80,.06);
+}
+
+.report-title{
+  min-height:2.8em;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+
+  font-size:clamp(8px,2.5vw,16px);
+  font-weight:700;
+  line-height:1.25;
+}
+
+.report-value{
+  margin-top:.4dvh;
+
+  color:#163e76;
+  font-size:clamp(17px,4.7vw,30px);
+  font-weight:800;
+  line-height:1;
+}
+
+/* ================= PENDING ================= */
+
+.pending{
+  min-width:0;
+  height:100%;
+
+  display:grid;
+  grid-template-columns:1.55fr .62fr .62fr;
+  align-items:center;
+  gap:1.6vw;
+
+  padding:1.2dvh 3vw;
+
+  background:#fff;
+  border:1px solid #ead8d6;
+  border-radius:3dvh;
+
+  box-shadow:
+    0 .7dvh 1.7dvh rgba(55,45,47,.07);
+}
+
+.pending-info{
+  min-width:0;
+}
+
+.pending-title{
+  color:#7c241e;
+  font-size:clamp(17px,4.8vw,28px);
+  font-weight:800;
+  line-height:1.1;
+  white-space:nowrap;
+}
+
+.pending-value{
+  margin-top:1.3dvh;
+
+  min-height:1.2em;
+
+  color:#9d211a;
+  font-size:clamp(27px,7vw,42px);
+  font-weight:800;
+  line-height:1;
+
+  transform-origin:left center;
+}
+
+.action-btn{
+  width:100%;
+  height:72%;
+
+  border:0;
+  border-radius:2.3dvh;
+
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-size:clamp(36px,10vw,65px);
+  font-weight:300;
+
+  box-shadow:
+    0 .6dvh 1.4dvh rgba(0,0,0,.12);
+
+  transition:
+    transform .12s ease,
+    filter .12s ease;
+}
+
+.action-btn:active{
+  transform:scale(.94);
+}
+
+.confirm{
+  background:#08721b;
+}
+
+.cancel{
+  background:#ff1616;
+}
+
+/* ================= ১ থেকে ৫ ================= */
+
+.quick-row{
+  min-width:0;
+
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1.2vw;
+}
+
+.quick{
+  width:100%;
+  height:100%;
+
+  border:1px solid #dce2eb;
+  border-radius:2dvh;
+
+  background:#fff;
+  color:#101827;
+
+  font-size:clamp(20px,5vw,32px);
+  font-weight:800;
+
+  box-shadow:
+    0 .5dvh 1.1dvh rgba(40,52,76,.06);
+
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease;
+}
+
+.quick:active{
+  transform:scale(.94);
+}
+
+/* ================= ৪ কলামের টাকা প্লেট ================= */
+
+.amount-grid{
+  min-width:0;
+  min-height:0;
+
+  display:grid;
+
+  /* অবশ্যই ৪ কলাম */
+  grid-template-columns:repeat(4,1fr);
+
+  /* ৫,১০,১৫ ... ১০০ = ২০টি = ৫ সারি */
+  grid-template-rows:repeat(5,minmax(0,1fr));
+
+  gap:1.35vw;
+}
+
+.amount-btn{
+  min-width:0;
+  min-height:0;
+
+  border:0;
+  border-radius:2.1dvh;
+
+  color:#fff;
+
+  font-weight:800;
+
+  box-shadow:
+    0 .6dvh 1.3dvh rgba(24,36,58,.15);
+
+  transition:
+    transform .12s ease,
+    filter .12s ease,
+    box-shadow .12s ease;
+}
+
+.amount-btn:active,
+.amount-btn.pressed{
+  transform:scale(.945);
+  filter:brightness(.88);
+}
+
+.amount-number{
+  display:block;
+
+  font-size:clamp(22px,6vw,38px);
+  line-height:1;
+}
+
+.amount-taka{
+  display:block;
+  margin-top:.9dvh;
+
+  font-size:clamp(13px,3.6vw,23px);
+  line-height:1;
+}
+
+/* দ্বিতীয় ছবির মতো বিভিন্ন রঙ */
+
+.c1{background:linear-gradient(135deg,#177cab,#075a8d)}
+.c2{background:linear-gradient(135deg,#27a693,#087d6a)}
+.c3{background:linear-gradient(135deg,#7d4db8,#4b278d)}
+.c4{background:linear-gradient(135deg,#ffac2b,#ff7709)}
+.c5{background:linear-gradient(135deg,#e64a82,#c50d50)}
+.c6{background:linear-gradient(135deg,#59ab0b,#267b00)}
+.c7{background:linear-gradient(135deg,#3e75b9,#16477f)}
+.c8{background:linear-gradient(135deg,#ff5944,#f3230d)}
+
+/* ================= শুধু দরকারি Animation ================= */
+
+@keyframes popValue{
+  0%{
+    transform:scale(.82);
+    opacity:.45;
+  }
+  65%{
+    transform:scale(1.08);
+    opacity:1;
+  }
+  100%{
+    transform:scale(1);
+  }
+}
+
+.pop{
+  animation:popValue .25s ease-out;
+}
+
+@keyframes confirmPop{
+  0%{transform:scale(.95)}
+  50%{transform:scale(1.04)}
+  100%{transform:scale(1)}
+}
+
+.confirm-pop{
+  animation:confirmPop .28s ease;
+}
+
+/* ================= ছোট স্ক্রিনেও অনুপাত ================= */
+
+@media(max-width:360px){
+
+  .app{
+    padding-left:1.5vw;
+    padding-right:1.5vw;
+    gap:.85dvh;
+  }
+
+  .header{
+    margin-left:-1.5vw;
+    margin-right:-1.5vw;
+  }
+
+  .pending{
+    padding-left:2vw;
+    padding-right:2vw;
+  }
+
+  .pending-title{
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app" id="app">
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+    <div class="control-box">
+
+      <div class="sound-top">
+        <span class="sound-icon">🔊</span>
+        <button class="sound-state" id="soundToggle">ON</button>
+      </div>
+
+      <div class="volume-line">
+        <input
+          id="volume"
+          class="volume"
+          type="range"
+          min="0"
+          max="100"
+          value="70">
+        <span
+          id="volumeText"
+          class="volume-text">70%</span>
+      </div>
+
+    </div>
+
+    <div class="brand">
+      <h1>হাফেজ তিজারাহ</h1>
+      <p>পরিবারের নিত্যদিনের বাজার</p>
+    </div>
+
+    <div class="control-box">
+
+      <div class="theme-icons">
+        <button class="theme-btn" id="lightBtn">☀</button>
+        <button class="theme-btn" id="darkBtn">☾</button>
+      </div>
+
+      <div class="theme-label">থিম</div>
+
+    </div>
+
+  </header>
+
+  <!-- SUMMARY -->
+
+  <section class="summary">
+
+    <div class="summary-card">
+
+      <div class="summary-icon">👛</div>
+
+      <div class="summary-info">
+        <div class="summary-title">সর্বমোট টাকা</div>
+        <div
+          class="summary-value total-value"
+          id="totalMoney">৳ ০</div>
+      </div>
+
+    </div>
+
+    <div class="summary-card">
+
+      <div class="summary-icon">🧺</div>
+
+      <div class="summary-info">
+        <div class="summary-title">আজকের লেনদেন</div>
+        <div
+          class="summary-value today-value"
+          id="todayMoney">০০</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- REPORT -->
+
+  <section class="reports">
+
+    <div class="report">
+      <div class="report-title">আজ</div>
+      <div class="report-value" id="rToday">০০</div>
+    </div>
+
+    <div class="report">
+      <div class="report-title">গত ৭ দিন</div>
+      <div class="report-value" id="r7">০০</div>
+    </div>
+
+    <div class="report">
+      <div class="report-title">গত ১৪ দিন</div>
+      <div class="report-value" id="r14">০০</div>
+    </div>
+
+    <div class="report">
+      <div class="report-title">গত ১ মাস</div>
+      <div class="report-value" id="rMonth">০০</div>
+    </div>
+
+    <div class="report">
+      <div class="report-title">গত ১ বছর</div>
+      <div class="report-value" id="rYear">০০</div>
+    </div>
+
+  </section>
+
+  <!-- PENDING -->
+
+  <section class="pending">
+
+    <div class="pending-info">
+      <div class="pending-title">Pending Amount</div>
+      <div
+        class="pending-value"
+        id="pendingMoney">৳ ০</div>
+    </div>
+
+    <button
+      class="action-btn confirm"
+      id="confirmBtn"
+      aria-label="যোগ করুন">✓</button>
+
+    <button
+      class="action-btn cancel"
+      id="cancelBtn"
+      aria-label="বাতিল করুন">×</button>
+
+  </section>
+
+  <!-- ১ থেকে ৫ -->
+
+  <section class="quick-row">
+
+    <button class="quick" data-value="1">১</button>
+    <button class="quick" data-value="2">২</button>
+    <button class="quick" data-value="3">৩</button>
+    <button class="quick" data-value="4">৪</button>
+    <button class="quick" data-value="5">৫</button>
+
+  </section>
+
+  <!-- ৫ থেকে ১০০ : ৪ কলাম -->
+
+  <section
+    class="amount-grid"
+    id="amountGrid">
+  </section>
+
+</div>
+
+<script>
+
+/* ================= DATA ================= */
+
+const amounts = [
+  5,10,15,20,
+  25,30,35,40,
+  45,50,55,60,
+  65,70,75,80,
+  85,90,95,100
+];
+
+const colors = [
+  "c1","c2","c3","c4",
+  "c5","c6","c7","c2",
+  "c1","c4","c5","c3",
+  "c2","c4","c8","c6",
+  "c7","c3","c5","c2"
+];
+
+let pending = 0;
+let total = 0;
+let today = 0;
+
+let soundOn = true;
+let volumeLevel = 0.70;
+
+/* ================= বাংলা সংখ্যা ================= */
+
+function bn(number){
+
+  const map = {
+    "0":"০",
+    "1":"১",
+    "2":"২",
+    "3":"৩",
+    "4":"৪",
+    "5":"৫",
+    "6":"৬",
+    "7":"৭",
+    "8":"৮",
+    "9":"৯"
+  };
+
+  return String(number)
+    .split("")
+    .map(n => map[n] || n)
+    .join("");
+}
+
+/* ================= Sound ================= */
+
+let audioContext = null;
+
+function getAudio(){
+
+  if(!audioContext){
+
+    const AudioClass =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    audioContext = new AudioClass();
+  }
+
+  if(audioContext.state === "suspended"){
+    audioContext.resume();
+  }
+
+  return audioContext;
+}
+
+function playTone(
+  frequency,
+  duration,
+  type="sine",
+  gain=.08,
+  delay=0
+){
+
+  if(!soundOn || volumeLevel <= 0) return;
+
+  const ctx = getAudio();
+
+  const osc = ctx.createOscillator();
+  const volumeNode = ctx.createGain();
+
+  osc.type = type;
+  osc.frequency.setValueAtTime(
+    frequency,
+    ctx.currentTime + delay
+  );
+
+  volumeNode.gain.setValueAtTime(
+    0.0001,
+    ctx.currentTime + delay
+  );
+
+  volumeNode.gain.linearRampToValueAtTime(
+    gain * volumeLevel,
+    ctx.currentTime + delay + .01
+  );
+
+  volumeNode.gain.exponentialRampToValueAtTime(
+    .0001,
+    ctx.currentTime + delay + duration
+  );
+
+  osc.connect(volumeNode);
+  volumeNode.connect(ctx.destination);
+
+  osc.start(ctx.currentTime + delay);
+  osc.stop(
+    ctx.currentTime + delay + duration + .02
+  );
+}
+
+/* নাম্বার প্লেটের Sound */
+
+function numberSound(){
+  playTone(610,.08,"sine",.09);
+}
+
+/* সবুজ ✓ Sound */
+
+function confirmSound(){
+  playTone(480,.08,"sine",.08,0);
+  playTone(720,.12,"sine",.08,.07);
+}
+
+/* লাল × Sound */
+
+function cancelSound(){
+  playTone(300,.09,"triangle",.08,0);
+  playTone(210,.12,"triangle",.07,.06);
+}
+
+/* ================= GRID তৈরি ================= */
+
+const grid =
+  document.getElementById("amountGrid");
+
+amounts.forEach((amount,index)=>{
+
+  const button =
+    document.createElement("button");
+
+  button.className =
+    "amount-btn " + colors[index];
+
+  button.innerHTML = `
+    <span class="amount-number">${bn(amount)}</span>
+    <span class="amount-taka">৳ ০</span>
+  `;
+
+  button.addEventListener("click",()=>{
+
+    pending += amount;
+
+    numberSound();
+    updatePending();
+
+    button.classList.remove("pressed");
+    void button.offsetWidth;
+    button.classList.add("pressed");
+
+    setTimeout(()=>{
+      button.classList.remove("pressed");
+    },130);
+
+  });
+
+  grid.appendChild(button);
+});
+
+/* ================= ১-৫ ================= */
+
+document
+.querySelectorAll(".quick")
+.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    pending +=
+      Number(button.dataset.value);
+
+    numberSound();
+    updatePending();
+
+    button.classList.remove("pop");
+    void button.offsetWidth;
+    button.classList.add("pop");
+
+  });
+
+});
+
+/* ================= Pending ================= */
+
+function updatePending(){
+
+  const el =
+    document.getElementById("pendingMoney");
+
+  el.textContent =
+    "৳ " + bn(pending);
+
+  el.classList.remove("pop");
+  void el.offsetWidth;
+  el.classList.add("pop");
+}
+
+/* ================= রিপোর্ট update ================= */
+
+function updateValue(id,value){
+
+  const el =
+    document.getElementById(id);
+
+  el.textContent = value;
+
+  el.classList.remove("pop");
+  void el.offsetWidth;
+  el.classList.add("pop");
+}
+
+/* ================= ✓ যোগ ================= */
+
+document
+.getElementById("confirmBtn")
+.addEventListener("click",()=>{
+
+  if(pending <= 0){
+    cancelSound();
+    return;
+  }
+
+  total += pending;
+  today += pending;
+  pending = 0;
+
+  updatePending();
+
+  updateValue(
+    "totalMoney",
+    "৳ " + bn(total)
+  );
+
+  updateValue(
+    "todayMoney",
+    bn(today)
+  );
+
+  updateValue(
+    "rToday",
+    bn(today)
+  );
+
+  confirmSound();
+
+  const button =
+    document.getElementById("confirmBtn");
+
+  button.classList.remove("confirm-pop");
+  void button.offsetWidth;
+  button.classList.add("confirm-pop");
+
+});
+
+/* ================= × বাতিল ================= */
+
+document
+.getElementById("cancelBtn")
+.addEventListener("click",()=>{
+
+  pending = 0;
+
+  updatePending();
+  cancelSound();
+
+  const button =
+    document.getElementById("cancelBtn");
+
+  button.classList.remove("confirm-pop");
+  void button.offsetWidth;
+  button.classList.add("confirm-pop");
+
+});
+
+/* ================= Sound ON/OFF ================= */
+
+const soundToggle =
+  document.getElementById("soundToggle");
+
+soundToggle.addEventListener("click",()=>{
+
+  soundOn = !soundOn;
+
+  soundToggle.textContent =
+    soundOn ? "ON" : "OFF";
+
+  if(soundOn){
+    numberSound();
+  }
+
+});
+
+/* ================= Volume ================= */
+
+const volume =
+  document.getElementById("volume");
+
+volume.addEventListener("input",()=>{
+
+  volumeLevel =
+    Number(volume.value) / 100;
+
+  document
+    .getElementById("volumeText")
+    .textContent =
+    volume.value + "%";
+
+});
+
+/* ================= Theme ================= */
+
+document
+.getElementById("darkBtn")
+.addEventListener("click",()=>{
+
+  document.body.style.background =
+    "#101827";
+
+  document
+    .getElementById("app")
+    .style.filter =
+    "brightness(.86)";
+
+  numberSound();
+
+});
+
+document
+.getElementById("lightBtn")
+.addEventListener("click",()=>{
+
+  document.body.style.background =
+    "#e9edf4";
+
+  document
+    .getElementById("app")
+    .style.filter =
+    "none";
+
+  numberSound();
+
+});
+
+</script>
+
+</body>
+</html>
