@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+  --blue:#122c82;
+  --blue2:#244eb5;
+  --bg:#edf1f8;
+  --card:#f8f9fc;
+  --text:#17213a;
+  --shadow:0 8px 22px rgba(24,43,88,.16);
+}
+
+body.dark{
+  --bg:#111522;
+  --card:#202637;
+  --text:#f4f6ff;
+  --shadow:0 8px 22px rgba(0,0,0,.35);
+}
+
+body{
+  margin:0;
+  font-family:"Noto Sans Bengali",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding-bottom:76px;
+  overflow-x:hidden;
+  transition:.3s;
+}
+
+/* ===== HEADER ===== */
+.header{
+  height:310px;
+  background:
+    radial-gradient(circle at 50% 0%,#3267d0 0%,#173b9a 35%,#10256d 100%);
+  border-radius:0 0 65px 65px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(16,43,110,.25);
+}
+
+.header::before,
+.header::after{
+  content:"✦";
+  position:absolute;
+  color:rgba(255,255,255,.18);
+  font-size:55px;
+  animation:float 4s ease-in-out infinite;
+}
+
+.header::before{
+  left:13%;
+  top:45px;
+}
+
+.header::after{
+  right:14%;
+  bottom:55px;
+  animation-delay:1.5s;
+}
+
+.header-line{
+  position:absolute;
+  bottom:18px;
+  width:115%;
+  height:5px;
+  background:#3482e7;
+  transform:rotate(2deg);
+  box-shadow:0 0 12px #3482e7;
+}
+
+.brand{
+  position:relative;
+  z-index:2;
+  animation:fadeDown .8s ease;
+}
+
+.brand h1{
+  margin:0;
+  color:#fff;
+  font-size:43px;
+  font-weight:900;
+  text-shadow:0 4px 8px rgba(0,0,0,.25);
+}
+
+.brand p{
+  margin:12px 0 0;
+  color:#ffe600;
+  font-size:23px;
+  font-weight:800;
+}
+
+/* ===== MAIN ===== */
+.app{
+  max-width:850px;
+  margin:auto;
+  padding:22px 15px;
+}
+
+.summary{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:35px;
+  min-height:160px;
+  padding:22px 10px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.5);
+  animation:cardIn .6s ease both;
+}
+
+.card h3{
+  margin:0 0 15px;
+  font-size:20px;
+  font-weight:900;
+  color:var(--text);
+}
+
+.card .money{
+  font-size:38px;
+  font-weight:900;
+}
+
+.green{color:#008b32}
+.blue{color:#143d92}
+.red{color:#cf0000}
+
+/* ===== PERIOD ===== */
+.periods{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:14px;
+}
+
+.period{
+  background:var(--card);
+  border-radius:28px;
+  min-height:128px;
+  padding:18px 5px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.period b{
+  display:block;
+  font-size:16px;
+  margin-bottom:15px;
+}
+
+.period span{
+  font-size:26px;
+  font-weight:900;
+  color:#173b86;
+}
+
+/* ===== ACTION ===== */
+.actions{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr 1fr;
+  gap:12px;
+  margin-top:14px;
+}
+
+.pending{
+  background:var(--card);
+  border-radius:34px;
+  min-height:160px;
+  padding:18px 12px;
+  box-shadow:var(--shadow);
+}
+
+.pending h2{
+  margin:0 0 10px;
+  font-size:22px;
+}
+
+.pending span{
+  font-size:38px;
+  color:#d00000;
+  font-weight:900;
+}
+
+.action-btn{
+  border:0;
+  border-radius:34px;
+  min-height:160px;
+  color:white;
+  font-size:65px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:.15s;
+}
+
+.action-btn:active,
+.key:active,
+.denom:active,
+.nav-btn:active{
+  transform:scale(.91);
+}
+
+.confirm{background:linear-gradient(135deg,#00a82b,#007c1d)}
+.settle{background:linear-gradient(135deg,#ffc52c,#ff9600)}
+.clear{background:linear-gradient(135deg,#ff2730,#d40000)}
+
+.action-btn:hover{
+  filter:brightness(1.08);
+}
+
+/* ===== NUMBER KEY ===== */
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+
+.key{
+  border:0;
+  min-height:108px;
+  border-radius:30px;
+  background:var(--card);
+  color:var(--text);
+  font-size:38px;
+  font-weight:900;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  transition:.15s;
+}
+
+/* ===== DENOMINATION ===== */
+.denoms{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+
+.denom{
+  border:0;
+  min-height:112px;
+  border-radius:29px;
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:.15s;
+  position:relative;
+  overflow:hidden;
+}
+
+.denom::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.2),transparent);
+  pointer-events:none;
+}
+
+.denom .top{
+  display:block;
+  font-size:32px;
+}
+
+.denom .bottom{
+  display:block;
+  font-size:18px;
+  margin-top:6px;
+  opacity:.9;
+}
+
+.d5,.d35,.d85{background:linear-gradient(135deg,#376bd3,#133b98)}
+.d10,.d40,.d65,.d100{background:linear-gradient(135deg,#20a67d,#078262)}
+.d15,.d60,.d90{background:linear-gradient(135deg,#8434d4,#4b008f)}
+.d20,.d50,.d70{background:linear-gradient(135deg,#ffba21,#f28c00)}
+.d25,.d55,.d95{background:linear-gradient(135deg,#ff1d48,#d80022)}
+.d30,.d80{background:linear-gradient(135deg,#39a900,#168000)}
+.d45{background:linear-gradient(135deg,#2f69d0,#123f9c)}
+.d75{background:linear-gradient(135deg,#ff2222,#c80000)}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:72px;
+  background:#152b7d;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:50;
+  box-shadow:0 -3px 15px rgba(0,0,0,.15);
+}
+
+.nav-btn{
+  background:none;
+  border:0;
+  color:white;
+  font-size:29px;
+  cursor:pointer;
+  opacity:.8;
+}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:90px;
+  transform:translateX(-50%) translateY(100px);
+  background:#111;
+  color:#fff;
+  padding:13px 22px;
+  border-radius:30px;
+  font-weight:bold;
+  z-index:100;
+  opacity:0;
+  transition:.3s;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-18px) rotate(10deg)}
+}
+
+@keyframes fadeDown{
+  from{
+    opacity:0;
+    transform:translateY(-25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+}
+
+.pulse{
+  animation:pulse .3s ease;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .header{
+    height:270px;
+    border-radius:0 0 50px 50px;
+  }
+
+  .brand h1{
+    font-size:34px;
+  }
+
+  .brand p{
+    font-size:18px;
+  }
+
+  .app{
+    padding:16px 10px;
+  }
+
+  .summary{
+    gap:8px;
+  }
+
+  .card{
+    min-height:140px;
+    border-radius:27px;
+    padding:16px 5px;
+  }
+
+  .card h3{
+    font-size:15px;
+  }
+
+  .card .money{
+    font-size:27px;
+  }
+
+  .periods{
+    gap:7px;
+  }
+
+  .period{
+    min-height:100px;
+    border-radius:22px;
+    padding:12px 3px;
+  }
+
+  .period b{
+    font-size:12px;
+  }
+
+  .period span{
+    font-size:20px;
+  }
+
+  .actions{
+    gap:8px;
+  }
+
+  .pending,
+  .action-btn{
+    min-height:140px;
+    border-radius:27px;
+  }
+
+  .pending h2{
+    font-size:15px;
+  }
+
+  .pending span{
+    font-size:28px;
+  }
+
+  .action-btn{
+    font-size:48px;
+  }
+
+  .keypad{
+    gap:8px;
+  }
+
+  .key{
+    min-height:88px;
+    border-radius:25px;
+    font-size:31px;
+  }
+
+  .denoms{
+    gap:8px;
+  }
+
+  .denom{
+    min-height:92px;
+    border-radius:25px;
+  }
+
+  .denom .top{
+    font-size:25px;
+  }
+
+  .denom .bottom{
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    <h1>হাফেজ তিজারাহ</h1>
+    <p>পরিবারের নিত্যদিনের বাজার</p>
+  </div>
+  <div class="header-line"></div>
+</header>
+
+<main class="app">
+
+  <!-- SUMMARY -->
+  <section class="summary">
+
+    <div class="card">
+      <h3>সর্বমোট টাকা</h3>
+      <div class="money green" id="totalMoney">৳ ০</div>
+    </div>
+
+    <div class="card">
+      <h3>আজকের লেনদেন</h3>
+      <div class="money blue" id="todayCount">০</div>
+    </div>
+
+    <div class="card">
+      <h3>বাকি</h3>
+      <div class="money red" id="dueMoney">৳ ০</div>
+    </div>
+
+  </section>
+
+  <!-- PERIOD -->
+  <section class="periods">
+
+    <div class="period">
+      <b>আজ বিক্রি</b>
+      <span id="todaySale">৳০</span>
+    </div>
+
+    <div class="period">
+      <b>গত ৭ দিন</b>
+      <span id="weekSale">৳০</span>
+    </div>
+
+    <div class="period">
+      <b>গত ১৫ দিন</b>
+      <span id="fifteenSale">৳০</span>
+    </div>
+
+    <div class="period">
+      <b>গত ৬ মাস</b>
+      <span id="sixMonthSale">৳০</span>
+    </div>
+
+    <div class="period">
+      <b>গত ১ বছর</b>
+      <span id="yearSale">৳০</span>
+    </div>
+
+  </section>
+
+  <!-- PENDING + ACTION -->
+  <section class="actions">
+
+    <div class="pending">
+      <h2>Pending Amount</h2>
+      <span id="pendingMoney">৳ ০</span>
+    </div>
+
+    <button class="action-btn confirm" onclick="confirmPending()">✓</button>
+    <button class="action-btn settle" onclick="settle()">🤝</button>
+    <button class="action-btn clear" onclick="clearPending()">×</button>
+
+  </section>
+
+  <!-- NUMBER KEYPAD -->
+  <section class="keypad">
+    <button class="key" onclick="addNumber(1)">১</button>
+    <button class="key" onclick="addNumber(2)">২</button>
+    <button class="key" onclick="addNumber(3)">৩</button>
+    <button class="key" onclick="addNumber(4)">৪</button>
+    <button class="key" onclick="addNumber(5)">৫</button>
+  </section>
+
+  <!-- MONEY GRID : ALWAYS 4 COLUMNS -->
+  <section class="denoms" id="denoms"></section>
+
+</main>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="nav-btn" onclick="showMenu()">☰</button>
+  <button class="nav-btn" onclick="toggleDark()">▣</button>
+  <button class="nav-btn" onclick="showInfo()">⌁</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================
+   DATA
+========================= */
+
+let total = Number(localStorage.getItem("hafiz_total")) || 0;
+let pending = Number(localStorage.getItem("hafiz_pending")) || 0;
+let due = Number(localStorage.getItem("hafiz_due")) || 0;
+
+let transactions =
+  JSON.parse(localStorage.getItem("hafiz_transactions")) || [];
+
+
+/* =========================
+   BANGLA NUMBER
+========================= */
+
+function bn(num){
+  return String(num).replace(/\d/g,function(d){
+    return "০১২৩৪৫৬৭৮৯"[d];
+  });
+}
+
+function money(num){
+  return "৳ " + bn(num.toLocaleString("en-US"));
+}
+
+
+/* =========================
+   SOUND EFFECT
+========================= */
+
+let audioCtx;
+
+function sound(type){
+
+  try{
+
+    if(!audioCtx){
+      audioCtx =
+      new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    const oscillator = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    oscillator.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    if(type === "add"){
+      oscillator.frequency.setValueAtTime(700,audioCtx.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(
+        1000,
+        audioCtx.currentTime + .08
+      );
+    }
+
+    if(type === "confirm"){
+      oscillator.frequency.setValueAtTime(600,audioCtx.currentTime);
+      oscillator.frequency.linearRampToValueAtTime(
+        1200,
+        audioCtx.currentTime + .15
+      );
+    }
+
+    if(type === "remove"){
+      oscillator.frequency.setValueAtTime(300,audioCtx.currentTime);
+      oscillator.frequency.linearRampToValueAtTime(
+        120,
+        audioCtx.currentTime + .12
+      );
+    }
+
+    gain.gain.setValueAtTime(.12,audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      audioCtx.currentTime + .18
+    );
+
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + .18);
+
+  }catch(e){}
+}
+
+
+/* =========================
+   DENOMINATION BUTTONS
+========================= */
+
+const amounts=[
+  5,10,15,20,
+  25,30,35,40,
+  45,50,55,60,
+  65,70,75,80,
+  85,90,95,100
+];
+
+const denomBox=document.getElementById("denoms");
+
+amounts.forEach(amount=>{
+
+  const btn=document.createElement("button");
+
+  btn.className="denom d"+amount;
+
+  btn.innerHTML=`
+    <span class="top">${bn(amount)}</span>
+    <span class="bottom">৳ ${bn(amount)}</span>
+  `;
+
+  btn.onclick=function(){
+    addPending(amount,btn);
+  };
+
+  denomBox.appendChild(btn);
+
+});
+
+
+/* =========================
+   ADD PENDING
+========================= */
+
+function addPending(amount,button){
+
+  pending += amount;
+
+  sound("add");
+
+  button.classList.remove("pulse");
+  void button.offsetWidth;
+  button.classList.add("pulse");
+
+  save();
+  updateUI();
+
+  toast("৳ "+bn(amount)+" Pending-এ যোগ হয়েছে");
+
+}
+
+
+/* =========================
+   NUMBER BUTTON
+========================= */
+
+function addNumber(number){
+
+  pending += number;
+
+  sound("add");
+
+  save();
+  updateUI();
+
+  toast("৳ "+bn(number)+" যোগ হয়েছে");
+
+}
+
+
+/* =========================
+   CONFIRM
+========================= */
+
+function confirmPending(){
+
+  if(pending<=0){
+    sound("remove");
+    toast("Pending Amount খালি");
+    return;
+  }
+
+  total += pending;
+
+  transactions.push({
+    amount:pending,
+    date:Date.now()
+  });
+
+  pending=0;
+
+  sound("confirm");
+
+  save();
+  updateUI();
+
+  toast("সফলভাবে সর্বমোট টাকায় যোগ হয়েছে ✓");
+
+}
+
+
+/* =========================
+   CLEAR PENDING
+========================= */
+
+function clearPending(){
+
+  if(pending<=0){
+    toast("মুছে ফেলার মতো কিছু নেই");
+    return;
+  }
+
+  pending=0;
+
+  sound("remove");
+
+  save();
+  updateUI();
+
+  toast("Pending Amount মুছে ফেলা হয়েছে");
+
+}
+
+
+/* =========================
+   SETTLEMENT
+========================= */
+
+function settle(){
+
+  if(pending<=0){
+    toast("আগে Pending Amount যোগ করুন");
+    return;
+  }
+
+  due += pending;
+  pending=0;
+
+  sound("confirm");
+
+  save();
+  updateUI();
+
+  toast("বাকি টাকায় যোগ হয়েছে");
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function save(){
+
+  localStorage.setItem("hafiz_total",total);
+  localStorage.setItem("hafiz_pending",pending);
+  localStorage.setItem("hafiz_due",due);
+
+  localStorage.setItem(
+    "hafiz_transactions",
+    JSON.stringify(transactions)
+  );
+
+}
+
+
+/* =========================
+   DATE FILTER
+========================= */
+
+function sumDays(days){
+
+  const now=Date.now();
+  const limit=now-(days*24*60*60*1000);
+
+  return transactions
+    .filter(t=>t.date>=limit)
+    .reduce((sum,t)=>sum+t.amount,0);
+
+}
+
+function todayTransactions(){
+
+  const today=new Date();
+  today.setHours(0,0,0,0);
+
+  return transactions.filter(
+    t=>t.date>=today.getTime()
+  );
+
+}
+
+
+/* =========================
+   UPDATE UI
+========================= */
+
+function updateUI(){
+
+  document.getElementById("totalMoney").textContent=
+    money(total);
+
+  document.getElementById("pendingMoney").textContent=
+    money(pending);
+
+  document.getElementById("dueMoney").textContent=
+    money(due);
+
+  const today=todayTransactions();
+
+  document.getElementById("todayCount").textContent=
+    bn(today.length);
+
+  document.getElementById("todaySale").textContent=
+    money(sumDays(1));
+
+  document.getElementById("weekSale").textContent=
+    money(sumDays(7));
+
+  document.getElementById("fifteenSale").textContent=
+    money(sumDays(15));
+
+  document.getElementById("sixMonthSale").textContent=
+    money(sumDays(180));
+
+  document.getElementById("yearSale").textContent=
+    money(sumDays(365));
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function toast(message){
+
+  const box=document.getElementById("toast");
+
+  box.textContent=message;
+  box.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer=setTimeout(()=>{
+    box.classList.remove("show");
+  },1800);
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleDark(){
+
+  document.body.classList.toggle("dark");
+
+  localStorage.setItem(
+    "hafiz_dark",
+    document.body.classList.contains("dark")
+  );
+
+  sound("add");
+
+}
+
+
+/* =========================
+   MENU / INFO
+========================= */
+
+function showMenu(){
+  toast("মেনু অপশন পরবর্তীতে যুক্ত করা যাবে");
+  sound("add");
+}
+
+function showInfo(){
+  toast("হাফেজ তিজারাহ • পরিবারের নিত্যদিনের বাজার");
+  sound("add");
+}
+
+
+/* =========================
+   LOAD SETTINGS
+========================= */
+
+if(localStorage.getItem("hafiz_dark")==="true"){
+  document.body.classList.add("dark");
+}
+
+updateUI();
+</script>
+
+</body>
+</html>
