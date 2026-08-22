@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no,
+               viewport-fit=cover">
+
+<title>হাফেজ তিজারাহ</title>
+
+<style>
+/* =========================================================
+   SECTION 1 — GLOBAL / MOBILE APP FRAME
+   ========================================================= */
+
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:
+        "Noto Sans Bengali",
+        "Hind Siliguri",
+        Arial,
+        sans-serif;
+    background:#071d88;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+button{
+    font-family:inherit;
+    border:0;
+    outline:0;
+    cursor:pointer;
+    touch-action:manipulation;
+}
+
+
+/* =========================================================
+   SECTION 2 — APP CONTAINER
+   ========================================================= */
+
+.app{
+    position:relative;
+    width:100vw;
+    height:100dvh;
+    max-width:480px;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eef5ff 0%,
+            #f8fbff 48%,
+            #e9f1ff 100%
+        );
+
+    display:flex;
+    flex-direction:column;
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   SECTION 3 — HEADER
+   ========================================================= */
+
+.header{
+    position:relative;
+    flex:0 0 24%;
+    min-height:150px;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #3678ff 0%,
+            #0646d9 35%,
+            #05218e 72%,
+            #03145e 100%
+        );
+
+    color:white;
+
+    border-radius:
+        0 0 28px 28px;
+
+    box-shadow:
+        0 8px 20px rgba(0,35,160,.35);
+
+    z-index:5;
+}
+
+
+/* Animated light */
+.header::before{
+    content:"";
+    position:absolute;
+    width:220%;
+    height:100px;
+    left:-60%;
+    bottom:-55px;
+
+    border-top:
+        3px solid rgba(42,133,255,.75);
+
+    border-radius:50%;
+
+    animation:
+        waveMove 3.2s ease-in-out infinite;
+}
+
+
+/* Header glow */
+.header::after{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    top:-70px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.20),
+            transparent 70%
+        );
+
+    animation:
+        glowPulse 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   SECTION 4 — FLOATING HEADER ICONS
+   ========================================================= */
+
+.float-icon{
+    position:absolute;
+    color:rgba(255,255,255,.16);
+    font-size:25px;
+    z-index:1;
+
+    animation:
+        floating 3s ease-in-out infinite;
+}
+
+.fi1{left:7%;top:25%;animation-delay:0s;}
+.fi2{left:22%;top:8%;animation-delay:.6s;}
+.fi3{right:19%;top:18%;animation-delay:1s;}
+.fi4{right:6%;top:35%;animation-delay:1.4s;}
+.fi5{left:45%;top:8%;animation-delay:1.8s;}
+.fi6{left:32%;bottom:8%;animation-delay:2.2s;}
+.fi7{right:36%;bottom:9%;animation-delay:2.6s;}
+
+
+/* =========================================================
+   SECTION 5 — HEADER BUTTONS
+   ========================================================= */
+
+.header-left,
+.header-right{
+    position:absolute;
+    top:18%;
+    z-index:10;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.header-left{
+    left:4%;
+}
+
+.header-right{
+    right:4%;
+}
+
+.header-btn{
+    width:54px;
+    height:54px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-size:27px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1.5px solid rgba(255,255,255,.78);
+
+    box-shadow:
+        inset 0 0 12px rgba(255,255,255,.05),
+        0 3px 10px rgba(0,0,0,.15);
+
+    transition:
+        transform .12s ease,
+        background .15s ease,
+        box-shadow .15s ease;
+}
+
+.header-btn:active{
+    transform:scale(.86) rotate(-3deg);
+
+    background:
+        rgba(255,255,255,.22);
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.4);
+}
+
+
+/* =========================================================
+   SECTION 6 — BRAND
+   ========================================================= */
+
+.brand{
+    position:absolute;
+    left:50%;
+    top:27%;
+
+    transform:translateX(-50%);
+
+    width:48%;
+
+    text-align:center;
+    z-index:8;
+}
+
+.brand-title{
+    margin:0;
+
+    font-size:clamp(25px,6vw,39px);
+    font-weight:900;
+
+    white-space:nowrap;
+
+    text-shadow:
+        0 3px 8px rgba(0,0,0,.45);
+
+    animation:
+        brandFloat 2.5s ease-in-out infinite;
+}
+
+.brand-subtitle{
+    margin-top:2px;
+
+    font-size:clamp(13px,3vw,19px);
+    font-weight:800;
+
+    color:#fff600;
+
+    white-space:nowrap;
+
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.4);
+}
+
+
+/* =========================================================
+   SECTION 7 — MAIN CONTENT
+   ========================================================= */
+
+.main{
+    flex:1;
+    min-height:0;
+
+    padding:
+        10px
+        10px
+        max(8px, env(safe-area-inset-bottom));
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+
+/* =========================================================
+   SECTION 8 — TOP MONEY CARDS
+   ========================================================= */
+
+.money-row{
+    flex:0 0 15%;
+
+    display:grid;
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap:8px;
+}
+
+.money-card{
+    min-width:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f3f5fa
+        );
+
+    border-radius:18px;
+
+    border:1px solid #e2e5ec;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.12);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+.money-card.pulse{
+    animation:
+        cardPulse .28s ease;
+}
+
+.money-title{
+    color:#061f87;
+    font-size:clamp(14px,3.6vw,21px);
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.money-value{
+    margin-top:2px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:clamp(27px,7vw,44px);
+    font-weight:900;
+
+    line-height:1;
+}
+
+.total-value{
+    color:#07952d;
+}
+
+.today-value{
+    color:#062a98;
+}
+
+.due-value{
+    color:#e30000;
+}
+
+
+/* =========================================================
+   SECTION 9 — REPORT CARDS
+   ========================================================= */
+
+.report-row{
+    flex:0 0 12%;
+
+    display:grid;
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:7px;
+}
+
+.report-card{
+    min-width:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f1f3f8
+        );
+
+    border-radius:15px;
+
+    box-shadow:
+        0 3px 9px rgba(0,0,0,.12);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    transition:
+        transform .12s ease;
+}
+
+.report-card:active{
+    transform:scale(.94);
+}
+
+.report-title{
+    font-size:clamp(10px,2.7vw,16px);
+    font-weight:800;
+    color:#161616;
+
+    white-space:nowrap;
+}
+
+.report-number{
+    margin-top:2px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:clamp(20px,5.2vw,34px);
+    font-weight:900;
+
+    color:#062a98;
+}
+
+
+/* =========================================================
+   SECTION 10 — ACTION ROW
+   ========================================================= */
+
+.action-row{
+    flex:0 0 14%;
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr .8fr .8fr .8fr;
+
+    gap:8px;
+}
+
+.pending-card{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4f6fa
+        );
+
+    border-radius:18px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.12);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.pending-title{
+    font-family:Arial,sans-serif;
+
+    font-size:clamp(13px,3.5vw,21px);
+    font-weight:800;
+
+    color:#111;
+}
+
+.pending-value{
+    font-family:Arial,sans-serif;
+
+    font-size:clamp(26px,7vw,42px);
+    font-weight:900;
+
+    color:#d90000;
+}
+
+
+/* =========================================================
+   SECTION 11 — ACTION BUTTONS
+   ========================================================= */
+
+.action-btn{
+    border-radius:17px;
+
+    font-size:
+        clamp(38px,10vw,65px);
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,.25),
+        0 5px 12px rgba(0,0,0,.18);
+
+    transition:
+        transform .12s ease,
+        filter .12s ease,
+        box-shadow .12s ease;
+}
+
+.action-btn:active{
+    transform:
+        scale(.88)
+        rotate(-2deg);
+
+    filter:brightness(1.2);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,.45);
+}
+
+.btn-add{
+    background:
+        linear-gradient(
+            145deg,
+            #00c33a,
+            #008d20
+        );
+}
+
+.btn-due{
+    background:
+        linear-gradient(
+            145deg,
+            #ffc400,
+            #ed8d00
+        );
+}
+
+.btn-cancel{
+    background:
+        linear-gradient(
+            145deg,
+            #ff1919,
+            #c40000
+        );
+}
+
+
+/* =========================================================
+   SECTION 12 — QUICK NUMBER ROW
+   ========================================================= */
+
+.quick-row{
+    flex:0 0 10%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:7px;
+}
+
+.quick-btn{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f1f3f7
+        );
+
+    border-radius:15px;
+
+    color:#111;
+
+    font-size:
+        clamp(24px,7vw,40px);
+
+    font-weight:900;
+
+    box-shadow:
+        0 3px 9px rgba(0,0,0,.12);
+
+    transition:
+        transform .1s ease,
+        background .1s ease;
+}
+
+.quick-btn:active{
+    transform:
+        scale(.88);
+
+    background:#dfe8ff;
+}
+
+
+/* =========================================================
+   SECTION 13 — AMOUNT BUTTON GRID
+   ========================================================= */
+
+.amount-grid{
+    flex:1;
+    min-height:0;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    grid-template-rows:
+        repeat(5,1fr);
+
+    gap:7px;
+}
+
+.amount-btn{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    color:white;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,.25),
+        0 4px 9px rgba(0,0,0,.18);
+
+    transition:
+        transform .11s ease,
+        filter .11s ease;
+}
+
+.amount-btn::before{
+    content:"";
+
+    position:absolute;
+
+    width:80px;
+    height:80px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.16);
+
+    top:-40px;
+    left:-20px;
+
+    animation:
+        buttonGlow 2.5s linear infinite;
+}
+
+.amount-btn:active{
+    transform:
+        scale(.9);
+
+    filter:
+        brightness(1.25);
+}
+
+.amount-number{
+    position:relative;
+    z-index:2;
+
+    font-family:
+        "Noto Sans Bengali",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(20px,6vw,34px);
+
+    font-weight:900;
+
+    line-height:1;
+}
+
+.amount-taka{
+    position:relative;
+    z-index:2;
+
+    margin-top:4px;
+
+    font-size:
+        clamp(12px,3vw,18px);
+
+    font-weight:700;
+}
+
+
+/* Amount colors */
+
+.a1{background:linear-gradient(145deg,#246aff,#0641bb);}
+.a2{background:linear-gradient(145deg,#00bd70,#009d5c);}
+.a3{background:linear-gradient(145deg,#8625f0,#4d00b8);}
+.a4{background:linear-gradient(145deg,#ffb300,#e77d00);}
+
+.a5{background:linear-gradient(145deg,#ff2748,#e40027);}
+.a6{background:linear-gradient(145deg,#42ca00,#179000);}
+.a7{background:linear-gradient(145deg,#2876ff,#0048bc);}
+.a8{background:linear-gradient(145deg,#16bd92,#00966e);}
+
+.a9{background:linear-gradient(145deg,#246aff,#0641bb);}
+.a10{background:linear-gradient(145deg,#ffb300,#e77d00);}
+.a11{background:linear-gradient(145deg,#ff2848,#dd002b);}
+.a12{background:linear-gradient(145deg,#8b20ef,#4e00bd);}
+
+.a13{background:linear-gradient(145deg,#11bd8c,#009b6b);}
+.a14{background:linear-gradient(145deg,#ffac00,#df7600);}
+.a15{background:linear-gradient(145deg,#f01319,#c90000);}
+.a16{background:linear-gradient(145deg,#48c900,#158d00);}
+
+.a17{background:linear-gradient(145deg,#2772ff,#0347bb);}
+.a18{background:linear-gradient(145deg,#8b22ee,#4e00ba);}
+.a19{background:linear-gradient(145deg,#f32148,#d80029);}
+.a20{background:linear-gradient(145deg,#0cbb8c,#008d68);}
+
+
+/* =========================================================
+   SECTION 14 — CLICK RIPPLE
+   ========================================================= */
+
+.ripple{
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:
+        scale(0);
+
+    background:
+        rgba(255,255,255,.65);
+
+    animation:
+        ripple .45s linear;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   SECTION 15 — ANIMATIONS
+   ========================================================= */
+
+@keyframes floating{
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(-12px)
+            rotate(8deg);
+    }
+}
+
+@keyframes waveMove{
+    0%,100%{
+        transform:
+            translateX(-10%)
+            rotate(-2deg);
+    }
+
+    50%{
+        transform:
+            translateX(10%)
+            rotate(2deg);
+    }
+}
+
+@keyframes glowPulse{
+    0%,100%{
+        opacity:.4;
+        transform:
+            translateX(-50%)
+            scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:
+            translateX(-50%)
+            scale(1.2);
+    }
+}
+
+@keyframes brandFloat{
+    0%,100%{
+        transform:
+            translateX(0)
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            translateX(0)
+            translateY(-3px);
+    }
+}
+
+@keyframes cardPulse{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.035);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes buttonGlow{
+    0%{
+        transform:
+            translate(0,0);
+        opacity:.15;
+    }
+
+    50%{
+        transform:
+            translate(100px,80px);
+        opacity:.35;
+    }
+
+    100%{
+        transform:
+            translate(190px,0);
+        opacity:.1;
+    }
+}
+
+@keyframes ripple{
+    to{
+        transform:scale(5);
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   SECTION 16 — SMALL PHONE RESPONSIVE MODE
+   ========================================================= */
+
+@media(max-height:700px){
+
+    .header{
+        flex-basis:22%;
+        min-height:130px;
+    }
+
+    .header-btn{
+        width:45px;
+        height:45px;
+        font-size:22px;
+    }
+
+    .header-left,
+    .header-right{
+        gap:6px;
+    }
+
+    .main{
+        gap:5px;
+        padding:7px;
+    }
+
+    .money-row{
+        gap:5px;
+    }
+
+    .report-row,
+    .quick-row,
+    .amount-grid,
+    .action-row{
+        gap:5px;
+    }
+
+    .amount-btn,
+    .report-card,
+    .quick-btn{
+        border-radius:12px;
+    }
+}
+
+
+/* =========================================================
+   SECTION 17 — VERY SMALL WIDTH
+   ========================================================= */
+
+@media(max-width:360px){
+
+    .brand-title{
+        font-size:22px;
+    }
+
+    .brand-subtitle{
+        font-size:11px;
+    }
+
+    .header-btn{
+        width:40px;
+        height:40px;
+        font-size:19px;
+    }
+
+    .money-title{
+        font-size:12px;
+    }
+
+    .money-value{
+        font-size:25px;
+    }
+
+    .report-title{
+        font-size:9px;
+    }
+
+    .report-number{
+        font-size:20px;
+    }
+
+    .amount-number{
+        font-size:18px;
+    }
+
+    .amount-taka{
+        font-size:10px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     SECTION 18 — APP HTML
+     ========================================================= -->
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <!-- Floating background icons -->
+        <div class="float-icon fi1">✦</div>
+        <div class="float-icon fi2">◈</div>
+        <div class="float-icon fi3">✧</div>
+        <div class="float-icon fi4">●</div>
+        <div class="float-icon fi5">✦</div>
+        <div class="float-icon fi6">◇</div>
+        <div class="float-icon fi7">✧</div>
+
+
+        <!-- Left buttons -->
+        <div class="header-left">
+
+            <button
+                class="header-btn"
+                data-action="theme"
+                aria-label="Theme">
+                🎨
+            </button>
+
+            <button
+                class="header-btn"
+                data-action="language"
+                aria-label="Language">
+                🌐
+            </button>
+
+            <button
+                class="header-btn"
+                data-action="report"
+                aria-label="Report">
+                📊
+            </button>
+
+            <button
+                class="header-btn"
+                data-action="exit"
+                aria-label="Exit">
+                ↪
+            </button>
+
+        </div>
+
+
+        <!-- Right buttons -->
+        <div class="header-right">
+
+            <button
+                class="header-btn"
+                data-action="sound"
+                aria-label="Sound">
+                🔊
+            </button>
+
+            <button
+                class="header-btn"
+                data-action="discount"
+                aria-label="Discount">
+                %
+            </button>
+
+            <button
+                class="header-btn"
+                data-action="growth"
+                aria-label="Growth">
+                📈
+            </button>
+
+            <button
+                class="header-btn"
+                data-action="balance"
+                aria-label="Balance">
+                ↕
+            </button>
+
+        </div>
+
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <h1 class="brand-title">
+                হাফেজ তিজারাহ
+            </h1>
+
+            <div class="brand-subtitle">
+                পরিবারের নিত্যদিনের বাজার
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+
+        <!-- =================================================
+             TOP MONEY
+             ================================================= -->
+
+        <section class="money-row">
+
+            <div class="money-card" id="totalCard">
+
+                <div class="money-title">
+                    সর্বমোট টাকা
+                </div>
+
+                <div
+                    class="money-value total-value"
+                    id="totalMoney">
+                    ৳ 0
+                </div>
+
+            </div>
+
+
+            <div class="money-card" id="todayCard">
+
+                <div class="money-title">
+                    আজকের লেনদেন
+                </div>
+
+                <div
+                    class="money-value today-value"
+                    id="todayTransactions">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="money-card" id="dueCard">
+
+                <div class="money-title">
+                    বাকি
+                </div>
+
+                <div
+                    class="money-value due-value"
+                    id="totalDue">
+                    ৳ 0
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REPORT
+             ================================================= -->
+
+        <section class="report-row">
+
+            <div class="report-card">
+                <div class="report-title">আজ বিক্রি</div>
+                <div class="report-number" id="todaySale">00</div>
+            </div>
+
+            <div class="report-card">
+                <div class="report-title">গত ৭ দিন</div>
+                <div class="report-number" id="sevenDays">00</div>
+            </div>
+
+            <div class="report-card">
+                <div class="report-title">গত ১৫ দিন</div>
+                <div class="report-number" id="fifteenDays">00</div>
+            </div>
+
+            <div class="report-card">
+                <div class="report-title">গত ৬ মাস</div>
+                <div class="report-number" id="sixMonths">00</div>
+            </div>
+
+            <div class="report-card">
+                <div class="report-title">গত ১ বছর</div>
+                <div class="report-number" id="oneYear">00</div>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PENDING + ACTION
+             ================================================= -->
+
+        <section class="action-row">
+
+            <div class="pending-card">
+
+                <div class="pending-title">
+                    Pending Amount
+                </div>
+
+                <div
+                    class="pending-value"
+                    id="pendingAmount">
+                    ৳ 0
+                </div>
+
+            </div>
+
+
+            <button
+                class="action-btn btn-add"
+                id="addButton"
+                aria-label="Add">
+                ✓
+            </button>
+
+
+            <button
+                class="action-btn btn-due"
+                id="dueButton"
+                aria-label="Due">
+                🤝
+            </button>
+
+
+            <button
+                class="action-btn btn-cancel"
+                id="cancelButton"
+                aria-label="Cancel">
+                ✕
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK NUMBERS
+             ================================================= -->
+
+        <section class="quick-row">
+
+            <button class="quick-btn">১</button>
+            <button class="quick-btn">২</button>
+            <button class="quick-btn">৩</button>
+            <button class="quick-btn">৪</button>
+            <button class="quick-btn">৫</button>
+
+        </section>
+
+
+        <!-- =================================================
+             AMOUNT BUTTONS
+             ================================================= -->
+
+        <section class="amount-grid">
+
+            <button class="amount-btn a1" data-amount="5">
+                <span class="amount-number">৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a2" data-amount="10">
+                <span class="amount-number">১০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a3" data-amount="15">
+                <span class="amount-number">১৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a4" data-amount="20">
+                <span class="amount-number">২০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a5" data-amount="25">
+                <span class="amount-number">২৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a6" data-amount="30">
+                <span class="amount-number">৩০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a7" data-amount="35">
+                <span class="amount-number">৩৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a8" data-amount="40">
+                <span class="amount-number">৪০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a9" data-amount="45">
+                <span class="amount-number">৪৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a10" data-amount="50">
+                <span class="amount-number">৫০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a11" data-amount="55">
+                <span class="amount-number">৫৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a12" data-amount="60">
+                <span class="amount-number">৬০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a13" data-amount="65">
+                <span class="amount-number">৬৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a14" data-amount="70">
+                <span class="amount-number">৭০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a15" data-amount="75">
+                <span class="amount-number">৭৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a16" data-amount="80">
+                <span class="amount-number">৮০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a17" data-amount="85">
+                <span class="amount-number">৮৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a18" data-amount="90">
+                <span class="amount-number">৯০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a19" data-amount="95">
+                <span class="amount-number">৯৫</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+            <button class="amount-btn a20" data-amount="100">
+                <span class="amount-number">১০০</span>
+                <span class="amount-taka">৳ 0</span>
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   SECTION 19 — DATA / STORAGE
+   ========================================================= */
+
+const STORAGE_KEY = "hafez_tijarah_data_v1";
+
+let data = JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+) || {
+
+    totalMoney: 0,
+    todayTransactions: 0,
+    totalDue: 0,
+    pendingAmount: 0,
+
+    todaySale: 0,
+    sevenDays: 0,
+    fifteenDays: 0,
+    sixMonths: 0,
+    oneYear: 0,
+
+    amountClicks: {},
+
+    mode: "sale",
+
+    soundOn: true
+
+};
+
+
+/* =========================================================
+   SECTION 20 — SAVE DATA
+   ========================================================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* =========================================================
+   SECTION 21 — BANGLA NUMBER
+   ========================================================= */
+
+function bn(number){
+
+    return String(number)
+        .replace(/0/g,"০")
+        .replace(/1/g,"১")
+        .replace(/2/g,"২")
+        .replace(/3/g,"৩")
+        .replace(/4/g,"৪")
+        .replace(/5/g,"৫")
+        .replace(/6/g,"৬")
+        .replace(/7/g,"৭")
+        .replace(/8/g,"৮")
+        .replace(/9/g,"৯");
+
+}
+
+
+/* =========================================================
+   SECTION 22 — UPDATE UI
+   ========================================================= */
+
+function updateUI(){
+
+    document.getElementById("totalMoney")
+        .textContent =
+        "৳ " + bn(data.totalMoney);
+
+    document.getElementById("todayTransactions")
+        .textContent =
+        bn(data.todayTransactions);
+
+    document.getElementById("totalDue")
+        .textContent =
+        "৳ " + bn(data.totalDue);
+
+    document.getElementById("pendingAmount")
+        .textContent =
+        "৳ " + bn(data.pendingAmount);
+
+    document.getElementById("todaySale")
+        .textContent =
+        bn(data.todaySale);
+
+    document.getElementById("sevenDays")
+        .textContent =
+        bn(data.sevenDays);
+
+    document.getElementById("fifteenDays")
+        .textContent =
+        bn(data.fifteenDays);
+
+    document.getElementById("sixMonths")
+        .textContent =
+        bn(data.sixMonths);
+
+    document.getElementById("oneYear")
+        .textContent =
+        bn(data.oneYear);
+
+
+    document.querySelectorAll(".amount-btn")
+        .forEach(button => {
+
+            const amount =
+                Number(button.dataset.amount);
+
+            const clicks =
+                data.amountClicks[amount] || 0;
+
+            button.querySelector(".amount-taka")
+                .textContent =
+                "৳ " + bn(clicks * amount);
+
+        });
+
+}
+
+
+/* =========================================================
+   SECTION 23 — HIGH VOLUME SOUND ENGINE
+   ========================================================= */
+
+let audioContext = null;
+
+
+/*
+   Browser সাধারণত user interaction-এর আগে
+   audio চালাতে দেয় না।
+
+   তাই প্রথম click-এর সময় AudioContext তৈরি হবে।
+*/
+
+function initAudio(){
+
+    if(!audioContext){
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+    }
+
+    if(
+        audioContext.state === "suspended"
+    ){
+
+        audioContext.resume();
+
+    }
+
+}
+
+
+/* =========================================================
+   SECTION 24 — UNIQUE SOUND
+   ========================================================= */
+
+function playSound(type="click"){
+
+    if(!data.soundOn) return;
+
+    try{
+
+        initAudio();
+
+        const now =
+            audioContext.currentTime;
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        const filter =
+            audioContext.createBiquadFilter();
+
+
+        oscillator.connect(filter);
+
+        filter.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        /*
+          High volume কিন্তু distortion কম রাখার জন্য
+          gain controlled রাখা হয়েছে।
+        */
+
+        gain.gain.setValueAtTime(
+            0.0001,
+            now
+        );
+
+
+        filter.type = "lowpass";
+
+        filter.frequency.setValueAtTime(
+            3000,
+            now
+        );
+
+
+        let frequency = 650;
+        let duration = .12;
+
+
+        if(type === "add"){
+
+            frequency = 880;
+            duration = .16;
+
+            oscillator.type = "sine";
+
+        }
+
+        else if(type === "due"){
+
+            frequency = 520;
+            duration = .20;
+
+            oscillator.type = "triangle";
+
+        }
+
+        else if(type === "cancel"){
+
+            frequency = 230;
+            duration = .18;
+
+            oscillator.type = "sawtooth";
+
+        }
+
+        else if(type === "header"){
+
+            frequency = 720;
+            duration = .09;
+
+            oscillator.type = "square";
+
+        }
+
+        else if(type === "amount"){
+
+            frequency =
+                450 +
+                Math.random()*500;
+
+            duration = .10;
+
+            oscillator.type = "sine";
+
+        }
+
+
+        oscillator.frequency.setValueAtTime(
+            frequency,
+            now
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            .42,
+            now + .015
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            now + duration
+        );
+
+
+        oscillator.start(now);
+
+        oscillator.stop(
+            now + duration
+        );
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Sound unavailable",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SECTION 25 — RIPPLE EFFECT
+   ========================================================= */
+
+function createRipple(event, element){
+
+    const circle =
+        document.createElement("span");
+
+    circle.classList.add("ripple");
+
+
+    const rect =
+        element.getBoundingClientRect();
+
+
+    const size =
+        Math.max(
+            rect.width,
+            rect.height
+        );
+
+
+    circle.style.width =
+        size + "px";
+
+    circle.style.height =
+        size + "px";
+
+
+    circle.style.left =
+        (
+            event.clientX -
+            rect.left -
+            size/2
+        ) + "px";
+
+
+    circle.style.top =
+        (
+            event.clientY -
+            rect.top -
+            size/2
+        ) + "px";
+
+
+    element.appendChild(circle);
+
+
+    setTimeout(
+        () => circle.remove(),
+        500
+    );
+
+}
+
+
+/* =========================================================
+   SECTION 26 — CARD ANIMATION
+   ========================================================= */
+
+function pulseCard(id){
+
+    const card =
+        document.getElementById(id);
+
+    card.classList.remove("pulse");
+
+    void card.offsetWidth;
+
+    card.classList.add("pulse");
+
+}
+
+
+/* =========================================================
+   SECTION 27 — AMOUNT BUTTON
+   ========================================================= */
+
+document.querySelectorAll(".amount-btn")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(event){
+
+            createRipple(
+                event,
+                this
+            );
+
+
+            const amount =
+                Number(
+                    this.dataset.amount
+                );
+
+
+            /*
+              Mode = sale
+              হলে মোট টাকা + আজকের লেনদেন বাড়বে।
+
+              Mode = due
+              হলে বাকি বাড়বে।
+
+              অর্থাৎ হলুদ 🤝 চাপার পর
+              amount button চাপলে সেটা বাকি হিসেবে
+              যোগ হবে।
+            */
+
+            if(data.mode === "due"){
+
+                data.totalDue += amount;
+
+                data.pendingAmount =
+                    data.totalDue;
+
+                playSound("due");
+
+                pulseCard("dueCard");
+
+            }
+
+            else{
+
+                data.totalMoney += amount;
+
+                data.todayTransactions += 1;
+
+                data.todaySale += amount;
+
+                data.sevenDays += amount;
+
+                data.fifteenDays += amount;
+
+                data.sixMonths += amount;
+
+                data.oneYear += amount;
+
+                playSound("amount");
+
+                pulseCard("totalCard");
+
+                pulseCard("todayCard");
+
+            }
+
+
+            /*
+              Button-এর নিজস্ব মোট amount
+            */
+
+            if(
+                !data.amountClicks[amount]
+            ){
+
+                data.amountClicks[amount] = 0;
+
+            }
+
+            data.amountClicks[amount] += 1;
+
+
+            saveData();
+
+            updateUI();
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   SECTION 28 — GREEN ADD BUTTON
+   ========================================================= */
+
+document.getElementById("addButton")
+.addEventListener(
+    "click",
+    function(event){
+
+        createRipple(
+            event,
+            this
+        );
+
+        data.mode = "sale";
+
+        playSound("add");
+
+        /*
+          Pending থাকলে সেটি total-এর সাথে
+          যোগ হয়ে pending শূন্য হবে।
+        */
+
+        if(data.pendingAmount > 0){
+
+            data.totalMoney +=
+                data.pendingAmount;
+
+            data.todayTransactions += 1;
+
+            data.todaySale +=
+                data.pendingAmount;
+
+            data.sevenDays +=
+                data.pendingAmount;
+
+            data.fifteenDays +=
+                data.pendingAmount;
+
+            data.sixMonths +=
+                data.pendingAmount;
+
+            data.oneYear +=
+                data.pendingAmount;
+
+            data.pendingAmount = 0;
+
+        }
+
+        saveData();
+
+        updateUI();
+
+    }
+);
+
+
+/* =========================================================
+   SECTION 29 — YELLOW DUE BUTTON
+   ========================================================= */
+
+document.getElementById("dueButton")
+.addEventListener(
+    "click",
+    function(event){
+
+        createRipple(
+            event,
+            this
+        );
+
+        /*
+          হলুদ button চাপলে Due Mode ON
+        */
+
+        data.mode = "due";
+
+        playSound("due");
+
+        this.style.transform =
+            "scale(.90)";
+
+        setTimeout(
+            () => {
+                this.style.transform =
+                    "";
+            },
+            150
+        );
+
+    }
+);
+
+
+/* =========================================================
+   SECTION 30 — RED CANCEL BUTTON
+   ========================================================= */
+
+document.getElementById("cancelButton")
+.addEventListener(
+    "click",
+    function(event){
+
+        createRipple(
+            event,
+            this
+        );
+
+        data.mode = "sale";
+
+        data.pendingAmount = 0;
+
+        playSound("cancel");
+
+        saveData();
+
+        updateUI();
+
+    }
+);
+
+
+/* =========================================================
+   SECTION 31 — QUICK BUTTONS
+   ========================================================= */
+
+document.querySelectorAll(".quick-btn")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(event){
+
+            createRipple(
+                event,
+                this
+            );
+
+            playSound("amount");
+
+            this.animate(
+                [
+                    {
+                        transform:"scale(1)"
+                    },
+                    {
+                        transform:"scale(.82)"
+                    },
+                    {
+                        transform:"scale(1)"
+                    }
+                ],
+                {
+                    duration:180
+                }
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   SECTION 32 — HEADER BUTTONS
+   ========================================================= */
+
+document.querySelectorAll(".header-btn")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(event){
+
+            createRipple(
+                event,
+                this
+            );
+
+            playSound("header");
+
+            const action =
+                this.dataset.action;
+
+
+            if(action === "sound"){
+
+                data.soundOn =
+                    !data.soundOn;
+
+                this.textContent =
+                    data.soundOn
+                    ? "🔊"
+                    : "🔇";
+
+                saveData();
+
+            }
+
+
+            else if(action === "theme"){
+
+                document.querySelector(".app")
+                    .style.filter =
+                    "brightness(.86)";
+
+                setTimeout(
+                    () => {
+
+                        document.querySelector(".app")
+                            .style.filter =
+                            "";
+
+                    },
+                    250
+                );
+
+            }
+
+
+            else if(action === "language"){
+
+                alert(
+                    "ভাষা: বাংলা\n\nEnglish option পরবর্তী Settings section-এ যোগ করা যাবে।"
+                );
+
+            }
+
+
+            else if(action === "report"){
+
+                alert(
+                    "আজকের বিক্রি: ৳ " +
+                    bn(data.todaySale) +
+                    "\nআজকের লেনদেন: " +
+                    bn(data.todayTransactions)
+                );
+
+            }
+
+
+            else if(action === "discount"){
+
+                alert(
+                    "Discount / Percentage section"
+                );
+
+            }
+
+
+            else if(action === "growth"){
+
+                alert(
+                    "বিক্রয় রিপোর্ট ও Growth section"
+                );
+
+            }
+
+
+            else if(action === "balance"){
+
+                alert(
+                    "বর্তমান বাকি: ৳ " +
+                    bn(data.totalDue)
+                );
+
+            }
+
+
+            else if(action === "exit"){
+
+                alert(
+                    "হাফেজ তিজারাহ অ্যাপ"
+                );
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   SECTION 33 — INITIALIZE
+   ========================================================= */
+
+updateUI();
+
+
+/* =========================================================
+   SECTION 34 — PREVENT DOUBLE TAP ZOOM
+   ========================================================= */
+
+let lastTouchEnd = 0;
+
+document.addEventListener(
+    "touchend",
+    function(event){
+
+        const now =
+            Date.now();
+
+        if(
+            now - lastTouchEnd <= 300
+        ){
+
+            event.preventDefault();
+
+        }
+
+        lastTouchEnd = now;
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+/* =========================================================
+   SECTION 35 — NO VIBRATION / HAPTIC
+   ========================================================= */
+
+if(
+    "vibrate" in navigator
+){
+
+    /*
+      ইচ্ছাকৃতভাবে vibration ব্যবহার করা হয়নি।
+    */
+
+}
+
+
+/* =========================================================
+   SECTION 36 — FIRST TOUCH AUDIO UNLOCK
+   ========================================================= */
+
+document.addEventListener(
+    "pointerdown",
+    function(){
+
+        try{
+            initAudio();
+        }
+        catch(e){}
+
+    },
+    {
+        once:true
+    }
+);
+
+</script>
+
+</body>
+</html>
